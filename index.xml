@@ -6,7 +6,16 @@
     <language>en-US</language>
     <author>Enthusiastic Hugo User</author>
     <rights>Copyright (c) 2014, Enthusiastic Hugo User; all rights reserved.</rights>
-    <updated>Tue, 26 Jan 2016 12:17:05 AST</updated>
+    <updated>Tue, 26 Jan 2016 19:18:00 &#43;0000</updated>
+    
+    <item>
+      <title>wow</title>
+      <link>https://bashawunitedchurch.com/blog/wow/</link>
+      <pubDate>Tue, 26 Jan 2016 19:18:00 &#43;0000</pubDate>
+      <author>Enthusiastic Hugo User</author>
+      <guid>https://bashawunitedchurch.com/blog/wow/</guid>
+      <description>&lt;p&gt;In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero. Vestibulum mollis mauris enim. Morbi euismod magna ac lorem rutrum elementum. Donec viverra auctor lobortis. Pellentesque eu est a nulla placerat dignissim. Morbi a enim in magna semper bibendum. Etiam scelerisque, nunc ac egestas consequat, odio nibh.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>test2</title>
@@ -402,20 +411,6 @@ extravaganza!&lt;/td&gt;
 &lt;p&gt;Animated, PG, 2014, 95 mins.  &lt;/p&gt;
 &lt;p&gt;Treats provided, please bring a drink.  &lt;/p&gt;
 &lt;p&gt;It’s Free - you can make a donation if you like.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Sunday Sermon Oct 4, 2015</title>
-      <link>https://bashawunitedchurch.com/sermon/oct-4/</link>
-      <pubDate>Wed, 14 Oct 2015 16:21:23 ADT</pubDate>
-      <author>Enthusiastic Hugo User</author>
-      <guid>https://bashawunitedchurch.com/sermon/oct-4/</guid>
-      <description>&lt;h2&gt;World Communion Sunday&lt;/h2&gt;
-&lt;p&gt;Scripture Readings:&lt;/p&gt;
-&lt;p&gt;Job 1:1; 2:1–10 Job’s first affliction; faith intact.&lt;/p&gt;
-&lt;p&gt;Psalm 26 Prove me, try me, test my heart.&lt;/p&gt;
-&lt;p&gt;Hebrews 1:1–4; 2:5–12 God gave the world to humans, not angels.&lt;/p&gt;
-&lt;p&gt;Mark 10:2–16 Question of divorce; Jesus blesses children.&lt;/p&gt;</description>
     </item>
     
   </channel>
