@@ -6,7 +6,39 @@
     <language>en-US</language>
     <author>Enthusiastic Hugo User</author>
     <rights>Copyright (c) 2014, Enthusiastic Hugo User; all rights reserved.</rights>
-    <updated>Thu, 12 Nov 2015 23:41:56 AST</updated>
+    <updated>Tue, 26 Jan 2016 12:17:05 AST</updated>
+    
+    <item>
+      <title>test2</title>
+      <link>https://bashawunitedchurch.com/blog/test2/</link>
+      <pubDate>Tue, 26 Jan 2016 12:17:05 AST</pubDate>
+      <author>Enthusiastic Hugo User</author>
+      <guid>https://bashawunitedchurch.com/blog/test2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>text2</title>
+      <link>https://bashawunitedchurch.com/blog/text2/</link>
+      <pubDate>Tue, 26 Jan 2016 12:07:45 AST</pubDate>
+      <author>Enthusiastic Hugo User</author>
+      <guid>https://bashawunitedchurch.com/blog/text2/</guid>
+      <description>&lt;p&gt;Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed molestie augue sit amet leo consequat posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin vel ante a orci tempus eleifend ut et magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>test3</title>
+      <link>https://bashawunitedchurch.com/blog/test3/</link>
+      <pubDate>Tue, 26 Jan 2016 12:23:00 &#43;0000</pubDate>
+      <author>Enthusiastic Hugo User</author>
+      <guid>https://bashawunitedchurch.com/blog/test3/</guid>
+      <description>&lt;p&gt;Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero. Vestibulum mollis mauris enim. Morbi euismod magna ac lorem rutrum elementum. Donec viverra auctor lobortis. Pellentesque eu est a nulla placerat dignissim. Morbi a enim in magna semper bibendum. Etiam scelerisque, nunc ac egestas consequat, odio nibh euismod nulla, eget auctor orci nibh vel nisi. Aliquam erat volutpat. Mauris vel neque sit amet nunc gravida congue sed sit amet purus. Quisque lacus quam, egestas ac tincidunt a, lacinia vel velit.&lt;/p&gt;
+
+&lt;p&gt;**Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero. Vestibulum mollis mauris enim. Morbi euismod magna ac lorem rutrum elementum. Donec viverra auctor lobortis. Pellentesque eu est a nulla placerat dignissim. Morbi a enim in magna semper bibendum. Etiam scelerisque, nunc ac egestas consequat, odio nibh euismod nulla, eget auctor orci nibh vel nisi. Aliquam erat volutpat. Mauris vel neque sit amet nunc gravida congue sed sit amet purus. Quisque lacus quam, egestas ac tincidunt a, lacinia vel velit.
+**&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>December 12th: Angel Fest</title>
@@ -384,53 +416,6 @@ extravaganza!&lt;/td&gt;
 &lt;p&gt;Psalm 26 Prove me, try me, test my heart.&lt;/p&gt;
 &lt;p&gt;Hebrews 1:1–4; 2:5–12 God gave the world to humans, not angels.&lt;/p&gt;
 &lt;p&gt;Mark 10:2–16 Question of divorce; Jesus blesses children.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>November Sunday Services</title>
-      <link>https://bashawunitedchurch.com/event/childrens-sunday/</link>
-      <pubDate>Wed, 14 Oct 2015 00:23:27 ADT</pubDate>
-      <author>Enthusiastic Hugo User</author>
-      <guid>https://bashawunitedchurch.com/event/childrens-sunday/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;November 1&lt;/strong&gt; - All Saints Sunday: Angels Among Us
-Saints Alive!  Finding the saints in our lives.  Children invited to wear their Halloween costumes.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;November 8&lt;/strong&gt; - Remembrance Sunday&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;November 15&lt;/strong&gt; - Pentecost 25&lt;br&gt;
-Something’s Coming!&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;November 22&lt;/strong&gt; - Children’s Sunday &lt;br&gt;
-The last Sunday of the church calendar: the church’s “New Year’s Eve.”&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;November 29&lt;/strong&gt; - First Sunday of Advent&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Angels Among Us</title>
-      <link>https://bashawunitedchurch.com/angels-among-us/</link>
-      <pubDate>Tue, 13 Oct 2015 23:12:18 ADT</pubDate>
-      <author>Enthusiastic Hugo User</author>
-      <guid>https://bashawunitedchurch.com/angels-among-us/</guid>
-      <description>&lt;h2&gt;Angel Fest 2015&lt;/h2&gt;
-&lt;p&gt;A heavenly community celebration &amp;amp; fundraiser.&lt;br&gt;
-
-December 12, 2015 &lt;br&gt;
-
-Bashaw United Church&lt;/p&gt;
-
-
-&lt;p&gt;All funds raised will go directly to the Bashaw United Church Community Impact Fund, ensuring that programs, volunteers and space are provided for the community in areas that encourage compassion, understanding, courage, love, appreciation and teamwork.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://bashawunitedchurch.com/event/Angels-Among-Us/&#34; class=&#34;button&#34;&gt;Schedule of Events&lt;/a&gt;&lt;/p&gt;
-&lt;br&gt;&lt;script type=&#34;text/javascript&#34; class=&#34;rebelmouse-embed-script&#34; src=&#34;https://www.rebelmouse.com/static/js-build/embed/embed.js?site=BashawAngels&amp;amp;height=1500&amp;amp;flexible=1&amp;amp;dont_load_new_posts=0&amp;amp;more_button=0&amp;amp;show_rebelnav=1&#34;&gt;&lt;/script&gt;</description>
-    </item>
-    
-    <item>
-      <title>Donate</title>
-      <link>https://bashawunitedchurch.com/donate/</link>
-      <pubDate>Tue, 13 Oct 2015 23:12:18 ADT</pubDate>
-      <author>Enthusiastic Hugo User</author>
-      <guid>https://bashawunitedchurch.com/donate/</guid>
-      <description>&lt;p&gt;As a church community, we believe in living God’s love and sharing God’s love.  In fact, it’s written right into our Vision Statement.  And that’s why we’re doing big things in the Bashaw community, 7 days a week!  Please consider making a donation today, to support the work we do in the community today, tomorrow, and every day.&lt;/p&gt;
-
-&lt;p&gt;All funds raised go directly to the Bashaw United Church Community Impact Fund, ensuring that programs, volunteers and space are provided for the community in areas that encourage compassion, understanding, courage, love, appreciation and teamwork.&lt;/p&gt;
-</description>
     </item>
     
   </channel>
