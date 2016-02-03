@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://thehillsoundstudio.com/</loc>
+    <loc>http://scottgallant.github.io/deploy-test/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://thehillsoundstudio.com/contact/</loc>
+    <loc>http://scottgallant.github.io/deploy-test/contact/</loc>
   </url>
   
   <url>
-    <loc>http://thehillsoundstudio.com/team/</loc>
+    <loc>http://scottgallant.github.io/deploy-test/team/</loc>
   </url>
   
 </urlset>

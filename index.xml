@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>The Hill Sound Studio</title>
-    <link>http://thehillsoundstudio.com/</link>
+    <link>http://scottgallant.github.io/deploy-test/</link>
     <description>Recent content on The Hill Sound Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://thehillsoundstudio.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://scottgallant.github.io/deploy-test/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Contact</title>
-      <link>http://thehillsoundstudio.com/contact/</link>
+      <link>http://scottgallant.github.io/deploy-test/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://thehillsoundstudio.com/contact/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/contact/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Team</title>
-      <link>http://thehillsoundstudio.com/team/</link>
+      <link>http://scottgallant.github.io/deploy-test/team/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://thehillsoundstudio.com/team/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/team/</guid>
       <description></description>
     </item>
     
