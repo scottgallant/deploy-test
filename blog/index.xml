@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
       <title>Blogs on Bashaw Test Site </title>
-    <link>https://uparky.com/blog/</link>
+    <link>http://scottgallant.github.io/deploy-test/blog/</link>
     <language>en-US</language>
     <author>Enthusiastic Hugo User</author>
     <rights>Copyright (c) 2014, Enthusiastic Hugo User; all rights reserved.</rights>
@@ -10,22 +10,24 @@
     
     <item>
       <title>test</title>
-      <link>https://uparky.com/blog/test/</link>
+      <link>http://scottgallant.github.io/deploy-test/blog/test/</link>
       <pubDate>Wed, 03 Feb 2016 21:24:00 &#43;0000</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/blog/test/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/blog/test/</guid>
       <description>&lt;p&gt;Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Sacrifice Into Living</title>
-      <link>https://uparky.com/blog/Sacrifice-Into-Living/</link>
+      <link>http://scottgallant.github.io/deploy-test/blog/Sacrifice-Into-Living/</link>
       <pubDate>Mon, 09 Nov 2015 00:41:00 &#43;0000</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/blog/Sacrifice-Into-Living/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/blog/Sacrifice-Into-Living/</guid>
       <description>&lt;p&gt;&lt;strong&gt;I wonder, sometimes, if we really understand what sacrifice &lt;/strong&gt;means anymore.&lt;/p&gt;
 
 &lt;p&gt;This year, on the Sunday before Remembrance Day, the gospel reading we’ll hear is the story of the widow who gives her last two coins to the treasury at the temple.  Jesus observes this and points out to the disciples that, while the rich give only a portion of the abundance of their wealth, this widow (the poorest of the poor) gave everything she had.  “Truly I tell you, this poor widow has put in more than all those who are contributing to the treasury.  For all of them have contributed out of their abundance; but she out of her poverty has put in everything she had, all she had to live on” (Mark 12:43-44).&lt;/p&gt;
+
+
 
 
 
@@ -41,7 +43,11 @@
 
 
 
+
+
 &lt;p&gt;But I can’t.  I think this is so not about stewardship.  It’s about sacrifice.&lt;/p&gt;
+
+
 
 
 
@@ -57,7 +63,11 @@
 
 
 
+
+
 &lt;p&gt;Either way, I don’t suppose for a minute that Jesus thought that the contributions of the wealthy were enough.  It’s just that that’s not the point.  This woman sacrifices.&lt;/p&gt;
+
+
 
 
 
@@ -73,7 +83,11 @@
 
 
 
+
+
 &lt;p&gt;I wonder if she thought her all, little though it may be, would be exactly what Jesus described, a spirit-filled, hope-filled “more” that might inspire others, not just to do the same, perhaps, but to value it more greatly as the sacrifice it is.  Her two coins alone might not be able to do much, but to know them to be the sacrifice they were should surely inspire those who received them to do greater things with all that they were a part of, to build on those two coins and seize the opportunity to create a greater, more loving world.  Right?  Right?&lt;/p&gt;
+
+
 
 
 
@@ -89,7 +103,11 @@
 
 
 
+
+
 &lt;p&gt;But maybe that’s Jesus’ point.  A sacrifice this great should be honoured with love and respect, but more importantly, with living into the potential it creates, the potential to grow and build a better world.&lt;/p&gt;
+
+
 
 
 
@@ -105,7 +123,11 @@
 
 
 
+
+
 &lt;p&gt;See, I don’t think their sacrifice is for what was or is, but what will be, the possibility of a future that freedom, peace and love can create.  And to truly honour their sacrifice, we need to live that.&lt;/p&gt;
+
+
 
 
 
@@ -121,7 +143,11 @@
 
 
 
+
+
 &lt;p&gt;That’s the thing about sacrifice.  It’s more than the giving of everything.  It’s the living out of the gift of what that everything provides.  Are we earning this?&lt;/p&gt;
+
+
 
 
 
@@ -134,10 +160,10 @@
     
     <item>
       <title>I guess I&#39;d be a hero</title>
-      <link>https://uparky.com/blog/I-Guess-Id-Be-A-Hero/</link>
+      <link>http://scottgallant.github.io/deploy-test/blog/I-Guess-Id-Be-A-Hero/</link>
       <pubDate>Thu, 05 Nov 2015 01:10:58 AST</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/blog/I-Guess-Id-Be-A-Hero/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/blog/I-Guess-Id-Be-A-Hero/</guid>
       <description>&lt;h1&gt;this is a heading&lt;/h1&gt;
 &lt;h1&gt;this is a heading&lt;/h1&gt;
 
@@ -166,10 +192,10 @@
     
     <item>
       <title>Fear isn’t life-giving, love is</title>
-      <link>https://uparky.com/blog/Fear-isnt-life-giving-love-is/</link>
+      <link>http://scottgallant.github.io/deploy-test/blog/Fear-isnt-life-giving-love-is/</link>
       <pubDate>Thu, 29 Oct 2015 23:01:30 ADT</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/blog/Fear-isnt-life-giving-love-is/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/blog/Fear-isnt-life-giving-love-is/</guid>
       <description>&lt;p&gt;When did we get to be so afraid?&lt;/p&gt;
 
 &lt;p&gt;Anxiety, worry, a lack of confidence in ourselves or the world around us, many - and real - are our fears.  It doesn&#39;t help that we&#39;re still in the longest election campaign since 1872.  If it&#39;s not the outrageous promises, it&#39;s all the things that you should be afraid of and what will happen if - insert person or party here - gets elected.  And it&#39;ll be another year of that for our friends to the south.&lt;/p&gt;
@@ -189,7 +215,7 @@
 &lt;p&gt;I don&#39;t think that Jesus is saying that having wealth, money or things is inherently bad.  But when we let those material things rule our lives, we value all things in that context and our lives become an endless quest to meet a need for more stuff that we can never achieve.  We begin to see life in the context of what we don&#39;t have, rather than what we do, what we want, rather than need, and what we fear losing, rather than what we&#39;re willing to share.  The fear of scarcity overwhelms the joy of abundance and we seek to acquire more and protect what we have.&lt;/p&gt;
 
 
-&lt;img src=&#34;https://uparky.com/images/dalai-lama.png&#34; alt=&#34;The more you are motivated by love, the more fearless and free your actions will be. - Dalai Lama&#34;&gt;
+&lt;img src=&#34;http://scottgallant.github.io/deploy-test/images/dalai-lama.png&#34; alt=&#34;The more you are motivated by love, the more fearless and free your actions will be. - Dalai Lama&#34;&gt;
 
 
 
@@ -200,10 +226,10 @@
     
     <item>
       <title>Are You Able?</title>
-      <link>https://uparky.com/blog/Are-You-Able/</link>
+      <link>http://scottgallant.github.io/deploy-test/blog/Are-You-Able/</link>
       <pubDate>Thu, 29 Oct 2015 21:46:44 ADT</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/blog/Are-You-Able/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/blog/Are-You-Able/</guid>
       <description>&lt;p&gt;Sometimes I feel sorry for the disciples, at least in their early apprentice years with Jesus.  They get pretty solid, post resurrection, but early on they seem to be pretty dense.  They play the ordinary, everyday guy-off-the-street (or boat) really well, but sometimes, when they repeatedly just don&#39;t seem to get it, I wonder if Jesus might not have assembled a better crew.&lt;/p&gt;
 
 &lt;p&gt;But then I remind myself that Jesus picked them for a reason.  They&#39;re just like me.  Or you.&lt;/p&gt;
@@ -225,10 +251,10 @@
     
     <item>
       <title>I once was blind but now I see</title>
-      <link>https://uparky.com/blog/bartimaeus/</link>
+      <link>http://scottgallant.github.io/deploy-test/blog/bartimaeus/</link>
       <pubDate>Wed, 28 Oct 2015 16:21:23 ADT</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/blog/bartimaeus/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/blog/bartimaeus/</guid>
       <description>&lt;h2&gt;Bartimaeus gets a name.&lt;/h2&gt;
 
 &lt;p&gt;Even if you&#39;re familiar with the story of Jesus healing a blind beggar who&#39;s name is Bartimaeus (Mark 10:46-52), that might not seem like a big deal, but I think it is.  Many bible scholars have researched it and there&#39;s some fascinating theories about his name and what it means.  They&#39;re very interesting, but I just think it&#39;s important he got a name.  Any name.&lt;/p&gt;

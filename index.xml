@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
       <title> on Bashaw Test Site </title>
-    <link>https://uparky.com/</link>
+    <link>http://scottgallant.github.io/deploy-test/</link>
     <language>en-US</language>
     <author>Enthusiastic Hugo User</author>
     <rights>Copyright (c) 2014, Enthusiastic Hugo User; all rights reserved.</rights>
@@ -10,19 +10,19 @@
     
     <item>
       <title>test</title>
-      <link>https://uparky.com/blog/test/</link>
+      <link>http://scottgallant.github.io/deploy-test/blog/test/</link>
       <pubDate>Wed, 03 Feb 2016 21:24:00 &#43;0000</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/blog/test/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/blog/test/</guid>
       <description>&lt;p&gt;Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>December 12th: Angel Fest</title>
-      <link>https://uparky.com/event/Angels-Among-Us/</link>
+      <link>http://scottgallant.github.io/deploy-test/event/Angels-Among-Us/</link>
       <pubDate>Thu, 12 Nov 2015 23:41:56 AST</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/event/Angels-Among-Us/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/event/Angels-Among-Us/</guid>
       <description>&lt;p&gt;This November, strap on your wings and join the movement as Cool challenges the community to perform more than &lt;strong&gt;100 random Acts of Angels in just 40 days!&lt;/strong&gt;  From Nov 1st to Dec 12th community members are being challenged to catch others in the act of doing good or spreading love, and report those Acts of Angels by using the &#34;Angel Cards&#34; found around town at various locations, or by using the hashtag #BashawAngels on social media.  We will be collecting those Angels Among Us stories and sharing them with the community through Facebook, and also by adding them to the Angels Among Us Exhibit -  a collection of stories posted on laminated Angel cards on the front lawn of the Cool. &lt;/p&gt;
 &lt;p&gt;The Facebook Page &#34;Angels Among Us&#34; has already reached tens of thousands of people in the last 2 weeks, and the angels on the lawn of the church are quickly starting to multiply!  And we know this is only going to continue growing, with your support.  The Angels Among Us challenge wraps up on December 12th with &#34;Angel Fest&#34;; a fun, family festival featuring a full day of events for community members of all ages.  Check out the schedule of events and mark your calendars!&lt;/p&gt;
 &lt;h2&gt;Schedule&lt;/h2&gt;
@@ -90,22 +90,24 @@ extravaganza!&lt;/td&gt;
     
     <item>
       <title>Sunday Sermon Nov 1, 2015</title>
-      <link>https://uparky.com/sermon/nov-1/</link>
+      <link>http://scottgallant.github.io/deploy-test/sermon/nov-1/</link>
       <pubDate>Mon, 09 Nov 2015 00:40:17 AST</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/sermon/nov-1/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/sermon/nov-1/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Sacrifice Into Living</title>
-      <link>https://uparky.com/blog/Sacrifice-Into-Living/</link>
+      <link>http://scottgallant.github.io/deploy-test/blog/Sacrifice-Into-Living/</link>
       <pubDate>Mon, 09 Nov 2015 00:41:00 &#43;0000</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/blog/Sacrifice-Into-Living/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/blog/Sacrifice-Into-Living/</guid>
       <description>&lt;p&gt;&lt;strong&gt;I wonder, sometimes, if we really understand what sacrifice &lt;/strong&gt;means anymore.&lt;/p&gt;
 
 &lt;p&gt;This year, on the Sunday before Remembrance Day, the gospel reading we’ll hear is the story of the widow who gives her last two coins to the treasury at the temple.  Jesus observes this and points out to the disciples that, while the rich give only a portion of the abundance of their wealth, this widow (the poorest of the poor) gave everything she had.  “Truly I tell you, this poor widow has put in more than all those who are contributing to the treasury.  For all of them have contributed out of their abundance; but she out of her poverty has put in everything she had, all she had to live on” (Mark 12:43-44).&lt;/p&gt;
+
+
 
 
 
@@ -121,7 +123,11 @@ extravaganza!&lt;/td&gt;
 
 
 
+
+
 &lt;p&gt;But I can’t.  I think this is so not about stewardship.  It’s about sacrifice.&lt;/p&gt;
+
+
 
 
 
@@ -137,7 +143,11 @@ extravaganza!&lt;/td&gt;
 
 
 
+
+
 &lt;p&gt;Either way, I don’t suppose for a minute that Jesus thought that the contributions of the wealthy were enough.  It’s just that that’s not the point.  This woman sacrifices.&lt;/p&gt;
+
+
 
 
 
@@ -153,7 +163,11 @@ extravaganza!&lt;/td&gt;
 
 
 
+
+
 &lt;p&gt;I wonder if she thought her all, little though it may be, would be exactly what Jesus described, a spirit-filled, hope-filled “more” that might inspire others, not just to do the same, perhaps, but to value it more greatly as the sacrifice it is.  Her two coins alone might not be able to do much, but to know them to be the sacrifice they were should surely inspire those who received them to do greater things with all that they were a part of, to build on those two coins and seize the opportunity to create a greater, more loving world.  Right?  Right?&lt;/p&gt;
+
+
 
 
 
@@ -169,7 +183,11 @@ extravaganza!&lt;/td&gt;
 
 
 
+
+
 &lt;p&gt;But maybe that’s Jesus’ point.  A sacrifice this great should be honoured with love and respect, but more importantly, with living into the potential it creates, the potential to grow and build a better world.&lt;/p&gt;
+
+
 
 
 
@@ -185,7 +203,11 @@ extravaganza!&lt;/td&gt;
 
 
 
+
+
 &lt;p&gt;See, I don’t think their sacrifice is for what was or is, but what will be, the possibility of a future that freedom, peace and love can create.  And to truly honour their sacrifice, we need to live that.&lt;/p&gt;
+
+
 
 
 
@@ -201,7 +223,11 @@ extravaganza!&lt;/td&gt;
 
 
 
+
+
 &lt;p&gt;That’s the thing about sacrifice.  It’s more than the giving of everything.  It’s the living out of the gift of what that everything provides.  Are we earning this?&lt;/p&gt;
+
+
 
 
 
@@ -214,10 +240,10 @@ extravaganza!&lt;/td&gt;
     
     <item>
       <title>I guess I&#39;d be a hero</title>
-      <link>https://uparky.com/blog/I-Guess-Id-Be-A-Hero/</link>
+      <link>http://scottgallant.github.io/deploy-test/blog/I-Guess-Id-Be-A-Hero/</link>
       <pubDate>Thu, 05 Nov 2015 01:10:58 AST</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/blog/I-Guess-Id-Be-A-Hero/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/blog/I-Guess-Id-Be-A-Hero/</guid>
       <description>&lt;h1&gt;this is a heading&lt;/h1&gt;
 &lt;h1&gt;this is a heading&lt;/h1&gt;
 
@@ -246,19 +272,19 @@ extravaganza!&lt;/td&gt;
     
     <item>
       <title>Thank You</title>
-      <link>https://uparky.com/charge/</link>
+      <link>http://scottgallant.github.io/deploy-test/charge/</link>
       <pubDate>Thu, 29 Oct 2015 23:12:18 ADT</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/charge/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/charge/</guid>
       <description>&lt;h1&gt;Thank you for your support!&lt;/h1&gt;</description>
     </item>
     
     <item>
       <title>Fear isn’t life-giving, love is</title>
-      <link>https://uparky.com/blog/Fear-isnt-life-giving-love-is/</link>
+      <link>http://scottgallant.github.io/deploy-test/blog/Fear-isnt-life-giving-love-is/</link>
       <pubDate>Thu, 29 Oct 2015 23:01:30 ADT</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/blog/Fear-isnt-life-giving-love-is/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/blog/Fear-isnt-life-giving-love-is/</guid>
       <description>&lt;p&gt;When did we get to be so afraid?&lt;/p&gt;
 
 &lt;p&gt;Anxiety, worry, a lack of confidence in ourselves or the world around us, many - and real - are our fears.  It doesn&#39;t help that we&#39;re still in the longest election campaign since 1872.  If it&#39;s not the outrageous promises, it&#39;s all the things that you should be afraid of and what will happen if - insert person or party here - gets elected.  And it&#39;ll be another year of that for our friends to the south.&lt;/p&gt;
@@ -278,7 +304,7 @@ extravaganza!&lt;/td&gt;
 &lt;p&gt;I don&#39;t think that Jesus is saying that having wealth, money or things is inherently bad.  But when we let those material things rule our lives, we value all things in that context and our lives become an endless quest to meet a need for more stuff that we can never achieve.  We begin to see life in the context of what we don&#39;t have, rather than what we do, what we want, rather than need, and what we fear losing, rather than what we&#39;re willing to share.  The fear of scarcity overwhelms the joy of abundance and we seek to acquire more and protect what we have.&lt;/p&gt;
 
 
-&lt;img src=&#34;https://uparky.com/images/dalai-lama.png&#34; alt=&#34;The more you are motivated by love, the more fearless and free your actions will be. - Dalai Lama&#34;&gt;
+&lt;img src=&#34;http://scottgallant.github.io/deploy-test/images/dalai-lama.png&#34; alt=&#34;The more you are motivated by love, the more fearless and free your actions will be. - Dalai Lama&#34;&gt;
 
 
 
@@ -289,10 +315,10 @@ extravaganza!&lt;/td&gt;
     
     <item>
       <title>Are You Able?</title>
-      <link>https://uparky.com/blog/Are-You-Able/</link>
+      <link>http://scottgallant.github.io/deploy-test/blog/Are-You-Able/</link>
       <pubDate>Thu, 29 Oct 2015 21:46:44 ADT</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/blog/Are-You-Able/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/blog/Are-You-Able/</guid>
       <description>&lt;p&gt;Sometimes I feel sorry for the disciples, at least in their early apprentice years with Jesus.  They get pretty solid, post resurrection, but early on they seem to be pretty dense.  They play the ordinary, everyday guy-off-the-street (or boat) really well, but sometimes, when they repeatedly just don&#39;t seem to get it, I wonder if Jesus might not have assembled a better crew.&lt;/p&gt;
 
 &lt;p&gt;But then I remind myself that Jesus picked them for a reason.  They&#39;re just like me.  Or you.&lt;/p&gt;
@@ -314,10 +340,10 @@ extravaganza!&lt;/td&gt;
     
     <item>
       <title>Nov 13th Movie Night: The Book Thief</title>
-      <link>https://uparky.com/event/nov-13-movie-night/</link>
+      <link>http://scottgallant.github.io/deploy-test/event/nov-13-movie-night/</link>
       <pubDate>Thu, 29 Oct 2015 21:22:12 ADT</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/event/nov-13-movie-night/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/event/nov-13-movie-night/</guid>
       <description>&lt;p&gt;Movie Night: The Book Thief.  In Nazi Germany, a little girl finds solace in books and reading them to the Jewish man that her adoptive parents are hiding in the basement.  &lt;/p&gt;
 &lt;p&gt;PG-13, 2013, 131 mins.  &lt;/p&gt;
 &lt;p&gt;Popcorn provided, please bring a drink.   &lt;/p&gt;
@@ -326,10 +352,10 @@ extravaganza!&lt;/td&gt;
     
     <item>
       <title>Sunday Sermon Oct 18, 2015</title>
-      <link>https://uparky.com/sermon/oct-18/</link>
+      <link>http://scottgallant.github.io/deploy-test/sermon/oct-18/</link>
       <pubDate>Thu, 29 Oct 2015 21:01:55 ADT</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/sermon/oct-18/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/sermon/oct-18/</guid>
       <description>&lt;h2&gt;Scripture Readings:&lt;/h2&gt;
 &lt;p&gt;Job 38:1–7, (34–41) God’s rebuttal to Job’s complaint.&lt;/p&gt;
 &lt;p&gt;Psalm 104:1–9, 24, 35c With wisdom, God created the earth and all its creatures.&lt;/p&gt;
@@ -339,10 +365,10 @@ extravaganza!&lt;/td&gt;
     
     <item>
       <title>I once was blind but now I see</title>
-      <link>https://uparky.com/blog/bartimaeus/</link>
+      <link>http://scottgallant.github.io/deploy-test/blog/bartimaeus/</link>
       <pubDate>Wed, 28 Oct 2015 16:21:23 ADT</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/blog/bartimaeus/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/blog/bartimaeus/</guid>
       <description>&lt;h2&gt;Bartimaeus gets a name.&lt;/h2&gt;
 
 &lt;p&gt;Even if you&#39;re familiar with the story of Jesus healing a blind beggar who&#39;s name is Bartimaeus (Mark 10:46-52), that might not seem like a big deal, but I think it is.  Many bible scholars have researched it and there&#39;s some fascinating theories about his name and what it means.  They&#39;re very interesting, but I just think it&#39;s important he got a name.  Any name.&lt;/p&gt;
@@ -372,10 +398,10 @@ extravaganza!&lt;/td&gt;
     
     <item>
       <title>Oct 30th Family Movie Night: Book of Life</title>
-      <link>https://uparky.com/event/movie-night/</link>
+      <link>http://scottgallant.github.io/deploy-test/event/movie-night/</link>
       <pubDate>Wed, 28 Oct 2015 00:23:27 ADT</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/event/movie-night/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/event/movie-night/</guid>
       <description>&lt;h2&gt;Halloween Family Movie: Book of Life.  &lt;/h2&gt;
 
 &lt;p&gt;Manolo faces his fears on a fantastic journey through the Land of the Remembered and the Lord of the Forgotten on his way to finding true love.  &lt;/p&gt;
@@ -386,10 +412,10 @@ extravaganza!&lt;/td&gt;
     
     <item>
       <title>Sunday Sermon Oct 4, 2015</title>
-      <link>https://uparky.com/sermon/oct-4/</link>
+      <link>http://scottgallant.github.io/deploy-test/sermon/oct-4/</link>
       <pubDate>Wed, 14 Oct 2015 16:21:23 ADT</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/sermon/oct-4/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/sermon/oct-4/</guid>
       <description>&lt;h2&gt;World Communion Sunday&lt;/h2&gt;
 &lt;p&gt;Scripture Readings:&lt;/p&gt;
 &lt;p&gt;Job 1:1; 2:1–10 Job’s first affliction; faith intact.&lt;/p&gt;
@@ -400,10 +426,10 @@ extravaganza!&lt;/td&gt;
     
     <item>
       <title>November Sunday Services</title>
-      <link>https://uparky.com/event/childrens-sunday/</link>
+      <link>http://scottgallant.github.io/deploy-test/event/childrens-sunday/</link>
       <pubDate>Wed, 14 Oct 2015 00:23:27 ADT</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/event/childrens-sunday/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/event/childrens-sunday/</guid>
       <description>&lt;p&gt;&lt;strong&gt;November 1&lt;/strong&gt; - All Saints Sunday: Angels Among Us
 Saints Alive!  Finding the saints in our lives.  Children invited to wear their Halloween costumes.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;November 8&lt;/strong&gt; - Remembrance Sunday&lt;/p&gt;
@@ -416,10 +442,10 @@ The last Sunday of the church calendar: the church’s “New Year’s Eve.”&l
     
     <item>
       <title>Angels Among Us</title>
-      <link>https://uparky.com/angels-among-us/</link>
+      <link>http://scottgallant.github.io/deploy-test/angels-among-us/</link>
       <pubDate>Tue, 13 Oct 2015 23:12:18 ADT</pubDate>
       <author>Enthusiastic Hugo User</author>
-      <guid>https://uparky.com/angels-among-us/</guid>
+      <guid>http://scottgallant.github.io/deploy-test/angels-among-us/</guid>
       <description>&lt;h2&gt;Angel Fest 2015&lt;/h2&gt;
 &lt;p&gt;A heavenly community celebration &amp;amp; fundraiser.&lt;br&gt;
 
@@ -427,7 +453,7 @@ December 12, 2015 &lt;br&gt;&lt;/p&gt;
 
 
 &lt;p&gt;All funds raised will go directly to the  Community Impact Fund, ensuring that programs, volunteers and space are provided for the community in areas that encourage compassion, understanding, courage, love, appreciation and teamwork.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://uparky.com/event/Angels-Among-Us/&#34; class=&#34;button&#34;&gt;Schedule of Events&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://scottgallant.github.io/deploy-test/event/Angels-Among-Us/&#34; class=&#34;button&#34;&gt;Schedule of Events&lt;/a&gt;&lt;/p&gt;
 &lt;br&gt;&lt;script type=&#34;text/javascript&#34; class=&#34;rebelmouse-embed-script&#34; src=&#34;https://www.rebelmouse.com/static/js-build/embed/embed.js?site=BashawAngels&amp;amp;height=1500&amp;amp;flexible=1&amp;amp;dont_load_new_posts=0&amp;amp;more_button=0&amp;amp;show_rebelnav=1&#34;&gt;&lt;/script&gt;</description>
     </item>
     
