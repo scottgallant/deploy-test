@@ -18,6 +18,15 @@
     </item>
     
     <item>
+      <title>cat</title>
+      <link>http://scottgallant.github.io/deploy-test/blog/cat/</link>
+      <pubDate>Wed, 03 Feb 2016 23:37:00 &#43;0000</pubDate>
+      <author>Enthusiastic Hugo User</author>
+      <guid>http://scottgallant.github.io/deploy-test/blog/cat/</guid>
+      <description>&lt;p&gt;Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed molestie augue sit amet leo consequat posuere. Vestibulum ante ipsum primis in faucibus.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Sacrifice Into Living</title>
       <link>http://scottgallant.github.io/deploy-test/blog/test/Sacrifice-Into-Living/</link>
       <pubDate>Mon, 09 Nov 2015 00:41:57 AST</pubDate>
