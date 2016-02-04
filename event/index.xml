@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Event on Bashaw Test Site </title>
+      <title>Events on Bashaw United Church </title>
     <link>http://scottgallant.github.io/deploy-test/event/</link>
     <language>en-US</language>
     <author>Enthusiastic Hugo User</author>
@@ -14,7 +14,7 @@
       <pubDate>Thu, 12 Nov 2015 23:41:56 AST</pubDate>
       <author>Enthusiastic Hugo User</author>
       <guid>http://scottgallant.github.io/deploy-test/event/Angels-Among-Us/</guid>
-      <description>&lt;p&gt;This November, strap on your wings and join the movement as Cool challenges the community to perform more than &lt;strong&gt;100 random Acts of Angels in just 40 days!&lt;/strong&gt;  From Nov 1st to Dec 12th community members are being challenged to catch others in the act of doing good or spreading love, and report those Acts of Angels by using the &#34;Angel Cards&#34; found around town at various locations, or by using the hashtag #BashawAngels on social media.  We will be collecting those Angels Among Us stories and sharing them with the community through Facebook, and also by adding them to the Angels Among Us Exhibit -  a collection of stories posted on laminated Angel cards on the front lawn of the Cool. &lt;/p&gt;
+      <description>&lt;p&gt;This November, strap on your wings and join the movement as Bashaw United Church challenges the community to perform more than &lt;strong&gt;100 random Acts of Angels in just 40 days!&lt;/strong&gt;  From Nov 1st to Dec 12th community members are being challenged to catch others in the act of doing good or spreading love, and report those Acts of Angels by using the &#34;Angel Cards&#34; found around town at various locations, or by using the hashtag #BashawAngels on social media.  We will be collecting those Angels Among Us stories and sharing them with the community through Facebook, and also by adding them to the Angels Among Us Exhibit -  a collection of stories posted on laminated Angel cards on the front lawn of the Bashaw United Church. &lt;/p&gt;
 &lt;p&gt;The Facebook Page &#34;Angels Among Us&#34; has already reached tens of thousands of people in the last 2 weeks, and the angels on the lawn of the church are quickly starting to multiply!  And we know this is only going to continue growing, with your support.  The Angels Among Us challenge wraps up on December 12th with &#34;Angel Fest&#34;; a fun, family festival featuring a full day of events for community members of all ages.  Check out the schedule of events and mark your calendars!&lt;/p&gt;
 &lt;h2&gt;Schedule&lt;/h2&gt;
 
@@ -94,14 +94,17 @@ extravaganza!&lt;/td&gt;
     <item>
       <title>Oct 30th Family Movie Night: Book of Life</title>
       <link>http://scottgallant.github.io/deploy-test/event/movie-night/</link>
-      <pubDate>Wed, 28 Oct 2015 00:23:27 ADT</pubDate>
+      <pubDate>Wed, 28 Oct 2015 00:23:00 &#43;0000</pubDate>
       <author>Enthusiastic Hugo User</author>
       <guid>http://scottgallant.github.io/deploy-test/event/movie-night/</guid>
-      <description>&lt;h2&gt;Halloween Family Movie: Book of Life.  &lt;/h2&gt;
+      <description>&lt;h2&gt;&lt;strong&gt;Halloween Family Movie: Book of Life.  &lt;/strong&gt;&lt;/h2&gt;
 
-&lt;p&gt;Manolo faces his fears on a fantastic journey through the Land of the Remembered and the Lord of the Forgotten on his way to finding true love.  &lt;/p&gt;
-&lt;p&gt;Animated, PG, 2014, 95 mins.  &lt;/p&gt;
-&lt;p&gt;Treats provided, please bring a drink.  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Manolo faces his fears on a fantastic journey through the Land of the Remembered and the Lord of the Forgotten on his way to finding true love.  &lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Animated, PG, 2014, 95 mins.  &lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Treats provided, please bring a drink.&lt;/strong&gt;  &lt;/p&gt;
+
 &lt;p&gt;It’s Free - you can make a donation if you like.&lt;/p&gt;</description>
     </item>
     
