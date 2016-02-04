@@ -6,16 +6,7 @@
     <language>en-US</language>
     <author>Enthusiastic Hugo User</author>
     <rights>Copyright (c) 2014, Enthusiastic Hugo User; all rights reserved.</rights>
-    <updated>Wed, 03 Feb 2016 22:50:58 AST</updated>
-    
-    <item>
-      <title>wwww</title>
-      <link>http://scottgallant.github.io/deploy-test/blog/wwww/</link>
-      <pubDate>Wed, 03 Feb 2016 22:50:58 AST</pubDate>
-      <author>Enthusiastic Hugo User</author>
-      <guid>http://scottgallant.github.io/deploy-test/blog/wwww/</guid>
-      <description></description>
-    </item>
+    <updated>Wed, 03 Feb 2016 23:37:00 &#43;0000</updated>
     
     <item>
       <title>cat</title>
@@ -501,6 +492,20 @@ Something’s Coming!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;November 22&lt;/strong&gt; - Children’s Sunday &lt;br&gt;
 The last Sunday of the church calendar: the church’s “New Year’s Eve.”&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;November 29&lt;/strong&gt; - First Sunday of Advent&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>http://scottgallant.github.io/deploy-test/contact/</link>
+      <pubDate>Tue, 13 Oct 2015 23:12:18 ADT</pubDate>
+      <author>Enthusiastic Hugo User</author>
+      <guid>http://scottgallant.github.io/deploy-test/contact/</guid>
+      <description>&lt;h2&gt;About Us&lt;/h2&gt;
+
+&lt;p&gt;Our desire is to be a community living God’s love, sharing God’s love.&lt;/p&gt;
+
+&lt;p&gt;We seek to follow in the way of Jesus by providing Worship, Sacrament, Education and Encouragement to our church family and to the Bashaw community; ministering to all those in need, including the lonely, the bereaved, the sick and the troubled; reaching out to youth, young families and the elderly in an inclusive ministry.  All this to the Glory of God.&lt;/p&gt;
+</description>
     </item>
     
   </channel>
