@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. The NoSQL Dilemma (with a Happy Ending)</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. The NoSQL Dilemma (with a Happy Ending)"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="The NoSQL Dilemma (with a Happy Ending)"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="Call it NoSQL, call it post-relational, call it what you like, but it&#39;s hard to ignore that hings are happening in the database world. A paradigm shift is not too far ahead, and it&#39;s a big ..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2009/9/8/the_nosql_dilemma.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">The NoSQL Dilemma (with a Happy Ending)</h3>
+        <h4><a href="/2009/9/8/the_nosql_dilemma.html" title="Permalink for this post">08 September 2009</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>Call it <a href="http://voodootikigod.com/nosql-a-modest-proposal">NoSQL</a>, call it <a href="http://therealadam.com/archive/2009/08/31/its-not-nosql-its-post-relational/">post-relational</a>, call it what you like, but it&#39;s hard to ignore that hings are happening in the database world. A paradigm shift is not too far ahead, and it&#39;s a big one, and I for one am welcoming our post-relational overlords. Whatever you call them, <a href="http://couchdb.apache.org/">CouchDB</a>, <a href="http://www.mongodb.org/">MongoDB</a> (although you really shouldn&#39;t call a database MongoDB), <a href="http://incubator.apache.org/cassandra/">Cassandra</a>, <a href="http://code.google.com/p/redis/">Redis</a>, <a href="http://1978th.net/tokyocabinet/">Tokyo Cabinet</a>, etc. I&#39;m well aware that they&#39;re not necessarily all the same, but they do try to fill similar gaps. Making data storage easy as pie, offering data storage fitting with the kind of evolving data we usually find on the web.</p>
+
+<p>The web is slowly moving away from relational databases and with that, SQL. Let me just say it upfront: I hate SQL. I physically hate it. It doesn&#39;t fit with my way of thinking about problems, and it doesn&#39;t fit with the web. That&#39;s my opinion anyway, but I&#39;m sure I&#39;m not alone with it.</p>
+
+<p>There is however one area where object-oriented databases failed, and where the new generation of document databases will have similar problems. You could argue that object-oriented databases are in some way a predecessor to modern post-relational databases, they made storing objects insanely easy, no matter how complex they were, and they made navigating through objects trees even easier and insanely fast. Which made them applicable to some problems, but they weren&#39;t flexible enough in my opinion. But they still laid some groundwork.</p>
+
+<div style="width:100%; text-align:center">
+<img src="http://img.skitch.com/20090908-cmhe5mk953kst1je4kji3qub2p.jpg" alt="skitched-20090908-165230.jpg"/>
+</div>
+
+<p>It&#39;s mainly concerning The Enterprise and their giant collection of reporting tools. Everybody loves tools, and The Enterprise especially loves them. The more expensive, the better. Reporting tools are the base for those awesome pie charts they just love to fill entire PowerPoint presentations with. They work on &quot;standardized&quot; interfaces and languages and therefore, with SQL.</p>
+
+<p>I&#39;ve worked on a project were we switched from an object-oriented to a relational database just because of that. Sure, there&#39;s proprietary query languages, or there&#39;s JQL when you&#39;re into JDO, EJB3 and the like. But they&#39;re nowhere as powerful as SQL is. They&#39;re also not as brain-twisting. That should be a good thing really, but there you have it.</p>
+
+<p>NoSQL databases are facing a similar dilemma. Just like object-oriented databases they&#39;re awesome for just dumping data in it, more or less structured. It&#39;s easy to get them out too, and it&#39;s usually easy to aggregate the data in some way. Is it a big deal? Of course not, at least not in my opinion. But if it is some sort of deal, what can you do to work around that?</p>
+
+<ul>
+<li><p>Ignore it. Simple, isn&#39;t it? The reporting requirement can usually be solved in a different way. Sure, it can be more work, but usually reporting is less of a killer than some might think. Give the client some way to express a query and let him at it. Give him a spare instance of your replicated database, and let him work off that data. Best thing you could do is pre-aggregate it as much as possible so there&#39;s less work for the client.</p></li>
+<li><p>If you really need structured data in a relational database, consider replicating the data into one from your post-relational database of choice. I can hear you say: That guy&#39;s crazy, that&#39;d involve so much work keeping the two in sync! No, it wouldn&#39;t. Create a fresh dump every time you need a current dataset, and dump it into your SQL database. Simple like that.</p></li>
+<li><p>Put an interface in front of the new database. Yes, it&#39;s insane, but I&#39;ve done it, and it works. It doesn&#39;t have to be an SQL interface, just a common interface that works with one set of reporting tools. Yes, it&#39;s not ideal, but it&#39;s an option.</p></li>
+<li><p>Don&#39;t ignore it, keep using a relational database. Yep, not all of us are lucky enough, someone still has to serve the market demands. Legacy projects or clients are forcing us to stick with the old and the dusty model of storing and retrieving data. Quite a lot of people are happy with that, but I&#39;m not.</p></li>
+</ul>
+
+<p>I&#39;m sure there&#39;s other options, these are just off the top of my head, and I can say that I&#39;ve practiced all of them with more or less good results.. I for one am sick of still having to use MySQL on new projects. I&#39;ve had my fun with it, and sure there&#39;s a whole bunch of patches that make it a bit more fun, but it&#39;s still MySQL. Yes, I am aware that there&#39;s PostgreSQL, but it&#39;s the same story. Old, old and old.</p>
+
+<p>Should you still try to get a new generation database into new projects? Yes, yes and yes, you definitely should. Consider yourself lucky if you succeed, because you&#39;re still an early awesome adopter. Even use SimpleDB if you must, but maybe reconsider before you really use it, it&#39;s not great. But don&#39;t lie to your clients, they should be aware what they&#39;re getting into. It&#39;s no big deal, but the bigger they are the more likely they have administrators not yet familiar with the new tools. But the more people start using them now, the better they&#39;ll get before they hit the mainstream. Which they will eventually, rest assured. I&#39;m ready, the web is ready, and the tools are ready. What about you?</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2009/9/7/theres_something_about_legacy_code.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2009/9/25/how_not_to_design_an_api.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

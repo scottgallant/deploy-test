@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. Relational Data, Document Databases and Schema Design</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. Relational Data, Document Databases and Schema Design"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Relational Data, Document Databases and Schema Design"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="By now it should be obvious that I&#39;m quite fond of alternatives data stores (call them NoSQL if you must). I&#39;ve given
+quite a few talks on the subjects recently, and
+had the honor of being ..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2010/7/5/relational_data_document_databases_schema_design.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">Relational Data, Document Databases and Schema Design</h3>
+        <h4><a href="/2010/7/5/relational_data_document_databases_schema_design.html" title="Permalink for this post">05 July 2010</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>By now it should be obvious that I&#39;m quite fond of alternatives data stores (call them NoSQL if you must). I&#39;ve given
+quite a <a href="http://www.paperplanes.de/2010/6/22/june_a_month_of_conferences.html">few talks</a> on the subjects recently, and
+had the honor of being a guest on the (German) <a href="http://www.heise.de/developer/artikel/Episode-22-NoSQL-Alternative-zu-relationalen-Datenbanken-1027769.html">heise Developer Podcast on
+NoSQL</a>.</p>
+
+<p>There&#39;s some comments and questions that pop up every time alternative databases are being talked about, especially by
+people deeply rooted in relational thinking. I&#39;ve been there, and I know it requires some rethinking, and also am quite
+aware that there are some controversial things that basically are the exact opposite of everything you learned in
+university.</p>
+
+<p>I&#39;d like to address a couple of those with some commentary and my personal experience (Disclaimer: my experience is not
+the universal truth, it&#39;s simply that: my experience, your mileage may vary). When I speak of things done in practice,
+I&#39;m talking about how I witnessed things getting done in Real Life™, and how I&#39;ve done them myself, both good and bad.
+I&#39;m focussing on document databases, but in general everything below holds true for any other kind of non-relational
+database.</p>
+
+<p>It&#39;s easy to say that all the nice features document databases offer are just aiming for one thing, to scale up. While
+that may or may not be true, it just doesn&#39;t matter for a lot of people. Scaling is awesome, and it&#39;s a problem everyone
+wants to solve, but in reality it&#39;s not the main issue, at least not for most people. Also, it&#39;s not an impossible thing
+to do even with MySQL, I&#39;ve had my fun doing so, and it sure was an experience, but it can be done.</p>
+
+<p>It&#39;s about getting stuff done. There&#39;s a lot more to alternative databases in general, and document databases in
+particular, that I like, not just the ability to scale up. They simply can make my life easier, if I let them. If I can
+gain productivity while still being aware of the potential risks and pitfalls, it&#39;s a big win in my book.</p>
+
+<p>What you&#39;ll find, when you really think about it, is that everything below holds true no matter what database you&#39;re
+using. Depending on your use case, it can even apply to relational databases.</p>
+
+<p><strong>Relational Databases are all about the Data</strong></p>
+
+<p>Yes, they are. They are about trying to fit your data into a constrained schema, constrained in length, type, and other
+things if you see fit. They&#39;re about building relationships between your data in a strongly coupled way, think foreign
+key constraints. Whenever you need to add data, you need to migrate your schema. That&#39;s what they do. They&#39;re good at
+enforcing a set of ground rules on your data.</p>
+
+<p>See where I&#39;m going with this? Even though relational databases tried to be a perfect fit for data, they ended up being
+a pain once that data needed to evolve. If you haven&#39;t felt that pain yet, good for you. I certainly have. Tabular data
+sounds nice in theory, and is pretty easy to handle in Excel, but in practice, it causes some pain. A lot of that pain
+stemmed from people using MySQL, yes, but take that argument to the guy who wrote it and sold it to people as the nicest
+and simplest SQL database out there.</p>
+
+<p>It&#39;s easy to get your data into a schema once, but it gets a lot harder to change the schema and the data into a
+different schema at a later point in time. While data sticks around, the schema evolves constantly. Something relational
+databases aren&#39;t very good at supporting.</p>
+
+<p><strong>Relational Databases Enforce Data Consistency</strong></p>
+
+<p>They sure do, that&#39;s what they were built for. Constraints, foreign keys, all the magic tricks. Take Rails as a
+counter-example. It fostered the idea that all that stuff is supposed to be part of the application, not the database.
+Does it have trade-offs? Sure, but it&#39;s part of your application. In practice, that was correct, for the most part,
+although I can hear a thousand Postgres users scream. There&#39;s always an area that requires constraints on the database
+level, otherwise they wouldn&#39;t have been created in the first place.</p>
+
+<p>But most web applications can live fine without it, they benefit from being free about their data, to shape it in
+whichever way they like, adding consistency on the application level. The consistency suddenly lies in your hands, a
+responsibility not everyone is comfortable with. You&#39;re suddenly forced to think more about edge cases. But you sure as
+hell don&#39;t have to live without consistent data, quite the opposite. The difference is that you&#39;re taking care of the
+consistency yourself, in terms of your use case, not using a generic one-fits-all solution.</p>
+
+<p>Relationships between data aren&#39;t always strict. They can be loosely linked, what&#39;s the point of enforcing consistency
+when you don&#39;t care if a piece of data still exists or not? You handle it gracefully in your application code if you do.</p>
+
+<p><strong>SQL is a Standard</strong></p>
+
+<p>The basics of SQL are similar, if not the same, but under the hood, there&#39;s subtle differences. Why? Because under
+the hood, every relational database works differently. Which is exactly what document databases acknowledge. Every
+database is different, trying to put a common language on top will only get you so far. If you want to get the best out
+of it, you&#39;re going to specialize.</p>
+
+<p>Thinking in Map/Reduce as CouchDB or Riak force you to is no piece of cake. It takes a while to get used to the ideas
+around it and what implications it has for you and your data. It&#39;s worth it either way, but sometimes SQL is just a
+must, no question. Business reporting can be a big issue, if your company relies on supporting standard tools, you&#39;re
+out of luck.</p>
+
+<p>While standards are important, in the end it&#39;s important what you need to do with your data. If a standard gets in your
+way, how is that helpful? Don&#39;t expect a standard query language for document databases any time soon. They all solve
+different types of problems in different ways, and they don&#39;t intend to hide that from you with a standard query
+language. If on the other hand, all you need is a dynamic language for doing ad-hoc queries, check out
+<a href="http://www.mongodb.org">MongoDB</a>.</p>
+
+<p><strong>Normalized Data is a Myth</strong></p>
+
+<p>I learned a lot in uni about all the different kinds of normalization. It just sounded so nice in theory. Model your
+data upfront, then normalize the hell out of it, until it&#39;s as DRY as the desert.</p>
+
+<p>So far so good. I noticed one thing in practice: Normalized data almost never worked out. Why? Because you need to
+duplicate data, even in e-commerce applications, an area that&#39;s traditionally mentioned as an example where relational
+databases are going strong.</p>
+
+<p>Denormalizing data is simply a natural step. Going back to the e-commerce example, you need to store a lot of things
+separately when someone places an order: Shipping and billing address, payment data used, product price and taxes, and
+so on.  Should you do it all over the place? Of course not, not even in a document database. Even they encourage storing
+similar data to a certain extent, and with some of them, it&#39;s simply a must. But you&#39;re free to make these decisions on
+your own. They&#39;re not implying you need to stop normalizing, it still makes sense, even in a document database.</p>
+
+<p><strong>Schemaless is not Schemaless</strong></p>
+
+<p>But there&#39;s one important thing denormalization is not about, something that&#39;s being brought up quite frequently and
+misunderstood easily. Denormalization doesn&#39;t mean you&#39;re not thinking about any kind of schema. While the word
+schemaless is brought up regularly, schemaless is simply not schemaless.</p>
+
+<p>Of course you&#39;ll end up with having documents of the same type, with a similar set of attributes. Some tools, for
+instance MongoDB, even encourage (if not force) you to store different types of documents in different collections. But
+here&#39;s the kicker, I deliberately used the word similar. They don&#39;t need to be all the same across all documents. One
+document can have a specific attribute, the other doesn&#39;t. If it doesn&#39;t, just assume it&#39;s empty, it&#39;s that easy. If it
+needs to be filled at some point, write data lazily, so that your schema eventually is complete again. It&#39;s evolving
+naturally, which does sound easy, but in practice requires more logic in your application to catch these corner cases.</p>
+
+<p>So instead of running migrations that add new tables and columns, and in the end pushing around your data, you migrate
+the data on the next access, whether that&#39;s a read or a write is up to your particular use case. In the end you simply
+migrate data, not your schema. The schema will evolve eventually, but first and foremost, it&#39;s about the data, not the
+constraints they live in. The funny thing: In larger projects, I ended up doing the same thing with a relational
+database. It&#39;s just easier to do and gentler on the load than running a huge batch job on a production database.</p>
+
+<p><strong>No Joins, No Dice</strong></p>
+
+<p>No document database supports joins, simple like that. If you need joins, you have two options: Use a database that
+supports joins, or adapt your documents so that they remove the need for joins.</p>
+
+<p>Documents have one powerful advantage: It&#39;s easy to embed other documents. If there&#39;s data you&#39;d usually fetch using a
+join, and that&#39;d be suitable for embedding (and therefore oftentimes: denormalizing), there&#39;s your second option. Going
+back to the e-commerce example: Whereas in a relational database you&#39;d need a lot of extra tables to keep that data
+around (unless you&#39;re serializing it into single column), in a document database you just add it as embedded data to the
+order document. You have all the important data one in place, and you&#39;re able to fetch it in one go. Someone said that
+relational databases are a perfect fit for e-commerce. Funny, I&#39;ve worked on a market platform, and I&#39;ve found that to be
+a ludicrous statement. I&#39;d have benefited from a loser data storage several times, joins be damned.</p>
+
+<p>It&#39;s not always viable, sure, and it&#39;d be foolish to stick with a document database if that&#39;s an important criterion for
+your particular use case, then no dice. It&#39;s relational data storage or bust.</p>
+
+<p>Of course there&#39;s secret option number three, which is to just ignore the problem until it&#39;s a problem, just by going
+with a document database and see how you go, but obviously that doesn&#39;t come without risks. It&#39;s worth noticing though
+that <a href="https://wiki.basho.com/display/RIAK/Riak">Riak</a> supports <a href="https://wiki.basho.com/display/RIAK/Links">links between
+documents</a>, and even fetching linked documents together with the parent in
+one request. In CouchDB on the other hand, you can emit <a href="http://wiki.apache.org/couchdb/Introduction_to_CouchDB_views#Keys_and_values">linked
+documents</a> in views. You can&#39;t be fully
+selective about the document data you&#39;re interested in, but if all you want is fetch linked documents, there is one or
+two ways to do that. Also, graph databases have made it their main focus to make traversal of associated documents an
+incredibly cheap operation. Something your relational database is pretty bad at.</p>
+
+<p><strong>Documents killed my Model</strong></p>
+
+<p>There&#39;s this myth that you just stop thinking about how to model your data with document databases or key-value storage.
+That myth is downright wrong. Just because you&#39;re using schemaless storage doesn&#39;t mean you stop thinking about your
+data, quite the opposite, you think even more about it, and in different ways, because you simply have more options to
+model and store it. Embedding documents is a nice luxury to have, but isn&#39;t always the right way to go, just like
+normalizing the crap out of a schema isn&#39;t always the way to go.</p>
+
+<p>It&#39;s a matter of discipline, but so is relational modelling. You can make a mess of a document database just like you
+can make a mess of a relational database. When you migrate data on the fly in a document database, there&#39;s more
+responsibility in your hands, and it requires good care with regards to testing. The same is true for keeping track of
+data consistency. It&#39;s been moved from the database into your application&#39;s code. Is that a bad thing? No, it&#39;s a sign
+of the times. You&#39;re in charge of your data, it&#39;s not your database&#39;s task anymore to ensure it&#39;s correct and valid,
+it&#39;s yours. With great power comes great responsibility, but I sure like that fact about document databases. It&#39;s
+something I&#39;ve been missing a lot when working with relational databases: The freedom to do whatever the heck I want
+with my data.</p>
+
+<p><strong>Read vs. Write Patterns</strong></p>
+
+<p>I just like including this simply because it always holds true, no matter what kind of database you&#39;re using. If you&#39;re
+not thinking about how you&#39;re going to access your data with both reads and writes, you should do something about that.
+In the end, your schema should reflect your business use case, but what good is that when it&#39;s awkward to access the
+data, when it takes joins across several tables to fetch the data you&#39;re interested in?</p>
+
+<p>If you need to denormalize to improve read access, go for it, but be aware of the consequences. A schema is easy to
+build up, migrating on the go, but if document databases force you to do one thing, and one thing only, it&#39;s to think
+about how you&#39;re reading and writing your data. It&#39;s safe to say that you&#39;re not going to figure it all out upfront, but
+you&#39;re encouraged to put as much effort into it as you can. When you find out you&#39;re wrong down the line, you might be
+surprised to find that they make it even easier to change paths.</p>
+
+<p><strong>Do your Homework</strong></p>
+
+<p>Someone recently wrote a blog post on why he went back to MySQL from MongoDB, and one of his reasons was that it doesn&#39;t
+support transactions. While this is a stupid argument to bring up in hindsight, it makes one thing clear: You need to do
+research yourself, noone&#39;s going to do it for you. If you don&#39;t want to live up to that, use the tools you&#39;re familiar
+with, no harm done.</p>
+
+<p>It should be pretty clear up front what your business use case requires, and what tools may or may not support you in
+fulfilling these requirements. Not all tool providers are upfront about all the downsides, but hey, neither was MySQL.
+Read up, try and learn. That&#39;s the only thing you can do, and noone will do it for you. Nothing has changed here, it&#39;s
+simply becoming more obvious, because you suddenly have a lot more options to work with.</p>
+
+<p><strong>Polyglot Data Storage</strong></p>
+
+<p>Which brings me to the most important part of them all: Document databases (and alternative, non-relational data stores
+in general) are not here to replace relational databases. They&#39;re living alongside of them, with both sides hopefully
+somewhat learning from each other. Your projects won&#39;t be about just one database any more, it&#39;s not unlikely you&#39;re
+going to end up using two or more, for different use cases.</p>
+
+<p>Polyglot persistence is the future. If there&#39;s one thing I&#39;m certain of, this is it. Don&#39;t let anyone fool you into
+thinking that their database is the only one you&#39;ll need, they all have their place.  The hard part is to figure out
+what place that is. Again, that&#39;s up to you to find out. People ask me for particular use cases for non-relational
+databases, but honestly, there is no real distinction. Without knowing the tools, you&#39;ll never find out what the use
+cases are. Other people can just give you ideas, or talk about how they&#39;re using the tools, they can&#39;t draw the line
+for you.</p>
+
+<p><strong>Back to the Future</strong></p>
+
+<p>You shouldn&#39;t think of it as something totally new, document databases just don&#39;t hide these things from you. Lots of
+the things I mentioned here are things you should be doing anyway, no matter if you&#39;re using a relational or a
+non-relational data store. They should be common sense really. We&#39;re not trying to repeat what went wrong in history,
+we&#39;re learning from it.</p>
+
+<p>If there&#39;s one thing you should do, it&#39;s to start playing with one of the new tools immediately. I shouldn&#39;t even be
+telling you this, since you should hone your craft all the time, and that includes playing the field and broadening your
+personal and professional horizon. Only then will you be able to judge what use case is a good fit for e.g. a document
+database. I&#39;d highly suggest starting to play with e.g. <a href="http://couchdb.org">CouchDB</a>,
+<a href="http://www.mongodb.org">MongoDB</a>, <a href="https://wiki.basho.com/display/RIAK/Riak">Riak</a> or
+<a href="http://code.google.com/p/redis">Redis</a>.</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2010/6/29/vim_a_neverending_love_story.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2010/7/26/10_annoying_things_about_couchdb.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

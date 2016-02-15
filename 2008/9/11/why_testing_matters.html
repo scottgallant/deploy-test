@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. Why Testing Matters</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. Why Testing Matters"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Why Testing Matters"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="Sometimes it&#39;s easy to forget, just how important testing has become in the development lifecycle. I recently had to remind myself and others that there are no reasonable excuses not to write t..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2008/9/11/why_testing_matters.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">Why Testing Matters</h3>
+        <h4><a href="/2008/9/11/why_testing_matters.html" title="Permalink for this post">11 September 2008</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>Sometimes it&#39;s easy to forget, just how important testing has become in the development lifecycle. I recently had to remind myself and others that there are no reasonable excuses not to write tests. I would go as far as saying you&#39;re jeopardizing the quality of your software, just because you had no time, were pushed by management, or were just plain lazy.</p>
+
+<p>To some extent I blame Rails for the lack of proper testing in projects using it. It&#39;s just too easy to add a new feature here, a line of code there, and hit reload. Works, right? After all, lots of projects have been developed that way.</p>
+
+<p>But for me, there are no excuses. Even though I didn&#39;t learn anything about testing at the university, the advantages became crystal clear as soon as I had first contact with JUnit. The ease of writing tests for your applications for me was the killer feature in Rails. It was what attracted me to it in the first place. Writing tests for model, controller, and the whole app? Come on, how painful was (is?) that in the Java world (where I came from, by the way)?</p>
+
+<p>Fret not, I&#39;ve been falling into the trap of not writing tests for an easy two, three lines of code every now and then. I pretty much agree with <a href="http://blog.jayfields.com/">Jay Fields</a>, when he says that 100% test coverage is just not something you should try to achieve under any circumstances. But when you find yourself writing action after action, method after method, without writing a single test, it&#39;s time to step back and look at the repercussions.</p>
+
+<p>I recently wrote a method that required a slightly more complex setup of objects than usual. It took me a full day to test all the possibilities, and to write the code (about 10 lines). I used <a href="http://giantrobots.thoughtbot.com/2008/6/6/waiting-for-a-factory-girl">factory_girl</a> to build the test setup (pretty awesome by the way), wrote down the required collaborators, and what the method was supposed to do.</p>
+
+<p>One day might seem like a long time, and it usually doesn&#39;t take that long, but that piece of code was crucial to ensuring data consistency. Without data consistency, your application becomes fragile, you end up with a database full of dangling references, or your application just ends up in an invalid state and blows up. Worst case scenario of course, but depending on the part of your application, it might just happen.</p>
+
+<p>I didn&#39;t want to take that risk, so I took the time, and I felt much better having these tests in place, when I finally finished it. I also got a taste of factory_girl&#39;s code and <a href="http://www.thoughtbot.com/projects/shoulda">Shoulda</a>, so it was worth it.</p>
+
+<p>Ensuring your code works isn&#39;t the only benefit you get. Sooner or later, code needs to be refactored. In my experience, it&#39;s a lot harder with untested code. Not only because you don&#39;t know, if the code still works after you&#39;re done. But because untested code usually ends up being a tangled piece of code glued together bit by bit and over time into something that you just don&#39;t want to touch anymore. It just doesn&#39;t feel right to change something. And it shouldn&#39;t. That&#39;s what testing is about. It should make you feel uncomfortable to not have any tests in place for the code you&#39;re working on.</p>
+
+<p>With tests in place, refactoring and taking care of legacy code is a piece of cake. You can focus on the task at hand, and stop worrying about if the code will still work. You&#39;ll know immediately.</p>
+
+<p>Why should that matter to you? After all, you&#39;re building fresh and shiny Rails applications. The plain truth is, every line of code turns into legacy code as soon as you write it, check it in, and put it in production. Someone will have to take care of it at some point, if not you then someone else. If it&#39;s you, you&#39;re likely going to ask yourself &quot;What the heck was I thinking writing that code?&quot; Look at the tests, and you&#39;ll know. If you know a better way to do it, you can just rewrite it, and rest assured that it still works.</p>
+
+<p>It&#39;s sometimes hard to explain the business benefit to someone in a management position. Sometimes it makes me wonder why there&#39;s still a need to argue about it. But there&#39;s still millions of projects working their way onto the surface without a decent test suite.</p>
+
+<p>If you&#39;re working on one of them, I advise you to step back for a moment and ask yourself why you&#39;re not writing test cases. I bet you can&#39;t find any reasonable explanation, because there simply is none. I know, I know, there are always some parts which are harder to test, but there are always ways to get tests into place, and then untangle them. See Michael Feathers&#39; most excellent <a href="http://www.paperplanes.de/archives/2008/2/28/review_working_effectively_with_legacy/">&quot;Working Effectively with Legacy Code&quot;</a> for more detail on that topic.</p>
+
+<p>It doesn&#39;t matter what framework you use. RSpec, Test::Unit, Shoulda, xUnit, anything works that will help you ensure your application is working as it should. As long as you don&#39;t use any of them there&#39;s a good chance it might just not work at all.</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2008/9/10/railsconf_europe_2008_recap.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2008/9/15/django_turns_10.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

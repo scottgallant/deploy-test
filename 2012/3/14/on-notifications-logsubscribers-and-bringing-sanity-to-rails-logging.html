@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. On Notifications, Log Subscribers, and Bringing Sanity to Rails' Logging</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. On Notifications, Log Subscribers, and Bringing Sanity to Rails' Logging"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="On Notifications, Log Subscribers, and Bringing Sanity to Rails' Lo..."/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="Wherein I write about Rails&#39; current implementation of logging and ActiveSupport&#39;s
+greatest feature that was added in 3.0.
+
+I&#39;ve been thinking a lot about logging lately. I&#39;m a big ..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2012/3/14/on-notifications-logsubscribers-and-bringing-sanity-to-rails-logging.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">On Notifications, Log Subscribers, and Bringing Sanity to Rails' Logging</h3>
+        <h4><a href="/2012/3/14/on-notifications-logsubscribers-and-bringing-sanity-to-rails-logging.html" title="Permalink for this post">14 March 2012</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>Wherein I write about Rails&#39; current implementation of logging and ActiveSupport&#39;s
+greatest feature that was added in 3.0.</p>
+
+<p>I&#39;ve been thinking a lot about logging lately. I&#39;m a big fan of logging. I also
+spent some quality time with a Rails app again recently. I&#39;m not a big fan of
+Rails&#39; logging. Something needs to change, either me or Rails&#39; logging. I opted
+for the latter.</p>
+
+<p>After some digging in I found that Rails 3 has improved quite significantly on
+the logging front. The output is still the same unparsable mess it used to be,
+but the way logging is implemented has changed quite drastically, and much for
+the better, I&#39;d argue.</p>
+
+<p>With Rails 3, one important thing was added, that drives parts of the both
+logging and benchmarking (e.g. for ActiveRecord&#39;s query measurements).
+Everything is now built around notifications and instrumentation. When
+ActiveRecord fires a query, it measure the time required and then triggers an
+event with the recorded time. Whether someone picks up the event is not of its
+concern. Which is exactly what the new notifications are about: separation of
+concern.</p>
+
+<p>I was surprised to find that not a lot of people seemed to know about them.
+Let&#39;s have a short look at what it allows you to do.</p>
+
+<h3>ActiveSupport::Notifications</h3>
+
+<p>The idea is far from new. The Pragmatic Programmer talked about blackboards, a
+similar mechanism,
+<a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSNotificationCenter_Class/Reference/Reference.html">Cocoa</a>
+has had something similar for ages, and now Rails has something like it too.</p>
+
+<p>The basic idea is that you have a centralized repository where you can subscribe
+to events, for example to the event ActionController triggers when it process an
+action. Here&#39;s the code to extract the path that was requested by a user.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">ActionSupport::Notifications.subscribe(&#39;process_action.action_controller&#39;) do |event|
+  puts event.payload[:path]
+end
+</code></pre></div>
+<p>Any number of subscribers can be attached to a message, they&#39;ll get notified.
+The default implementation is synchronous, but nothing could and should keep you
+from adding an implementation that uses a message queue instead.</p>
+
+<p>This is pretty cool. I started using it to track metrics and not clutter the
+code with the specifics. When something of interest happens, an event is
+triggered. If someone listens, cool, if they don&#39;t we&#39;ll keep going. I could
+have one subscriber that collects metrics and another one for tracer logging.</p>
+
+<p>Rails uses these notifications all over the place, in particular for logging. To
+avoid having lots of manual subscriptions to specific events, Rails also added a
+mechanism to subscribe to events for the sole purpose of logging them and
+without adding subscriptions manually for all of them. The LogSubscriber was
+born.</p>
+
+<h3>ActiveSupport::LogSubscriber</h3>
+
+<p>LogSubscribers are exactly that: easy ways to subscribe to events whose purpose
+is logging. Of course what you do with the events is up to you, but that&#39;s their
+main purpose. Every Rails component uses them, and every component has its own
+implementation of a LogSubscriber. Here&#39;s an excerpt of the one used by
+ActionController.</p>
+
+<script src="https://gist.github.com/2038889.js?file=action_controller_log_subscriber.rb"></script>
+
+<p>Every public method defined, except for <code>logger</code>, will be attached to an event
+of the same name. So the three relevant events for this subscriber are
+<code>start_processing</code> and <code>process_action</code>.</p>
+
+<p>To make the improvement of notifications and log subscribers more visible,
+<a href="https://github.com/rails/rails/blob/2-3-stable/actionpack/lib/action_controller/benchmarking.rb#L44-105">here&#39;s the
+code</a>
+that did the same in Rails 2.3. You decide which you like better. I certainly
+enjoy the decoupled-ness of the log subscriber a lot more.</p>
+
+<p>When you defined your LogSubscriber, you can attach it to a namespace:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">ActionSupport::LogSubscriber.attach_to :action_view
+</code></pre></div>
+<p>This creates a new instance of the LogSubscriber and attaches all methods to
+their corresponding events. The event names are along the same lines as the
+example with <code>process_action.action_controller</code>. First the event&#39;s name, then
+the component&#39;s name.</p>
+
+<h3>Rails&#39; Logging</h3>
+
+<p>The example above nicely brings me to Rails&#39; logging. First up: I like Rails&#39;
+idea of logging everything, for development purposes it&#39;s awesome and pretty
+helpful. When things are moved into production the fun stops for me though. The
+logging out put is hard to parse, and it&#39;s hard to make sense of because it&#39;s
+usually multiple lines per request.</p>
+
+<p>Rails 3.2 recently added tagged logging and a request identifier to work around
+that. But that still doesn&#39;t solve the problem of the output in general being
+too noisy and hard to parse for a centralized logging service, or any logging
+service. If you don&#39;t care about your logs then I&#39;m sure you&#39;re fine, but I care
+a great deal about my logs. When things break, they&#39;re the sole source of truth,
+and I like to make sure they&#39;re valuable enough to fulfill that premise. Rails&#39;
+request logging gets in the way of that for the reasons outlined above.</p>
+
+<p>To remind you of what we&#39;re talking about, here&#39;s an example log output for a
+single request:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">Started GET &quot;/&quot; for 127.0.0.1 at 2012-03-10 14:28:14 +0100
+Processing by HomeController#index as HTML
+  Rendered text template within layouts/application (0.0ms)
+  Rendered layouts/_assets.html.erb (2.0ms)
+  Rendered layouts/_top.html.erb (2.6ms)
+  Rendered layouts/_about.html.erb (0.3ms)
+  Rendered layouts/_google_analytics.html.erb (0.4ms)
+Completed 200 OK in 79ms (Views: 78.8ms | ActiveRecord: 0.0ms)
+</code></pre></div>
+<p>It reads pretty nicely for sure, but as soon as you add more processes that dump
+their output in the same log, things get mingled and some of the information is,
+in my opinion just not necessary in production.</p>
+
+<p>So we have a pretty centralized approach to logging, and me wanting to do
+something to improve the logging. Clearly the two could be made to work
+together.</p>
+
+<h3>Towards a Better Logging (in Production)</h3>
+
+<p>My ideal request logging is a single line per request, nothing more. That&#39;s
+clearly at odds with the output above, but thanks to the fact that (almost)
+everything is wrapped in log subscribers. Here&#39;s a line of something that would
+fit my purpose pretty nicely:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">GET / format=html action=home#index status=200 duration=58.33 view=40.43 db=15.26
+</code></pre></div>
+<p>It&#39;s one line, it contains all the relevant information, it&#39;s pretty easy to
+parse for a machine, and it&#39;s easy to read for the human eye. Some told me the
+latter shouldn&#39;t be necessary, and I&#39;m certainly not hung up on it, but I like
+to be able to skim logs.</p>
+
+<p>The message is pretty clear: the HTTP method, the URL and an slew of optional
+parameters. If there&#39;s an exception that too should end up as single line. You
+can log the stacktrace of course, but it&#39;s much harder to make sense of for the
+same reason multiple lines of log output are hard to make sense of. They drown
+in a river of log output from multiple sources. I thought about only storing
+relations to an exception in the logs instead, e.g. an identifier or an error
+code. Throw in a request identifier as metadata stored with the exception, and
+you&#39;ve got yourself a nice way to correlate exceptions and log lines.</p>
+
+<p>How can we get to the output above? It turns out, it&#39;s actually pretty simple.
+We need to unhook the log subscribers for ActionView and ActionController events
+and hook in our own. The result is
+<a href="https://github.com/roidrage/lograge">Lograge</a>, a logging experiment I extracted
+into a library from the <a href="http://travis-ci.org/">Travis CI</a> source code, where I
+first started playing with the ideas I had around logging.</p>
+
+<p>It adds its own log subscriber, discarding all irrelevant events, only accepting
+two events instead of the whole bunch included by default. The result is a
+single log line. Easy on the eyes, easy on the machine.</p>
+
+<h3>An Experiment in Logging</h3>
+
+<p>My main goal is to eventually have a saner way of logging requests in Rails (or
+any web framework, for that matter). Lograge is the beginning of that. I already
+got great feedback on the general idea and on specifics like the log output.</p>
+
+<p>I have also yet to solve how to properly log request parameters, so this is only
+the beginning. I care a great deal about logging and I&#39;d like to see that
+eventually improve in Rails so that other people start caring for their logs
+too, if only in production mode or as an optional feature. If not, Lograge
+will be here for you. I also have Rails 2.3 on my radar if you&#39;re still using
+that. It&#39;s a lot messier to implement, but not impossible.</p>
+
+<p>If you want to know a bit more about the internals, the
+<a href="https://github.com/roidrage/lograge/blob/master/README.md">README</a> is a good place
+to start. If you have any input on the ideas implemented in Lograge, the log
+output or anything else, feel free to <a href="https://github.com/roidrage/lograge/issues">open an
+issue</a>.  Let&#39;s talk about logging,
+and let&#39;s make it better.</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2012/2/28/february-reading-list.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2012/5/30/riak-handbook-11-is-out.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

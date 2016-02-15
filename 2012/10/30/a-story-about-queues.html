@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. A Story About Queues in Four Acts</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. A Story About Queues in Four Acts"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="A Story About Queues in Four Acts"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="There are queues everywhere. This is the story of a few of them. The names of the
+queues are made up, but their story is real nonetheless.
+
+First Act
+
+The first queue, we&#39;ll call it Unicorn, ha..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2012/10/30/a-story-about-queues.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">A Story About Queues in Four Acts</h3>
+        <h4><a href="/2012/10/30/a-story-about-queues.html" title="Permalink for this post">30 October 2012</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>There are queues everywhere. This is the story of a few of them. The names of the
+queues are made up, but their story is real nonetheless.</p>
+
+<h3>First Act</h3>
+
+<p>The first queue, we&#39;ll call it Unicorn, handles requests for information,
+rendering the result in a beautiful markup language that&#39;s easy to read. It sits
+in front of the public library building, waits for people to come in and ask for
+information.</p>
+
+<p>Unicorn has a fixed number of peasants at its disposal to do work for it. When a
+request comes in, it sends one of them into the library to fetch the
+information. Peasants have access to a pretty big amount of data to choose from,
+but they have to be quick.</p>
+
+<p>If one of them takes too long to fetch the information, Unicorn denies the
+request for information and strips the peasant of its duties on the spot,
+putting a new one in its place.</p>
+
+<p>Unicorn is not very fail-safe though. It trades off not being able to deliver
+information in time for being swarmed by requests and not being able to handle
+them.</p>
+
+<p>It also isn&#39;t very good at determining that every new peasant takes to long and
+to stop processing requests. It just keeps accepting them even if all of them
+time out.</p>
+
+<p>Maybe it&#39;d be smarter if Unicorn could be more aware of an increased number of
+information requests not returning the data in time and slow down processing or
+halt it altogether to figure out what the problem is?</p>
+
+<h3>Second Act</h3>
+
+<p>The second queue, we&#39;ll call it Octocat, handles requests from people to build
+something, say, a house, or a shack or a shelter, sometimes even a blue
+bikeshed.</p>
+
+<p>To figure out what needs to be done, Octocat looks at the request&#39;s details, to
+determine what materials are required and which builder needs to be allocated to
+get the job done.</p>
+
+<p>In some cases, Octocat sends a request to the warehouse to see if they have the
+required material in stock. Because the warehouse doesn&#39;t have a means to send a
+messenger back to Octocat, it&#39;s a fully automated system, it calls a hotline to
+check the status. It listens to Rick Astley while it&#39;s on hold, waiting for the
+system to get back to it.</p>
+
+<p>Sometimes, there&#39;s a problem in the warehouse and Octocat is stuck for a long
+time, and it can&#39;t process any other requests in the meantime. It doesn&#39;t want
+to miss the system getting back to it, so all its focus is on this one build
+request.</p>
+
+<p>To speed things up a little, the Octocat hired a second person. But now both of
+them are stuck in a waiting loop with the warehouse, not being able to process
+more build requests. No matter how many people Octocat&#39;s companies would hire,
+at some point all of them will be stuck on hold, all of them listening to Rick
+Astley.</p>
+
+<p>Wouldn&#39;t it be better if, when the Octocat is waiting for the warehouse, it
+presses # to cancel the request, hangs up the phone and process another request
+in the meantime? It could just retry five minutes later to see if the system is
+now able to process the request.</p>
+
+<p>As time passes, it can just increase the waiting time between calls, as it gets
+less and less likely that the warehouse will be able to process the request this
+time around.</p>
+
+<p>Or it could put the current request to the end of the queue, and come back to it
+later, trying to go through the process again at a later point in the day. Maybe
+the warehouse just has a problems finding information on this particular
+material, and other requests that don&#39;t require it will work out just fine.</p>
+
+<p>If the warehouse is unable to process an increased number of requests, maybe
+Octocat should just cease calls altogether to give the warehouses&#39; employees
+time to clear things up and to process what has piled up in their inbox.</p>
+
+<h3>Third Act</h3>
+
+<p>The third queue processes long texts that were, for efficiency reasons, split up
+into smaller chunks. They&#39;re usually send in Morse code for bandwidth
+efficiency, ready to be turned back into texts.</p>
+
+<p>We&#39;ll call it Logger. Logger has strict requirements to process the chunks. He
+needs to put them back together very quickly, otherwise the readers on the other
+side will be unhappy, waiting for new text to appear. They&#39;re fast readers, so
+Logger has to make sure he delivers in a timely fashion.</p>
+
+<p>The queue has to go through a lot of text, and it has to make sure that it
+processes it in the correct order. Otherwise the text wouldn&#39;t make sense
+anymore, things putting context out of.</p>
+
+<p>Logger relies on strict ordering of the messages it processes. It relies on
+several minions to put the texts back together after they were processed. To
+make sure ordering is properly applied, one minion always processes chunks from
+a specific text.</p>
+
+<p>Logger uses the text&#39;s title to figure out which minion is responsible. This has
+the advantage that Logger can call in more minions as more texts are coming in.
+As titles vary pretty wildly, Logger can just assume that work will be
+distributed efficiently enough. Of course there&#39;s still the chance that one
+minion gets a lot of longer texts, compared to the others, but overall, it
+should be fine.</p>
+
+<p>There is one downside to this system. Logger has to know the exact number of
+minions upfront. If one of them calls in sick, he has to find a replacement
+quickly, so that work on this minion&#39;s desk doesn&#39;t pile up.</p>
+
+<p>If he can&#39;t find a replacement quickly, he has to reassign all the numbers and
+redistribute the work on their desks, which is a very dreadful process.</p>
+
+<p>What if Logger could group minions so that they form subdivisions, each
+controlled by a supervisor of their own, who in turn distributes the work on his
+team of minions.</p>
+
+<p>With little groups, he can rely on the supervisor to increase and decrease the
+number of minions as needed. Logger would be oblivious to their shift schedule.</p>
+
+<p>To split up the work more efficiently, Logger could also rely on the first
+letter of the title, splitting the alphabet into smaller sub-alphabets, e.g.
+A-E, F-M, and so on. He assigns the ranges directly to groups, and he can, as
+groups come and go for their shifts, quickly reallocate ranges of letters to new
+groups. That still means that work has to be distributed, but Logger adds a
+group of messengers to the process that can shift stacks of texts quickly from
+one group to the other.</p>
+
+<p>If one group for some reason becomes unavailable, Logger could just adapt the
+way he schedules work and burden another team with its range. That might overall
+be a bit slower, but work would still be spread out evenly across the remaining
+groups.</p>
+
+<p>Logger still has to make sure that all groups are on the same floor though, so
+that the messengers don&#39;t have to climb stairs to lengthen the latency of
+redistributing the texts.</p>
+
+<p>If Logger wasn&#39;t bound to having to process texts with very low latency, he
+could even consider placing groups in different buildings. If a fire breaks out
+in one of them, the other groups could still continue processing.</p>
+
+<h3>Fourth Act</h3>
+
+<p>The fourth queue is a builder, we&#39;ll call it Bob. Bob builds garages, houses and
+lots other things.</p>
+
+<p>Bob is a sloppy builder though. He breaks things a lot, leaving windows broken,
+plaster with holes and floors uncleaned. Sometimes he even forgets to put a tile
+in, so that it leaves an empty area on the wall. Or he drops one of his tools on
+the floor, leaving a dent in the wood.</p>
+
+<p>He tends to not be too careful and just assumes that everything he does turns
+out right. He pours concrete when it&#39;s raining, he leaves</p>
+
+<p>Bob needs to get a grip and make sure his tasks are processed correctly. How
+could he do that?</p>
+
+<p>Instead of ignoring mistakes, he could learn to accept them and take the
+appropriate measures to make sure he cleans up. If he notices that he breaks
+things to often, he could slow down his work and make sure he gets it right. Or
+he could go out for a coffee and come back when he&#39;s a bit more confident that
+he&#39;ll get the job right.</p>
+
+<p>If things are really bad, he can even start from scratch, to make sure the end
+result is good. That might mean that processing can slow down, but that Bob is
+aware of his own failures. His mindset would change to making sure he gets the
+task right instead of leaving a mess everywhere he goes.</p>
+
+<p>Bob&#39;s customers would be a lot happier if he did. It&#39;d cost him more resources
+but he&#39;d make a lot of people much happier, leaving every place he&#39;s worked on
+clean.</p>
+
+<h3>Queues, queues everywhere!</h3>
+
+<p>What have all the queues in this story in common? They fail to exponentially back
+off when they encounter errors in processing requests. They fail to make sure to
+not lose messages when processing them failed. They fail to retry when
+delivering a message has failed. They fail to make sure their processing is
+idempotent. They assume that the resources required for processing the messages
+are always available.</p>
+
+<p>There are queues everywhere. They have a tendency to cause problems when being
+used. We just assume they work all the time, and we just assume that we&#39;re able
+to process everything they throw at us in a timely fashion?</p>
+
+<p>We do have the best of intentions, but they usually turn out wrong. When a queue
+starts to become the central backbone of a system, careful steps need to be
+taken that the system can handle backpressure, increased failure rates, and the
+queue itself being unavailable.</p>
+
+<p>Maybe we should start building our queues and the processes around it with the
+worst in mind and adjust our thinking accordingly? It&#39;s not queues, queues
+everywhere. It&#39;s failures, failures everywhere! Queues have a tendency to
+intensify failures by adding a less predictable element to our infrastructure.
+As <a href="https://twitter.com/rbranson/statuses/261139185694568449">Rick Branson put
+it</a>:</p>
+
+<blockquote>
+<p>&quot;Keeping distributed systems running smoothly seems to be mostly about
+figuring out ways to not DDoS yourself.&quot;</p>
+</blockquote>
+
+<p>A queue is a lot of fun until you&#39;re unable to keep up with what it&#39;s throwing
+at you, until your database&#39;s capacity doesn&#39;t match that of the queue, until
+you drop messages on the floor just because something broke in the backend, or
+until it floods your system with so many messages it can&#39;t process anything else
+in the meantime.</p>
+
+<p>Maybe you already knew all of that, but I sure as heck had to learn all of these
+lessons above <a href="http://about.travis-ci.org/blog/2012-09-05-on-yesterdays-log-outage/">the hard
+way</a>, in a
+<a href="http://about.travis-ci.org/blog/2012-09-24-post-mortem-pull-request-unavailability/">very small amount of
+time</a>,
+within a <a href="http://about.travis-ci.org/blog/2012-09-13-an-update-on-the-sites-availability/">matter of
+weeks</a>,
+to be exact.</p>
+
+<p>We&#39;re still working on picking up the pieces and cleaning up. There&#39;ll be less
+queues in the future, just as there will be a lot more of them. More on this
+soon!</p>
+
+<p>The queue is dead, long live the queue!</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2012/9/11/september-reading-list.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2012/12/6/form-objects-with-activemodel.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

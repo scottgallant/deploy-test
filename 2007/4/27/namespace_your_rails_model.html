@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. Namespace Your Rails Model</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. Namespace Your Rails Model"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Namespace Your Rails Model"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="I had a nice revelation earlier this week, when I finally tested some code I wrote in the wild, the wild being BackgrounDRb. The code used some pretty common class and module names. I didn&#39;t ex..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2007/4/27/namespace_your_rails_model.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">Namespace Your Rails Model</h3>
+        <h4><a href="/2007/4/27/namespace_your_rails_model.html" title="Permalink for this post">27 April 2007</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>I had a nice revelation earlier this week, when I finally tested some code I wrote in the wild, the wild being BackgrounDRb. The code used some pretty common class and module names. I didn&#39;t expect many problems when I used something along the lines of Sync or Synchronizer. When running the code in test cases there wasn&#39;t any problem.</p>
+
+<p>At first I got the error, that I couldn&#39;t include Sync (my module) with the <code>include</code> keyword into a class. I wondered why Ruby wanted to tell me that my module would be a class. I quickly found the answer. Ruby&#39;s standard library contains a class named Sync. As long as my code ran in a test case that class didn&#39;t come into play. But BackgrounDRb uses apparently uses it, therefore it got loaded before my module. That was the first name clash.</p>
+
+<p>The second involved the class Synchronizer which is a class included in the package Slave used by BackgrounDRb. Slave&#39;s class even comes along with the same method I used, so you can imagine the look on my face, when I discovered that the code included there immediately started running when my BackgrounDRb worker ran.</p>
+
+<p>That it took me some hours to find these issues because of a bug in BackgrounDRb is a totally different issue.</p>
+
+<p>The moral of the story: namespace your model classes, and the code in <code>lib/</code>. The more classes you have, the bigger the chances that it clashes with a class in one of your installed gems. The best example is a class like <code>User</code>. The chances are pretty good that it&#39;s being used somewhere else. To avoid a clash choose a namespace corresponding to your business case or application (the project name would do).</p>
+
+<p>Keep in mind that Rails expects a directory structure corresponding to your namespaces. So if you have a class <code>Bacon</code> in the module <code>Chunky</code>, be sure to put the class file <code>bacon.rb</code> into a subfolder named <code>chunky</code> in the <code>app/model</code> directory. The same goes for code in <code>lib/</code>.</p>
+
+<p>For smaller projects this might not be necessary, but I learned the hard way that it can be a pretty good practice.</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2007/4/24/the_web_design_survey.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2007/5/1/microsoft_announces_ironruby.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. Why Riak Search Matters...</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. Why Riak Search Matters..."/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Why Riak Search Matters..."/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="The awesome dudes at Basho released Riak 0.13 and with it their first
+version of Riak
+Search yesterday. This is all kinds of exciting, and I&#39;ll tell you why.
+Riak Search is (way down below) bas..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2010/10/12/why_riak_search_matters.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">Why Riak Search Matters...</h3>
+        <h4><a href="/2010/10/12/why_riak_search_matters.html" title="Permalink for this post">12 October 2010</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>The awesome dudes at <a href="http://basho.com">Basho</a> released <a href="http://blog.basho.com/2010/10/11/riak-0.13-released/">Riak 0.13 and with it their first
+version</a> of <a href="http://wiki.basho.com/display/RIAK/Riak+Search">Riak
+Search</a> yesterday. This is all kinds of exciting, and I&#39;ll tell you why.
+Riak Search is (way down below) based on Lucene, both the library and the query interface. It mimicks the Solr web API
+for querying and indexing. Just like you&#39;d expect something coming out of Basho, you can add and remove nodes at any
+time, scaling up and down as you go. I&#39;ve seen an introduction on the basics back at Berlin Buzzwords, and it was
+already shaping up to be nothing but impressive. But enough with all the praise, why&#39;s this stuff exciting?</p>
+
+<ul>
+<li><p>The key/value model is quite restrictive when it comes to fetching data by, well anything else than a key. Keeping
+reverse lookup indexes was one way to do it, but the consistency model of Riak made it hard if not impossible to
+maintain a consistent list of interesting entries in an atomic way.</p>
+
+<p>Riak Search fills this gap (and not only for Riak, the key/value store, but for any key/value store if you will) by
+offering something that scales up and down in the same way as Riak, so you don&#39;t have to resort to e.g. Redis to
+maintain reverse lookup indexes.</p>
+
+<p>Run <a href="http://wiki.basho.com/display/RIAK/Riak+Search+-+Querying">queries in any way you can think of</a>, fetch ranges, groups,
+you name it, no need to do anything really. It even <a href="http://wiki.basho.com/display/RIAK/Riak+Search+-+Indexing+and+Querying+Riak+KV+Data">integrates directly with Riak through pre-commit
+hooks.</a></p></li>
+<li><p>It&#39;s based on proven technology (Lucene, that is). It doesn&#39;t compete with something entirely new, it takes what&#39;s
+been worked on and constantly improved for quite a while now, and raises it onto a new foundation to make it scale
+much nicer, <a href="http://wiki.basho.com/display/RIAK/Riak+Search#RiakSearch-MajorComponents">the foundation</a> being Riak
+Core, Riak KV and Bitcasks, and some new components developed at Basho.</p></li>
+<li><p>It uses existing interfaces. Imagine just pointing your search indexing library to a new end point, and there you go.
+Just the thought of that makes me teary. Reindex data, reconfigure your clients to point to a new endpoint, boom,
+there&#39;s your nicely scalable search index.</p></li>
+<li><p>Scaling Solr used to be awkward. Version 1.5 will include some heavy improvements, but I believe the word <a href="http://www.lucidimagination.com/blog/2009/12/12/apache-solr-1-5-on-the-move-with-more-functionality/">shard fell
+at some point.</a>
+Imagine a Solr search index where you can add and remove nodes at any time, the indexing rebalancing without requiring
+manual intervention.</p>
+
+<p>Sound good? Yeah, Riak Search can do that too.</p></li>
+</ul>
+
+<p>Remember though, it&#39;s just a first release, which will be improved over time. I for one am just happy they finally
+released it, I almost crapped my pants, it&#39;s that exciting to have something like Riak Search around. And I say that
+with all honesty and no fanboyism whatsoever. Having used Solr quite a lot in the past I&#39;m well aware of its strengths
+and weaknesses and the sweet spot Riak Search hits.</p>
+
+<p>I urge you to play with it. <a href="http://wiki.basho.com/display/RIAK/Riak+Search+-+Installation+and+Setup">Installing it</a> and
+<a href="http://wiki.basho.com/display/RIAK/Riak+Search+-+Indexing">feeding it with data</a> could not be easier. Well done, Basho!</p>
+
+<p>Update: From reading all this you may get the impression that Riak Search builds heavily on a Lucene foundation. That&#39;s
+not the case. When I say that it builds on top of Lucene, I actually meant that it can and does reuse its analyzers and
+query parsing. Both can be replaced with custom (Erlang) implementations. That&#39;s the only part of Lucene that is
+actually used by Riak Search, because why reinvent the wheel?</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2010/10/8/be_humble_and_get_shit_done.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2010/11/29/a_simple_redis_use_case.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

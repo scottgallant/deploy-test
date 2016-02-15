@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. Testing Meme</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. Testing Meme"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Testing Meme"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="I&#39;m not religious about anything, but if there&#39;s one thing I adopted and applied rigorously over the last years it&#39;s testing. Out of that habit I&#39;ve developed using some principles ..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2008/10/1/testing_meme.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">Testing Meme</h3>
+        <h4><a href="/2008/10/1/testing_meme.html" title="Permalink for this post">01 October 2008</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>I&#39;m not religious about anything, but if there&#39;s one thing I adopted and applied rigorously over the last years it&#39;s testing. Out of that habit I&#39;ve developed using some principles that drive my writing of tests.</p>
+
+<ul>
+<li><p><strong>You don&#39;t have to avoid stubbing and mocking everything, but you can try</strong></p>
+
+<p>Reducing the number of collaborators will result in smaller methods which are in turn easier to test. In the end stubbing things out is better than having to have complex dependencies in place to run a test suite.</p></li>
+<li><p><strong>Test everything that&#39;s important</strong></p>
+
+<p>And if it&#39;s not important, why not just throw it out? If you can&#39;t throw it out, then it&#39;s probably important. So make sure you write tests for it. Simple as that.</p></li>
+<li><p><strong>If you don&#39;t know what else to do, write a test</strong></p>
+
+<p>Stop thinking about how the code should look, start thinking what you want it to do. Some people call it working test-first, I just use it to find out how I want the code to work from the outside. When you put every aspect of the method in question into test cases, the way it should work will take shape naturally.</p></li>
+<li><p><strong>The testing framework is not your biggest problem</strong></p>
+
+<p>While I prefer the style of RSpec and Shoulda for writing tests, it&#39;s usually not the problem of which of them you actually use. The point is to write tests, choose whichever framework will make that the easiest for you. You can write tests with all of them.</p></li>
+<li><p><strong>Don&#39;t DRY out your tests</strong></p>
+
+<p>Tests are about readability. They&#39;re supposed to tell the reader what the code is supposed to do, without having to browse up and down in the test file to find methods that are used to create objects, or worse yet, through fixtures. Don&#39;t try too hard to put common code to setup scenarios into separate methods. It&#39;s just not important in tests. Create your scenarios where you need them, or use tools like factory_girl, where you collect object scenarios in a single file.</p>
+
+<p>Don&#39;t put too much code into separate methods for reuse in multiple test cases. If you do, make sure you name them in a way that will ensure readability, and think twice before you move code away from the point where other developers will look first.</p></li>
+<li><p><strong>Keep your tests small</strong></p>
+
+<p>Instead of testing everything in one test method, create a separate test for every aspect of the method under test. The tests are easier to read and errors are easier to find.</p></li>
+</ul>
+
+<p>Writing good tests is an art in itself, but trying your best to learn and constantly improve it is the best thing you can do for yourself in my opinion.</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2008/9/29/undefining_class_methods_in_ruby.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2008/10/6/merbs_run_later_coming_to_a.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

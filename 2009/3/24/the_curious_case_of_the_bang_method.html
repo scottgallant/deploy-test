@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. The Curious Case Of The Bang Method</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. The Curious Case Of The Bang Method"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="The Curious Case Of The Bang Method"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="One of the cool things about Ruby is the possibility to make your method&#39;s intent more expressive using the question mark or the bang. There&#39;s no need to argue about the use of the question..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2009/3/24/the_curious_case_of_the_bang_method.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">The Curious Case Of The Bang Method</h3>
+        <h4><a href="/2009/3/24/the_curious_case_of_the_bang_method.html" title="Permalink for this post">24 March 2009</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>One of the cool things about Ruby is the possibility to make your method&#39;s intent more expressive using the question mark or the bang. There&#39;s no need to argue about the use of the question mark method, their intent is to ask something, whether it&#39;s the the status of an object or if the current weather is suitable for getting out your longboard. Their result will usually be true or false, including nil or not nil.</p>
+
+<p>The other punctuation mark method on the other hand, the bang method, has lead to some confusion as to what its intent really should be. I&#39;m guilty as charged here, a long time I was confused about the difference of using a bang at the end of your method name really means. I guess I should thank David Black for making me (and everyone else) aware of what the difference between a method with a bang and a method without a bang really is.</p>
+
+<p>And here is where the confusion already starts, there being a difference would imply that there need to be two different methods, like in Rails, you have <code>save</code> and you have <code>save!</code>, <code>create</code> and <code>create!</code>, and so on. They usually differ in that the bang version will raise an error, and the normal version will return a value with which it will tell the caller that the call succeeded or failed.</p>
+
+<p>A weird notion arose from that, and I have found in it lots of projects. The notion is that when a method calls save it changes the object, and therefore can have a bang at the end, because it&#39;s doing something potentially dangerous. Hold on, saving an object is something dangerous? If you&#39;re thinking about it this way, you might as well start banging your methods (pun intended) throughout your project.</p>
+
+<p>A simple example:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">def publish!
+  self.published_at = Time.now
+  save
+end
+</code></pre></div>
+<p>Now, to use the method in your code, we could have something like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">if !publish!
+  # ...do whatever you do in this case
+end
+</code></pre></div>
+<p>I don&#39;t know about you but that just looks confusing to me. You&#39;re abusing a method whose intent is to signalize that you&#39;re doing something potentially dangerous to simply make it &quot;obvious&quot; that your method also saves the object. If you&#39;re going down this road, then why not write the name using all uppercase?</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">def PUBLISH!
+  self.published_at = Time.now
+  save
+end
+</code></pre></div>
+<p>There, that&#39;ll show &#39;em. If you really want, you can use <code>define_method</code> and give a method name like &quot;PUBLISH!!!&quot;.</p>
+
+<p>The Rails extension <a href="http://github.com/josevalim/inherited_resources/tree/master">inherited_resource</a> pushes this a little bit too far, and thank goodness you don&#39;t have to use the following way of implementing your RESTful actions:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">def destroy
+  destroy! do |format|
+    format.html { redirect_to projects_url }
+  end
+end
+</code></pre></div>
+<p>Here <code>destroy!</code> is an alias for the method <code>destroy</code> in the superclass. The reasoning is that calling super is not readable, and using <code>destroy!</code> gives it a more DSL-like lookie. I just find this style of using bang methods extremely confusing, and the intention is far from being clear. You&#39;d expect <code>destroy!</code> to do something &quot;dangerous&quot;, but it&#39;s just an ugly way to call the <code>destroy</code> method in the superclass. But the story on super is a totally different story, and material for another blog post.</p>
+
+<p>What you should be doing instead is something along the lines of this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">def publish
+  self.published = Time.now
+  save
+end
+
+def publish!
+   publish or raise &quot;Couldn&#39;t publish&quot;
+end
+</code></pre></div>
+<p>A bang method should exist together with a non-banged version, or to have a dangerous and a non-dangerous version of your method. Whatever dangerous means depends on the context of your method, but you get the idea.</p>
+
+<p>No need to use if, when someone fancies the bang version, he can just go ahead and use it anywhere. This is how several state machine plugins implement their state changing methods, heck, this is how the Ruby standard library uses it, and this is how you should build your own methods. The bang is not a way to just express that the call will change something in your object, that&#39;s what methods on objects usually do, big surprise.</p>
+
+<p>I recommend reading over David Black&#39;s <a href="http://dablog.rubypal.com/2007/8/15/bang-methods-or-danger-will-rubyist">post on the issue</a>, it sure gave me a clearer picture. I&#39;ve written no new bang method since then, because if you think about it, you don&#39;t have the case very often where you actually need two versions of the same method. In a library sure, but in your application? Meh. Using non-banged methods in my opinion makes code a lot clearer, especially when you accept the notion that the bang method should only exist in the context of a non-banged version.</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2009/3/23/run_later_gets_some_rails_2_3_middleware_love.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2009/3/26/remembering_super.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

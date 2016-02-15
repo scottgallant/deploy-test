@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. The Virtues of Monitoring, Redux</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. The Virtues of Monitoring, Redux"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="The Virtues of Monitoring, Redux"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="Two years ago, I wrote about the virtues of
+monitoring. A lot has changed, a lot
+has improved, and I&#39;ve certainly learned a lot since I wrote that initial
+overview on monitoring as a whole.
+
+Th..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2013/1/10/virtues-of-monitoring-redux.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">The Virtues of Monitoring, Redux</h3>
+        <h4><a href="/2013/1/10/virtues-of-monitoring-redux.html" title="Permalink for this post">10 January 2013</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>Two years ago, I wrote about <a href="/2011/1/5/the_virtues_of_monitoring.html">the virtues of
+monitoring</a>. A lot has changed, a lot
+has improved, and I&#39;ve certainly learned a lot since I wrote that initial
+overview on monitoring as a whole.</p>
+
+<p>There have been a lot of improvements to existing tools, and new players entered
+the market of monitoring. Infrastructure as a whole got more and more
+interesting for service business around them.</p>
+
+<p>On the other hand, awareness for monitoring, good metrics, logging and the like
+has been rising significantly.</p>
+
+<p>At the same time
+<a href="http://lusislog.blogspot.de/2011/06/why-monitoring-sucks.html">#monitoringsucks</a>
+raised awareness that a lot of monitoring tools are still stuck in the late
+nineties when it comes to user interface and the way they work.</p>
+
+<p>Independent of new and old tools, I&#39;ve had the pleasure of learning a lot more
+about the real virtues of monitoring, about how it affects daily work and how it
+evolves over time. This post is about discussing some of these insights.</p>
+
+<h3>Monitoring all the way down</h3>
+
+<p>When you start monitoring even just small parts of an application, the need for
+more detail and for information about what&#39;s going on in a system arises
+quickly. You start with an innocent number of application level metrics, add
+metrics for database and external API latencies, start tracking system level and
+business metrics.</p>
+
+<p>As you add monitoring to one layer of the system, the need to get more insight
+into the layer below comes up sooner or later.</p>
+
+<p>One layer has just been tackled recently in a way that&#39;s accessible for anyone:
+communication between services on the network. <a href="http://boundary.com">Boundary</a>
+has built some pretty cool monitoring stuff that gives you incredibly detailed
+insight into how services talk to each other, by way of their protocol, how
+network traffic from inside and outside a network develops over time, and all
+that down to the second.</p>
+
+<p>The real time view is pretty spectacular to behold.</p>
+
+<p><img src="http://s3itch.paperplanes.de/boundary-20130110-111149.png" alt=""></p>
+
+<p>If you go down even further on a single host, you get to the level where you can
+<a href="http://queue.acm.org/detail.cfm?id=1809426">monitor disk latencies</a>.</p>
+
+<p>Or you could measure the effect of <a href="http://www.youtube.com/watch?v=tDacjrSCeq4">screaming at a disk array of a running
+system</a>.
+<a href="http://hub.opensolaris.org/bin/view/Community+Group+dtrace/WebHome">dtrace</a> is
+a pretty incredible tool, and I hope to see it spread and become widely
+available on Linux systems. It allows you to inject instrumentation into
+arbitrary parts of the host system, making it possible measure any system call
+without a lot of overhead.</p>
+
+<p>Heck, even our customer support tool allows us to track metrics for response
+times, how many tickets and for how long each staff member handled.</p>
+
+<p><img src="http://s3itch.paperplanes.de/helpscout-20130110-111643.png" alt=""></p>
+
+<p>It&#39;s easy to start obsessing about monitoring and metrics, but there comes a
+time, when you either realize that you&#39;ve obsessed for all the right reasons, or
+you add more monitoring.</p>
+
+<h3>Mo&#39; monitoring, mo&#39; problems</h3>
+
+<p>The crux of monitoring more layers of a system is that with more monitoring, you
+can and will detect more issues.</p>
+
+<p>Consider Boundary, for example. It gives you insight into a layer you haven&#39;t
+had insight before, at least not at that granular level. For example, round trip
+times of liveness traffic in a RabbitMQ cluster.</p>
+
+<p><img src="http://s3itch.paperplanes.de/appvis-20130110-111851.png" alt=""></p>
+
+<p>This gives you a whole new pile of data to obsess about. It&#39;s good because that
+insight is very valuable. But it requires more attention, and more issues require
+investigation.</p>
+
+<p>You also need to learn how a system behaving normally is reflected in those new
+systems, and what constitutes unusual behaviour. It takes time to learn and to
+interpret the data correctly.</p>
+
+<p>In the long run though, that investment is well worth it.</p>
+
+<h3>Monitoring is an ongoing process</h3>
+
+<p>When we started adding monitoring to <a href="http://travis-ci.org">Travis CI</a>, we
+started small. But we quickly realized what metrics really matter and what parts
+of the application and the infrastructure around it needs more insight, more
+metrics, more logging.</p>
+
+<p>With every new component deployed to production, new metrics need to be
+maintained, more logging and new alerting need to be put in place.</p>
+
+<p>The same is true for new parts of the infrastructure. With every new system or
+service added, new data needs to be collected to ensure the service is running
+smoothly.</p>
+
+<p>A lot of the experience of what metrics are important there and which aren&#39;t,
+it&#39;s something that develops over time. Metrics can come and go, the
+requirements for metrics are subject to change, just as they are for code.</p>
+
+<p>As you add new metrics, old metrics might become less useful, or you need more
+metrics in other parts of the setup to make sense of the new ones.</p>
+
+<p>It&#39;s a constant process of refining the data you need to have the best possible
+insight into a running system.</p>
+
+<h3>Monitoring can affect production systems</h3>
+
+<p>The more data you collect, with higher and higher resolution, the more you run
+the risk of affecting a running system. Business metrics regularly pulled from
+the database can become a burden on the database that&#39;s supposed to serve your
+customers.</p>
+
+<p>Pulling data out of running systems is a traditional approach to monitoring, one
+that&#39;s unlikely to go away any time soon. However, it&#39;s an approach that&#39;s less
+and less feasible as you increase resolution of your data.</p>
+
+<p>Guaranteeing that this collection process is low on resources is hard. It&#39;s even
+harder to get a system up and running that can handle high-resolution data from
+a lot of services sent concurrently.</p>
+
+<p>So new approaches have started to pop up to tackle this problem. Instead of
+pulling data from running processes, the processes themselves collect data and
+regularly push it to aggregation services which in turn send the data to a
+system for further aggregation, graphing, and the like.</p>
+
+<p><a href="https://github.com/etsy/statsd">StatsD</a> is without a doubt the most popular
+one, and it has sparked a ton of forks in different languages</p>
+
+<p>Instead of relying on TCP with its long connection handshakes and timeouts,
+StatsD uses UDP. The processes sending data to it stuff short messages into a
+UDP socket without worrying about whether or not the data arrives.</p>
+
+<p>If some data doesn&#39;t make it because of network issues, that only leaves a small
+dent. It&#39;s more important for the system to serve customers than for it to wait
+around for the aggregation service to become available again.</p>
+
+<p>While StatsD solves the problem of easily collecting and aggregating data
+without affecting production systems, there&#39;s now the problem of being able to
+inspect the high-resolution data in meaningful ways. Historical analysis and
+alerting on high-resolution data becomes a whole new challenge.</p>
+
+<p><a href="http://riemann.io">Riemann</a> has popularized looking at monitoring data as a
+stream, to which you can apply queries, and form reactions based on those
+queries. You can move the data window inside the stream back and forth, so you
+can compare data in a historical context before deciding on whether it&#39;s worth
+an alert or not.</p>
+
+<p>Systems like StatsD and Riemann make it a lot easier for systems to aggregate
+data without having to rely on polling. Services can just transmit their data
+without worrying much about how and where they&#39;re used for other purposes like
+log aggregation, graphing or alerting.</p>
+
+<p>The important realization is that with increasing need for scalability and
+distributed systems, <em>software needs to be built with monitoring in mind</em>.</p>
+
+<p>Imagine RabbitMQ that instead of you having to poll the data from it, sends its
+metrics as a message at a configurable interval to a configurable fanout. You
+can choose to consume the data and submit it to a system like StatsD or Riemann,
+or you can ignore it and the broker will just discard the data.</p>
+
+<h3>Who&#39;s monitoring the monitoring?</h3>
+
+<p>Another fallacy of monitoring is that it needs to be reliable. For it to be
+fully reliable it needs to be monitored. Wait, what?</p>
+
+<p>Every process that is required to aggregate metrics, to trigger alerts, to
+analyze logs needs to be running for the system to work properly.</p>
+
+<p>So monitoring in turns needs its own supervision to make sure it&#39;s working at
+all times. As monitoring grows it requires maintenance and operations to take
+care of it.</p>
+
+<p>Which makes it a bit of a burden for small teams.</p>
+
+<p>Lots of new companies have sprung into life serving this need. Instead of having
+to worry about running services for logs, metrics and alerting by themselves, it
+can be left to companies who are more experienced in running them.</p>
+
+<p><a href="http://metrics.librato.com">Librato Metrics</a>,
+<a href="http://papertrailapp.com">Papertrail</a>, <a href="http://opsgenie.com">OpsGenie</a>,
+<a href="http://logentries.com">LogEntries</a>, <a href="http://instrumentalapp.com">Instrumental</a>,
+<a href="http://newrelic.com">NewRelic</a>, <a href="http://www.datadoghq.com">DataDog</a>, to name a
+few. Other companies take the burden of having to run your own
+<a href="http://hostedgraphite.com">Graphite</a> system away from you.</p>
+
+<p>It&#39;s been interesting to see new companies pop up in this field, and I&#39;m looking
+forward to seeing this space develop. The competition from the commercial space
+is bound to trigger innovation and improvements on the open source front as
+well.</p>
+
+<p>We&#39;re heavy users of external services for log aggregation, collecting metrics
+and alerting. Simply put, they know better how to run that platform than we do,
+and it allows us to focus on delivering the best possible customer value.</p>
+
+<h3>Monitoring is getting better</h3>
+
+<p><img src="http://s3itch.paperplanes.de/cubism-1-20130110-111954.png" alt=""></p>
+
+<p>Lots of new tools have sprung up in the last two years. While development on it
+started earlier than that, the most prominent tools are probably
+<a href="http://graphite.wikidot.com">Graphite</a> and <a href="http://logstash.net">Logstash</a>.
+<a href="http://square.github.com/cubism/">Cubism</a> brings new ideas on how to visualize
+time series data, one of the several dozens of dashboards that Graphite&#39;s
+existence and flexibility by offering an API has sparked.
+<a href="https://github.com/obfuscurity/tasseo">Tasseo</a> is another one of them, a
+successful experiment of having an at-a-glance dashboard with the most important
+metrics in one convenient overview.</p>
+
+<p>It&#39;ll still be a while until we see the ancient tools like Nagios, Icinga and
+others improve, but the competition is ramping up.
+<a href="https://github.com/sensu/sensu">Sensu</a> is one open source alternative to keep
+an eye on.</p>
+
+<p>I&#39;m looking forward to seeing how the monitoring space evolves over the next two
+years.</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2013/1/2/on-pager-duty.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2013/1/16/coffee-and-the-art-of-customer-happiness.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

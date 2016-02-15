@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. Ruby 1.9 Upgrading Woes</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. Ruby 1.9 Upgrading Woes"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Ruby 1.9 Upgrading Woes"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="Actually, not so much woes, as general musings. I just finished upgrading a project I&#39;ve been maintaining for the last 15 months or so to Ruby 1.9, and I thought I&#39;d share some of my experi..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2009/4/16/ruby_19_upgrading_woes.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">Ruby 1.9 Upgrading Woes</h3>
+        <h4><a href="/2009/4/16/ruby_19_upgrading_woes.html" title="Permalink for this post">16 April 2009</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>Actually, not so much woes, as general musings. I just finished upgrading a project I&#39;ve been maintaining for the last 15 months or so to Ruby 1.9, and I thought I&#39;d share some of my experiences with the process. Looking back it wasn&#39;t so hard after all, but there were some pitfalls.</p>
+
+<h3>General</h3>
+
+<p>In general the code base is not too big, and there were only some minor issues that needed to be taken care of, some syntactical changes were required, and that was pretty much it.</p>
+
+<p>The biggest problems you&#39;re likely to run across are outdated libraries or gems you&#39;re using. A while ago mocha didn&#39;t fully support the new mini-test included in Ruby 1.9, but since version 0.9.5 it runs fine. I also had to upgrade Machinist, but these are just minor issues.</p>
+
+<p>The site runs on Passenger, so the most recent version was in order, and it works like a charm.</p>
+
+<p>I have yet to delve into potential encoding issues, since Ruby 1.9 complained about some characters in several strings, but the new encoding header should solve these no problem.</p>
+
+<h3>MySQL</h3>
+
+<p>The biggest headscratcher, but just for a second. The official <a href="http://www.tmtm.org/en/mysql/ruby/">MySQL gem</a> has received several updates, and the most recent version (2.8.1) runs just fine on Ruby 1.9, but unfortunately it&#39;s not available as a gem for convenient installation using the gem command. Thankfully Makoto Kuwata has stepped up and provides a nice gem on <a href="http://github.com/kwatch/mysql-ruby/tree/master">GitHub</a>. Install using <code>gem install kwatch-mysql-ruby -s http://gems.github.com</code>, and you&#39;re good to go.</p>
+
+<p>Of course, for the future, the obvious choice should be to use the <a href="http://github.com/espace/mysqlplus/tree/master">MySQL Plus driver</a> <a href="http://www.espace.com.eg/neverblock/blog/2008/08/28/neverblock-mysql-support/">powered by Neverblock</a>.</p>
+
+<h3>RSpec</h3>
+
+<p>The specs didn&#39;t run at all for a starters, but that was due to the wrong test-unit gem being installed. Make sure you have version 1.2.3 installed, then the specs run no problem. Be sure to use the latest versions of the rspec and rspec-rails gems. RSpec has a <a href="http://wiki.github.com/dchelimsky/rspec/ruby-191">small wiki page</a> dedicated to Ruby 1.9.1, so be sure to keep an eye on that.</p>
+
+<h3>Cucumber</h3>
+
+<p>Cucumber had similar problems, it requires a class that only exists in the test-unit gem, so you definitely need to install that anyway. The features ran almost from the get-go, but there was on problem with date selects and webrat. When I didn&#39;t explicitly select a date, it would hand over weird array constructs to the controller, which in turn resulted in assignment errors from within ActiveRecord. The solution (for now) was to explicitly specify the date I wanted, but I&#39;d much prefer being able to leave the defaults as they are.</p>
+
+<h3>NewRelic</h3>
+
+<p>The RPM plugin references a method in Ruby&#39;s Thread class that are no longer available in Ruby 1.9. I had to manually remove the calls in the plugin to get it to work. All the changes are in <code>lib/new_relic/agent/instrumentation/dispatcher_instrumentation</code>. Look for <code>Thread.critical</code> and removed its usages. I have yet to find out if that in any way affects the plugin, but for now it&#39;ll have to do.</p>
+
+<p>And yes, that was it for me. At least on that specific project. To sum up, I spent about two hours fixing the issues, and now, on Ruby 1.9, my full test suite is running about 30 seconds faster than on Ruby 1.8. Totally worth it, if you ask me.</p>
+
+<p>The full results:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">1.8: rake spec features  68.72s user 4.03s system 91% cpu 1:19.89 total
+1.9: rake1.9 spec features  39.95s user 2.39s system 84% cpu 49.975 total
+</code></pre></div>
+<p>I&#39;ll be sure to try and use Ruby 1.9 for all upcoming projects. The speed gain alone justifies it for me.</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2009/3/26/remembering_super.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2009/4/20/a_ruby_meta_programming_riddle.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

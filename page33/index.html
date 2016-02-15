@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. mathias meyer.</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. mathias meyer."/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <div id="articles">
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2010/5/7/activerecord_callbacks_ruined_my_life.html">ActiveRecord's Callbacks Ruined My Life</a></h3>
+        <h4><a href="/2010/5/7/activerecord_callbacks_ruined_my_life.html" title="ActiveRecord's Callbacks Ruined My Life">07 May 2010</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>Recently I&#39;ve been having a foul taste in my mouth, or just a bad feeling, if you will. Whenever I started adding validations and callbacks
+to a model in a Rails application. It just felt wrong. It felt like I&#39;m adding code that shouldn&#39;t be there, that makes everything a lot
+more complicated, and turns explicit into implicit code. Code that is only being run depending on the persistence state of an object. Code
+that is being hard to test, because you need to save an object to test parts of your business logic. Don&#39;t get me started on observers, I
+never was a fan of them. Putting stuff that should be run when an object was saved elsewhere is the worst kind of hiding business logic.</p>
+
+<p>The two are somewhat bound together: Create an object, run a callback and validations. Update an object, check if an attribute is set, run a
+different callback. I started to loathe the lack of implicitness that callbacks gave my code, and I started to loathe that libraries
+everywhere copied that behaviour from ActiveRecord, and that you involve testing your database in your unit tests, though implicitly, and
+that noone had a better answer for how that stuff should work. Sure, it&#39;s not big news that involving your database in your unit tests is
+not a recommended practice, hence the overuse of mocking and stubbing fostered by RSpec, but it took a while for me to really feel the pain.</p>
+
+<h3>Ingredients: REST, Rails, Resources</h3>
+
+<p>The root problem (in a very philosophical way and in my very own opinion) lies in Rails&#39; understanding of RESTful resources. The path to a
+resource is supposed to be thin, and a resource is mostly represented by something that&#39;s stored in a database. So far, so good. That thin
+layer however, the controller, implies that running any logic on a resource somehow ends up in simply updating the resource, setting some
+attribute signaling that an action needs to be taken. That&#39;s how tools like resource_controller, make_resourceful and inherited_resources
+came about, to get rid of the thin-layered controller tier, the boiler plate code. And I loved them, because I hated writing the same code
+over and over again.</p>
+
+<p>But over time I realized that controllers aren&#39;t the problem, it&#39;s the way Rails treats resources that lead us to this mess where
+everything&#39;s declared in a model&#39;s class body, where you have to look at callbacks to find out what&#39;s going on when you create a new object,
+and where you clutter your models with code that just doesn&#39;t need to be there (sending mails, for example, or doing custom validations that
+are bound to specific state). It all started to lack explicitness for me. There&#39;s no clear path of entry, no list of method calls you can
+follow along.</p>
+
+<p>I&#39;m not sure how other people see this, obviously a lot of people don&#39;t realize it&#39;s a problem, or they&#39;re simply fine with how things work,
+I was for a long time too, almost five years now, to be exact. I know I&#39;m not alone in this though, talking to others made me realize
+they&#39;re on a similar page, but given that it&#39;s the way Rails works, what can you do?</p>
+
+<h3>Validations</h3>
+
+<p>What about validations? I can live with validations being part of the model, but they&#39;re still part of the problem generated by callbacks,
+simply because validations are callbacks themselves. I always found myself ending up writing custom validations in before_validation et.
+al. hooks, and it just felt wrong, because the list of callbacks grew noticably. Validations are not always the same depending on your
+object&#39;s state. They can even be quite useless when you&#39;re handling a lot of backend code that&#39;s asynchronous and decoupled from the web
+interface.</p>
+
+<p>What do we do to work around it? We resort to using <code>save(false)</code>, whose lack of explicitness I cannot even begin to
+fully explain in a peaceful manner. Validations tend to depend on the object&#39;s state, at least more complex ones. They&#39;re not universal,
+they can be different when creating and saving objects. Yes, I know that in ActiveRecord you can say <code>:on =&gt; :create</code>, but for me that just
+emphasizes my point. Persistent state determines callbacks and therefore business logic, decreasing expressiveness.</p>
+
+<h3>Forms? Presenters?</h3>
+
+<p>I&#39;ve looked into how <a href="http://docs.djangoproject.com/en/dev/topics/forms/">Django is dealing with this</a>, and it sort of struck a chord with me. Their approach is to define form objects that do the
+validations for you. They&#39;re somewhat decoupled from your business logic and are your intermediate layer between the web interface and the
+business model. Good lord, did I just recommend we all use presenter objects, even though Jay Fields said they don&#39;t work? I think I did, Bob!</p>
+
+<p>It&#39;s not <em>the</em> way, but it&#39;s one way, and there&#39;s been work on bringing this to Rails, have a look at
+<a href="http://github.com/tizoc/bureaucrat">Bureaucrat</a> for example. Again, it&#39;s one way to try solving the problem, it doesn&#39;t come without any
+downsides too. Tying the idea of explicit services to form data may or may not make unit testing harder, or at least mix two different
+concerns (forms and creating/manipulating objects). What I like about it though is that it decouples validation from the business logic, and
+ties it to the layer it&#39;s really necessary, the view.</p>
+
+<p>Not without irony, I&#39;ve started using something similar to handle embedded objects on a project using <a href="http://couchdb.org">CouchDB</a>. I
+wanted to extract out the stuff handling with embedded objects, because I was simply to lazy to add support for that to
+<a href="http://github.com/langalex/couch_potato">CouchPotato</a>. The result felt amazingly good, almost like the above forms mixed with a
+<strong>*gasp\</strong>* service.</p>
+
+<h3>Services?</h3>
+
+<p>I&#39;m still seeking for the answer to that one. <a href="http://www.patmaddox.com/stuff/domain_driven_rails.pdf">Pat Maddox</a> and <a href="http://jamesgolick.com/2010/3/14/crazy-heretical-and-awesome-the-way-i-write-rails-apps.html">James
+Golick</a> suggest services as one way to make
+callbacks explicit, be sure to read through the comments on James&#39; post. Now, I don&#39;t know about your history, but coming from a Java
+background that struck a bad cord with me. I laughed off the idea, to be frank.</p>
+
+<p>One thing still bugs me about the approach James is laying out in his post, it&#39;s the extensive use of mocking. It sure does make for fast
+unit tests, and I&#39;m starting to see the sense in it when using a service model, but I&#39;ve grown fond of the <a href="http://xunitpatterns.com/Mocks,%20Fakes,%20Stubs%20and%20Dummies.html">fakes
+approach</a>, which is why we wrote <a href="http://github.com/jweiss/rocking_chair">Rocking
+Chair</a>, and why people came up with things like <a href="http://github.com/maccman/supermodel">SuperModel</a>,
+in-memory database implementations you can easily switch on and off, not exactly decoupling your unit tests from the persistence layer, but
+decoupling them from having a database running, making it easier to e.g. split batches of tests across several cores and processors, and
+simply making them faster.</p>
+
+<p>However, the more I thought about it, the more sense the services approach made. You don&#39;t have to necessarily make it a separate class,
+depending on how much you like having all of your business logic in the model. I&#39;m not sure which approach I&#39;d prefer, because honestly, I
+haven&#39;t tried it yet, but I&#39;m willing to give in. I&#39;m willing to try things that let me ditch callbacks and validations, because I simply
+loathe them, they just don&#39;t feel right to me anymore when used in the way ActiveRecord does.</p>
+
+<p>With Rails 3 for example, you can put your validations anywhere, they&#39;re not just bound to ActiveRecord anymore, they leave a lot more room
+for you to use them in different ways. I&#39;m not suggesting you should get rid of validations, they&#39;re just a part of the callbacks madness,
+and they tend to not always be the same depending on what you&#39;re doing in a particular use case. Using save(false) just started to feel like
+a bad workaround to me to avoid having callbacks run. I want to save an object no matter what, and run whatever code I require in that
+course of action, in an explicit fashion.</p>
+
+<h3>Are Fine-grained Resources the Future?</h3>
+
+<p>The question that&#39;s left for me, and this is where I&#39;m starting to <em>gasp</em> question Rails&#39; approach to resources. I&#39;m starting to think
+they&#39;re wrong, and that for the service or the forms model to work, the idea of a single resource you update whenever you want your model to
+do something needs to change. Having very specific services and their methods would mean a switch to more lightweight and finer-grained
+resources, specific resources where you e.g. accept an invitation not by PUTting to <code>/invitation/12345</code>, but instead to
+<code>/invitation/12345/accept</code>.</p>
+
+<p>But, and here&#39;s the kicker, to me this leaves the question of how RESTful that approach is. This is where I&#39;d like to get input. How do
+people using services already solve this problem? Have lots of tiny methods in your controllers? Maybe it&#39;s time to work more with Sinatra
+to get different ideas in my head, to rethink resources. I&#39;m still not certain what a good and RESTful way to approach this would be.
+Whatever it is, it&#39;d leave my business logic in a way that&#39;s a lot more approachable both for people reading it, and for my tests. That&#39;s
+something pretty dear to me, and more important than fully conforming to a REST model. There must be something better, because the
+current status quo of handling business logic with Rails&#39; resources just doesn&#39;t work for me anymore, it doesn&#39;t make me a happy programmer.</p>
+
+<p>The answers have yet to be found. My intention is not to rant, but rather to start a discussion around it. In my opinion the way Rails
+recommends handling resources doesn&#39;t have a future, if only for me, and even if that means using other frameworks in the future. I don&#39;t
+think we wasted time with Rails&#39; current way, instead we&#39;re going to see an evolution, and I find that pretty exciting, because the future
+has yet to be written in this regard, and we can be a part of that.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2010/2/25/notes_on_mongodb.html">Notes on MongoDB</a></h3>
+        <h4><a href="/2010/2/25/notes_on_mongodb.html" title="Notes on MongoDB">25 February 2010</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>For an article in a German magazine I&#39;ve been researching <a href="http://mongodb.org">MongoDB</a> over the last week or so. While I didn&#39;t need a lot of the information I came across I collected some nicely distilled notes on some of its inner workings. You won&#39;t find information on how to get data out of or into MongoDB. The notes deal with the way MongoDB treats and handles your data, a high-low-level view if you will. I tried to keep them as objective as possible, but I added some commentary below.</p>
+
+<p>Most of this is distilled knowledge I gathered from the <a href="http://www.mongodb.org/display/DOCS/Home">MongoDB documentation</a>, credit for making such a good resource available for us to read goes to the Mongo team. I added some of my own conclusion where it made sense. They&#39;re doing a great job documenting it, and I can highly recommend spending time to go through as much of it as possible to get a good overview of the whys and hows of MongoDB. Also, thanks to Mathias Stearn for hooking me up with some more details on future plans and inner workings in general. If you want to know more about its inner workings, there&#39;s a <a href="http://blog.mongodb.org/post/404909201/mongodb-how-it-works-webinar">webcast coming up</a> where they&#39;re gonna explain how it works.</p>
+
+<p>Basics</p>
+
+<ul>
+<li>Name stems from humongous, though (fun fact) mongo has some unfortunate meanings in other languages than English (German for example)</li>
+<li>Written in C++.</li>
+<li>Lots of language drivers available, pushed and backed by the MongoDB team. Good momentum here.</li>
+<li>According to The Changelog Show (<a href="http://thechangelog.com/post/287597162">[1]</a>) MongoDB was originally part of a cloud web development platform, and at some point was extracted from the rest, open sourced and turned into what it is today.</li>
+</ul>
+
+<p>Collections</p>
+
+<ul>
+<li>Data in MongoDB is stored in collections, which in turn is stored in databases. Collections are a way of storing related data (think relational tables, but sans the schema). Collections contain documents which have in turn keys, another name for attributes.</li>
+<li>Data is limited to around 2 GB on 32-bit systems, because MongoDB uses memory-mapped files, as they&#39;re tied to the available memory addressing. (see <a href="http://blog.mongodb.org/post/137788967/32-bit-limitations">[2]</a>)</li>
+<li>Documents in collections usually have a similar data structure, but any arbitrary kind of document could be stored, similarity is recommended for index efficiency. Document&#39;s can have a maximum size of 4MB.</li>
+<li>Collections can be namespaced, i.e. logically nested: db.blog.posts, but the collection is still flat as far as MongoDB is concerned, purely an organizational means. Indexes created on a namespaced collection only seem to apply to the namespace they were created on though.</li>
+<li>A collection is physically created as soon as the first document is created in it.</li>
+<li>Default limit on number of namespaces per database is 24000 (includes all collections as they&#39;re practically the top level namespace in a database), which also includes indexes, so with the maximum of 40 indexes applied to each collection you could have 585 collections in a database. The default can be changed of course, but requires repairing the database if changed on an active instance.</li>
+<li>While you can put all your data into one single collection, from a performance point of view, it seems to make sense to separate them into different collections, because it allows MongoDB to keep its indexes clean, as they won&#39;t index attributes for totally unrelated documents.</li>
+</ul>
+
+<p>Capped Collections</p>
+
+<ul>
+<li>Capped collections are fixed-size collections that automatically remove aged entries by LRU. Sounds fancier than it probably is, I&#39;m thinking that documents are just appended at the last writing index, which is reset to 0 when limit of the collection is reached. Preferrable for insert-only use cases, updates of existing documents fail when the data size is larger than before the update. This makes sense because moving an object would destroy the natural insertion order. Limited to ~1GB on 32-bit systems, sky&#39;s the limit on 64-bit.</li>
+<li>Capped collections seem like a good tool for logging data, well knowing that old data is purged automatically, being replaced with new data when the limit is reached. Documents can&#39;t be deleted, only the entire collection can be dropped. Capped collections have no indexes on the _id by default, ensuring good write performance. Indexes generally not recommended to ensure high write performance. No index on _id means that walking the collection is preferred over looking up by a key.</li>
+<li>Documents fetched from a capped collection are returned in the order of their insertion, newest first, think log tailing.</li>
+</ul>
+
+<p>Data Format</p>
+
+<ul>
+<li>Data is stored and queried in BSON, think binary-serialized JSON-like data. Features are a superset of JSON, adding support for regular expressions, date, binary data, and their own object id type. All strings are stored in UTF-8 in BSON, sorting on the other hand does not (yet), it uses strcmp, so the order might be different from what you&#39;d expect. There&#39;s a sort of specification for BSON, if you&#39;re into that kind of stuff: <a href="http://www.mongodb.org/display/DOCS/BSON">[3]</a> and <a href="http://bsonspec.org">[4]</a></li>
+<li>Documents are not identified by a simple ID, but by an object identifier type, optimized for storage and indexing. Uses machine identifier, timestamp and process id to be reasonably unique. That&#39;s the default, and the user is free to assign any value he wishes as a document&#39;s ID.</li>
+<li>MongoDB has a &quot;standard&quot; way of storing references to other documents using the DBRef type, but it doesn&#39;t seem to have any advantages (e.g. fetch associated objects with parent) just yet. Some language drivers can take the DBRef object and dereference it.</li>
+<li>Binary data is serialized in little-endian.</li>
+<li>Being a binary format, MongoDB doesn&#39;t have to parse documents like with JSON, they&#39;re a valid in-memory presentation already when coming across the wire.</li>
+</ul>
+
+<p>References</p>
+
+<ul>
+<li>Documents can embed a tree of associated data, e.g. tags, comments and the like instead of storing them in different MongoDB documents. This is not specific to MongoDB, but document databases in general (see <a href="http://seancribbs.com/tech/2009/09/28/modeling-a-tree-in-a-document-database/">[5]</a>), but when using find you can dereference nested objects with the dot, e.g. blog.posts.comments.body, and index them with the same notation.</li>
+<li>It&#39;s mostly left to the language drivers to implement automatic dereferencing of associated documents.</li>
+<li>It&#39;s possible to reference documents in other databases.</li>
+</ul>
+
+<p>Indexes</p>
+
+<ul>
+<li>Every document gets a default index on the _id attribute, which also enforces uniqueness. It&#39;s recommended to index any attribute that&#39;s being queried or sorted on.</li>
+<li>Indexes can be set on any attribute or embedded attributes and documents. Indexes can also be created on multiple attributes, additionally specifying a sort order.</li>
+<li>If an array attribute is indexed, MongoDB will indexed all the values in it (Multikeys).</li>
+<li>Unique keys are possible, missing attributes are set to null to ensure a document with the same missing attribute can only be stored once.</li>
+<li>If it can, MongoDB will only update indexes on keys that changed when updating a document, only if the document hasn&#39;t changed in size so much that it must be moved.</li>
+<li>MongoDB up to 1.2 creates and updates synchronously, 1.3 has support to update indexes in the background</li>
+</ul>
+
+<p>Updates</p>
+
+<ul>
+<li>Updates to documents are in-place, allowing for partial updates and atomic operations on attributes (set for all attributes, incr, decr on numbers, push, pop, pull et. al on arrays), also known as modifier operations. If an object grows out of the space originally allocated for it, it&#39;ll be moved, which is obviously a lot slower than updating in-place, since indexes need to be updated as well. MongoDB tries to adapt by allocating based on update history (see <a href="http://blog.mongodb.org/post/248614779/fast-updates-with-mongodb-update-in-place">[6]</a>). Writes are lazy.</li>
+<li>Not using any modifier operation will result in the full document being updated.</li>
+<li>Updated can be done with criteria, so a whole bunch of matching documents. Think &quot;update ... where&quot; in SQL. This allows for updating objects based on a particular snapshot, i.e. update based on id and some value in the criteria will only update when the document still has that value. This kind of update is atomic. Reliably updating multiple documents atomically (think transaction) is not possible. There&#39;s also findAndModify in 1.3 (see <a href="http://www.mongodb.org/display/DOCS/findandmodify+Command">[7]</a>) which allows atomically updating and returning a document.</li>
+<li>Upserts insert when a record with the given criteria doesn&#39;t exist, otherwise updates the found record. They&#39;re executed on the collection. A normal save() will do that automatically for any given document. Think find_or_create_by in ActiveRecord.</li>
+</ul>
+
+<p>Querying</p>
+
+<ul>
+<li>Results are returned as cursors, walking a collection as it advances. Which explains why you potentially get records that needed to be moved, it pops up in a space that&#39;s potentially after its current position, if there&#39;s space even in a spot before the current cursor&#39;s position. Cursors are fetched in batches of 100 documents or 4 MB of data, whichever&#39;s reached first.</li>
+<li>That&#39;s also why it&#39;s better to store similar data in a separate collection. Traversing similar data is cheaper than traversing over totally unrelated data, the bigger the size of documents compared to the documents that match your find, the more data will have to be fetched from the database and skipped if it doesn&#39;t match your criteria.</li>
+<li>Data is returned in natural order which doesn&#39;t necessarily relate to insertion order, as data can be moved if it doesn&#39;t fit into its old spot anymore when updated. For capped collections, natural order is always insertion order.</li>
+</ul>
+
+<p>Durability</p>
+
+<ul>
+<li>By default, data in MongoDB is flushed to disk every 60 seconds. Writes to MongoDB (i.e. document creates, updates and deletes) are not stored on disk until the next sync. Tradeoff high write performance vs. durability. Need more durability, reduce sync delay. Closest comparison to the durability behaviour is MySQL&#39;s MyISAM.</li>
+<li>Data is not written transactional, so if the server is killed during a write operation, the data is likely to be inconsistent or even corrupted and needs repair. Think classic file systems like ext2 or MyISAM.</li>
+<li>In MongoDB 1.3 a database flush to disk can be enforced by sending the fsync command to the server.</li>
+</ul>
+
+<p>Replication</p>
+
+<ul>
+<li>Replication is the recommended way of ensuring data durability and failover in MongoDB. A new (i.e. bare and dataless) instance can be hooked onto another at any time, doing an initial cloning of all data, fetching only updates after that.</li>
+<li>Replica pairs offers an auto-failover mechanism. Initially both settle on which is master and which is slave, the slave taking over should the master go down. Can be used e.g. in the Ruby driver using :left and :right options. There&#39;s an algorithm to handle changes when master and slave get out of sync, but it&#39;s not fully obvious to me (see <a href="http://www.mongodb.org/display/DOCS/Pairing+Internals">[8]</a>). Replica Pairs will be replaced by Replica Sets, allowing for more than one slave. The slave with the most recent data will be promoted master in case of the master going down. The slaves agree which one of them is the new master, so a client could ask any one server in the set which one of them is the master.</li>
+<li>Replication is asynchronous, so updates won&#39;t propagate immediately to the slaves. There&#39;s ideas to require the right to be propagated to at least N slaves before returning the write to the client successfully (similar to the feature in MySQL 5.4). (see <a href="http://blog.mongodb.org/post/381927266/what-about-durability">[9]</a>)</li>
+<li>A master collects its writes in an opslog on which the slaves simply poll for changes. The opslog is a capped collection and therefore not a fully usable transaction log (not written to disk?) as old data is purged automatically, hence not reliable for restoring the database after a crash.</li>
+<li>After initial clone, slaves poll once on the full opslog, subsequent polls remember the position where the previous poll ended.</li>
+<li>Replication is not transactional, so the durability of the data on the slave is prone to the same durability conditions as the master, just in a different and still durability-increasing manner, since having a slave allows to decrease sync times on it, and therefore shortening the timespan of data not being written to disk across the setup.</li>
+</ul>
+
+<p>Caching</p>
+
+<ul>
+<li>With the default storage engine, caching is basically handled by the operating system&#39;s virtual memory manager, since it uses memory-mapped files. File cache == Database cache</li>
+<li>Caching behaviour relies on the operating system, and can vary, not necessarily the same on every operating system.</li>
+</ul>
+
+<p>Backup</p>
+
+<ul>
+<li>If you can live with a temporary write lock on your database, MongoDB 1.3 offers fsync with lock to take a reliable snapshot of the database&#39;s files.</li>
+<li>Otherwise, take the old school way of dumping the data using mongodump, or snapshotting/dumping from a slave database.</li>
+</ul>
+
+<p>Storage</p>
+
+<ul>
+<li>Data is stored in subsequently numbered data files, each new one being larger than the former, 2GB being the maximum size a data file can have.</li>
+<li>Allocation of new datafiles doesn&#39;t seem to be exactly related to the amount of data currently being stored. E.g. storage size returned by MongoDB for a collection was 2874825392 bytes, but it had already created almost six gigabytes worth of database files. Maybe that&#39;s the result of padding space for records. I haven&#39;t found a clear documentation on this behaviour.</li>
+<li>When MongoDB moves data into a different spot or deletes documents, it keeps track of the free space to reuse in the future. The command repairDatabase() can be use to compact it, but that&#39;s a slow and blocking operation.</li>
+</ul>
+
+<p>Concurrency</p>
+
+<ul>
+<li>MongoDB refrains from using any kind of locking on data, it has no notion of a transaction or isolation levels. Concurrent writes will simply overwrite each other&#39;s data, as they go straight to memory. Exceptions are modifier operations that are guaranteed to be atomic. As there is no way to update multiple records in some sort of transaction, optimistic locking is not possible, at least in a fully reliable way. Since writes are in-place and in-memory first, they&#39;re wicked fast.</li>
+<li>Reads from the database are usually done in cursors, fetching a batch of documents lazily while iterating through it. If records in the cursors are updated while the cursor is being read from, the updated data may or may not show up. There&#39;s no kind of isolation level (as there are no locks or snapshotting). Deleted records will be skipped. If a record is updated from another process so that the size increases and the object has to be moved to another spot there&#39;s a chance it&#39;s returned twice.</li>
+<li>There&#39;s snapshot queries, but even they may or may not return inserted and deleted records. They do ensure that even updated records will be returned only once, but are slower than normal queries.</li>
+</ul>
+
+<p>Memory</p>
+
+<ul>
+<li>New data is allocated in memory first, increments seem to be fully related to the amount of data saved.</li>
+<li>MongoDB seems to be happy to hold on to whatever memory it can get, but at least during fsync it frees as much as possible. Sometimes it just went back to consuming about 512 MB real memory, other times it went down to just a couple of megs, I couldn&#39;t for the life of me make out a pattern.</li>
+<li>When a new database file needs to be created, it looks like MongoDB is forcing all data to be flushed to disk, freeing a dramatic amount of memory. On normal fsyncs, there&#39;s no real pattern as to how MongoDB frees memory.</li>
+<li>It&#39;s not obvious how a user can configure how much memory MongoDB can or should use, I guess it&#39;s not possible as of now. Memory-mapped files probably just use whatever&#39;s available, and be cleaned up automatically by the operating system&#39;s virtual memory system.</li>
+<li>The need to add an additional caching layer is reduced, as object and database representation is the same, and file system and memory cache can work together to speed up access, there&#39;s no data conversion involved, at least not on MongoDB&#39;s side, data will just be sent serialized and unparsed across the wire. Obviously it depends on the use case if this is really an advantage or a secondary caching layer is still needed.</li>
+</ul>
+
+<p>GridFS</p>
+
+<ul>
+<li>Overcomes the 4MB limit on documents by chunking larger binary objects into smaller bits.</li>
+<li>Can store metadata alongside file data. Metadata can be specified by the user and be arbitrary, e.g. contain access control information, tags, etc.</li>
+<li>Chunks can be randomly access, so it&#39;s possible to fetch data easily whose position in the file is well-known. If random access is required, makes sense to keep chunks small. Default size is 256K.</li>
+</ul>
+
+<p>Protocol Access</p>
+
+<ul>
+<li>MongoDB&#39;s protocol is binary and in its own right proprietary, hence they offer a lot of language drivers to take that pain away from developers, but also offer a full specification on both BSON and the protocol.</li>
+</ul>
+
+<p>Sharding</p>
+
+<ul>
+<li>MongoDB has alpha support for sharding. Its functionality shouldn&#39;t be confused with Riak&#39;s way of partitioning, it&#39;s a whole different story. The current functionality is far from what is planned for production, so take everything listed here with a grain of salt, it merely presents the current state. The final sharding feature is supposed to be free of the restrictions listed here.</li>
+<li>A shard ideally (but not necessarily) consists of two servers which form a replica pair, or a replica set in the future.</li>
+<li>All shards are known to a number of config server instances that also know how and where data is partitioned to.</li>
+<li>Data can be sharded by a specific key. That key can&#39;t be changed afterwards, neither can the key&#39;s value.</li>
+<li>Keys chosen should be granular enough so that there&#39;s the potential of having too many records with the same key. Data is split into chunks of 50 MB so with big documents, it&#39;s probably better to store them in GridFS, as a chunk can contain a minimum of ~12 documents when all take up the available space of 4 MB.</li>
+<li>Sharding is handled by a number of mongos instances which are connected to the shards which in turn are all known to a number of mongod config server instances. These can run on the same machines as the data-handling mongod instances, with the risk that when the servers go down they also disappear. Having backup services seems to be appropriate in this scenario.</li>
+<li>Sharding is still in alpha, e.g. currently replicated shards aren&#39;t supported in alpha 2, so a reliable sharding setup is currently not possible. If a shard goes down, the data on it is simply unavailable until it&#39;s brought back up. Until that happens, all reads will raise an error, even when looking up data that&#39;s known to be on the still available shards.</li>
+<li>There&#39;s no auto-balancing to move chunks to new shards, but that can be done manually.</li>
+</ul>
+
+<p>There you go. If you have something to add or to correct, feel free to leave a comment. I&#39;m happy to stand corrected should I have drawn wrong conclusions anywhere.</p>
+
+<p>As a user of CouchDB I gotta say, I was quite sceptical about some of MongoDB&#39;s approaches of handling data. Especially durability is something that I was worried about. But while I read through the documentation and played with MongoDB I realized that it&#39;s the same story as always: It depends. It&#39;s a problem when it&#39;s a problem. CouchDB and MongoDB don&#39;t necessarily cover the same set of use cases. There&#39;s enough use cases where the durability approach of MongoDB is acceptable compared to what you gain, e.g. in development speed, or speed when accessing data, because holy crap, that stuff is fast. There&#39;s a good reason for that, as I hope you&#39;ll agree after going through these notes. I&#39;m glad I took the time to get to know it better, because the use cases kept popping up in my head where I would prefer it over CouchDB, which isn&#39;t always a sweet treat either.</p>
+
+<p>If you haven&#39;t already, do give MongoDB a spin, go through their documentation, throw data at it. It&#39;s a fun database, and the entrance barrier couldn&#39;t be lower. It&#39;s a good combination of relational database technologies, with schemaless and JavaScript sprinkled on top.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2010/2/16/a_collection_of_redis_use_cases.html">A Collection Of Redis Use Cases</a></h3>
+        <h4><a href="/2010/2/16/a_collection_of_redis_use_cases.html" title="A Collection Of Redis Use Cases">16 February 2010</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p><em>Interested in Redis? You might be interested in the <a href="http://redishandbook.com">Redis Handbook</a> I&#39;m currently working on.</em></p>
+
+<p>I&#39;m gonna eat <a href="http://www.paperplanes.de/2010/2/15/nosql_and_you_finding_the_right_partner.html">my own dog food</a> here, and start you off with a collection of links and ideas of people using <a href="http://code.google.com/p/redis/">Redis</a>. Redis&#39; particular way of treating data requires some rethinking how to store your data to benefit from speed, atomicity and its data types. I&#39;ve already written about <a href="http://www.paperplanes.de/2009/10/27/theres_something_about_redis.html">Redis</a> <a href="http://www.paperplanes.de/2009/10/30/how_to_redis.html">in</a> <a href="http://www.paperplanes.de/2009/10/29/when_to_redis.html">abundance</a>, this post&#39;s purpose is to compliment them with real-world scenarios. Maybe you can gather some ideas on how to deal with things.</p>
+
+<p>There&#39;s a couple of well-known use cases already, the most popular of them being <a href="http://github.com/defunkt/resque/">Resque</a>, a worker queue. <a href="http://github.com/gleicon/restmq">RestMQ</a>, an HTTP-based worker queue using Redis, was just recently released too. Both don&#39;t make use yet of the rather new blocking pop commands like <a href="http://github.com/ezmobius/redactor">Redactor</a> does, so there&#39;s still room for improvement, and to make them even more reliable.</p>
+
+<p><a href="http://ohm.keyvalue.org/">Ohm</a> is a library to store objects in Redis. While I&#39;m not sure I&#39;d put this layer of abstraction on top of it, it&#39;s well worth looking at the code to get inspiration. Same is true for <a href="http://github.com/BrianTheCoder/redis-types">redis-types</a>.</p>
+
+<ul>
+<li><p><a href="http://code.google.com/p/redis/wiki/TwitterAlikeExample">A Twitter Clone using Redis</a></p>
+
+<p>This should be the first one to check out, very detailed example on how you could implement a Twitter clone using Redis and PHP. Twitter clones using Redis are all the rage these days, there&#39;s also a <a href="http://github.com/danlucraft/retwis-rb">clone of the original clone written in Ruby</a>.</p></li>
+<li><p><a href="http://ozmm.org/posts/sort_in_redis.html">Sort in Redis</a></p>
+
+<p>An instant classic. Some examples on how to use sorting in Redis.</p></li>
+<li><p><a href="http://www.lukemelia.com/blog/archives/2010/01/17/redis-in-practice-whos-online/">Redis in Practice: Who&#39;s Online?</a></p>
+
+<p>Great and distilled example of how to utilize set intersections and unions to find out which people are online at a given minute.</p></li>
+<li><p><a href="http://www.digitalhobbit.com/2009/11/08/building-a-twitter-filter-with-sinatra-redis-and-tweetstream/">Building a Twitter Filter with Sinatra, Redis, and Tweetstream</a></p>
+
+<p>Exactly what the title says. Examples of using lists to store tweets marshalled using JSON.</p></li>
+<li><p><a href="http://techno-weenie.net/2010/2/3/where-s-waldo-track-user-locations-with-node-js-and-redis">Where&#39;s Waldo: Track user locations with Node.js and Redis</a></p>
+
+<p>Redis and Node.js seem to be a great match, be sure to check out the <a href="http://github.com/technoweenie/wheres-waldo">source</a> too. Similar to the one above, different implementation. Be sure to read the prequel <a href="http://techno-weenie.net/2010/1/15/node-js-for-my-tiny-ruby-brain">&quot;Node.js For My Tiny Ruby Brain&quot;</a> too, some more code in there.</p></li>
+<li><p><a href="http://www.dorkalev.com/2010/02/sikwamic-simple-key-value-with-comet.html">Sikwamic: Simple Key-Value With Comet</a></p>
+
+<p>Comet and Redis, sitting in a tree.</p></li>
+</ul>
+
+<p>Redis&#39; simplicity, atomicity and speed make it an excellent tool when tracking things directly from the web, e.g. through WebSockets or Comet. If you can use it asynchronously, all the better.</p>
+
+<ul>
+<li><p><a href="http://www.mrkris.com/2009/10/28/affiliate-click-tracking-with-rack-and-redis-because-i-care/">Affiliate Click Tracking with Rack and Redis</a>.</p>
+
+<p>Simple approach to tracking clicks, I probably wouldn&#39;t use a list for all clicks, but instead have one for each path, but there&#39;s always several ways to get to your goal with Redis. Not exactly the same, but <a href="http://github.com/jpoz/almaz">Almaz</a> can track URLs visited by users in Rails applications.</p>
+
+<p>Update: Turns out that the affiliate click tracking code above, the list is only used to push clicks into a queue, where they&#39;re popped off and handled by a worker, as pointed out by Kris in the comments.</p></li>
+<li><p><a href="http://streamhacker.com/2009/05/20/building-a-nltk-freqdist-on-redis/">Building a NLTK FreqDist on Redis</a></p>
+
+<p>Calculation of frequency distribution, with data stored in Redis.</p></li>
+<li><p><a href="http://gist.github.com/296921">Gemcutter: Download Statistics</a></p>
+
+<p>The RubyGems resource par excellence is going to use Redis&#39;s sorted sets to track daily download statistics. While just a proposals, the ideas are well applicable to all sorts of statistics being tracked in today&#39;s web applications.</p></li>
+<li><p><a href="http://oxfordrepo.blogspot.com/2010/01/usage-stats-and-redis.html">Usage stats and Redis</a></p>
+
+<p>More on tracking views statistics with Redis.</p></li>
+<li><p><a href="http://vanity.labnotes.org/">Vanity - Experiment Driven Development</a></p>
+
+<p>Split testing tool based on Redis to integrate in your Rails application. Another kind of tracking statistics. If you didn&#39;t realize it up to now, Redis is an excellent tool for this kind of application. Data that you wouldn&#39;t want to load off to your main database, because let&#39;s face it, it&#39;s got enough crap to do already.</p></li>
+<li><p><a href="http://www.igvita.com/2010/01/06/flow-analysis-time-based-bloom-filters/">Flow Analysis &amp; Time-based Bloom Filters</a></p>
+
+<p>Streaming data analysis for the masses.</p></li>
+<li><p><a href="http://simonwillison.net/2009/Dec/20/crowdsourcing/">Crowdsourced document analysis and MP expenses</a></p>
+
+<p>While being more prose than code, it still shows areas where Redis is a much better choice than e.g. MySQL.</p></li>
+</ul>
+
+<p>Using Redis to store any suitable kind of statistics is pretty much an immediate use case for a lot of web applications. I could think of several projects I&#39;ve work on that could gain something from using certain parts of their application to Redis. It&#39;s the kind of data you just don&#39;t want to clutter your database with. Clicks, view, history and all that stuff puts an unnecessary amount of data and load on it. The more data it accumulates, the harder it will be to get rid off, especially in MySQL.</p>
+
+<ul>
+<li><p><a href="http://gist.github.com/86714">Simple Note Keeping with Redis</a></p>
+
+<p>A code snippet that&#39;s actually a fully working Sinatra app to jot down notes.</p></li>
+<li><p><a href="http://sunilarora.org/url-shortener-service-using-redis">URL Shortener Service using Redis</a></p>
+
+<p>Personal URL shortening is the new black, that&#39;s why I&#39;ve written <a href="http://github.com/mattmatt/relink">my own service</a>.</p></li>
+</ul>
+
+<p>It&#39;s not hard to tell that we&#39;re still far from having heaps of inspiration and real-life use cases to choose from, but these should give you an idea. If you want it can get a lot simpler too. When you&#39;re using Redis already, it makes sense to use it for storing Rails sessions.</p>
+
+<p>Redis is a great way to share data between different processes, be it Ruby or something else. The atomic access to lists, strings and sets, together with speedy access ensures that you don&#39;t even need to worry about concurrency issues when reading and writing data. On <a href="http://scalarium.com">Scalarium</a>, we&#39;re using it mostly for sharing data between processes.</p>
+
+<p>E.g., all communication between our system and clients on the instances we boot for our users is encrypted and signed. To ensure that all processes have access to the keys, they&#39;re stored conveniently in Redis. Even though that means the data is duplicated from our main database (which is CouchDB if you must know), access to Redis is a lot faster. We keep statistics about the instances in Redis too, because CouchDB is just not made for writing heaps and heaps of data quickly. Redis also tracks a request token that is used to authenticate internal requests in our asynchronous messaging system, to make sure that they can&#39;t be compromised from some external source. Each request gets assigned a unique token. The token is stored in Redis before the message is published and checked before the message is consumed. That way we turned Redis into a trusted source for shared data between web and worker processes.</p>
+
+<p>The library <a href="http://github.com/levicook/memodis">memodis</a> makes sharing data incredibly easy, it offers Redis-based memoization. When you assign a memodis&#39;d attribute in your code, it&#39;ll be stored in Redis and therefore can be easily read from other processes.</p>
+
+<p>Redis is incredibly versatile, and if you have a real-life Redis story or usage scenario to share, please do.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<div class="pagination">
+  
+    
+      <a href="/page32" class="previous">Newer Posts</a>
+    
+  
+  
+    <a href="/page34" class="next">Older Posts</a>
+  
+</div>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

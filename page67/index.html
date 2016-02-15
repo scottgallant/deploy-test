@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. mathias meyer.</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. mathias meyer."/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <div id="articles">
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2007/12/14/mocha_and_rspec_dont_play.html">Mocha and RSpec Don't Play Nice</a></h3>
+        <h4><a href="/2007/12/14/mocha_and_rspec_dont_play.html" title="Mocha and RSpec Don't Play Nice">14 December 2007</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p><a href="http://www.mockobjects.com/">Mocking</a> is a great part of <a href="http://rspec.rubyforge.org/">RSpec</a>, and from the <a href="http://rspec.rubyforge.org/documentation/mocks/index.html">documentation</a> it looks insanely easy. What had me frustrated on a current project is the fact that the mocks and stubs wouldn&#39;t always do what I&#39;d expect them to do. No errors when methods weren&#39;t invoked, and, the worst part, mocks wouldn&#39;t be cleaned up between examples which resulted in rather weird errors. They only occurred when run as a whole with <code>rake spec</code> but not when I ran the specs through TextMate.</p>
+
+<p>I was going insane, because noone on the mailing list seemed to have any problems, same for friends working with RSpec. Then I had another look at the RSpec configuration.</p>
+
+<p>Turns out, the reason for all of this is that Mocha was used for mocking. Switching the configuration back to use RSpec&#39;s internal mocking implementation, everything worked like a charme from then on.</p>
+
+<p>So what you want to have in your <code>SpecHelper</code> isn&#39;t this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">Spec::Runner.configure do |config|
+  config.mock_with :mocha
+end
+</code></pre></div>
+<p>but rather</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">Spec::Runner.configure do |config|
+  config.mock_with :rspec
+end
+</code></pre></div>
+<p>or no mention at all of <code>mock_with</code> which will result in the default implementation being used which is, you guessed it, RSpec&#39;s own.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2007/12/14/friday_links_141207.html">Friday Links (14.12.07)</a></h3>
+        <h4><a href="/2007/12/14/friday_links_141207.html" title="Friday Links (14.12.07)">14 December 2007</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>Friday&#39;s tab sweep for a little weekend reading.</p>
+
+<ul>
+<li><p><a href="http://almaer.com/blog/rails-and-how-the-opinion-can-keep-back-rails-ee">Rails, and how the opinion can keep back Rails EE</a><br>
+Interesting opinion on plugin-overflow and blind framework switching.</p></li>
+<li><p><a href="http://ciaranwal.sh/2007/12/10/tab-switching-in-terminal">Tab Switching in Terminal</a><br>
+Nice InputManager hack to enable Cmd-1 to 9 for directly switching to tabs.</p></li>
+<li><p><a href="http://backgroundrb.rubyforge.org/">BackgrounDRb is growing up</a><br>
+Well, who woulda thought. The new team switched the communication with the BackgrounDRb server to the more reliable <a href="http://code.google.com/p/packet/">Packet library</a>. More information about the changes for the upcoming 1.0 release on the <a href="http://rubyforge.org/pipermail/backgroundrb-devel/2007-December/001089.html">mailing list</a>.</p></li>
+<li><p><a href="http://railspikes.com/2007/12/10/rendering-erubis-and-rails-2-0">Rendering with Erubis and Rails 2.0</a>  </p></li>
+<li><p><a href="http://utilitybelt.rubyforge.org/">Utility Belt</a><br>
+Extension kit for IRB, shortcuts for S3, using the clipboard in OS X, using Pastie, and much more.</p></li>
+<li><p><a href="http://blog.codefront.net/2007/12/10/declarative-exception-handling-in-your-controllers-rails-20-a-feature-a-day-2/">Declarative exception handling in your controllers with Rails 2.0</a><br>
+Neat!</p></li>
+</ul>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2007/12/13/cruisecontrolrb_and_rspec_play_nice.html">CruiseControl.rb and RSpec Play Nice</a></h3>
+        <h4><a href="/2007/12/13/cruisecontrolrb_and_rspec_play_nice.html" title="CruiseControl.rb and RSpec Play Nice">13 December 2007</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>When using <a href="http://cruisecontrolrb.thoughtworks.com/">CruiseControl.rb</a> for continuous integration, and RSpec for testing, the defaults of CruiseControl.rb don&#39;t play that nice with RSpec. However, that can be remedied pretty simply.</p>
+
+<p>By default CruiseControl.rb runs its own set of Rake task, which invoke a couple of Rails&#39; tasks, including <code>db:test:purge</code>, <code>db:migrate</code> and <code>test</code>. You do want the first ones, but you&#39;d rather have CruiseControl.rb run your specs instead of your the (most likely non-existing) Test::Unit tests.</p>
+
+<p>Before running its default tasks it checks whether you have a specific task configured in your project settings, and if you have a task called <code>cruise</code> in your project&#39;s Rakefiles. You can use both, but I just declared a task <code>cruise</code> in the Rakefile, and I was good to go.</p>
+
+<p>That task can to pretty much the same as the original CruiseControl.rb implementation, and even be shorter since it can be tailored for your project, but invokes <code>spec</code> instead of <code>test</code>. One caveat is to set the correct environment before running <code>db:migrate</code>. I split out a tiny <code>prepare</code> task which does just that, and can do a couple of other things, if necessary, like copying a testing version of your database.yml.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">desc &quot;Task to do some preparations for CruiseControl&quot;
+task :prepare do
+  RAILS_ENV = &#39;test&#39;
+end
+
+desc &quot;Task for CruiseControl.rb&quot;
+task :cruise =&gt; [:prepare, &quot;db:migrate&quot;, &quot;spec&quot;] do
+end
+</code></pre></div>
+<p>Simple like that. The task <code>spec</code> will automatically invoke <code>db:test:purge</code>, so you don&#39;t need that.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<div class="pagination">
+  
+    
+      <a href="/page66" class="previous">Newer Posts</a>
+    
+  
+  
+    <a href="/page68" class="next">Older Posts</a>
+  
+</div>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

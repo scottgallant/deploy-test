@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. How to Process Multiple ActiveMessaging Queues Concurrently</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. How to Process Multiple ActiveMessaging Queues Concurrently"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="How to Process Multiple ActiveMessaging Queues Concurrently"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="The title totally overemphasizes the topic, but here we go. By default ActiveMessaging will process all your queues in one thread. All messages from all queues will be processes sequentially. This ..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2008/2/18/how_to_process_multiple_activemessaging.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">How to Process Multiple ActiveMessaging Queues Concurrently</h3>
+        <h4><a href="/2008/2/18/how_to_process_multiple_activemessaging.html" title="Permalink for this post">18 February 2008</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>The title totally overemphasizes the topic, but here we go. By default <a href="http://code.google.com/p/activemessaging/">ActiveMessaging</a> will process all your queues in one thread. All messages from all queues will be processes sequentially. This isn&#39;t always what you want. Especially in scenarios where you have both long-running tasks being kicked off through messages, and rather short-lived tasks that you just fire and forget.</p>
+
+<p>ActiveMessaging has a rather simple and not-so-obvious way of dealing with that: processor groups. There&#39;s some <a href="http://code.google.com/p/activemessaging/wiki/Configuration">documentation</a> on them, but it doesn&#39;t bring out the real beauty of them.</p>
+
+<p>Basically you split your processors in groups, how finely grained is up to you. A simple way would be to just separate long-running from short-lived tasks. You just have to define these in <code>config/messaging.rb</code>:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">ActiveMessaging::Gateway.define do |s|
+  s.destination :index_update, &#39;/queue/IndexUpdate&#39;
+  s.destination :giant_batch_job, &#39;/queue/GiantBatchJob&#39;
+  s.processor_group :short, :index_update_processor
+  s.processor_group :long, :giant_batch_job_processor
+end
+</code></pre></div>
+<p>Now that you have these, how do you get them to run in different threads? If you just use <code>script/poller start</code>, it will continue to work through all messages from all queues. You need to start each processor group individually:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$ script/poller start ---- process-group=short
+$ script/poller start ---- process-group=long
+</code></pre></div>
+<p>Keep in mind though that you can&#39;t stop just one poller for one particular processor group. Running <code>script/poller stop</code> will tear them all down. Which comes in handy during deployments. That way you only have to ensure that all your process groups are started during the deployment, but not about stopping every one of them.</p>
+
+<p>ActiveMessaging will run each group in a separate thread which all are monitored by the poller_monitor. The latter will only be started once, courtesy of the <a href="http://daemons.rubyforge.org/">daemons</a> package.</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2008/2/15/amazon_s3_is_down.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2008/2/20/seriously_the_most_awesome_photoshop.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

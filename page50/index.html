@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. mathias meyer.</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. mathias meyer."/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <div id="articles">
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2008/9/26/why_coding_guidelines_dont_matter.html">Why Coding Guidelines Don't Matter</a></h3>
+        <h4><a href="/2008/9/26/why_coding_guidelines_dont_matter.html" title="Why Coding Guidelines Don't Matter">26 September 2008</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>I&#39;ve been on a lot of projects, where people put an awful lot of time into coming up with the right coding style. Everyone of course wants to have his knack for a certain way of doing things included: &quot;I want my opening curly brace at the end of the line.&quot; Or: &quot;A single space between if and the following opening brace.&quot;</p>
+
+<p>I&#39;ve been on several projects where I&#39;ve written either coding styleguides myself or had people scream at me or others for not conforming to the coding styleguide.</p>
+
+<p>It all seemed like an incredible waste of time to me, because people just tend to stop caring, or find a way around your automated checks. Everyone has its own style to code, and it&#39;s healthier for a project to just accept that fact.</p>
+
+<p>Because they want to focus on the task at hand instead of some guidelines that just stand in their way of building something awesome, and simply because they don&#39;t like having every aspect of their work controlled. Each developer has a different personality. That will reflect upon his code, and that&#39;s a good thing.</p>
+
+<p>Instead of a document of several pages you just could&#39;ve come up with four bullet points, like the Rails team has. Simple as that. No long discussions, no enforcing the rules. Let peer review do the rest. If your programmers work in pairs, you don&#39;t need a fancy coding guidelines document anyway. People will just adapt to a common coding style naturally. People will point out possible issues with code readability on the spot without the need to control and micromanage them.</p>
+
+<p>The most useful coding guideline I&#39;ve ever seen and used: Indent with two spaces. If you don&#39;t think so, I highly recommend this rather dogmatic <a href="http://www.matthewpaulmoore.com/articles/1276-ruby-on-rails-code-quality-checklist">Rails coding style checklist</a>.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2008/9/25/migrating_a_project_to_use.html">Migrating a Project to use Rails UTC-based Migrations</a></h3>
+        <h4><a href="/2008/9/25/migrating_a_project_to_use.html" title="Migrating a Project to use Rails UTC-based Migrations">25 September 2008</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>A confusing title, I know. But I recently upgraded a rather big project to use Rails 2.1. Everything went pretty smoothly, but one thing bugged me, since it&#39;s not really documented anywhere: What happens if you migrate from the old numbered migration scheme to the new one using UTC timestamps?</p>
+
+<p>The new migration system dumps every migration ever run into a new table called <code>schema_migration</code>. That of course includes your old migrations, at least those that exist in db/migrate at the time you first run <code>rake db:migrate</code> on a Rails 2.1 project. It will silently drop the old and trusty <code>schema_info</code> table, and from then on you&#39;re good to go to use the new naming scheme for migrations.</p>
+
+<p>So migrating a project to use the new migration scheme is as simple as running <code>rake db:migrate</code> once. Check that the table <code>schema_migrations</code> hasn&#39;t been created accidentally though. That will just fail inserting the existing migrations.</p>
+
+<p>There, that was easy.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2008/9/24/git_bits_renaming_with_lowercase.html">Git Bits: Renaming with Lowercase and Uppercase</a></h3>
+        <h4><a href="/2008/9/24/git_bits_renaming_with_lowercase.html" title="Git Bits: Renaming with Lowercase and Uppercase">24 September 2008</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>There&#39;s a small pitfall when using git-svn. I just recently had the problem that someone renamed a file from lowercase to uppercase in our Subversion repository. Why should that bother me, when I&#39;m using Git, you ask? Well, I&#39;m using git-svn, and it didn&#39;t really like that kind of change. The default on Mac OS X file systems is that they are case-insensitive. FFFFFF.gif is the same as ffffff.gif.</p>
+
+<p>Speaking of which, that was exactly the file that has been renamed. Doing a <code>git svn rebase</code> failed miserably with the error that ffffff.gif would be overwritten by the merge of the commit in question. Gah!</p>
+
+<p>It took me a while to find a way around it. If you delete the file in question, just from the file system, not from the Git index, mind you, you can merge the branch in question, and have it restore the file as if nothing happened.</p>
+
+<p>The steps are pretty simple:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$ rm file/in/question.gif
+$ git merge trunk
+</code></pre></div>
+<p>The file should be restored in all its renamed glory. It works because all the stuff from the Subversion repository sleeps quietly in a branch called trunk, together with all the metadata git-svn requires.</p>
+
+<p>You won&#39;t have that problem when using plain Git, though to rename the file you have to use <code>git mv -f</code>, but git-svn apparently can&#39;t handle that situation.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<div class="pagination">
+  
+    
+      <a href="/page49" class="previous">Newer Posts</a>
+    
+  
+  
+    <a href="/page51" class="next">Older Posts</a>
+  
+</div>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

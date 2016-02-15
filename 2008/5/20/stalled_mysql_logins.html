@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. Stalled MySQL Logins</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. Stalled MySQL Logins"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Stalled MySQL Logins"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="If you ever see a list like this in your MySQL process list, run!
++---------+--------------------------------------------+--------------------------------+------------+-----------------+-----------..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2008/5/20/stalled_mysql_logins.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">Stalled MySQL Logins</h3>
+        <h4><a href="/2008/5/20/stalled_mysql_logins.html" title="Permalink for this post">20 May 2008</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>If you ever see a list like this in your MySQL process list, run!</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">+---------+--------------------------------------------+--------------------------------+------------+-----------------+------------+-------------+------------+
+| Id  | User                 | Host           | db   | Command | Time | State | Info |
++---------+--------------------------------------------+--------------------------------+------------+-----------------+------------+-------------+------------+
+| 442 | unauthenticated user | 10.1.1.2:55885 | NULL | Killed  | NULL | login | NULL | 
+| 443 | unauthenticated user | 10.1.1.1:48009 | NULL | Killed  | NULL | login | NULL | 
+.....
+| 444 | unauthenticated user | 10.1.1.1:58105 | NULL | Killed  | NULL | login | NULL | 
+| 445 | unauthenticated user | 10.1.1.2:60799 | NULL | Killed  | NULL | login | NULL | 
++---------+--------------------------------------------+--------------------------------+------------+-----------------+------------+-------------+------------+
+</code></pre></div>
+<p>No seriously. Apparently it&#39;s something of a <a href="http://bugs.mysql.com/bug.php?id=2814">known bug</a> which comes up at unpredictable points in time.</p>
+
+<p>One proposed solution is to add all your internal hosts which can&#39;t be looked up through DNS to your /etc/hosts file:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">10.1.1.1    appserver1
+10.1.1.2    appserver2
+</code></pre></div>
+<p>Et voila. The exact same moment, all the users were authenticated. Scary? Yes. Weird? Yes. Problem solved? Yes.</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2008/5/9/a_small_gem_for_web.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2008/6/6/smalltalk_on_git.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

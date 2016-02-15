@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. mathias meyer.</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. mathias meyer."/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <div id="articles">
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2009/10/30/how_to_redis.html">How To Redis</a></h3>
+        <h4><a href="/2009/10/30/how_to_redis.html" title="How To Redis">30 October 2009</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>We&#39;ve covered some good ground already, some blabber about Redis in general, and also some thoughts on when using it could be beneficial. The other big question is: How do I integrate that stuff in my application? How do I get my objects to be stored neatly in Redis?</p>
+
+<p>The simplest way is to just use the <a href="http://github.com/ezmobius/redis-rb">redis-rb</a> library and talk to Redis almost directly. That&#39;s quite low level compared what you&#39;re used to with ActiveRecord though. <a href="http://github.com/defunkt/hurl/">Hurl</a> wraps most of the convenience stuff into a neat class <a href="http://github.com/defunkt/hurl/blob/master/models/model.rb">Model</a> that implements basic functionality like saving, validating and handling identifiers.</p>
+
+<p><a href="http://github.com/soveran/ohm">Ohm</a> takes it the next level, adding more complex validations, integrating the Redis data types as top level class attributes, and even handling associations for you. It&#39;s serious awesomesauce, and the implementation is quite simple too. It even supports having indexes on attributes you want to query for, updating them transparently for you as you create new objects or update existing ones.</p>
+
+<p>As for integrating these things alongside your existing application, based e.g. on ActiveRecord, there is no really easy way to to that. You can&#39;t have both Ohm and AR in the same class. Data stored in Redis referencing records in other data stores, usually by storing type and identifier, is obviously weakly coupled to them. You have to take care of cleaning up and of ensuring that the keys match. Associating them means you&#39;ll have to stuff some way to fetch the data from Redis into your existing model. Let&#39;s look at some means how you could store objects and associated data in Redis. The approaches are derived from Ruby code, but are easily applicable to other languages. They&#39;re more general implementation ideas than specific pieces of code.</p>
+
+<h3>Keys</h3>
+
+<p>Simple thing, use the fully qualified class name, add a unique identifier, and you&#39;re done. The identifier can either be derived from a separate key generator attribute in Redis, using the <a href="http://code.google.com/p/redis/wiki/IncrCommand">atomic increment command</a> to generate new ones, or by using something like a UUID. It could basically look like this, the simple rule still applying that your keys need to be unique at least on a per-class basis:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&quot;User:ef12abc&quot;
+</code></pre></div>
+<h3>Attributes</h3>
+
+<p>I can think of two ways to store your simple attribute data, and both are implemented in Ohm and in hurl respectively. The first one is to combine the key and the attribute name and store each attribute&#39;s value as a separate value. Ohm follows that approach, but I honestly can&#39;t think of any good reason to do it this way. Resulting key-value pairs could look like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&quot;User:ef12abc:name&quot; =&gt; &quot;salvatore&quot;
+</code></pre></div>
+<p>hurl uses a much nicer approach, it just serializes the hash of attributes into a JSON string, storing it with the generated key as mentioned above. I much prefer this approach as it doesn&#39;t create dozens of keys for each object stored in Redis. Data is serialized before storing and deserialized when loading, simple story, and not a new approach in the world of post-relational databases. You&#39;d do the same with CouchDB.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&quot;User:ef12abc&quot; =&gt; &quot;{name: &#39;salvatore&#39;}&quot;
+</code></pre></div>
+<p>Of course an attribute can simply be a list or a set of values, no big deal with Redis. Ohm wraps that kind of functionality into simple proxy classes.</p>
+
+<h3>Finding Things</h3>
+
+<p>With a key structure in place it&#39;s easy to fetch objects and their attributes, but what about querying by attribute values? Redis doesn&#39;t have any query mechanism as you know it from relational databases. You just can&#39;t do find_by_name(&#39;salvatore&#39;) and be done with it. Ohm has a neat approach that just seems logical applied to something like Redis. For attributes you wish to index it stores a reverse lookup list. So if you have users with different names, that list is basically a key for each name used in any one object with a reference to objects having that very value.</p>
+
+<p>You could extend that for any combination of attributes you want to query for, but if detailed ad-hoc querying is what you&#39;re after, maybe Redis is not the right tool for the job. The stored key-value combination could look like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&quot;User:name:salvatore&quot; =&gt; [&#39;User:ef12abc&#39;]
+</code></pre></div>
+<p>Combine class name, attribute and the value with a list of objects having that value. It&#39;s up to you to just have a list of their identifiers or store the fully qualified key. Of course for arbitrary values the keys can get quite long, so Ohm solves that problem by encoding the values with Base64 which does have the disadvantage of being less readable when debugging.</p>
+
+<p>With that key-value combination in place a find on a particular value is merely fetching a single key in Redis. And if you didn&#39;t realize it until now, Ohm is pretty neat. It solves Redis usage for Ruby models quite elegantly.</p>
+
+<h3>Associations</h3>
+
+<p>At this point you should get an idea how things can be solved with Redis. For associating objects the solution is pretty simple. Just keep a list of all the objects belonging to the current one. Say a user has a bunch of posts attached to them. Given that posts are also stored in Redis (and why wouldn&#39;t they?), it&#39;s just a list of keys, or a set, if you don&#39;t care for the ordering:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&quot;User:ef12abc:posts&quot; =&gt; [&#39;Post:1&#39;, &#39;Post:2&#39;]
+</code></pre></div>
+<p>Each post gets its own attribute storing the reference back up, but depending on how you usually navigate your objects, you can leave it out.</p>
+
+<p>So how do you mix objects using ActiveRecord with objects stored in Redis? The answer is right there: with a lookup list similar to the one above, just using a different key according to the ActiveRecord model. It could just be as simple as class and primary key. </p>
+
+<h3>Locking Objects</h3>
+
+<p>After my Redis talk someone raised the question of how Redis solves the problem of concurrent writes and their potential to overwrite each other&#39;s data. I was a bit caught off guard by this question, and while I think that this is not a problem solely related to Redis, but to relational databases in general, the answer is: it doesn&#39;t. Apart from the atomic operations you can do on sets and lists and incrementing counters there just is no way.</p>
+
+<p>But if you still want to ensure that at least your write is successful, Ohm to the rescue. It uses a simple lock value to lock a specific object in Redis, at least for this very write. That a write waiting for the lock to be remove might overwrite the data just written is another issue. The code in Ohm to obtain the lock looks like this (I&#39;ve replaced one method call with a real value to give you an idea):</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">def lock!
+  lock = db.setnx(&#39;User&#39;ef12abc:_lock&#39;, 1) until lock == 1
+end
+</code></pre></div>
+<p><a href="http://code.google.com/p/redis/wiki/SetnxCommand">setnx</a> sets a value only if it hasn&#39;t been previously set. So it loops until it acquires the lock, and then performs the operation. Ohm utilizes this kind of mutex for several of its operation where Redis itself can&#39;t guarantee atomicity.</p>
+
+<p>There is some discussions going on to introduce some sort of batch command style syntax to the Redis protocol though. So while I don&#39;t want to see the full logic of complex transactions in Redis, having a command to have a whole batch of other commands either run all together or fail together is pretty neat.</p>
+
+<h3>Select * from users</h3>
+
+<p>So how do you get all of your users for easy pagination? Easy, create a list for all your User objects. You can access specific ranges and always have the number of total objects at hand:</p>
+
+<p>&quot;User:all&quot; =&gt; [&#39;User:12acf&#39;, &#39;User:f31ad&#39;]</p>
+
+<p>Now you can use the <a href="http://code.google.com/p/redis/wiki/LrangeCommand">lrange</a> to get to your objects or the <a href="http://code.google.com/p/redis/wiki/LlenCommand">llen</a> command (<code>llen User:all</code>) to get the total number of objects of a particular type.</p>
+
+<h3>Sorting</h3>
+
+<p>Now this is where it gets tricky. Sorting by an attribute would involve a list of attribute values somehow associated to the objects they belong to. I can&#39;t really think of a simple way to solve this in Redis 1.0, since there is no data structure that allows linking two values like that. For the record, sorting a simple list in Redis is easy as pie, check <a href="http://ozmm.org/posts/sort_in_redis.html">Chris Wanstrath&#39;s post on sorting</a>.</p>
+
+<p>With Redis 1.1 however, sorted sets will be introduced. While they still don&#39;t solve the problem entirely, they&#39;re an acceptable solution. They work based on a score you specify when adding the attribute to the list. The score is really the kicker though, to fully work, it needs to be a number, a double precision floating point to be exact.</p>
+
+<p>Since you&#39;re dealing mostly with strings, you&#39;d need to run some sort of hashing on them. My first thought was to just put their numerical ASCII or UTF-8 codes together. But that falls apart considering that you&#39;d need to pad the numbers depending on how many digits they have. Since the score itself is considered a number, at least padding of the first character code is lost.</p>
+
+<p>But wait, did I say floating point earlier? I think I did. What if we add the generated string to e.g. a &quot;1.&quot; and get a nice floating point number? That way padding is not lost and we still get a valid representation in terms of how Redis treats scores. I&#39;d restrict the scoring to the first couple of characters though, the float could get quite long. You&#39;d have the same problem with strings of arbitrary length though.</p>
+
+<p>Using this simple method that&#39;s probably far from being of any scientific value, we can get a basic score for a string using it&#39;s ASCII value:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">def score(string)
+  base = &#39;1.&#39;
+  base.&lt;&lt; string.split(&quot;&quot;).collect{|c| &#39;%03d&#39; % c.unpack(&#39;c&#39;)}[0...6].join
+end
+</code></pre></div>
+<p>So &quot;salvatore&quot; would get you a score of 1.115097108118097116111. As you can see depending on the string this might break down pretty fast, so I&#39;d restrict it to the first couple of characters in the string. My algorithm knowledge is embarrassingly rusty, so if you have good ideas how to solve that problem, please let me know. An elegant solution would be what I&#39;m after, I&#39;m not too happy with the one above, but it should give you an idea how you could solve the problem of sorting.</p>
+
+<p>Now that you have a somewhat decent way of putting a score on an attribute value, all you need is to turn them into a sorted set saving score and the key and you&#39;re done.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">redis-cli zadd User:name:sorted 1.115097108118097116111 User:12acf
+redis-cli zadd User:name:sorted 1.109097116104105097115 User:f31ad
+
+redis-cli zrange User:name:sorted 0 1
+
+&gt; 1. User:f31ad
+&gt; 2. User:12acf
+</code></pre></div>
+<p>Update: There&#39;s a caveat (a good one) that Salvatore brought to my attention, and it&#39;s very much worth mentioning, although it doesn&#39;t help when referencing identifiers. When you specify the same scoring number for every attribute with zadd, Redis will start sorting lexicographically. How cool is that? So you could spread the same score across different attributes and still get sorting for strings. Neat stuff. <a href="http://groups.google.com/group/redis-db/browse_thread/thread/a3d9b4743017e90b/07585626443bd275?lnk=gst&amp;q=radis-256#07585626443bd275">Salvatore explained this</a> in good detail a while back on the mailing list.</p>
+
+<h3>So what now?</h3>
+
+<p>I can hear you think: Why would I go through all that trouble just to get my data into Redis? Isn&#39;t that too much work and not really worth the hassle? Let me tell you why, because in return you get blazing speed. All data is in memory and is accessed accordingly fast. As opposed to your database the data here doesn&#39;t clog up the whole system taking up precious memory that could be used for really important data and queries.</p>
+
+<p>That&#39;s why you want to start getting data out of your database, into a key-value store. Redis is just one of your options, but the implementation would usually end up being quite similar.</p>
+
+<p>The inspiration for most of the ideas came from going through Ohm&#39;s source, but they&#39;re pretty similar to what I imagined they&#39;d work, so I don&#39;t take full credit for them.</p>
+
+<p>In other news, the video for last week&#39;s <a href="http://nosqlberlin.de/">N✮SQL Berlin</a> meetup are available for your viewing pleasure. If you want to hear me use the the word awesome more than 30 times, <a href="http://vimeo.com/7307342">now&#39;s your chance</a>.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2009/10/29/when_to_redis.html">When To Redis</a></h3>
+        <h4><a href="/2009/10/29/when_to_redis.html" title="When To Redis">29 October 2009</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>A very valid question is: What&#39;s a good use case for <a href="http://code.google.com/p/redis">Redis</a>? There&#39;s quite a few, as Redis isn&#39;t your every day key-value store, it allows you to keeps lists and sets in your datastore, and to run atomic operations on them, like pushing and popping elements. All that stuff is incredibly fast, as obviously your data is held in memory and only persisted to the hard disk if necessary and to top it off, asynchronously, while not reducing the throughput of the server itself.</p>
+
+<p>The simplest and most obvious use case is a cache. Redis clocks in at almost the speed of Memcached, with a couple of features sprinkled on top. If you need a cache, but maybe have a use case where you want also want to store data you in it that you want to be persisted, Redis is a decent tool for your caching needs. If you already have a Memcached instance in place I&#39;d look at my options before adding a new component to my infrastructure though.</p>
+
+<p>Pushing and popping elements atomically, does that ring a bell? Correct, that&#39;s what you want from a worker queue. Look at <a href="http://github.com/tobi/delayed_job">delayed_job</a>, you&#39;ll find that it uses a locking column in your jobs table. Some people argue that a database should not be the place where you keep your worker jobs. Up to a certain amount of work I disagree, but at some point the performance costs outweigh the benefits, and it&#39;s time to move on. Redis is a perfect fit here. No locking needed, just push on the list of jobs and pop back off it in your workers, simple like that. It&#39;s the GitHub way, and the more I think about it, the more sense it makes.</p>
+
+<p>For Redis 1.1 Salvatore has been working on a proposal by <a href="http://twitter.com/ezmobius">Ezra</a> from Engine Yard to implement a command that would move items from one list to another in one step, atomically. The idea is to mark a job as in progress, while not removing it entirely from the data storage. Reliable messaging anyone? It&#39;s such a simple yet genius idea, and Redis has most of the functionality already in place. There&#39;s heaps more planned for future Redis releases, I&#39;d highly recommend keeping an eye on the mailing list and on Salvatore&#39;s <a href="http://twitter.com/antirez">Twitter stream</a>.</p>
+
+<p>As I&#39;m sure you noticed Redis is used for data storage in <a href="http://hurl.it">hurl</a>, a neat little app to debug HTTP calls. Redis is simply used to store your personalized list of URLs you checked. Should some data be lost in between database dumps, it&#39;s not a big deal, it&#39;s not great sure, but not a big deal.</p>
+
+<p>The simple answer for when to use Redis is: Whenever you want to store data fast that doesn&#39;t need to be 100% consistent. In the past projects I&#39;ve worked on that includes classic examples of web application data, especially when there&#39;s social stuff sprinkled on top: ratings, comments, views, clicks, all the social stuff you could think of. With Redis, some of it is just a simple increment command or pushing something onto a list. Here&#39;s a nice example of <a href="http://www.mrkris.com/2009/10/28/affiliate-click-tracking-with-rack-and-redis-because-i-care/">affiliate click tracking using Rack and Redis</a>.</p>
+
+<p>Why is that a good match? Because if some of that data is lost, it doesn&#39;t make much of a difference. Throw in all the statistical or historial data you can think of that&#39;s accumulated in some way through your application, and could be recalculated if necessary. That data usually just keeps clogging up your database, and is harder and harder to get rid of as it grows.</p>
+
+<p>Same is true for activity streams, logging history, all that stuff that is nonvolatile yet doesn&#39;t need to be fully consistent, where some data loss is acceptable. You&#39;d be surprised how much of your data that includes. It does not, and let me be perfectly clear on that, include data that involves any sort of business transaction, be it for a shopping platform or for data involved in transactions for software as a service applications. While I don&#39;t insist you store that data in a relational database, at least it needs to go into a reliable and fully recoverable datastore.</p>
+
+<p>One last example, the one that brought me and Redis together is <a href="http://github.com/ezmobius/nanite">Nanite</a>, a self-assembling fabric of Ruby daemons. The mapper layer in Nanite keeps track of the state of the daemons in the cluster. That state can be kept on each mapper redundantly, but better yet, it should be stored in Redis. I&#39;ve written a post about that a while back, but it&#39;s still another prime use for Redis. State that, should it or part of it get lost, will recover all by itself and automatically (best case scenario, but that&#39;s how it works in Nanite).</p>
+
+<p>One thing to be careful though is that Redis can only take as much data as it has memory available. Especially for data that has the potential to grow exponential with users and their actions in your application, it&#39;s good to keep an eye on it and to do some basic calculations, but you should even do that when using something like MySQL. When in doubt, throw more memory at it. With Redis and its master-slave replication it&#39;s very easy to add a new machine with more memory, do one sync and promoto the slave to the new master within a matter of minutes. Try doing that with MySQL.</p>
+
+<p>For me, this stuff is not about just being awesome. I&#39;ve had countless situation where I had data that could&#39;ve been handled more elegantly using something like Redis, or a fully persistent key-value store like Tokyo Tyrant. Now there&#39;s really no excuse to get that pesky data clogging up your database out of there. These are just some examples.</p>
+
+<p>By the way, if you want to know what your Redis server is doing, telnet to your Redis instance on port 6379, and just enter &quot;monitor&quot;. Watch in awe as all the commands coming in from other clients appear on your screen.</p>
+
+<p>In the next post we&#39;ll dig into how you can store data from your objects conveniently into Redis.</p>
+
+<p>Redis, consider us for your next project.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2009/10/27/theres_something_about_redis.html">There's Something About Redis</a></h3>
+        <h4><a href="/2009/10/27/theres_something_about_redis.html" title="There's Something About Redis">27 October 2009</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>I like to think that there&#39;s never been a more exciting time when it comes to playing with new technologies. Sure, that&#39;s a bit selfish, but that&#39;s just how I feel. Doing Java after I got my diploma was interesting, but it wasn&#39;t exciting. Definitely not compared to the tools that keep popping up everywhere.</p>
+
+<p>One &quot;movement&quot; (if you can even call it that) is NoSQL. I&#39;ve never been particularly happy with relational databases, and I happily dropped MySQL and the like when an opportunity to work with something entirely new came up. Since it&#39;s my own project I&#39;m not putting anything at risk, and I don&#39;t regret taking that step. We&#39;re working with two members of the NoSQL family in particular, <a href="http://couchdb.apache.org">CouchDB</a> and <a href="http://code.google.com/p/redis">Redis</a>.</p>
+
+<p>Last week people interested in and people working with and on these new and pretty fascinating tools came together for the first <a href="http://nosqlberlin.de">NoSQL meetup in Berlin</a>. I talked about Redis, and before I keep blabbering on about it, here are my slides. The talks have been filmed, so expect an announcement for the videos soon-ish.</p>
+
+<div style="width:425px;text-align:left" id="__ss_2352325"><object style="margin:0px" width="530" height="400"><param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=redis-nsqlberlin-091026163956-phpapp02&stripped_title=redis-nsql-berlin-2352325" /><param name="allowFullScreen" value="true"/><param name="allowScriptAccess" value="always"/><embed src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=redis-nsqlberlin-091026163956-phpapp02&stripped_title=redis-nsql-berlin-2352325" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="530" height="400"></embed></object></div>
+
+<p>I was up against a tough competition, including <a href="http://couchdb.apache.org">CouchDB</a>, <a href="http://riak.basho.com/">Riak</a> and <a href="http://mongodb.com">MongoDB</a> (but we&#39;re all friends, no hard feelings). During my talk, I might&#39;ve overused the word awesome. But after all the talks were over, it hit me: Redis is awesome. It seriously is. Not because it does a lot of things, is distributed, written in Erlang (it&#39;s written in old-school, wicked fast C), has support for JSON (though that&#39;s planned), and all that stuff. No, it&#39;s awesome because it does only a very small set of work for you, but it does it extremely well, and wicked fast. I don&#39;t know about you, but I like tools like that. I took a tour of the C code last week, and even though my skills in that area are a bit rusty, it was quite pleasant to read, and easy to follow the flow.</p>
+
+<p>I like Redis, and while I don&#39;t ask you to love it too, do yourself a favor and check it out. It gives Memcached a serious run for its money. Everyone loves benchmarks, and I do to, but I&#39;m careful not reading too much into them. I ran Redis and Memcached through their paces, using the available Ruby libraries. I tried both the <a href="http://github.com/fauna/memcached/">C-based</a> and and <a href="http://github.com/mperham/memcache-client">Ruby-based</a> version for Memcached, and the canonical <a href="http://github.com/ezmobius/redis-rb">Ruby version</a> for Redis. It&#39;s like a cache, with sugar sprinkled on top.</p>
+
+<p>Without putting out any numbers, let me just say that, first it&#39;s a shame Rails is shipped with the Ruby version of the Memcached library, because it is sloooow. Okay not so slow you should be worried, but slower than the competition. Second, Redis clocks in right in the middle between both Memcached libraries. While it&#39;s faster than memcache-client, it&#39;s still a bit slower than memcached. Did I mention that the library for Redis is pure Ruby? Pretty impressive, especially considering what you get in return. Sit back for a moment, and think about how much work went into Memcached already, and how young Redis still is. Oh the possibilities.</p>
+
+<p>Redis is more than just a key-value store, it&#39;s a lifestyle. No wait, that&#39;s something different. But it still requires you to think differently. Shouldn&#39;t be a surprise really, most of the new generation of data stores do. It takes any data you give to it, and you&#39;re good to go as long as it fits into your memory. Let me tell you, that&#39;s still a lot of data. Salvatore is constantly working on new features for Redis, so keep an eye on its <a href="http://github.com/antirez/redis">GitHub</a> repository. If you thought that pushing and popping elements atomically off lists was cool, there might be a big warm surprise for you in the near future.</p>
+
+<p>I first came across it using Nanite, where it&#39;s used to store the state of the daemon cluster. Running it through its paces in preparation for the talk I realized how underused it is. For our use case, Redis is the perfect place to store stuff like history of system data, e.g. CPU usage, load, memory usage and the like. It&#39;s also a great fit for a worker queue, but since we have RabbitMQ in place, there&#39;s no need for that.</p>
+
+<p>When you look at it closely, there&#39;s heaps of uses for Redis. Chris Wanstrath <a href="http://ozmm.org/posts/sort_in_redis.html">wrote about</a> how he used it writing <a href="http://hurl.it">hurl</a>, and Simon Willison also published a <a href="http://simonwillison.net/2009/Oct/22/redis/">love letter</a> to Redis, there&#39;s also more info on how you use it with the Ruby library over at the <a href="http://www.engineyard.com/blog/2009/key-value-stores-for-ruby-part-4-to-redis-or-not-to-redis/">EngineYard blog</a>, and James Edward Grey published a whole serious on how to <a href="http://blog.grayproductions.net/articles/setting_up_the_redis_server">install, setup</a> and <a href="http://blog.grayproductions.net/articles/using_redis_as_a_keyvalue_store">use Redis</a> <a href="http://blog.grayproductions.net/articles/lists_and_sets_in_redis">with</a> <a href="http://blog.grayproductions.net/articles/where_redis_is_a_good_fit">Ruby</a>. Just like CouchDB I want to put Redis to more uses in the future. That doesn&#39;t mean I&#39;m looking to find a problem for a solution, it just means that when I have a problem I&#39;m gonna consider my options, and Redis is one of them. It&#39;s a perfect mix between a simple yet insanely speedy data store, but with the little twist that is Redis&#39; way of persisting data.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<div class="pagination">
+  
+    
+      <a href="/page34" class="previous">Newer Posts</a>
+    
+  
+  
+    <a href="/page36" class="next">Older Posts</a>
+  
+</div>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

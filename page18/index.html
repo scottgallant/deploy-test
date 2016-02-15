@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. mathias meyer.</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. mathias meyer."/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <div id="articles">
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2013/8/7/just-one-more-metric.html">Just One More Metric</a></h3>
+        <h4><a href="/2013/8/7/just-one-more-metric.html" title="Just One More Metric">07 August 2013</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p><img src="http://s3itch.paperplanes.de/Instrument__Librato_Metrics_20130807_171104.jpg" width="530"></p>
+
+<p>Metrics are a very useful tool. They allow you to track variances in your
+application&#39;s and infrastructure&#39;s behaviour over time.</p>
+
+<p>They allow you to see what&#39;s happening, and to try and predict future trends.</p>
+
+<p>They help you investigate during an outage to figure out which events lead to
+the problem at hand.</p>
+
+<p>Once you&#39;ve identified which causes have lead to the problem, a common solution
+is to add more detailed metrics to allow you to see in even more detail what is
+happening. Should a similar problem come up again, you&#39;ll want to be prepared.</p>
+
+<p>There&#39;s a fallacy in all this. It&#39;s the fallacy of too many metrics.</p>
+
+<p>With every metric you add, you&#39;re not done by simply tracking more data.</p>
+
+<p>You need to:</p>
+
+<ul>
+<li>make sure the metric is visible and its meaning is documented and understood</li>
+<li>decide what to do whether this metric is critical</li>
+<li>figure out a threshold of when it is critical</li>
+<li>what kind of alert to send when the threshold is reached</li>
+<li>who to alert</li>
+<li>how to respond to an alert</li>
+</ul>
+
+<p>With more metrics being added, business metrics too (think Google Analytics,
+cohort, retention, customer and funnel metrics), these decisions need to be
+made. If a metric isn&#39;t worth alerting on, is it worth tracking in the first
+place?</p>
+
+<p>Humans are great at detecting patterns visually, but they&#39;re <a href="http://www.macroresilience.com/2011/12/29/people-make-poor-monitors-for-computers/">terrible as
+monitors to constantly watch a pile of
+graphs</a>.
+I don&#39;t know about you, but I love pretty graphs, but I don&#39;t want to watch them
+all day long to detect any anomalies.</p>
+
+<p>Putting aside the fact that our current idea of graphs is far from being
+visually pleasing. I fondly remember <a href="http://vimeo.com/67159604">Neil J. Gunther calling them &quot;gothic
+graphs&quot;</a>.</p>
+
+<p>Metrics increase the cognitive effort required to make sense of them. The more
+you add, the more effort a human or a team of humans need to put into extracting
+useful information from them. I highly recommend <a href="http://vimeo.com/67158676">John Allspaw&#39;s Monitorama
+talk</a> on this topic and <a href="http://www.kitchensoap.com/2013/07/22/owning-attention-considerations-for-alert-design/">the follow-up
+post</a>.</p>
+
+<p>The answer, quite frequently, is simplification. A bunch of metrics get rolled
+into a more abstract value and that is displayed and alerted on instead.
+Unfortunately with simplification, nuances in the data get lost easily.</p>
+
+<p>Add to that our very own biases that make us interpret the data in ways that let
+us find the simplest explanation, and you&#39;ve got a recipe for disaster. </p>
+
+<p>Monitoring and finding the right metrics are an ongoing process. Don&#39;t be afraid
+to remove data just as you add new data.</p>
+
+<p>Remember that as you add more information, you also need more cognitive power to
+process the data during daily operations and, more importantly, during
+the stressful times of an outage, when we&#39;re most prone to our biases taking
+over rather than rational decisions.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2013/8/6/the-fear-of-saying-no.html">The Fear of Saying No</a></h3>
+        <h4><a href="/2013/8/6/the-fear-of-saying-no.html" title="The Fear of Saying No">06 August 2013</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>For a startup or a small biz in its infancy, every opportunity looks like a pot
+of gold.</p>
+
+<p>Every opportunity that comes across looks like something you can turn into
+monetary value or use it to grow your product. It&#39;s really hard to say no to any
+of them.</p>
+
+<p>It&#39;s your customer suggesting a new feature, it&#39;s a company that would like to
+do a partnership with you, it&#39;s a bunch of VCs that are courting you to give you
+  a nice sum of money in return for some shares of your company.</p>
+
+<p>Clearly, this new feature must be relevant to other customers and will allow you
+to get even more customers because you can advertise it. There are <a href="http://insideintercom.io/product-strategy-means-saying-no/">tons of
+reasons</a> why you&#39;d
+say yes to a new feature.</p>
+
+<p>The partnership must be good for your business because it&#39;ll drive more traffic,
+it&#39;ll get you more customers, and two businesses benefit from it.</p>
+
+<p>The VCs must be loving you, why else would they be courting you? Their offer is
+generous, and their demands sound reasonable. It&#39;s hard to say no, in particular
+because they tend to keep coming back when you do.</p>
+
+<p>Saying no to any of the above seems like such a harsh thing to do.</p>
+
+<p>You&#39;re afraid to lose a customer because you&#39;re saying no to them.</p>
+
+<p>You&#39;re afraid to miss out on a deal that could help grow your business.</p>
+
+<p>You&#39;re afraid of closing the door on future funding, even though you neither
+want nor need it. The offers are tempting, and VCs are full of nice words for
+your product.</p>
+
+<p>How can you say no to any of them? How can you say no to a shiny pot of gold?
+Your gut says it&#39;s okay to say yes.</p>
+
+<p><a href="http://cdp.sagepub.com/content/21/1/36.full">Science has an answer</a>.</p>
+
+<p>If you&#39;re a man, it turns out you&#39;ll be a lot more likely to take on risk
+because they may have strategic value. Getting more customers, making customers
+happy, and growing your product and company sounds pretty great as strategies.</p>
+
+<p>As a woman, you&#39;re more likely to consider the empathic side of taking a risk
+(which all of the above involve). You&#39;re more likely to consider the effect a
+decision has on the people involved.</p>
+
+<p>Note that these differences tend to be more noteable when you&#39;re under stress, a
+common state in early startups and small businesses. Doug Sundheim <a href="http://blogs.hbr.org/cs/2013/02/do_women_take_as_many_risks_as.html">has a good
+summary on this
+topic</a>.</p>
+
+<p>Every decision you&#39;re making has a strategic effect, but it also affects people.
+It affects your employees, your co-founders, your spouse, your entire company.</p>
+
+<p>In <a href="http://amzn.to/14w3boG">&quot;Small Giants&quot;</a>, a book on companies that chose to
+be great instead of big, there were a few examples of this, on both extremes.</p>
+
+<p>One company held off their IPO because it&#39;d mean that suddenly they&#39;d have to
+answer to shareholders. Another made their decisions amongst a triad of three
+CEOs that would take days to consider the possible outcomes and effects of a
+major decision.</p>
+
+<p>Or take Norm Brodsky, who, in the 80s, grew an empire of a bike courier business
+to big proportions, buying other messenger companies along the way. The last
+company he bought had much worse numbers than he was originally made aware of.
+He had to sacrifice his own money, he had to sacrifice his company&#39;s war chest
+to try and make it work.</p>
+
+<p>In the end, he sacrificed his own company, as it filed for Chapter 11.</p>
+
+<p>Norm wrote a great book called <a href="http://amzn.to/15KvtZC">&quot;The Knack&quot;</a>, full of
+great advice and stories on how he&#39;s running a business, and on how he ran one
+of his companies into bankruptcy.</p>
+
+<p>When it comes to a business, it&#39;s easy to say yes to say something without
+taking the time to consider the possible outcomes, putting aside the fact that
+you can&#39;t know all of them. There&#39;s usually a pressure to do so. VCs want to
+invest in you, customers want to see this feature they suggested, partnerships
+need to be signed off yesterday.</p>
+
+<p>There&#39;s another side to the coin when you can&#39;t say no. You&#39;re wasting precious
+time dwelling on things that in the end may not be relevant to you. Time and
+attention is your most precious asset, protect it well.</p>
+
+<p>You can start by saying no to things that distract you. It&#39;s okay to not listen
+to your gut for once and to stop letting outside pressures influence your
+decisions.</p>
+
+<p>Use the little trick that Norm Brodsky started using after he realized that he&#39;s
+been taking more risk than he can chew: take a shower and think things through.</p>
+
+<p>Learning to say no might be your biggest asset in finding focus for your
+product. Start saying it sooner rather than later.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2013/7/16/running-a-small-business-is.html">Running a Small Business is...</a></h3>
+        <h4><a href="/2013/7/16/running-a-small-business-is.html" title="Running a Small Business is...">16 July 2013</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>For more than a year I&#39;ve worked (with an awesome team) on taking Travis CI from
+an <a href="https://travis-ci.org">continuous integration platform for open source
+projects</a> into a small business with a profitable
+<a href="https://travis-ci.com">product</a>.</p>
+
+<p>While this hasn&#39;t been my <a href="http://scalarium.com">first</a>
+<a href="http://riakhandbook.com">venture</a>, it has so far been the one where I focused
+more on the business side of things than anything else. There was some code,
+there was infrastructure, there was monitoring.</p>
+
+<p>But the important bits aren&#39;t about any of these three. They&#39;re about a ton of
+other things, some of them being a big surprise for developers in particular.
+They deserve to be talked about, good and bad.</p>
+
+<p>Running a small business is...</p>
+
+<h3>All About the Customer</h3>
+
+<p>The only thing that matters for a small business (for any business, really) is a
+happy customer. It helps to be happy yourself, but in the end, it&#39;s happy
+customers who pay the bills, and who continue to pay the bills as long as you
+can keep them happy.</p>
+
+<p>There are a ton of ways to achieve this, and most importantly, you should have a
+product that they need, that they&#39;re willing to pay for.</p>
+
+<p>Whatever you do during your every day, it needs to have the customer in mind.
+Which means one thing: you need to talk to your customers.</p>
+
+<p>Even in the age of running businesses online, your biggest and greatest asset is
+still to be in personal touch with your customers. You need to pull your head
+away from code, and you need to spend time either visiting them, talking to them
+on Skype or at least sending them emails.</p>
+
+<p>There are means to automate this, in particular emails over the lifecycle and
+on-boarding of a customer, but I can promise you that putting in this effort
+yourself is worth it. If you automate it, for instance by utilizing a platform
+like <a href="http://customer.io">customer.io</a>, make sure that a reply reaches a human
+(hey, that&#39;s you!)</p>
+
+<p>The great part about talking to customers is that it&#39;s the best way to find out
+what they want, what they&#39;d like to see improved in your product.</p>
+
+<p>Most importantly, it&#39;s the only way you&#39;ll hear them say how much they love your
+product. <strong>Time spent with your customers is time well spent.</strong></p>
+
+<h3>Not About Code</h3>
+
+<p>When all you do is interact with the customer, when will you finally get to
+write all that precious code?</p>
+
+<p>The simple truth is, and this depends on the size of your initial team, writing
+code is not what makes you money. It sure helps to build a great product, but if
+you don&#39;t put in the time to market and sell it, to hold your customers&#39; hands
+when they need you the most, no one will buy it.</p>
+
+<p>The fact that you need to pull yourself away from code is one of the harsh
+realities of running a business, in particular if you&#39;re a developer by trade.</p>
+
+<p>But it&#39;s the part that constantly pushes you out of your comfort zone. It forces
+you to talk to people, it encourages you to continuously improve your sales and
+marketing materials, to write blog posts regularly, to interact with your
+customers.</p>
+
+<p>Best example is finding your price. You have to move out of your comfort zone
+from two perspectives. You need to put a value on your own product, and you need
+to find ways of showing that value to your (potential) customers, in particular
+when they come to you to heckle on price.</p>
+
+<p>It&#39;s worth repeating: <strong>Running a small business is about anything but writing code.</strong></p>
+
+<p>It took me a long time to accept this, so it&#39;s okay to take your time, but the
+sooner you come around to the idea, the earlier you can work towards a thriving
+business.</p>
+
+<h3>All-Consuming</h3>
+
+<p>The dangerous part of running a business is that it&#39;s to easy to be excessive
+about every aspect of it, be it customer support, customer metrics, customer
+happiness, new features, marketing, blog posts, your product&#39;s availability.</p>
+
+<p>It&#39;s easy to give in and not let go other than when you go to sleep. Just one
+more customer support email, just one more tweak on your landing page, just one
+more code change before you finally drag yourself away from the computer to have
+dinner.</p>
+
+<p>From the last year&#39;s worth of running Travis CI as a business, this has been a
+dangerous trap for me, for all of us. It&#39;s too easy to just put in a few more
+hours at night instead of doing something entirely different, like reading or
+spending time with your spouse or your family.</p>
+
+<p>It&#39;s too easy to get sucked in to working more on the weekend, neglecting your
+friends along the way.</p>
+
+<p>This is a dangerous road, and it took me an unfortunately long amount of time to
+realize it. In hindsight I&#39;m glad that I at least made sure I can spend quality
+time with my daughter.</p>
+
+<p>Take care of yourself, of your family and of your friends. They&#39;re very
+supportive in what you&#39;re doing, so don&#39;t neglect them in return.</p>
+
+<p>It&#39;s a noble cause to try and provide the best and fastest customer support you
+possibly can. But sometimes, and this may sound very heretic given all of the
+above, sometimes <strong>it&#39;s okay to let the customer wait until tomorrow.</strong></p>
+
+<p>Now go out, stare at clouds, have a drink or dinner with your friends or your
+family. Personally, I get the best ideas and fresh insight when I&#39;m not in front
+of your computer, when I&#39;m in the shower, or when I&#39;m spending time with my
+daughter.</p>
+
+<h3>Exhilarating</h3>
+
+<p>As soon as the first customer hits the &quot;pay&quot; button, everything is starting to
+pay off. As soon as you get 10 or 20 more customers to pay for using your
+product, you will be the happiest person in the world.</p>
+
+<p>There&#39;s room for a comparison to having kids, but that may be a bit of a
+stretch. Though sometimes, running your own business and selling a product
+successfully feels just like that. </p>
+
+<p>Allan Branch <a href="https://lessaccounting.com/blog/running-a-small-business/">compared the relationship to his co-founder to being
+married</a>, so in that
+view, <strong>your product is your child</strong>, a labor of true love.</p>
+
+<p>There are times when it&#39;s exhausting, when you struggle to find new customers,
+when you struggle to fix annoying bugs, when you struggle with customer support.
+But those times are offset by knowing that people are happily using something
+you&#39;ve built, and they&#39;re even paying you money for it.</p>
+
+<p>It&#39;s exhilarating.</p>
+
+<p>Now keep going, make your product even better, get more customers, write another
+blog post.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<div class="pagination">
+  
+    
+      <a href="/page17" class="previous">Newer Posts</a>
+    
+  
+  
+    <a href="/page19" class="next">Older Posts</a>
+  
+</div>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

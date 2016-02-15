@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. There's Something About Legacy Code</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. There's Something About Legacy Code"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="There's Something About Legacy Code"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="While preparing my talk for the German Rails-Konferenz on legacy code I thought about why we still have to deal with bad code. Why do people still write code that sucks, code that&#39;s close to be..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2009/9/7/theres_something_about_legacy_code.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">There's Something About Legacy Code</h3>
+        <h4><a href="/2009/9/7/theres_something_about_legacy_code.html" title="Permalink for this post">07 September 2009</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>While <a href="http://www.slideshare.net/mattmatt/mein-freund-der-legacy-code-1947495">preparing my talk</a> for the <a href="http://www.rails-konferenz.de">German Rails-Konferenz</a> on legacy code I thought about why we still have to deal with bad code. Why do people still write code that sucks, code that&#39;s close to being unmaintainable, code that&#39;s so insanely tangled, code that&#39;s untested?</p>
+
+<p>The answer might be obvious or not. There&#39;s some simple reasons, which is to say that I couldn&#39;t come up with any reason that seems like a fair one:</p>
+
+<ul>
+<li>They just don&#39;t care (gasp!)</li>
+<li>They claim they don&#39;t have the time to write clean code or to clean up after themselves</li>
+<li>They claim that management forces them to work on new features all the time</li>
+</ul>
+
+<p>I&#39;m sure you&#39;ll agree that number one is the worst. Not caring about your code is similar to doing a number two in other people&#39;s bathrooms and not flush the toilet. Yes, it&#39;s that bad. The other two are just excuses. It&#39;s not impossible to argue that tests are necessary or that refactoring is necessary. It&#39;s up to you to do your planning accordingly. Don&#39;t blame the management, work on it, improve the situation. It&#39;s in your hands.</p>
+
+<p>We all wrote our fair share of bad code, I&#39;m sure. I know I did. It&#39;s what we do with it, what we learn from it, that&#39;s important. We can look at our code a year later to see what we&#39;d do differently today. At least I like doing that. Not so much with really old code, especially with the stuff written in those older, rather nasty languages, though even that can be quite fun. But it&#39;s refreshing to come back to what you wrote a while back to either rework it, or just to think about how you&#39;d do it differently some months later, if at all. Maybe your code is perfect, maybe it could need some improvement.</p>
+
+<p>I like that exercise because it fosters rethinking your current code. Maybe you followed a pattern that leads to unclear intentions in your code. There&#39;s always a time to rectify that, to clean up, to make the intentions of your code clearer. If you keep doing that exercise over and over again, and not only look at code that&#39;s six months old, but code you just wrote, you&#39;re halfway there. If you look at if after implementing a new feature as opposed to just looking back at old code, it&#39;s not too hard to write good code. Instead you&#39;ll notice that it gets hard to write bad code.</p>
+
+<p>You might end up with a similar behaviour as mine. You&#39;ll notice a slight sting in the neck whenever you leave a code smell be, whenever you write a line of code without writing a test for it, when you leave a TODO in the code instead of putting the task in your backlog or fixing it right away. I never leave TODOs in the code, they just end up staying there for years. When you have a pair to point out problems, even better, but even practicing the look back at your code will improve its quality over time. You just need to stick to it, keep practicing over and over again until it becomes a mantra. It&#39;s sure to make you a better person too, if you need more motivation.</p>
+
+<p>I&#39;m not much of a fan of mantras, and I don&#39;t like telling people what to do, but there&#39;s things so simple, they should be common sense. Leaving code in a way that its intentions are as clear as possible should be one of them, writing tests with every line of production could should be another. It&#39;s up to you.</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2009/8/5/daily_aws_wtf_and_german_rails_conference.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2009/9/8/the_nosql_dilemma.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

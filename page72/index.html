@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. mathias meyer.</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. mathias meyer."/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <div id="articles">
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2007/9/27/do_javas_date_classes_make.html">Do Java's Date Classes Make Any Sense?</a></h3>
+        <h4><a href="/2007/9/27/do_javas_date_classes_make.html" title="Do Java's Date Classes Make Any Sense?">27 September 2007</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>I just spent the last hour banging my head on my desk trying to get any kind of date type (whether <code>java.util.Date</code> or a simple timestamp) from the current time and a timezone identifier (something along the lines of Etc/GMT+12). You&#39;d think this is an easy task. Obviously the <code>GregorianCalendar</code> takes a timezone as a constructor argument, so it really should be.</p>
+
+<p>It is until you&#39;ve called <code>getTime()</code> on the calendar object and wonder why you&#39;re still getting your local time. And on further inspection you realize that <code>GregorianCalendar</code> doesn&#39;t even care about the timezone object you&#39;ve just given it. Only setting it through <code>setTimeZone()</code> makes it recognize that you actually want it to use a different timezone for date and time calculation.</p>
+
+<p>This should work now, right? Of course it should, but <code>getTime()</code> and <code>getTimeMillis()</code> still returns the local time and doesn&#39;t mind that you don&#39;t want it to. Only if you use a date formatter like <code>SimpleDateFormat</code> will Java remotely start to understand what you really want. But it stays awefully quiet about the fact that then you can&#39;t get a simple timestamp anymore.</p>
+
+<p>There&#39;s <a href="http://www.onjava.com/pub/a/onjava/2003/06/05/java_calendar.html?page=1">an article on ONJava</a> with more detail on this.</p>
+
+<p>And there I thought timezone handling in Rails would be complicated.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2007/9/25/the_perils_of_using_final.html">The Perils of Using final</a></h3>
+        <h4><a href="/2007/9/25/the_perils_of_using_final.html" title="The Perils of Using final">25 September 2007</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>I&#39;m currently working with a proprietary framework. Which is not bad per se. Compared to others I&#39;ve worked with it&#39;s a nice framework to work with. It uses Spring heavily which is a plus and makes working with it quite flexible.</p>
+
+<p>All that said there&#39;s one thing that bugs me about it, and that bugs me about Java in general. The overuse of final. Not for constants, mind you, but for methods and classes.</p>
+
+<p>Why on earth would someone want to impose this restriction on developers? And by someone I don&#39;t especially mean the framework creator, but also the Java creators. Is it really worth it sacrificing flexibility and extensibility to ensure that nobody overwrites your methods or extends your classes to customize them? Do they really think that people are that stupid that they can&#39;t decide for themselves what to do with a framework? It&#39;s just beyond me. What are classes, inheritance and all that object-oriented mumbo jumbo for anyway.</p>
+
+<p>If something is so important that it shouldn&#39;t be overwritten, then please, document it. Don&#39;t leave the developer asking why he has to go and reimplement everything himself just to have a certain part of your framework&#39;s functionality available to him.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2007/9/20/railsconf_europe_2007_day_two.html">RailsConf Europe 2007 Day Two</a></h3>
+        <h4><a href="/2007/9/20/railsconf_europe_2007_day_two.html" title="RailsConf Europe 2007 Day Two">20 September 2007</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>First up: RailsConf Europe 2008 will be in Berlin again. Woot!</p>
+
+<p>As I wrote yesterday, Marcel Molina and Michael Michael Koziarski did a little Best Practices session for a starters. Other than that, day two was only okay.</p>
+
+<p>Ola Bini repeated in his JRuby talk pretty much what Charles Nutter and Tom Enebo said on the first day, plus some shameless ThoughtWorks pluck.</p>
+
+<p>I did enjoy the talk on Selenium by Till Vollmer. It&#39;s been on my list for a while, and it does look quite interesting. The questions that pop up in my head as a friend of continuous integration is of course how to automate this. But I&#39;ll just have to read up on that.</p>
+
+<p>Ben Nolan (creator of Behaviour.js) showed some neat tricks using functional programming with JavaScript. He brought up some ideas and showed code, which I very much appreciated. Nothing new for the JavaScript cracks really, but still interesting.</p>
+
+<p>Jay Fields talked about the presenter pattern in Rails. I bet a lot of people thought after the talk: wtf? To sum up his findings on the presenter pattern in Rails were rather negative and probably not what a lot of people expected. I found his talk to be a change to the others. It&#39;s not always the success stories that make you push hard, but also down-falls, even if they&#39;re small ones. He put up all the details in his <a href="http://blog.jayfields.com/2007/09/railsconf-europe-07-presenter-links.html">blog</a>. Definitely worth checking out.</p>
+
+<p>In all I would&#39;ve wished for more detail in the presentations. A lot of the presenters spent too much time introducing things, presenting theory, and so on. More code please, people! When people come to the RailsConf I take it for granted they know Rails enough to get down and dirty immediately.</p>
+
+<p>As <a href="http://www.loudthinking.com/posts/11-sun-surprises-at-railsconf-europe-2007">DHH</a> wrote on his blog I too was quite impressed by the engagement of Sun in Ruby and Rails. Craig McCanahan (of Struts fame) talked about it and said he can&#39;t imagine going back to Java for web development after having worked with Rails. Amen to that.</p>
+
+<p>I got some nice ideas and things to look into out of it, but I have hoped for more. But still I&#39;m looking forward to next year.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<div class="pagination">
+  
+    
+      <a href="/page71" class="previous">Newer Posts</a>
+    
+  
+  
+    <a href="/page73" class="next">Older Posts</a>
+  
+</div>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

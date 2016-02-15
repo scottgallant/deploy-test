@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. MySQL No-Nos: ORDER BY RAND()</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. MySQL No-Nos: ORDER BY RAND()"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="MySQL No-Nos: ORDER BY RAND()"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="It&#39;s a classic. You want to return random rows from a table, say a collection of random users in your social network. Easy, MySQL&#39;s ORDER BY RAND() to the rescue. After all, everybody&#39;s..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2008/4/24/mysql_nonos_order_by_rand.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">MySQL No-Nos: ORDER BY RAND()</h3>
+        <h4><a href="/2008/4/24/mysql_nonos_order_by_rand.html" title="Permalink for this post">24 April 2008</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>It&#39;s a classic. You want to return random rows from a table, say a collection of random users in your social network. Easy, MySQL&#39;s <code>ORDER BY RAND()</code> to the rescue. After all, everybody&#39;s doing it. At least on my last search on that topic, all the PHP kids did it.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">SELECT * FROM USERS ORDER BY RAND() LIMIT 20
+</code></pre></div>
+<p>There. Does what it&#39;s supposed to.</p>
+
+<p>Your social network keeps growing and growing and after about a year and 50000 new users you realize a slow-down on the page where you show random users. You&#39;re thinking of caching it, but what&#39;s the point? It wouldn&#39;t be random.</p>
+
+<p>You break it down with <code>EXPLAIN</code> and realize with horror that your fancy query doesn&#39;t use the nice index you placed on the table ages ago. And why would it? It&#39;s calling <code>RAND()</code> for every row in your table, there&#39;s just no way around it. So what to do?</p>
+
+<p>One alternative is to fetch random IDs first and then join the IDs found with the <code>USERS</code> table to fetch the real data. How do we do that? Why, using <code>ORDER BY RAND()</code>, of course. Wait, didn&#39;t I just say you&#39;re not supposed to use it? Well, I did say that, but the difference is that we&#39;ll run the <code>ORDER BY RAND()</code> on the best-indexed column there is, the primary key. Let&#39;s break it down and get our hands dirty:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">SELECT USERS.* FROM (SELECT ID FROM USERS WHERE IS\_ACTIVE = 1
+ORDER BY RAND() LIMIT 20)  
+AS RANDOM\_USERS JOIN USERS ON USERS.ID = RANDOM\_USERS.ID
+</code></pre></div>
+<p>And with a little bit of thinking we got ourselves a nice and fast way to fetch random data. Most likely there are other ways out there (sometimes I do miss Oracle&#39;s ROWID), but this one worked fairly well for me. It probably won&#39;t scale forever though, so be prepared to get back to it every once in a while.</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2008/4/21/every_day_polaroid.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2008/5/5/rails_20_its_done.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

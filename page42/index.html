@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. mathias meyer.</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. mathias meyer."/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <div id="articles">
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2009/3/16/keep_it_simple.html">Keep It Simple</a></h3>
+        <h4><a href="/2009/3/16/keep_it_simple.html" title="Keep It Simple">16 March 2009</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>It seems to be common sense these days to throw a search engine, a database slave or an external cache at your application in even the earliest stages of a project. Let me just give you my two cents on the issue, and why I think that&#39;s a bad idea.</p>
+
+<p>It all starts with the angst that the application won&#39;t scale when it&#39;s hit by whatever effect the cool kids use these days. Even having only several thousand records already seem to be an indication that there&#39;s not enough room to scale the database itself.</p>
+
+<p>Let me just go ahead and say it: Your way of thinking about scaling is wrong. You&#39;re raising the bar of complexity without having a problem. With every service introduced to the project, a new error source needs to be handled. Your code needs to deal with potential MySQL slave replication lags, cache expiration, constant search index updates, and of course the administrative overhead.</p>
+
+<p>Let&#39;s look at all three in a little more detail.</p>
+
+<h3>MySQL Slave/Sharding</h3>
+
+<p>The load on your database has reached levels you think aren&#39;t manageable without introducing a reading slave into your setup anymore. Most of the time, you&#39;re wrong.</p>
+
+<p>Is your load too high? Find statements that require too much IO and make them fast. Does your database touch the hard drives too much? Increase the cache size and add more RAM. The more data and indexes you can store in-memory, the less hard drive activity is required. Caching sure is king, but you&#39;re winning the most when you can let the database do most, if not all of it.</p>
+
+<p>Do inserts/updates take too long? Check your indexes, you might have too many of them. Increase the interval that InnoDB will flush transactions to the log in. Unless you have a really, really critical application, you can live with the prospect of losing one second worth of data.</p>
+
+<p>Adding a slave looks easy. You dump the master, load the dump on the slave, enable replication, and you&#39;re golden. But what if your slave goes down? What if the replication lacks so far behind that it would impact what the user sees? Does your application handle the issue that data written to the master might not be visible on the slave immediately?</p>
+
+<p>In the end, it&#39;s the same as with an external cache, you still need to tune your database. You&#39;ll gain a lot more by trying to find some of the big resource-hogging queries in your application, setting some indexes or fine-tuning one or two database parameters. What&#39;s that you&#39;re gaining, you ask? Why, it&#39;s simplicity.</p>
+
+<p>Adding RAM and increasing the database&#39;s cache is a lot cheaper than trying to improve performance in other parts of your application. Calculate the cost of say 8 GB of RAM against the cost of one person working for a whole week on trying to tweak things in your application that could easily be improved with just a little bit more RAM. Whether you like it or not, the database is your bottleneck, but tuning it is not rocket science. Some solutions to common database problems (which you have, unless you&#39;re Big Company) are so simple it still hurts my brain how uncommon the knowledge of them is.</p>
+
+<p>Don&#39;t believe me? Have a look at <a href="http://www.mysqlperformanceblog.com/2009/03/01/kiss-kiss-kiss/">this recent post</a> on the <a href="http://www.mysqlperformanceblog.com/">MySQL Performance Blog</a>.</p>
+
+<p>Sharding might eventually make sense when splitting up your application is the only way out. When you have <a href="http://www.jurriaanpersyn.com/archives/2009/02/12/database-sharding-at-netlog-with-mysql-and-php/">five billion visits per months</a>, then you can go ahead and shard your databases. But right from the start? Meh, throw RAM at it as long as you can, saves a lot of trouble.</p>
+
+<h3>Memcache</h3>
+
+<p>Your queries are becoming slow, and therefore your website&#39;s response time decreases. One thing that pops up will be to cache the hell out of your website. After all, Rails has neat support for caching.</p>
+
+<p>That&#39;s all great, but you need to be aware of two things. First, caching is hard. Getting the data in and out is the easy part, knowing when to expire the data is what will break your neck, it not just might, it will.</p>
+
+<p>Second, it will not spare you from tuning your database. Imagine your cache goes down. Sure, your application handles the missing cache gracefully, but all those slow queries you wanted to get rid of, they&#39;re in full effect. Caching is not the solution to slow database queries. You still need to invest time in fine-tuning slow statements and your database.</p>
+
+<p>Memcache is awesome, and it&#39;s a great way to reduce your application&#39;s response time, but it&#39;s a level of complexity that needs to be understood, handled and tested correctly and gracefully.</p>
+
+<p>All that said, I prefer turning to Memcached before I consider replication or sharding anytime.</p>
+
+<h3>Full Text Search</h3>
+
+<p>A common meme seems to be that you don&#39;t want to do full-text search using your database. Throw a separate full-text search engine at your application instead. But hold on, isn&#39;t the purpose of a database to find data easily? Yeah, I vaguely remember that. So why not use it? Because it&#39;s slow? Oh, come on. You have like what, some ten thousand records in your database? Are all of them using a largetext column? No? Good, then why not use a simple select using like? It&#39;s not horribly wrong, you know. Worry about setting up full text search when you hit a wall with that. But unless you have hundreds of thousands of rows or larger documents you want to query on, you&#39;ll be fine.</p>
+
+<p>Don&#39;t get me wrong, I love me a good full-text search, but I don&#39;t throw it at every application just because I want to search for something, even in text. If you use PostgreSQL, look into <a href="http://www.postgresql.org/docs/current/static/tsearch2.html">tsearch2</a>, using MySQL, maybe the included <a href="http://dev.mysql.com/doc/refman/5.1/en/fulltext-search.html">full-text search</a> will do.</p>
+
+<p>The bottom line is simple: Don&#39;t throw complex solutions at problems that can be solved either by using simple tweaks, or just because other solutions using the tools you already have might require some more thinking and analysis. The more detail you know about a specific problem, the better your judgement on the solution will be, and usually, the solution can be as simple as tweaking your database. That&#39;s your biggest bottleneck, so tune the heck out of it.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2009/3/13/when_overusing_self_turns_into_self_pity.html">When Overusing self Turns Into self.pity</a></h3>
+        <h4><a href="/2009/3/13/when_overusing_self_turns_into_self_pity.html" title="When Overusing self Turns Into self.pity">13 March 2009</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>There&#39;s something I see in lots of projects is an overuse of <code>self</code>. Sure, it looks a lot nicer than <code>this</code>, but its overuse can clutter code quite easily. Here&#39;s a rather simple example.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">def published?
+ !self.deleted_at? &amp;&amp; self.published_at?
+end
+</code></pre></div>
+<p>Others use self even for just calling a method from another method. Why&#39;s that again? I just don&#39;t get it, it feels unnecessary, and is just five characters too much for every usage.</p>
+
+<p>Sometimes I think that the programmer who wrote the code either doesn&#39;t understand the concept of the current scope of self and when using it is necessary, or is coming from Python (no offense Python, I still like you, but I&#39;m not so fond of your usage of self). Let&#39;s remedy that, shall we?</p>
+
+<p>Some also claim that it improves clarity, for the courtesy of other programmers working on the code, and to make it clearer in what context the method is called. If you need to make that clear, your method is simply too long.</p>
+
+<p>The biggest confusion surrounding the usage of self from within a method stems from the different handling of local variables and method lookup. Consider the following code:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">def publish
+  self.published_at = Time.now
+  save
+end
+</code></pre></div>
+<p>It&#39;s a totally valid piece of code, and one I can totally get on board with, because it does what it&#39;s supposed to do. In my early days with Ruby, I used to write the code like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">def publish
+  published_at = Time.now
+  save
+end
+</code></pre></div>
+<p>Then I wondered why the instance variable <code>published_at</code> wasn&#39;t saved. The answer is simple. When you have something that looks like local variable, and you assign to it, Ruby will obey and create a new local variable called <code>published_at</code>, no matter if you have a write accessor defined that looks exactly like it. It will go out of scope as soon as the program&#39;s flow leaves the method.</p>
+
+<p>But what about <code>save</code>? Ruby will first look for a local variable. Now, I&#39;m not arguing that you shouldn&#39;t have a local variable called <code>save</code> anywhere in your program, and if you do you might want to rethink that. But since, for now, there is no local variable with that name, Ruby will turn to its method lookup mechanism to resolve the identifier in question. If it can&#39;t find anything you&#39;ll get the much loved error <code>NoMethodError</code>.</p>
+
+<p>If clarity is what you&#39;re longing for, learn Ruby&#39;s rules of resolving local variables and methods. Will make your life much easier.</p>
+
+<p>So what is Ruby doing in the former version of the method body? You&#39;re pretty much forcing it to go directly to the method lookup. With the accessor magic it will find a method <code>published_at=(published_at)</code> and call it. Easy.</p>
+
+<p>I&#39;ve also seen modifications of this one:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">def publish
+  self.published_at = Time.now
+  self.save
+end
+</code></pre></div>
+<p>Or how about this one:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">def publish
+  self.published_at = Time.now
+  self.publisher = self.user
+  self.save
+end
+</code></pre></div>
+<p>What&#39;s up with that? Pretty self-involved if you ask me. It&#39;s like using self just for the sake of it. Using self when assigning to instance variables, so might as well use it everywhere in the method for consistency, right?</p>
+
+<p>Now, imagine that piece of code also having a call to a private or protected method in it. Of course you can&#39;t call those directly on an object, only on an implicit <code>self</code>:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">def publish
+  self.published_at = Time.now
+  update_trackbacks
+  self.save
+end
+</code></pre></div>
+<p>Gross! The code looks more and more confusing, and I don&#39;t appreciated confusing looking code.</p>
+
+<p>Of course, if you&#39;re using ActiveRecord, why not save a full line?</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">def publish
+  update_attribute(:published_at, Time.now)
+end
+</code></pre></div>
+<p>So let&#39;s review the initial example. We&#39;re only doing method calls, and Ruby will figure out our intention all by itself. So how about the simple version:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">def published?
+ !deleted_at? &amp;&amp; published_at?
+end
+</code></pre></div>
+<p>Wow, so simple. Much easier on the eyes, and the intention is clear right from the start. My rule is simple: When assigning to an instance variable, use self, calling a method on the other hand should stand all by itself. Now, you could argue, that assigning to an instance variable using its accessor is also a method call, but if you really want to argue about that, you should really read this blog entry again.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2009/3/8/hello_from_jekyll.html">Hello From Jekyll</a></h3>
+        <h4><a href="/2009/3/8/hello_from_jekyll.html" title="Hello From Jekyll">08 March 2009</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>I got a little sick of having to maintain an unmaintained blog engine (I&#39;m looking at you <a href="http://simplelog.net">SimpleLog</a>), so I did what all the cool kids are doing, I switched the blog to using Tom Preston-Werner&#39;s excellent <a href="http://github.com/mojombo/jekyll">Jekyll</a>. I threw in a few tweaks of my <a href="http://github.com/mattmatt/jekyll">own</a>, and tweaked my Rakefile and Apache to support things that SimpleLog can do, but the static nature of Jekyll can&#39;t. Thankfully, the URL format of both is pretty similar, so it was pretty easy to set up redirects from the old URLs to the new ones.</p>
+
+<p>For comments, I welcome <a href="http://disqus.com">Disqus</a>.</p>
+
+<p>The full blog is on <a href="http://github.com/mattmatt/paperplanes">GitHub</a>, feel free to look at the deployment scripts and the build file. The latter uses Jekyll as a library to generate pages for all topics used in the posts. Nothing short of rocket science, I&#39;m telling you.</p>
+
+<p>Why you ask? Because a simple text file wins over a database system any day, and using cap deploy to update a blog entry is just outright cool.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<div class="pagination">
+  
+    
+      <a href="/page41" class="previous">Newer Posts</a>
+    
+  
+  
+    <a href="/page43" class="next">Older Posts</a>
+  
+</div>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

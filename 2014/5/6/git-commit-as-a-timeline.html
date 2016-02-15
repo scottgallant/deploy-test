@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. Git Commit Messages as a Timeline of Reasoning</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. Git Commit Messages as a Timeline of Reasoning"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Git Commit Messages as a Timeline of Reasoning"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="We&#39;re now more than two years into building, maintaining and growing the code
+base for Travis CI. A lot has happened in the code
+base, especially in the first year of our existing as a company...."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2014/5/6/git-commit-as-a-timeline.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">Git Commit Messages as a Timeline of Reasoning</h3>
+        <h4><a href="/2014/5/6/git-commit-as-a-timeline.html" title="Permalink for this post">06 May 2014</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>We&#39;re now more than two years into building, maintaining and growing the code
+base for <a href="https://travis-ci.org">Travis CI</a>. A lot has happened in the code
+base, especially in the first year of our existing as a company. Lots of code
+was moved around, refactored, changed, improved, or written from scratch.</p>
+
+<p>While Travis CI is overall simple, some part of the code relies on complex
+logic, in particular handling everything in and around the state of a build.</p>
+
+<p>The more the code&#39;s been touched, with new states being added, the harder it&#39;s
+been to follow along why it was changed.</p>
+
+<p>Most classes have some coverage with comments, but code comments have one
+distinct flaw. <strong>While code changes frequently, its comments rarely do.</strong></p>
+
+<p>My first reflex when looking at a piece of code, wondering why it is the way it
+is, is to look at the git history. While <code>git blame</code> has an unfortunately
+negative connotation, it does provide the basic clues as to where to look for
+the answers.</p>
+
+<p>Thankfully, in Vim, <code>:Gblame</code> (courtesy of <a href="https://github.com/tpope/vim-fugitive">fugitive</a>) 
+provides a good way to start digging.</p>
+
+<p>This is where I changed the way I write and commit code in the past couple of
+month. I think about future me, future anyone who looks at my code, thinking
+what the hell is going on here and why?</p>
+
+<p>When they look at a commit message no longer than some 50 characters and a code
+patch, will they be able to figure out what&#39;s going on, why I made this change?</p>
+
+<p>Knowing present and past me, I know they don&#39;t. Things are easily forgotten, and
+a year later no one will remember why something was changed.</p>
+
+<p>For these future mes and someone else, <strong>commit messages are the one true
+history of why a piece of code has changed</strong> and how, by way of the diff.</p>
+
+<p>Nowadays, I add detailed commit messages to even the smallest changes. As soon
+as they touch something that affects the bigger picture or has some reasoning
+outside of what&#39;s visible in the code, the commit message should reflect that.</p>
+
+<p>It turns into a diary of what you&#39;ve been up to, and it&#39;s going to help yourself
+and everyone else looking at your code.</p>
+
+<p><strong>Write good, clear and detailed commit messages. Future you will thank present
+you for it.</strong></p>
+
+<p>Mislav has a <a href="http://mislav.uniqpath.com/2014/02/hidden-documentation/">lot more detail on the commit
+history</a> as the
+ultimate truth for a code base&#39;s timeline, it&#39;s good stuff.</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2014/4/25/three-steps-to-finding-your-price.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2014/5/9/is-practical-drift-inevitable.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. mathias meyer.</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. mathias meyer."/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <div id="articles">
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2013/6/17/a-short-story-on-human-error.html">A Short Story on Human Error</a></h3>
+        <h4><a href="/2013/6/17/a-short-story-on-human-error.html" title="A Short Story on Human Error">17 June 2013</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>A few weeks back I came across a post that struck home in several ways. <a href="http://edu.mkrecny.com/thoughts/how-i-fired-myself">&quot;How I
+Fired myself&quot;</a> is a short
+story of a developer who accidentally deleted the entire users table in
+production while working on a new feature. You should read the whole thing, go
+ahead, I&#39;ll wait for you.</p>
+
+<p>What struck home was not just that he accidentally deleted data from the
+production database. I certainly did similar things, accidentally removing data,
+setting MySQL options at runtime that caused the whole process to crash, amongst
+other things.</p>
+
+<p>The thing that really struck me was the story that unfolded after the incident.
+I came across the article just when I was reading Sidney Dekker&#39;s <a href="http://amzn.to/19IxbP4">&quot;The Field
+Guide to Human Error&quot;</a>, a fascinating read, if I may
+add.</p>
+
+<p>If you look at what happened after the incident, it&#39;s clear that everyone blames
+him, as if he had the malicious intent to just delete the whole table and cause
+unhappiness. His boss accuses him of potentially having lost the company millions,
+putting aside the possibility that he&#39;s helped make these millions too, and that
+he very likely didn&#39;t come in to work that day and lose a few of the company&#39;s
+millions.</p>
+
+<p>This kind of reprimanding and the pressure from the team is what eventually
+caused this poor guy to quit his job. Which is a shame, because there is a lot
+more to this incident than meets the eye.</p>
+
+<p>Nassim Taleb points out in <a href="http://amzn.to/19CvJvW">&quot;The Black Swan&quot;</a>: &quot;we are
+explanation-seeking animals who tend to think that everything has an
+identifiable cause and grab the most apparent one as the explanation.&quot;</p>
+
+<p>We&#39;re quick to blame the human who seemingly caused accidents or deleted data from
+the production database. But that misses out on learning a bigger lesson,
+learning and improving the organization around the human.</p>
+
+<p>As Scott Snook put it in <a href="http://amzn.to/15bQMAj">&quot;Friendly Fire&quot;</a>, &quot;look beyond
+individual error by framing puzzling behavior in complex organizations as
+individuals struggling to make sense.&quot;</p>
+
+<p>There are two things that jump out when reading the text. The first is the fact
+that he&#39;s testing his local code against the production database, with full
+access to creating and removing data.</p>
+
+<p>Add to that the fact that backups for the production database had been disabled
+(by someone in the company) two months before the incident. Let&#39;s look at them
+in more detail.</p>
+
+<h3>Testing against the production database</h3>
+
+<p>You could start arguing right away that this developer has been irresponsible
+testing his local code against the production database.</p>
+
+<p>But if you reframe it to look at the bigger picture, the question emerges of why
+an organization whose data is worth millions lets developers test their local
+codes against the production database in the first place?</p>
+
+<p>It is not uncommon for young startups to start out like this. It&#39;s just much
+easier and during startup crunch time, any means is acceptable that helps the
+team move and ship faster, even if there&#39;s a slight risk involved.</p>
+
+<p>But, the longer the team continues to work in a mode like this, the more it gets
+used to testing against production data, removing and recreating data as needed.
+It becomes accepted practice. Every day that passes without any incident makes
+people more confident that they can continue to do what they&#39;ve done for months
+or maybe even years.</p>
+
+<p>In <a href="http://amzn.to/15bQMAj">&quot;Friendly Fire&quot;</a>, Snook introduces the concept of
+practical drift, &quot;the slow steady uncoupling of practice from written
+procedure.&quot;</p>
+
+<p>While there may not have been a written procedure that said to not develop
+against the production database, I was still reminded of this story. The team
+drifted into the conception that they can continue to do what they&#39;ve done for a
+while without any issues.</p>
+
+<p>What&#39;s more interesting to ask for is why the organization didn&#39;t encourage for
+developers to work in their own sandboxes or at least on a staging system where
+they can&#39;t harm the valuable production data.</p>
+
+<p>Asking for the why will very likely get you to more puzzle pieces that need to
+be questioned. Pieces that just happened came together in this one occasion to
+cause lots of harm to the business. While no one saw this coming, there was
+always a non-zero chance that it could happen.</p>
+
+<p>In this case, it&#39;s very likely the organization that hasn&#39;t allowed the
+development or operations teams to set up proper environments for developers.
+Just like the bosses reprimanded the poor guy, they possibly didn&#39;t feel there&#39;s
+enough time or money around to invest in a proper development environment.</p>
+
+<p>In a similar vein, another question could be why the developers had full access
+to the production database. Why were there no procedures in place that were
+required to delete data on the production database? You can keep going, and you
+will uncover more details that all came together to help trigger this one
+accident.</p>
+
+<h3>Database backups disabled</h3>
+
+<p>Deleting data is not something that&#39;s done every day, but incidents where data
+gets accidentally removed during a normal maintenance are not unheard of.
+There&#39;s always a possibility for this to happen, even during normal operations.
+Just think of the <a href="https://aws.amazon.com/message/680587/">Amazon Elastic Load Balancer outage last
+Christmas</a>.</p>
+
+<p>What really screamed out at me was that someone in the company had cancelled the
+automated database backups, without any automated means set up to take their
+place.</p>
+
+<p>Think about it, data that&#39;s supposedly worth millions has not been backed up for
+two months.</p>
+
+<p>Was it this developer&#39;s fault that the normal safety net for any database
+operation wasn&#39;t in place? Highly unlikely.</p>
+
+<p>We&#39;re again looking at an issue in the wider organization this guy was working
+in. The obvious question is: why was it cancelled in the first place? Was it
+because it was deemed to expensive? Was operations working on a replacement that
+was less costly but never got around to deploying it because there were more
+pressing issues that needed to be handled?</p>
+
+<p>I found all this utterly fascinating, and I wanted to sit down with everyone
+involved to figure out why all these things were the way they were, and how they
+could come together in this one occasion to cause harm to the entire
+organization.</p>
+
+<p>But most importantly, what this organization can learn to improve so that an
+issue under similar circumstances can be made less likely. Note that I didn&#39;t
+say to prevent these accidents from happening again. They will happen again, the
+real question is how the entire organization will handle the next one.</p>
+
+<h3>There is no single root cause</h3>
+
+<p>If you look at the things that came together to form this single incident,
+you&#39;ll notice that it wasn&#39;t just one little thing that caused it. It wasn&#39;t the
+developer who just so happened to delete the wrong table.</p>
+
+<p>It was a number of causes that came together to strike hard, all of them very
+likely to be bigger issues inside the organization rather than a problem with
+the individual. Again, quoting from <a href="http://amzn.to/19CvJvW">&quot;The Black Swan&quot;</a>:
+&quot;a small input in a complex system can lead to nonrandom large results,
+depending on very special conditions.&quot;</p>
+
+<p>The further back you go in time, the more reasons you&#39;ll find that there&#39;s a
+tangled web of lots of little causes, that again have their own causes, that
+just so happened to come together seemingly random to form this event that no
+one saw coming. But &quot;while in theory randomness is an intrinsic property, in
+practice, randomness is incomplete information, what I called opacity&quot; (<a href="http://amzn.to/19CvJvW">&quot;The
+Black Swan&quot;</a>).</p>
+
+<p>The important take-away, which is framed nicely by this little story, <a href="http://www.kitchensoap.com/2012/02/10/each-necessary-but-only-jointly-sufficient/">each
+little thing is necessary, but only jointly are they
+sufficient.</a>.</p>
+
+<p>Every failure is an opportunity to learn, to improve how you run your business.
+Wouldn&#39;t it be a waste to ignore this invaluable insight?</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2013/3/28/monitoring-for-humans.html">Monitoring for Humans</a></h3>
+        <h4><a href="/2013/3/28/monitoring-for-humans.html" title="Monitoring for Humans">28 March 2013</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>Hi, I&#39;m Mathias, and I&#39;m a developer. Other than a lot of you at this
+conference, I&#39;m far from being a monitoring expert. If anything, I&#39;m a user, a
+tinkerer of all the great tools we&#39;re hearing about at this conference.</p>
+
+<p>I help run a little continuous integration service called Travis CI. For that
+purpose I built several home-baked things that help us collect metrics and
+trigger alerts.</p>
+
+<p>I want to start with a little story. I spend quality time at coffee shops and I
+enjoy peeking over the shoulders of the guy who&#39;s roasting coffee beans. Next to
+the big roasting machine they commonly have a laptop with pretty graphs showing
+how the temperature in the roaster changes over time. On two occasions I found
+myself telling them: &quot;Hey cool, I like graphs too!&quot;</p>
+
+<p>On the first occasion I looked at the graph and noticed that it&#39;d update itself
+every 2-3 seconds. I mentioned that to the roaster and he said: &quot;Yeah, I&#39;d
+really love it if it could update every second.&quot; In just two seconds the
+temperature in the roaster can already drop by almost a degree (Celsius), so he
+was lacking the granularity to get the best insight into his system.</p>
+
+<p>The second roaster did have one second resolution, and I swooned. But I noticed
+that every minute or so, he wrote down the current temperature on a sheet of
+paper. The first guy had done that too. I was curious why they&#39;d do that. He
+told me that he took it as his reference sheet for the next roasting batch. I
+asked why he didn&#39;t have the data stored in the system. He replied that he
+didn&#39;t trust it enough, because if it lost the information he wouldn&#39;t have a
+reference for his next roasting sheet.</p>
+
+<p>He also keeps a set of coffee bean samples around from previous roasts, roasts
+where the outcome is known to have resulted in a great roasting result. Even
+coffee roasters have confirmation bias, though to be fully fair, when you&#39;re new
+to the job, any sort of reference can help you move forward.</p>
+
+<p>This was quite curious. They had the technology yet they didn&#39;t trust it enough
+with their data. But heck, they had one-second resolution and they had the
+technology to measure data from live sensors in real time.</p>
+
+<p>During my first jobs as a developer touching infrastructure, five minute
+collection intervals and RRDtool graphs were still very much en vogue. My alerts
+basically came from Monit throwing unhelpful emails at me stating that some
+process just changed from one state to another.</p>
+
+<p>Since my days with Munin a lot has changed. We went through the era of
+#monitoringsucks, which fortunately, quickly turned into the era of
+#monitoringlove. It&#39;s been pretty incredible watching this progress as someone
+who loves tinkering with new and shiny tools and visualization possibilities.
+We&#39;ve seen the emergence of crazy new visualization ideas, like the horizon
+chart, and we&#39;ve seen the steady rise of using modern web technologies to render
+charts, while seeing RRDtool being taken to the next level to visualize time
+series data.</p>
+
+<p>New approaches providing incredibly detailed insight into network traffic and
+providing stream analysis of time series data have emerged.</p>
+
+<p>One second resolution is what we&#39;re all craving, looking at beautiful and
+constantly updating charts of 95th percentile values.</p>
+
+<p>And yet, how many of you are still using Nagios?</p>
+
+<p>There are great advances in monitoring at the moment, and I enjoying watching
+them as someone who greatly benefits from them.</p>
+
+<p>Yet, I&#39;m worried that all these advances still don&#39;t focus enough on the single
+thing that&#39;s supposed to use them: humans.</p>
+
+<p>There&#39;s lots of work going on to solve problems to make monitoring technology
+more accessible, yet I feel like we haven&#39;t solved the first problem at hand: to
+make monitoring something that&#39;s easy to get into for people new to the field.</p>
+
+<p>Monitoring still involves a lot of looking at graphs, correlating several
+different time series after the fact, and figuring out and checking for
+thresholds to trigger alerts. In the end, you still find yourself looking at one
+or more graphs trying to figure out what the hell it means.</p>
+
+<p>Tracking metrics has become very popular, thanks to Coda Hale&#39;s metrics library,
+which inspired a whole slew of libraries for all kinds of languages, and tools
+like StatsD, which made it very easy to throw any kind of metric at them and
+have it pop up in a system like Graphite, Librato Metrics, Ganglia, etc.</p>
+
+<p>Yet the biggest question that I get every time I talk to someone about
+monitoring, in particular people new to the idea, is: &quot;what should I even
+monitor?&quot;</p>
+
+<p>With all the tools we have at hand, helping people to find the data that matters
+for their systems is still among the biggest hurdles that must be conquered to
+  actually make sense of metrics.</p>
+
+<p>Can we do a better job of educating people what they should track, what they
+could track, and how they can figure out the most important metrics for their
+system? It took us six months to find the single metric that best reflects the
+current state of our system. I called it the soul metric, the one metric that
+matters most to our users and customers.</p>
+
+<p>We started tracking the time since the last build was started and since the last
+build was finished.</p>
+
+<p>On our commercial platform, where customers run builds for their own products
+and customer projects, the weekend is very quiet. We only run one tenth of the
+number of builds on a Sunday compared to a normal weekday. Sometimes we don&#39;t
+run any build in 60 minutes. Suddenly checking when a build was last triggered
+makes a lot less sense.</p>
+
+<p>Suddenly we&#39;re confronted with the issue that we need to look at multiple
+metrics in the same context to see if a build should even have been started, as
+the fact itself is solely based on a customer pushing code. We&#39;re suddenly
+looking at measuring the absence of data (no new commits) and correlate it with
+data derived from several attributes of the system, like no running builds and
+no build request being processed.</p>
+
+<p>The only reasonable solution I could come up with, and it&#39;s mostly thanks to
+talking to Eric from Papertrail, is if you need to measure something but it
+require the existence of an activity, you have to make sure this activity is
+generated on a regular basis.</p>
+
+<p>In hindsight, it&#39;s so obvious, though it brings up a question: if the thing that
+generates the activity fails, does that mean the system isn&#39;t working? Is this
+worth an alert, is this worth waking someone up for? Certainly not.</p>
+
+<p>This leads to another interesting question: if I need to create activity to
+measure it, and if my monitoring system requires me to generate this activity to
+be able to put a graph and an alert on it, isn&#39;t my monitoring system wrong? Are
+all the monitoring systems wrong?</p>
+
+<p>If a coffee roaster doesn&#39;t trust his tools enough to give him a consistent
+insight into the current, past and future roasting batches, isn&#39;t that a weird
+mismatch between humans and the system that&#39;s supposed to give them the
+assurance that they&#39;re on the right path?</p>
+
+<p>A roaster still trusts his instincts more than he trusts the data presented to
+him. After all, it&#39;s all about the resulting coffee bean.</p>
+
+<p>Where does that take us and the current state of monitoring?</p>
+
+<p>We spend an eternity looking at graphs, right after an alert was triggered
+because a certain threshold was crossed. Does that alert even mean anything, is
+it important right now? It&#39;s where a human operator still has to decide if it&#39;s
+worth the trouble or if they should just ignore the alert.</p>
+
+<p>As much as I enjoy staring at graphs, I&#39;d much rather do something more
+important than that.</p>
+
+<p>I&#39;d love for my monitoring system to be able to tell me that something out of
+the ordinary is currently happening. It has all the information at hand to make
+that decision at least with a reasonable probability.</p>
+
+<p>But much more than that, I&#39;d like our monitoring system to be built for humans,
+reducing the barrier of entry for adding monitoring and metrics to an
+application and to infrastructure without much hassle. How we&#39;ll get there? </p>
+
+<p>Looking at the current state of monitoring, there&#39;s a strong focus on
+technology, which is great, because it helps solves bigger issues like data
+storage, visualization and presentation, and stream analysis. I&#39;d love to see
+this all converge on the single thing that has to make the call in the end: a
+human. Helping them make a good decision and getting there should be very high
+on our list.</p>
+
+<p>There is a fallacy in this wish though. With more automation comes a cognitive
+bias to trust what the system is telling me. Can the data presented to me be
+fully trusted? Did the system actually make the right call in sending me an
+alert? This is only something a human can figure, just as a coffee roaster needs
+to trust his instincts even though the variables for every roast are slightly
+different.</p>
+
+<p>We want to avoid for our users having to have a piece of paper around that tells
+them exactly what happened the last time this alert was triggered. We want to
+make sure they don&#39;t have to look at samples of beans at different stages to
+find confirmation for the problem at hand. If the end user always looks at
+previous samples of data to compare it to the most recent one, the only thing
+they&#39;ll look for is confirmation.</p>
+
+<p>Lastly, the interfaces of the monitoring tools we work with every day are
+designed to be efficient, they&#39;re designed to dazzle with visualization, yet
+they&#39;re still far from being easy to use. If we want everyone in our company to
+be able to participate in running a system in production, we have to make sure
+the systems we provide them with interfaces that treat them as what they are:
+people.</p>
+
+<p>But most importantly, I&#39;d like to see the word spread on monitoring and metrics,
+making our user interfaces more accessible and tell the tale of how we monitor
+our systems, how other people can monitor their systems. There&#39;s a lot to learn
+from each other, and I love things like <a href="http://hangops.com">hangops</a> and
+<a href="http://opsschool.org">OpsSchool</a>, they&#39;re great starts to get the word out.</p>
+
+<p>Because it&#39;s easier to write things down to realize where you are, to figure out
+where you want to be.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2013/1/21/failure-is-always-an-option.html">Failure is Always an Option</a></h3>
+        <h4><a href="/2013/1/21/failure-is-always-an-option.html" title="Failure is Always an Option">21 January 2013</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>Failure is still one of the most undervalued things in our business, in most
+businesses really. We still tend to point fingers elsewhere, blame the other
+department, or try anything to cover our asses.</p>
+
+<p>How about we do something else instead? We embrace failure openly, turn it into
+our company&#39;s culture and do everything we can to make sure every failure is
+turned into a learning experience, into an opportunity?</p>
+
+<p>Let me start with some illustrating examples.</p>
+
+<h3>Wings of Fury</h3>
+
+<p>In 2010, <a href="http://www.wired.com/autopia/2010/03/boeing-787-passes-incredible-wing-flex-test/">Boeing tested the wings of a brand new 787
+Dreamliner</a>.
+In a giant hangar, they set up a contraption that&#39;d pull the wings of a 787 up,
+with so much pull that the wings were bound to break.</p>
+
+<p><img src="http://s3itch.paperplanes.de/787-20130111-114538.png" alt=""></p>
+
+<p>Eventually, and after they&#39;ve been flexed upwards of 25 feet, <a href="http://www.youtube.com/watch?v=WRf395ioJRY">the wings broke
+spectacularly.</a></p>
+
+<p>The amazing bit: all the engineers watching it happen started to cheer and
+applaud.</p>
+
+<p>Why? Because they anticipated the failure at the exact circumstances where it
+broke, at about 150% of what wings handle at normal operation.</p>
+
+<p>They can break things loud and proud, they can predict when their engineering
+work falls apart. Can we do the same?</p>
+
+<h3>Safety first</h3>
+
+<p>I&#39;ve been reading a great book, <a href="http://amzn.to/Vkcn76">&quot;The Power of Habit&quot;</a>,
+and it outlines another story of failure and how tackling that was turned into
+an opportunity to improve company culture.</p>
+
+<p>When Paul O&#39;Neill, later to become Secretary of the Treasury, took over
+management of Alcoa, one of the United States&#39; largest aluminum production
+companies, he made it his first and foremost to tackle the safety issues in the
+company&#39;s production plants.</p>
+
+<p>He put rules in place that any accidents must be reported to him within just a few
+hours, including remedies on how this kind of accident will be prevented in the
+future.</p>
+
+<p>While his main focus was to prevent failures, because they would harm or even
+kill workers, what he eventually managed to do is to implement a company culture
+where even the smallest suggestions to improve safety or to improve efficiency
+from any worker would be considered and would be handed up the chain of
+management.</p>
+
+<p>This fostered a culture of highly increased communication between production
+plants, between managers, between workers.</p>
+
+<p>Failures and accidents still happened, but were in sharp decline, as every
+single one was taken as an opportunity to learn and improve the situation to
+prevent them from happening again.</p>
+
+<p>It was a chain of post-mortems if you will. O&#39;Neill&#39;s interest was to make
+everyone part of improving the overall situation without having to fear blame.
+Everyone was made felt like they&#39;re an important part of the company. By then,
+15000 people worked at Alcoa.</p>
+
+<p>This had an interesting effect on the company. In twelve years, O&#39;Neill
+managed to increase Alcoa&#39;s revenues from $1.5 to $23 billion dollars.</p>
+
+<p>His policies became an integral part of the company&#39;s culture and ensured that
+everyone working for it felt like an integral part of the production chain.</p>
+
+<p>Floor worker&#39;s were given permission to shut down the production chain if they
+deemed it necessary and were encouraged to whistle when they noticed even the
+slightest risk in any activity in the company&#39;s facilities.</p>
+
+<p>To be quite fair, competitors were pretty much in the dark about these
+practices, which gave Alcoa a great advantage on the market.</p>
+
+<p>But within a decade of running the company, he transformed it into a culture
+that sounds strikingly similar to the ideas of DevOps. He managed to make
+everyone feel responsible for delivering a great product and for everyone to be
+enabled to take charge should something go wrong.</p>
+
+<p>All that is based on the premise of trust. Trust that when someone speaks up,
+they will be taken seriously.</p>
+
+<h3>Three Habits of Failure</h3>
+
+<p>If you look at the examples above, some patterns come up. There are companies
+outside of our field that have mastered or at least taken on an attitude of
+accepting that failure is inevitable, anticipating failure and dealing with and
+learning from failure.</p>
+
+<p>Looking at some more examples it occurred to me that even doing one of these
+things will improve your company&#39;s culture significantly.</p>
+
+<h3>How do we fare?</h3>
+
+<p>We fail, a lot. It&#39;s in the nature of the hardware we use and the software we
+build. Networks partition, hard drives fail, software bugs creep into system
+that can lead to cascading failures.</p>
+
+<p>But do we, as a community, take enough of advantage of what we learn from each
+outage?</p>
+
+<p>Does your company hold post-mortem meetings after a production outage? Do you
+write public post-mortems for your customers?</p>
+
+<p>If you don&#39;t, what&#39;s keeping you from doing so? Is it fear of giving your
+competitors an advantage? Is it fear of giving away too many internal details?
+Fear of admitting fault in public?</p>
+
+<p>There&#39;s a great advantage in making this information public. Usually, it doesn&#39;t
+really concern your customers what happened in all detail. What does concern
+them is knowing that you&#39;re in control of the situation.</p>
+
+<p>A post-mortem follows three Rs: regret, reason and remedy.</p>
+
+<p>They&#39;re a means to say sorry to your customers, to tell them that you know what
+caused the issues and how you&#39;re going to fix them.</p>
+
+<p>On the other hand, post-mortems are a great learning opportunity for your peer
+ops and development people.</p>
+
+<h3>Web Operations</h3>
+
+<p>This learning is an important part of improving the awareness of web operations,
+especially during development. There&#39;s a great deal to be learned from other
+people&#39;s experiences.</p>
+
+<p>Web operations is a field that is mostly learning by doing right now. Which is
+an important part of the profession, without a doubt.</p>
+
+<p>If you look at the available books, there are currently three books that give
+insight into what it means to build and run reliable and scalable systems.</p>
+
+<p><a href="http://amzn.to/pwoDun">&quot;Release It!&quot;</a>, <a href="http://amzn.to/rgI1J5">&quot;Web
+Operations&quot;</a> and <a href="http://amzn.to/KAog1y">&quot;Scalable Internet
+Architectures&quot;</a> are the ones that come to mind.</p>
+
+<p>My personal favorite is &quot;Release It!&quot;, because it raises developer awareness on
+how to handle and prevent production issues in code.</p>
+
+<p>It&#39;s great to see the <a href="https://en.wikipedia.org/wiki/Circuit_breaker_design_pattern">circuit
+breaker</a> and the
+<a href="http://johnragan.wordpress.com/2009/12/08/release-it-stability-patterns-and-best-practices/">bulkhead
+pattern</a>
+introduced in this book now being popularized by Netflix, who <a href="http://techblog.netflix.com/2012/11/hystrix.html">openly write
+about their experiences implementing
+it</a>.</p>
+
+<p>Netflix is a great example here. They&#39;re very open about what they do, they
+write detailed post-mortems when there&#39;s an outage. You should read their
+<a href="http://techblog.netflix.com">engineering blog</a>, same for
+<a href="http://codeascraft.etsy.com">Etsy&#39;s</a>.</p>
+
+<p>Why? Because it attracts engineering talent.</p>
+
+<p>If you&#39;re looking for a job, which company would you rather work for? One that
+encourages taking risks while also taking responsibility for fixing issues when
+failure does come up, and one that enables a culture of fixing and improving
+issues as a whole rather than to put blame?</p>
+
+<p>I&#39;d certainly choose the former.</p>
+
+<p>Over the last two years, Amazon has also realized how important this is. Their
+post-mortems have gotten very valuable for anyone interest in things that can
+happen in multi-tenant, distributed systems.</p>
+
+<p>If you remember the most recent outage on Christmas Eve, they even had the guts
+to come out and say that production data was deleted by accident.</p>
+
+<p>Can you imagine the shame these developers must feel? But can you imagine a
+culture where the issue itself is considered an opportunity to learn instead of
+blaming or firing you? If only to learn that accessing production data needs
+stricter policies.</p>
+
+<p>It&#39;s a culture I&#39;d love to see fostered in every company.</p>
+
+<p>Regarding ops education, there have been some great things last year that are
+worth mentioning. <a href="http://hangops.com">hangops</a> is a nice little circle,
+streamed live (mostly) every Friday, and available for anyone to watch on
+YouTube afterwards.</p>
+
+<p><a href="http://www.opsschool.org">Ops School</a> has started a great collection of
+introductory material on operations topics. It&#39;s still very young, but it&#39;s a
+great start, and you can help move it forward.</p>
+
+<h3>Travis CI</h3>
+
+<p>At <a href="https://travis-ci.org">Travis CI</a>, we&#39;re learning from failure, a lot. As a continuous integration
+platform, it started out as a hobby project and was built with a lot of positive
+assumptions.</p>
+
+<p>It used to be a distributed system that always assumed everything would work
+correctly all the time.</p>
+
+<p>As we grew and added more languages and more projects, this ideal fell apart
+pretty quickly.</p>
+
+<p>It is a symptom of a lot of projects that are developer-driven, because there&#39;s
+just so little public information on how to do it right, on how distributed
+systems are built and run at other companies for them to work reliably.</p>
+
+<p>We decided to turn every failure into an opportunity to share our learnings.
+We&#39;re an open source project, so it only makes sense to be open about our
+problems too.</p>
+
+<p>Our audience and customers, who are mostly developers themselves, seem to
+appreciate that. I for one am convinced that we owe to them.</p>
+
+<p>I encourage you to do the same, to share details on your development, on how you
+run your systems. It&#39;ll be surprising how introducing these changes can affect
+working as a team as a whole.</p>
+
+<h3>Cultural evolution</h3>
+
+<p>This insight didn&#39;t come easy. We&#39;re a small team, and we were all on board with
+the general idea of openness about our operational work and about the failures
+in our system.</p>
+
+<p>That openness brings with it the need to own your systems, to own your failures.
+It took a while for us to get used to working together as a team to get these
+issues out of the way as quickly as possible and to find a path for a fix.</p>
+
+<p>In the beginning, it was still too easy to look elsewhere for the cause of the
+problem. Blame is one side of the story, hindsight bias is the other. It&#39;s too
+easy to point out that the issue has been brought up in the past, but that
+doesn&#39;t contribute anything to fixing it.</p>
+
+<p>The more helpful attitude than saying &quot;I&#39;ve been saying this has been broken for
+months&quot; is to say &quot;Here&#39;s how I&#39;ll fix it.&quot; You own your failures.</p>
+
+<p>The only thing that matters is delivering value to the customer. Putting aside
+blame and admitting fault while doing everything you can to make sure the issue
+is under control is, in my opinion, the only way how you can do that, with
+everyone in your company on board.</p>
+
+<p>Accepting this might just help transform your company&#39;s culture significantly.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<div class="pagination">
+  
+    
+      <a href="/page18" class="previous">Newer Posts</a>
+    
+  
+  
+    <a href="/page20" class="next">Older Posts</a>
+  
+</div>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. Ruby 1.9 Tidbits</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. Ruby 1.9 Tidbits"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Ruby 1.9 Tidbits"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="Things that don&#39;t really justify their own separate posts.
+
+
+The method instance\_methods now returns an array of symbols instead of an array of strings. So do all the other methods that return..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2009/7/23/ruby_19_tidbits.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">Ruby 1.9 Tidbits</h3>
+        <h4><a href="/2009/7/23/ruby_19_tidbits.html" title="Permalink for this post">23 July 2009</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>Things that don&#39;t really justify their own separate posts.</p>
+
+<ul>
+<li><p>The method <code>instance\_methods</code> now returns an array of symbols instead of an array of strings. So do all the other methods that return methods, e.g. <code>singleton\_methods</code>, <code>public\_instance\_methods</code>, etc.</p></li>
+<li><p>There&#39;s now a method <code>define\_singleton\_method</code> that will remove the need of using <code>instance\_eval</code> when you want to define a singleton method. This is both true for classes and objects. Though if you&#39;re really picky, those actually are the same.</p></li>
+<li><p><code>public\_send</code> is already an oldie, but goldie, but it can&#39;t hurt to mention it. It will fail when you&#39;re trying to dynamically call a non-public method. Good old send still works as advertised.</p></li>
+<li><p><code>Enumerable#grep</code> can work on arrays of symbols. Add that to an array of methods, and you have a way of searching for methods that&#39;s still compatible with Ruby 1.8. As a matter of fact, and thanks for David Black for pointing that out, symbols seem to be more string-like in Ruby 1.9, so you can do <code>:symbol.match(/ymbol/)</code>.</p></li>
+<li><p><code>instance\_exec</code> is a nicer way of calling a block in the context of an object when you need to access variables outside of the block. You can give the parameters you need in the block as parameters to <code>instance\_exec</code> which will in turn hand it to the block.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">m = User.new
+secret = &quot;sssh!&quot;
+m.instance_exec(secret) {|s| @secret = s}
+</code></pre></div>
+<p>Now, this is a terrible example, I know, but honestly I&#39;m not too sure how useful this is in practice. <code>instance\_exec</code> was also backported to Ruby 1.8.7, if you&#39;re up for that kind of thing.</p></li>
+<li><p>Blocks are now handled very similar to methods, at least when they&#39;re lambdas. Don&#39;t ask me why the good old proc method is still in there. You get ArgumentErrors when your argument list doesn&#39;t match the list of parameters specified for the block. So checking the arity is probably a good idea when you&#39;re working inside a library dealing with blocks handed to you.</p>
+
+<p>Don&#39;t get me started on the new way parameters are handled in both methods and blocks. You can have optional parameters, splat parameters, and another mandatory parameter, afterwards. It&#39;s crazy, but true. Ruby will match things from the outside in. To fully understand it, I can only recommend to play around with it.</p></li>
+<li><p>Fibers! Man, this stuff is neat. It&#39;s not really the place to explain everything around them, I&#39;ve written a long-ish article on them for the <a href="http://www.railsway.de">RailsWay Magazin</a> to fully understand what they actually do. Play with them, but not with the semi-coroutines version that&#39;s the default. <code>require &#39;fiber&#39;</code> is where it&#39;s at. That gives you the full power of this neat little gem.</p></li>
+<li><p>The Enumerable methods in Hash will now return hashes where appropriate. This is kind of a big deal, because it can break compatibility when you&#39;re solely relying on it. When you&#39;re talking to code on the outside, it&#39;s probably a good idea to still convert any results to an array using <code>Hash#to\_a</code></p></li>
+<li><p>Even though it&#39;s supposably still the same version, there&#39;s some differences in the code of WEBrick. It will simply fail on requests with request URIs longer than 1024 characters. That was a bit surprising to me, and since there was no reasonable way around it, I had to patch it to work with SimplerDB.</p></li>
+<li><p>String now has <code>start\_with?</code> and <code>end\_with?</code>, they&#39;re also in Ruby 1.8.7.</p></li>
+<li><p>In Ruby 1.9.2 there&#39;s now <code>Method#parameters</code>, which gives you a neat way to inspect parameters of a method (duh!):</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">Date.method(:new).parameters
+=&gt; [[:opt, :y], [:opt, :m], [:opt, :d], [:opt, :sg]]
+
+def parameterize(name, options = {}, *args, &amp;blk)
+end
+
+method(:parameterize).parameters
+=&gt; [[:req, :name], [:opt, :options], [:rest, :args], [:block, :blk]]
+</code></pre></div></li>
+</ul>
+
+<p>As much fun as Ruby 1.9 is, having to deal with unmaintained code that is not compatible yet is a real pain in the ass. But still, it&#39;s totally worth checking out, and if you have a vanilla project coming up on the horizon, consider doing it with Ruby 1.9.</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2009/7/8/smalltalk_on_rabbitmq_and_nanite.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2009/8/5/daily_aws_wtf_and_german_rails_conference.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

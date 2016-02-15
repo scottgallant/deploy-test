@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. A Short Story on Human Error</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. A Short Story on Human Error"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="A Short Story on Human Error"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="A few weeks back I came across a post that struck home in several ways. &quot;How I
+Fired myself&quot; is a short
+story of a developer who accidentally deleted the entire users table in
+production ..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2013/6/17/a-short-story-on-human-error.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">A Short Story on Human Error</h3>
+        <h4><a href="/2013/6/17/a-short-story-on-human-error.html" title="Permalink for this post">17 June 2013</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>A few weeks back I came across a post that struck home in several ways. <a href="http://edu.mkrecny.com/thoughts/how-i-fired-myself">&quot;How I
+Fired myself&quot;</a> is a short
+story of a developer who accidentally deleted the entire users table in
+production while working on a new feature. You should read the whole thing, go
+ahead, I&#39;ll wait for you.</p>
+
+<p>What struck home was not just that he accidentally deleted data from the
+production database. I certainly did similar things, accidentally removing data,
+setting MySQL options at runtime that caused the whole process to crash, amongst
+other things.</p>
+
+<p>The thing that really struck me was the story that unfolded after the incident.
+I came across the article just when I was reading Sidney Dekker&#39;s <a href="http://amzn.to/19IxbP4">&quot;The Field
+Guide to Human Error&quot;</a>, a fascinating read, if I may
+add.</p>
+
+<p>If you look at what happened after the incident, it&#39;s clear that everyone blames
+him, as if he had the malicious intent to just delete the whole table and cause
+unhappiness. His boss accuses him of potentially having lost the company millions,
+putting aside the possibility that he&#39;s helped make these millions too, and that
+he very likely didn&#39;t come in to work that day and lose a few of the company&#39;s
+millions.</p>
+
+<p>This kind of reprimanding and the pressure from the team is what eventually
+caused this poor guy to quit his job. Which is a shame, because there is a lot
+more to this incident than meets the eye.</p>
+
+<p>Nassim Taleb points out in <a href="http://amzn.to/19CvJvW">&quot;The Black Swan&quot;</a>: &quot;we are
+explanation-seeking animals who tend to think that everything has an
+identifiable cause and grab the most apparent one as the explanation.&quot;</p>
+
+<p>We&#39;re quick to blame the human who seemingly caused accidents or deleted data from
+the production database. But that misses out on learning a bigger lesson,
+learning and improving the organization around the human.</p>
+
+<p>As Scott Snook put it in <a href="http://amzn.to/15bQMAj">&quot;Friendly Fire&quot;</a>, &quot;look beyond
+individual error by framing puzzling behavior in complex organizations as
+individuals struggling to make sense.&quot;</p>
+
+<p>There are two things that jump out when reading the text. The first is the fact
+that he&#39;s testing his local code against the production database, with full
+access to creating and removing data.</p>
+
+<p>Add to that the fact that backups for the production database had been disabled
+(by someone in the company) two months before the incident. Let&#39;s look at them
+in more detail.</p>
+
+<h3>Testing against the production database</h3>
+
+<p>You could start arguing right away that this developer has been irresponsible
+testing his local code against the production database.</p>
+
+<p>But if you reframe it to look at the bigger picture, the question emerges of why
+an organization whose data is worth millions lets developers test their local
+codes against the production database in the first place?</p>
+
+<p>It is not uncommon for young startups to start out like this. It&#39;s just much
+easier and during startup crunch time, any means is acceptable that helps the
+team move and ship faster, even if there&#39;s a slight risk involved.</p>
+
+<p>But, the longer the team continues to work in a mode like this, the more it gets
+used to testing against production data, removing and recreating data as needed.
+It becomes accepted practice. Every day that passes without any incident makes
+people more confident that they can continue to do what they&#39;ve done for months
+or maybe even years.</p>
+
+<p>In <a href="http://amzn.to/15bQMAj">&quot;Friendly Fire&quot;</a>, Snook introduces the concept of
+practical drift, &quot;the slow steady uncoupling of practice from written
+procedure.&quot;</p>
+
+<p>While there may not have been a written procedure that said to not develop
+against the production database, I was still reminded of this story. The team
+drifted into the conception that they can continue to do what they&#39;ve done for a
+while without any issues.</p>
+
+<p>What&#39;s more interesting to ask for is why the organization didn&#39;t encourage for
+developers to work in their own sandboxes or at least on a staging system where
+they can&#39;t harm the valuable production data.</p>
+
+<p>Asking for the why will very likely get you to more puzzle pieces that need to
+be questioned. Pieces that just happened came together in this one occasion to
+cause lots of harm to the business. While no one saw this coming, there was
+always a non-zero chance that it could happen.</p>
+
+<p>In this case, it&#39;s very likely the organization that hasn&#39;t allowed the
+development or operations teams to set up proper environments for developers.
+Just like the bosses reprimanded the poor guy, they possibly didn&#39;t feel there&#39;s
+enough time or money around to invest in a proper development environment.</p>
+
+<p>In a similar vein, another question could be why the developers had full access
+to the production database. Why were there no procedures in place that were
+required to delete data on the production database? You can keep going, and you
+will uncover more details that all came together to help trigger this one
+accident.</p>
+
+<h3>Database backups disabled</h3>
+
+<p>Deleting data is not something that&#39;s done every day, but incidents where data
+gets accidentally removed during a normal maintenance are not unheard of.
+There&#39;s always a possibility for this to happen, even during normal operations.
+Just think of the <a href="https://aws.amazon.com/message/680587/">Amazon Elastic Load Balancer outage last
+Christmas</a>.</p>
+
+<p>What really screamed out at me was that someone in the company had cancelled the
+automated database backups, without any automated means set up to take their
+place.</p>
+
+<p>Think about it, data that&#39;s supposedly worth millions has not been backed up for
+two months.</p>
+
+<p>Was it this developer&#39;s fault that the normal safety net for any database
+operation wasn&#39;t in place? Highly unlikely.</p>
+
+<p>We&#39;re again looking at an issue in the wider organization this guy was working
+in. The obvious question is: why was it cancelled in the first place? Was it
+because it was deemed to expensive? Was operations working on a replacement that
+was less costly but never got around to deploying it because there were more
+pressing issues that needed to be handled?</p>
+
+<p>I found all this utterly fascinating, and I wanted to sit down with everyone
+involved to figure out why all these things were the way they were, and how they
+could come together in this one occasion to cause harm to the entire
+organization.</p>
+
+<p>But most importantly, what this organization can learn to improve so that an
+issue under similar circumstances can be made less likely. Note that I didn&#39;t
+say to prevent these accidents from happening again. They will happen again, the
+real question is how the entire organization will handle the next one.</p>
+
+<h3>There is no single root cause</h3>
+
+<p>If you look at the things that came together to form this single incident,
+you&#39;ll notice that it wasn&#39;t just one little thing that caused it. It wasn&#39;t the
+developer who just so happened to delete the wrong table.</p>
+
+<p>It was a number of causes that came together to strike hard, all of them very
+likely to be bigger issues inside the organization rather than a problem with
+the individual. Again, quoting from <a href="http://amzn.to/19CvJvW">&quot;The Black Swan&quot;</a>:
+&quot;a small input in a complex system can lead to nonrandom large results,
+depending on very special conditions.&quot;</p>
+
+<p>The further back you go in time, the more reasons you&#39;ll find that there&#39;s a
+tangled web of lots of little causes, that again have their own causes, that
+just so happened to come together seemingly random to form this event that no
+one saw coming. But &quot;while in theory randomness is an intrinsic property, in
+practice, randomness is incomplete information, what I called opacity&quot; (<a href="http://amzn.to/19CvJvW">&quot;The
+Black Swan&quot;</a>).</p>
+
+<p>The important take-away, which is framed nicely by this little story, <a href="http://www.kitchensoap.com/2012/02/10/each-necessary-but-only-jointly-sufficient/">each
+little thing is necessary, but only jointly are they
+sufficient.</a>.</p>
+
+<p>Every failure is an opportunity to learn, to improve how you run your business.
+Wouldn&#39;t it be a waste to ignore this invaluable insight?</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2013/3/28/monitoring-for-humans.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2013/7/16/running-a-small-business-is.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

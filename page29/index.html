@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. mathias meyer.</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. mathias meyer."/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <div id="articles">
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2010/11/29/a_simple_redis_use_case.html">A Simple Redis Use Case for Sorted Sets</a></h3>
+        <h4><a href="/2010/11/29/a_simple_redis_use_case.html" title="A Simple Redis Use Case for Sorted Sets">29 November 2010</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p><em>Interested in Redis? You might be interested in the <a href="http://redishandbook.com">Redis Handbook</a> I&#39;m currently working on.</em></p>
+
+<p>Over at <a href="http://scalarium.com">Scalarium</a> we constantly find outselves adding new statistics to track specific parts of
+the system. Thought it&#39;d be a good idea to share some of them, and how we&#39;re using Redis to store them.</p>
+
+<p>Yesterday I was looking for a way to track the time it takes for an EC2 instance to boot up. Booting up in this case
+means, how long it takes for the instance to change from state &quot;pending&quot; to &quot;running&quot; on EC2. Depending on utilization
+and availability zone this can take anywhere from 30 seconds to even 30 minutes (us-east, I&#39;m looking at you). I want to
+get a feel for how long it takes on average.</p>
+
+<p>We poll the APIs every so many seconds, so we&#39;ll never get an exact number, but that&#39;s fine. It actually makes the
+tracking easier, because the intervals are pretty fixed, and all I need to do is store the interval and increment a
+number.</p>
+
+<p>Sounds like a job for a sorted set. We could achieve similar results with a hash structure too, but let&#39;s look at the
+sorted set nonetheless, because it&#39;s pre-sorted, which suits me well in this case. For every instance that&#39;s been booted
+up I simply store the interval and increment the number of instances.</p>
+
+<p>In terms of a sorted set, my interval will be the member in the sorted set and the number of instances falling into that
+particular interval will be the score, the value determining the member&#39;s rank. Advantage here is that the set will
+automatically be sorted by the number of instances in that particular interval, so that e.g. the interval with the most
+instances always comes first.</p>
+
+<p>We don&#39;t need anything to get started, we just have to increment the score for the particular interval (or member), in
+this case 60 seconds, Redis will start from zero automatically, I&#39;ll use the Redis Ruby library for brevity.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">redis.zincrby(&#39;instance_startup_time&#39;, 1, 60)
+</code></pre></div>
+<p>Another instance took 120 seconds to boot up, so we&#39;ll increment the score for that interval too.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">redis.zincrby(&#39;instance_startup_time&#39;, 1, 120)
+</code></pre></div>
+<p>After some time we have added some good numbers to this sorted set, and we can start keeping an eye on the top five.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">redis.zrevrange(&#39;instance_startup_time&#39;, 0, 4, :with_scores =&gt; true)
+# =&gt; [&quot;160&quot;, &quot;22&quot;, &quot;60&quot;, &quot;21&quot;, &quot;90&quot;, &quot;10&quot;, &quot;120&quot;, &quot;10&quot;, &quot;40&quot;, &quot;5&quot;]
+</code></pre></div>
+<p>The default sort order is ascending in a sorted set, hence we&#39;ll get a reverse range (using the <code>zrevrange</code> command) of
+the five intervals with the highest score, i.e. where the most instances fall into.</p>
+
+<p>To get the number of instances for a particular interval, we can use the <code>zscore</code> command.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">redis.zscore(&#39;instance_startup_time&#39;, 60)
+# =&gt; 21
+</code></pre></div>
+<p>To find the rank in the sorted set for a particular interval, e.g. to find out if it falls into the top five intervals,
+use <code>zrevrank</code>.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">redis.zrank(&#39;instance_startup_time&#39;, 160)
+# =&gt; 0
+</code></pre></div>
+<p>Now we want to find the intervals where a particular number of instances fall into, say everything from 10 to 20
+instances. We can use <code>zrangebyscore</code> for this purpose.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">redis.zrangebyscore(&#39;instance_startup_time&#39;, 10, 20, :with_scores =&gt; true)
+# =&gt; [&quot;120&quot;, &quot;10&quot;, &quot;90&quot;, &quot;10&quot;] 
+</code></pre></div>
+<p>Note that Redis has some nifty operators where you can e.g. ask for every interval that has more than 10 instances,
+using the <code>+inf</code> operator, useful when you don&#39;t know the highest score in the sorted set.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">redis.zrangebyscore(&#39;instance_startup_time&#39;, 10, &#39;+inf&#39;, :with_scores =&gt; true)
+# =&gt; [&quot;120&quot;, &quot;10&quot;, &quot;90&quot;, &quot;10&quot;, &quot;60&quot;, &quot;21&quot;, &quot;160&quot;, &quot;22&quot;]
+</code></pre></div>
+<p>Now you want to sort the sorted set by the interval, e.g. to display the numbers in a table. You can use the <code>sort</code>
+command to sort the set by its elements, but unfortunately there doesn&#39;t seem to be a way to get the scores in the same
+call.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">redis.sort(&#39;instance_startup_time&#39;)
+# =&gt; [&quot;20&quot;, &quot;40&quot;, &quot;60&quot;, &quot;90&quot;, &quot;120&quot;, &quot;160&quot;]
+</code></pre></div>
+<p>To make up for this you could iterate over the results and fetch the results in one go using the <code>multi</code> command.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">members = redis.sort(&#39;instance_startup_time&#39;)
+redis.multi do
+  members.each do |member|
+    redis.zscore(&#39;instance_startup_time&#39;, member)
+  end
+end
+</code></pre></div>
+<p>So far we&#39;ve stored all numbers in one big sorted set, which will grow over time, making the statistical numbers very
+broad and less informative. Suppose we want to store daily metrics and then run the numbers weekly and monthly. We just
+used a different key derived from the current date.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">today = Date.today.strftime(&quot;%Y%m%d&quot;)
+redis.zincrby(&quot;instance_startup_time:#{today}&quot;, 1, 60)
+</code></pre></div>
+<p>Suppose we have collected data in the last two days. Thanks to <code>zunionstore</code> we can add the two sets together. Assume
+you have data from all days of the week, then you can use <code>zunionstore</code> to accumulate that data and store it with a
+different key.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">redis.zunionstore(&#39;instance_startup_time:week49&#39;,
+                  [&#39;instance_startup_time:20102911&#39;, &#39;instance_startup_time:20103011&#39;])
+</code></pre></div>
+<p>This will create a union of the sorted sets for the two subsequent days. The neat part is that will aggregate the data
+of the elements in the sets. So if on the one day 12 instances took 60 seconds to start and on the second 15, Redis will
+create the sum of all the scores. Neat, huh? What you get is a weekly aggregate of the collected data, of course it&#39;s
+easy to create monthly data as well.</p>
+
+<p>Instead of summing up the scores you could also store the maximum or minimum across all the sets.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">redis.zunionstore(&#39;instance_startup_time:week49&#39;,
+                  [&#39;instance_startup_time:20102911&#39;, &#39;instance_startup_time:20103011&#39;],
+                  :aggregate =&gt; &#39;max&#39;)
+</code></pre></div>
+<p>Of course you could save the extra union and just create counters for days, weeks and months in one go, but that
+wouldn&#39;t give me much material to highlight the awesomeness of sorted set unions now, wouldn&#39;t it?</p>
+
+<p>You could achieve a similar data structure by using hashes, but you can do some neat things on sorted sets that you&#39;d
+have to implement manually with hashes. Sorted sets are pretty neat when you need a weighed counter, e.g. download
+statistics, clicks, views, prelisted by the number of hits (scores) for the particular element.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2010/10/12/why_riak_search_matters.html">Why Riak Search Matters...</a></h3>
+        <h4><a href="/2010/10/12/why_riak_search_matters.html" title="Why Riak Search Matters...">12 October 2010</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>The awesome dudes at <a href="http://basho.com">Basho</a> released <a href="http://blog.basho.com/2010/10/11/riak-0.13-released/">Riak 0.13 and with it their first
+version</a> of <a href="http://wiki.basho.com/display/RIAK/Riak+Search">Riak
+Search</a> yesterday. This is all kinds of exciting, and I&#39;ll tell you why.
+Riak Search is (way down below) based on Lucene, both the library and the query interface. It mimicks the Solr web API
+for querying and indexing. Just like you&#39;d expect something coming out of Basho, you can add and remove nodes at any
+time, scaling up and down as you go. I&#39;ve seen an introduction on the basics back at Berlin Buzzwords, and it was
+already shaping up to be nothing but impressive. But enough with all the praise, why&#39;s this stuff exciting?</p>
+
+<ul>
+<li><p>The key/value model is quite restrictive when it comes to fetching data by, well anything else than a key. Keeping
+reverse lookup indexes was one way to do it, but the consistency model of Riak made it hard if not impossible to
+maintain a consistent list of interesting entries in an atomic way.</p>
+
+<p>Riak Search fills this gap (and not only for Riak, the key/value store, but for any key/value store if you will) by
+offering something that scales up and down in the same way as Riak, so you don&#39;t have to resort to e.g. Redis to
+maintain reverse lookup indexes.</p>
+
+<p>Run <a href="http://wiki.basho.com/display/RIAK/Riak+Search+-+Querying">queries in any way you can think of</a>, fetch ranges, groups,
+you name it, no need to do anything really. It even <a href="http://wiki.basho.com/display/RIAK/Riak+Search+-+Indexing+and+Querying+Riak+KV+Data">integrates directly with Riak through pre-commit
+hooks.</a></p></li>
+<li><p>It&#39;s based on proven technology (Lucene, that is). It doesn&#39;t compete with something entirely new, it takes what&#39;s
+been worked on and constantly improved for quite a while now, and raises it onto a new foundation to make it scale
+much nicer, <a href="http://wiki.basho.com/display/RIAK/Riak+Search#RiakSearch-MajorComponents">the foundation</a> being Riak
+Core, Riak KV and Bitcasks, and some new components developed at Basho.</p></li>
+<li><p>It uses existing interfaces. Imagine just pointing your search indexing library to a new end point, and there you go.
+Just the thought of that makes me teary. Reindex data, reconfigure your clients to point to a new endpoint, boom,
+there&#39;s your nicely scalable search index.</p></li>
+<li><p>Scaling Solr used to be awkward. Version 1.5 will include some heavy improvements, but I believe the word <a href="http://www.lucidimagination.com/blog/2009/12/12/apache-solr-1-5-on-the-move-with-more-functionality/">shard fell
+at some point.</a>
+Imagine a Solr search index where you can add and remove nodes at any time, the indexing rebalancing without requiring
+manual intervention.</p>
+
+<p>Sound good? Yeah, Riak Search can do that too.</p></li>
+</ul>
+
+<p>Remember though, it&#39;s just a first release, which will be improved over time. I for one am just happy they finally
+released it, I almost crapped my pants, it&#39;s that exciting to have something like Riak Search around. And I say that
+with all honesty and no fanboyism whatsoever. Having used Solr quite a lot in the past I&#39;m well aware of its strengths
+and weaknesses and the sweet spot Riak Search hits.</p>
+
+<p>I urge you to play with it. <a href="http://wiki.basho.com/display/RIAK/Riak+Search+-+Installation+and+Setup">Installing it</a> and
+<a href="http://wiki.basho.com/display/RIAK/Riak+Search+-+Indexing">feeding it with data</a> could not be easier. Well done, Basho!</p>
+
+<p>Update: From reading all this you may get the impression that Riak Search builds heavily on a Lucene foundation. That&#39;s
+not the case. When I say that it builds on top of Lucene, I actually meant that it can and does reuse its analyzers and
+query parsing. Both can be replaced with custom (Erlang) implementations. That&#39;s the only part of Lucene that is
+actually used by Riak Search, because why reinvent the wheel?</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2010/10/8/be_humble_and_get_shit_done.html">Be Humble, and Get Shit Done!</a></h3>
+        <h4><a href="/2010/10/8/be_humble_and_get_shit_done.html" title="Be Humble, and Get Shit Done!">08 October 2010</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>I had the honor of speaking at <a href="http://jaoo.dk">JAOO</a>, sorry <a href="http://gotocon.com">GOTO</a>, this year. Being part of so
+many great speakers, like James Gosling, Rich Hickey, Martin Fowler, Tim Bray, Michael Nygard, and Dan Ingalls (maker of
+several Smalltalk versions), made me feel nothing but humble, but not in a bad way. I talked about CouchDB, and if you
+care for it, <a href="http://couchdb-jaoo.heroku.com">check out my slides</a>. This is my take away from the conference.</p>
+
+<h3>Be Humble</h3>
+
+<p>My point here is not to make myself look like someone who&#39;s unimportant, though I&#39;m not important either. I&#39;m humble,
+that&#39;s all. At the speaker dinner on Wednesday night I sat at a table with <a href="http://twitter.com/allspaw">John Allspaw
+(Flickr/Etsy)</a>, <a href="http://twitter.com/mojombo">Tom Preston-Werner (GitHub)</a>, <a href="http://twitter.com/argv0">Andy Gross
+(Basho)</a>, and <a href="http://twitter.com/mjmalone">Mike Malone (SimpleGeo)</a>. I knew some of these
+guys before, and talked in one way or the other, but this time was different. First of all, they&#39;re an incredibly smart
+bunch. Smarter than I&#39;ll probably ever be. Which is not a bad thing, because if anything it&#39;s a motivation to constantly
+improve myself, to never stop learning.</p>
+
+<p>They shared stories from all the places they&#39;ve worked, not gossip stories, but more stories on problems they solved and
+how they solved them. That just fascinated me. I could&#39;ve sat there for hours, just listening to stories from how they
+did and do operations, how they handled certain problems, and all that at a scale that&#39;s usually way out of my league.
+I&#39;m usually not a quiet person, but it&#39;s times like these where I can just sit and listen.</p>
+
+<p>The problem I realized at some point though was, that in Germany, this culture of sharing simply doesn&#39;t exist. People
+don&#39;t talk much about operations, how they solve specific problems, the really interesting stuff. People talk about
+tools, languages, Amazon Web Services, all that stuff, but not how they go about to solve real life problems, at any
+scale.  It&#39;s sort of sad, and I&#39;m trying to come up with ideas on how to change that. Maybe it even happens, but outside
+of my usual circles. Other people from around here agree with me though, so I guess I&#39;m not the only one thinking this
+way.</p>
+
+<p>Because I just felt lucky being able to hear what they had to say. I love hearing these stories. There&#39;s a lot to gain
+from them, sometimes even more than just reading books (which you should still do of course). In a group I much prefer
+being the humblest in the band, and to just listen, obverse and learn. I love getting new ideas, new motivation and
+energy out of them. The motivation, together with a very specific track, lead to another realization. </p>
+
+<h3>Get Shit Done!</h3>
+
+<p>Every day there was one track at JAOO dealing with Scrum, Agile, Kanban, Devops, Lean, Continuous Something, you name
+it. I have a rather specific opinion on these topics, which I won&#39;t go into right here. I just find the amount of talk
+on the subjects ridiculous.</p>
+
+<p>Which brings me right to the subject. Instead of talking about agile processes, or whatever kind of process, just get
+shit done. The secret to being a great coder, operations guy, or even writer is not to talk about becoming one, it&#39;s to
+just start writing. Or, as <a href="http://vimeo.com/15556637">Tom Preston-Werner</a> put it: Innovate, Execute, Iterate.</p>
+
+<p>Talking about process won&#39;t get you anywhere. Pick what works for you and move on. If it doesn&#39;t work, reconsider
+specifically what doesn&#39;t, and improve. Don&#39;t blame the process. If shit doesn&#39;t get done, you have only yourself to
+blame. This realization is not exactly new, but it blows my mind how much time people spend talking about getting things
+done, instead of actually doing them. So here&#39;s the only tip I&#39;ll give you: get shit done. Working in a startup, <a href="http://scalarium.com">which I
+just so happen to do</a>, this is the only thing that matters.</p>
+
+<p>My personal take-away from JAOO/GOTO, even though it&#39;s not even directly related to the conference itself but the stuff
+I experienced around it: Be humble, and get shit done.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<div class="pagination">
+  
+    
+      <a href="/page28" class="previous">Newer Posts</a>
+    
+  
+  
+    <a href="/page30" class="next">Older Posts</a>
+  
+</div>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

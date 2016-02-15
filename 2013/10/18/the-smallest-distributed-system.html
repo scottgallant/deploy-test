@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. The Smallest Distributed System</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. The Smallest Distributed System"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="The Smallest Distributed System"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="Travis CI started out as an idea, an ideal even. Before
+its inception, there was a distinct lack of continuous integration systems
+available for the open source community.
+
+With GitHub on the rise ..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2013/10/18/the-smallest-distributed-system.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">The Smallest Distributed System</h3>
+        <h4><a href="/2013/10/18/the-smallest-distributed-system.html" title="Permalink for this post">18 October 2013</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p><a href="https://travis-ci.org">Travis CI</a> started out as an idea, an ideal even. Before
+its inception, there was a distinct lack of continuous integration systems
+available for the open source community.</p>
+
+<p>With GitHub on the rise as a collaboration platform for open source, what was
+missing was a service to continuously test contributions and ensure that an open
+source project is in a healthy state.</p>
+
+<p>It started out in early 2011, and gained a bit of a follower-ship rather
+quickly. By Summer 2011, we were doing 700 builds per day. All that was running
+off a single build server. Travis CI integrated well with GitHub, which is to
+this day still its main platform.</p>
+
+<p>It didn&#39;t exactly break any new ground on the field of continuous integration,
+but rather refined some existing concepts and added some new ideas. One was to
+be able to look at your build logs streaming in while your tests are running, in
+near real time.</p>
+
+<p>On top of that, it allowed configuring the build by way of a file that&#39;s part of
+your source code, the .travis.yml rather than a complex user interface.</p>
+
+<p><img src="http://s3itch.paperplanes.de/The_Smallest_Distributed_System.004.jpg_20131018_153228.jpg" alt=""></p>
+
+<p>The architecture started out very simple. A web component was responsible for
+making builds and projects visually accessible, but also accepting webhook
+notifications from GitHub, whenever a new commit was made to one of the projects
+using it.</p>
+
+<p>Another component, called hub, was responsible for processing new commits,
+turning them into builds, and for processing the result data from jobs as they
+ran and finished.</p>
+
+<p>Both of them interacted with a single PostgreSQL database.</p>
+
+<p>A third set of processes handled the build jobs themselves, executing a couple
+of commands on a bunch of VirtualBox instances.</p>
+
+<p><img src="http://s3itch.paperplanes.de/The_Smallest_Distributed_System.005.jpg_20131018_153658.jpg" alt=""></p>
+
+<p>Under the hood, hub was slightly more complex than the rest of the system. It
+interacted with RabbitMQ, where it processed the build logs as they come in.
+Logs were streamed in chunks from the processes handling the build jobs.</p>
+
+<p>Hub updated the database with the logs and build results, and it forwarded them
+to Pusher. Using Pusher Travis CI could update the user interface as builds
+started and as they finished.</p>
+
+<p>This architecture took us into 2012, when we did 7000 builds per day. We saw
+increasing traction in the open source community, and we grew to 11 supported
+languages, among them PHP, Python, Perl, Java and Erlang.</p>
+
+<p>With gaining traction, Travis CI became more and more of an integral service for
+open source projects. Unfortunately, the system itself was never really built
+with monitoring in mind.</p>
+
+<p><img src="http://s3itch.paperplanes.de/The_Smallest_Distributed_System.008.jpg_20131018_153750.jpg" alt=""></p>
+
+<p>It used to be people from the community who notified us that things weren&#39;t
+working, that build jobs got stuck, that messages weren&#39;t being processed.</p>
+
+<p>That was pretty embarrassing. Our first challenge was to add monitoring, metrics
+and logging to a system that was slowly moving from a hobby project to an
+important and also a commercial platform, as we were preparing the <a href="https://travis-ci.com">launch of
+our productized version of Travis CI</a>.</p>
+
+<p>Being notified by our customers that things weren&#39;t working was and still is to
+this day my biggest nightmare, and we had to work hard to get all the right
+metrics and monitoring in place for us to notice when things were breaking.</p>
+
+<p>It was impossible for us to reason about what is happening in our little
+distributed system without having any metrics or aggregated logging in place. By
+all definitions, Travis CI was already a distributed system at this stage.</p>
+
+<p>Adding metrics and logging was a very gradual learning experience, but in the
+end, it gives us essential insight into what our system is doing, both in pretty
+graphs and in logged words.</p>
+
+<p>This was a big improvement for us, and it&#39;s an important takeaway. Visibility is
+a key requirement for running a distributed system in production.</p>
+
+<p>When you build it, think about how to monitor it.</p>
+
+<p>Making this as easy as possible will help shape your code to run better in
+production, not just to pass the tests.</p>
+
+<p>The crux is that, with more monitoring, you gain not only more insight, you
+suddenly find problems you haven&#39;t thought about or seen before. With great
+visibility comes great responsibility. We now needed to embrace that we&#39;re more
+aware of failures in our system, and that we need to actively work on decreasing
+the risk of them affecting our system.</p>
+
+<p><img src="http://s3itch.paperplanes.de/The_Smallest_Distributed_System.011.jpg_20131018_153850.jpg" alt=""></p>
+
+<p>About a year ago, we saw the then current architecture breaking at the seams.
+Hub in particular turned into a major concern, as it was laden with too many
+responsibilities. It handled new commits, it processed and forwarded build logs,
+it synchronized user data with GitHub, it notified users of broken and
+successful builds. It talked to quite a bunch of external APIs along the way,
+all in one process.</p>
+
+<p>It just kept on growing, but it was impossible to scale. Hub could only run as a
+single process and was therefore our biggest point of failure.</p>
+
+<p>The GitHub API is an interesting example here. We&#39;re a heavy consumer of their
+API, we rely on it heavily for builds to run. We pull build configuration via
+the GitHub API, we update the build status for commits, we synchronize user data
+with it.</p>
+
+<p>Historically, when one of these failed, hub would just drop what it was working
+on, moving on to the next. When the GitHub API was down, we lost a lot of
+builds.</p>
+
+<p>We put a lot of trust in the API, and we still do, but in the end, it&#39;s a
+resource that is out of our hands. It&#39;s a resource that&#39;s separated from ours,
+run by a different team, on a different network, with its own breaking points.</p>
+
+<p>We just didn&#39;t treat it as such. We treated it as a friend who we can always
+trust to answer our calls.</p>
+
+<p>We were wrong.</p>
+
+<p>A year ago, something changed in the API, unannounced. It was an undocumented
+feature we relied on heavily. It was just disabled for the time being as it
+caused problems on the other end.</p>
+
+<p>On our end, all hell broke loose. For a simple reason too. We treated the GitHub
+API as our friend, we patiently waited for it to answer our calls. We waited a
+long time, for every single new commit that came in. We waited minutes for every
+one of them.</p>
+
+<p>Our timeouts were much too gracious. On top of that, when the calls finally
+timed out, we&#39;d drop the build because we ran into an error. It was a long night
+trying to isolate the problem.</p>
+
+<p>Small things, when coming together at the right time, can break a system
+spectacularly.</p>
+
+<p><img src="http://s3itch.paperplanes.de/The_Smallest_Distributed_System.014.jpg_20131018_154118.jpg" alt=""></p>
+
+<p>We started isolating the API calls, adding much shorter timeouts. To make sure
+we don&#39;t drop builds because of temporary outages on GitHub&#39;s end, we added
+retries as well. To make sure we handle extended outages better, we added
+exponential backoff to the retries. With every retry, more time passes until the
+next one.</p>
+
+<p>External APIs beyond your control need to be treated as something that can fail
+anytime. While you shouldn&#39;t try to isolate yourself from their failures, you
+need to decide how you handle them.</p>
+
+<p>How to handle every single failure scenario is a business decision. Can we
+survive when we drop one build? Sure, it&#39;s not the end of the world. Should we
+just drop hundreds of builds because of a problem outside of our control? We
+shouldn&#39;t, because if anything, those builds matter to our customers.</p>
+
+<p>Travis CI was built as a well-intentioned fellow. It assumed only the best and
+just thought everything was working correctly all the time.</p>
+
+<p>Unfortunately that&#39;s not the case. Everything can plunge into chaos, at any time,
+and our code wasn&#39;t ready for it. We did quite a bit of work, and we still are,
+to improve this situation, to improve how our own code handles failures in
+external APIs, even in other components of our infrastructure.</p>
+
+<p><img src="http://s3itch.paperplanes.de/The_Smallest_Distributed_System.017.jpg_20131018_154320.jpg" alt=""></p>
+
+<p>Coming back to our friend, the hub, the tasks it did were easy to break out, so
+we split out lots of smaller apps, one by one. Every app had its own purpose and
+a pretty defined set of responsibilities.</p>
+
+<p>Isolating the responsibilities allowed us to scale these processes out much
+easier. Most of them were pretty straight-forward to break out.</p>
+
+<p>We now had processes handling new commits, handling build notifications and
+processing build logs.</p>
+
+<p>Suddenly, we had another problem.</p>
+
+<p>While our applications were now separate, they all shared a single dependency
+called travis-core, which contains pretty much all of the business logic for all
+parts of Travis CI. It&#39;s a <a href="https://en.wikipedia.org/wiki/Big_ball_of_mud">big ball of
+mud</a>.</p>
+
+<p><img src="http://s3itch.paperplanes.de/The_Smallest_Distributed_System.019.jpg_20131018_154454.jpg" alt=""></p>
+
+<p>This single dependency meant that touching any part of the code could
+potentially have implications on applications the code might not even be related
+to. Our applications were split up by their responsibilities, but our code was
+not.</p>
+
+<p>We&#39;re still paying a price for architectural decisions made early on. Even a
+simple dependency on one common piece of code can turn into a problem, as you
+add more functionality, as you change code.</p>
+
+<p>To make sure that code still works properly in all applications, we need to
+regularly deploy all of them when updates are made to travis-core.</p>
+
+<p>Responsibility doesn&#39;t just mean you need to separate concerns in code. They
+need to be physically separated too.</p>
+
+<p>Complex dependencies affect deployments which in turn affects your ability to
+ship new code, new features.</p>
+
+<p>We&#39;re slowly moving towards small dependencies, truly isolating every
+application&#39;s responsibilities in code. Thankfully, the code itself is already
+pretty isolated, making the transition easier for us.</p>
+
+<p>One application in particular is worth a deeper look here, as it was our biggest
+challenge to scale out.</p>
+
+<p><img src="http://s3itch.paperplanes.de/The_Smallest_Distributed_System.022.jpg_20131018_154705.jpg" alt=""></p>
+
+<p>Logs has two very simple responsibilities. When a chunk of a build log comes in
+via the message queue, update a row in the database with it, then forward it to
+Pusher for live user interface updates.</p>
+
+<p>Log chunks are streamed from lots of different processes at the same time and
+used to be processed by a single process, up to 100 messages per second.</p>
+
+<p><img src="http://s3itch.paperplanes.de/The_Smallest_Distributed_System.023.jpg_20131018_154930.jpg" alt=""></p>
+
+<p>While that was pretty okay for a single process it also meant that it&#39;s hard for
+us to handle sudden bursts of log messages, and that this process would be a big
+impediment for our growth, for scaling out.</p>
+
+<p>The problem was that everything in Travis CI relied on these messages to be
+processed in the order in which they were put on the message queue.</p>
+
+<p>Updating a single log chunk in the database meant updating a single row which
+contained the entire log as a single column. Updating the log in the user
+interface simply meant appending to the end of the DOM.</p>
+
+<p>To fix this particular problem, we had a lot of code to change.</p>
+
+<p>But first we needed to figure out what would be a better solution, one that
+would allow us to easily scale out log processing.</p>
+
+<p>Instead of relying on the implicit order of messages as they were put on the
+message queue, we decided to make the order an attribute of the message&#39;s
+itself.</p>
+
+<p><img src="http://s3itch.paperplanes.de/The_Smallest_Distributed_System.025.jpg_20131018_155010.jpg" alt=""></p>
+
+<p>This is heavily inspired by Leslie Lamport&#39;s paper <a href="http://research.microsoft.com/en-us/um/people/lamport/pubs/pubs.html#time-clocks">&quot;Time, Clocks, and the
+Ordering of Events in a Distributed
+System&quot;</a>
+from 1978.</p>
+
+<p>In the paper, Lamport describes the use of an incrementing clock to retain an
+ordering of events in a distributed system. When a message is sent, the sender
+increments the clock before it&#39;s forwarded to another receiver.</p>
+
+<p>We could simplify on that idea, as one log chunk is always coming from just one
+sender. That process can take care of always incrementing the clock, making it
+easy to assemble a log from its chunks later on.</p>
+
+<p>All that needs to be done is do sort the chunks by the clock.</p>
+
+<p>The hard part was changing the relevant bits of the system to allow writing
+small chunks to the database, aggregating them into full logs after the job was
+done.</p>
+
+<p>But it also directly affected our user interface. It would now have to deal with
+messages arriving out of order. The work here was a bit more involved, but it
+simplified a lot of other parts of our code in turn.</p>
+
+<p>On the surface, it may not seem like a simplification. But relying on ordering
+where you don&#39;t need to is an inherent source of implicit complexity. </p>
+
+<p>We&#39;re now a lot less dependent on how messages are routed, how they&#39;re
+transmitted, because we now we can restore their order at any time.</p>
+
+<p>We had to change quite a bit of code, because that code assumed ordering where
+there&#39;s actually chaos. In a distributed system, events can arrive out of order
+at any time. We just had to make sure we can put the pieces back together later.</p>
+
+<p>You can read more about how we solved this <a href="http://about.travis-ci.org/blog/2013-08-08-solving-the-puzzle-of-scalable-log-processing/">particular scaling issue on our
+blog</a>.</p>
+
+<p>Fast-forward to 2013, and we&#39;re running 45000 build jobs per day. We&#39;re still
+paying for design decisions that were made early on, but we&#39;re slowly untangling
+things.</p>
+
+<p><img src="http://s3itch.paperplanes.de/The_Smallest_Distributed_System.028.jpg_20131018_155040.jpg" alt=""></p>
+
+<p>We still have one flaw that we need to address. All of our components still
+share the same database. This has the natural consequence that they&#39;ll all fail
+should the database go down, as it did just last week.</p>
+
+<p>But it also means that the number of log writes we do (currently up to 300 per
+second) affects the read performance for our API, causing slower reads for our
+customers and users when they&#39;re browsing through the user interface.</p>
+
+<p>As we&#39;re heading towards another magnitude in the number of builds, our next
+challenge is likely going to be to scale out our data storage.</p>
+
+<p>Travis CI is not exactly a small distributed system anymore, now running off
+more than 500 build servers. The problems we&#39;re tackling on solving are still on
+a pretty small scale. But even on that scale, you can run into interesting
+challenges, where simple approaches work much better than complex ones.</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2013/8/13/deploying-your-jekyll-blog-to-s3-with-travis-ci.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2013/12/30/reading-list-2013.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. Integrity And Passenger Play Nice</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. Integrity And Passenger Play Nice"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Integrity And Passenger Play Nice"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="I wanted to play the field of continuous integration tools a little bit more, so I finally gave Integrity a go. Its promise of being lightweight sure was tempting.
+
+It&#39;s a small Sinatra app, an..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2009/1/27/integrity_and_passenger_play_nice.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">Integrity And Passenger Play Nice</h3>
+        <h4><a href="/2009/1/27/integrity_and_passenger_play_nice.html" title="Permalink for this post">27 January 2009</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>I wanted to play the field of continuous integration tools a little bit more, so I finally gave <a href="http://www.integrityapp.com/">Integrity</a> a go. Its promise of being lightweight sure was tempting.</p>
+
+<p>It&#39;s a small <a href="http://sinatra.github.com/">Sinatra</a> app, and therefore should&#39;ve been easy to set up using <a href="http://modrails.com">Passenger</a>. The Integrity team recommends using <a href="http://nginx.net">nginx</a> and <a href="http://code.macournoyer.com/thin/">Thin</a>. Though I&#39;m rather fond of nginx, I don&#39;t see any point using a different setup just for my CI system.</p>
+
+<p>Getting it up and running is rather straight-forward. You create your local Integrity template directory using <code>integrity install /path</code>. For this to work with Passenger you also need a directory public in that directory, so if you create that you can just throw the <a href="http://www.modrails.com/documentation/Users%20guide.html#_rack_specific_options">usual Passenger virtual host block</a> into your Apache configuration, the document root pointing to the freshly created public directory, and you&#39;re good to go. In the current master, there&#39;s already a fix for this issue, and running <code>integrity install</code> will create the public directory for you.</p>
+
+<p>I have some gripes with Integrity though, one of them being that configuring notifiers for projects currently seems to be broken. It&#39;s sort of a big deal to me, because continuous integration lives from the team receiving notifications.</p>
+
+<p>But otherwise, do give it a go, it&#39;s pretty slim and pretty slick too, though it doesn&#39;t yet have asynchronous building. It needs some sort a hook, e.g. a GitHub one to run automatically. There&#39;s also a <a href="http://builder.integrityapp.com/">demo</a> available for your viewing pleasure.</p>
+
+<p>Update: The issue with notification configuration not being saved seems to be resolved in the current master. It&#39;s not perfectly fixed, but at least now I can have Integrity notify me through Twitter. So if you need to, fetch the master, and build your own gem. Remember to rename it to &#39;foca-integrity&#39; in the Rakefile&#39;s Jeweler configuration, otherwise it won&#39;t really catch on.</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2009/1/26/new_tools_for_my_toolbox.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2009/2/6/objectiveresource_its_like_activeresource_for.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. mathias meyer.</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. mathias meyer."/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <div id="articles">
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2007/12/28/review_continuous_integration_improving_software.html">Review: "Continuous Integration: Improving Software Quality and Reducing Risks"</a></h3>
+        <h4><a href="/2007/12/28/review_continuous_integration_improving_software.html" title="Review: "Continuous Integration: Improving Software Quality and Reducing Risks"">28 December 2007</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>I&#39;ve been a fan and user of continuous integration for quite a while now, yet I&#39;ve been keen to pick up the book <a href="http://www.informit.com/title/0321336380">&quot;Continuous Integration: Improving Software Quality and Reducing Risk&quot;</a> by Paul M. Duvall et. al. to see, if it can live up to be the first book dealing exclusively with the topic. They don&#39;t have to sell me on the idea anymore, but still, there&#39;s always something to learn.</p>
+
+<p>The book is separated into two parts. The first one introduces the basic principles of continuous integration, and how it could/should work for you and your project. For me, this is the valuable part of the book. It introduces what CI can do for you, and the practices usually surrounding a project using CI are. If you didn&#39;t know that CI is more than just using CruiseControl or a similar CI server, I suggest you go out and pick up this book right away.</p>
+
+<p>The second part describes five parts of a continuous integration system in detail. It deals with database integration, testing, inspection, deployment and feedback. A collection of recipes accompany each section to help you structure your project, code, configurations to make continuous integration a &quot;non-event&quot;, as Martin Fowler put it.</p>
+
+<p>Just as it should, the book emphasizes the importance of a good test suite to really find value in continuous integration. Without each other, continuous integration and testing can&#39;t unfold their full potential. The book is full of examples including configurations, code and build scripts, so you&#39;re not left standing in the rain, wondering how you can get that continuous integration magic to work for you.</p>
+
+<p>Though I wouldn&#39;t say I&#39;m the target audience for it, I still think there&#39;s a lot to learn from this book. Say, you just read Martin Fowler&#39;s <a href="http://martinfowler.com/articles/continuousIntegration.html">original essay on the topic</a> (which you should, anyway), and want to get more into detail, this book is for you. You&#39;ll find a good reference that&#39;ll help you introduce continuous integration into your project step by step.</p>
+
+<p>The book focuses a lot on Java and its tools for examples, but you can easily apply the techniques in similar ways for, say Ruby/Rails projects or any other language. Database integration luckily is a topic you don&#39;t have to worry about that much in Rails projects.</p>
+
+<p>It ends with a nice collection of tools that can be used for or with continuous integration, and an evaluation of CI servers and automated build tools.</p>
+
+<p>My main gripe with this books is that when it comes to whys the book falls short from time to time. For someone who can make her own conclusions this shouldn&#39;t be a problem, but I think there would&#39;ve been more in it. Two examples:</p>
+
+<ul>
+<li><p>The book uses short dialogues to explain how a specific technique would work in a team, or how a line of reasoning could come about. In my opinion they&#39;re too short. What they want to emphasize could&#39;ve just as well been written in a paragraph and would&#39;ve had the same result. They&#39;re missing a bigger picture, and personally, I never had conversations like that.</p></li>
+<li><p>The book states on two occasions that continuous integration should happen on the baseline of your project, and seems to imply that using it on branches is not a good idea. Why that is the case it doesn&#39;t explain. That the mainline is always the integration point of a project is pretty clear, but why that doesn&#39;t mean you can&#39;t integrate important branches remains unclear.</p></li>
+</ul>
+
+<p>What struck me as odd was the constant mentioning of code inspection as part of continuous integration. I value code metrics for what they are (in fact, I used to be a big fan of them), and for what they can tell you about your code base, especially code coverage, but I have mixed feelings about including all of them in an integration build, because I have seen what time waster code metrics can be. But that might just be a matter of personal experience.</p>
+
+<p>All that said, I still think this book is well worth the money, if you want to see what continuous integration can do for you and your project, and how you can apply the principles to your team. Paul M. Duvall did a great job compiling his experiences of applying and using continuous integrations, most of which I also had in one way or the other. In any way, I suggest reading Fowler&#39;s article firsthand, since it will give you a big picture about continuous integration, and then you can delve into the glory details with Duvall&#39;s book.</p>
+
+<p>The book also has an accompanying <a href="http://www.integratebutton.com/">website</a>, where you can find a growing stack of videos explaining a lot of the principles of continuous integration in practice. If you&#39;re living in Germany, the book is currently on sale at <a href="http://www.lob.de/cgi-bin/work/outputexpert?id=4774dd934fffb&amp;frame=yes&amp;flag=new&amp;menupic=yes&amp;stich1=0321336380">Lehmanns</a>.</p>
+
+<p>Still a classic on the topic is Mike Clark&#39;s <a href="http://www.pragprog.com/titles/auto">&quot;Pragmatic Project Automation&quot;</a>, one of the first books by the Pragmatic Programmers and, though slightly outdated, still a good reference. This book got me hooked onto the ideas of continuous integration and push-button builds in the first place.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2007/12/18/cruisecontrol_in_your_menu_bar.html">CruiseControl in your Menu Bar</a></h3>
+        <h4><a href="/2007/12/18/cruisecontrol_in_your_menu_bar.html" title="CruiseControl in your Menu Bar">18 December 2007</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>Now here&#39;s a little gem I&#39;ve been waiting for a long time, and that I just discovered today. Usually i just implemented custom scripts that would check the build status in CruiseControl and use Growl to notify me of build errors. I don&#39;t like having my email client open all the time just to see if the build failed, so this is a god-given.</p>
+
+<p>CCMenu wants to remedy that, and comes along with support for all the CruiseControls out there, sitting in your menu bar, and checking your dashboards for the build status. It also signalizes, if a build is currently running.</p>
+
+<blockquote>
+<p><img src="http://myskitch.com/mattie/picture_4-20071218-210722.jpg" alt="CCMenu"></p>
+</blockquote>
+
+<p>Just as you&#39;d expect it to, in good pragmatic automation fashion, it&#39;ll notify via Growl of the build status.</p>
+
+<blockquote>
+<p><img src="http://myskitch.com/mattie/picture_1-20071218-211017.jpg" alt="CCMenu Growl Notification"></p>
+</blockquote>
+
+<p>Apparently the tool has been written by ThoughtWorks people, no surprise here. Well done is all I can say. It still has some rough edges, but it&#39;s open source, so no need to complain, just more reasons to dig in.</p>
+
+<p>Been using it with CruiseControl.rb all day, and it&#39;s working neatly.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2007/12/17/railsruby_books_galore.html">Rails/Ruby Books Galore</a></h3>
+        <h4><a href="/2007/12/17/railsruby_books_galore.html" title="Rails/Ruby Books Galore">17 December 2007</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>The book market is being swamped with new books. It seems like every day I discover a new announcement for an upcoming book on Ruby or Rails. Let&#39;s see what&#39;s currently in stock, and what&#39;s waiting for us next year.</p>
+
+<p>The first ones to start are, obviously, the Pragmatic Programmers.</p>
+
+<ul>
+<li><p>Dave Thomas <a href="http://pragdave.blogs.pragprog.com/pragdave/2007/12/a-new-pickaxe.html">just announced</a> the third edition of the <a href="http://pragprog.com/titles/ruby3">PickAxe</a> which is currently in beta.</p></li>
+<li><p>Earlier this week he <a href="http://pragdave.blogs.pragprog.com/pragdave/2007/12/advanced-rails.html">announced</a> the beta release of <a href="http://pragprog.com/titles/fr_arr">Advanced Rails Recipes</a>.</p></li>
+<li><p>Having been postponed the next due to be released is <a href="http://pragprog.com/titles/fr_deploy">Deploying Rails Applications</a>, written by Ezra Zygmuntowicz and Bruce Tate. It&#39;s been in beta for a while, but it got along quite slowly. Supposed to be released in January 2008.</p></li>
+<li><p><a href="http://pragprog.com/titles/ndphpr">Rails for PHP Developers</a>. The target audience is quite obvious, though it&#39;s not for me.</p></li>
+<li><p><a href="http://pragprog.com/titles/fxruby">FXRuby</a>. Apparently the No. 1 choice for building GUIs with Ruby.</p></li>
+</ul>
+
+<p>Apparently some of the authors of RSpec are also writing a book about Behavior-Driven Development for them.</p>
+
+<p>Apress quickly became big on the Ruby/Rails bandwagon, and speaking of RSpec, they also have a book on it due in February, though it&#39;s not officially in their catalogue yet.</p>
+
+<p>Just recently they put out several books:</p>
+
+<ul>
+<li><p><a href="http://www.apress.com/book/view/1590598474">Pro Active Record</a>. I&#39;m still wondering how it&#39;s possible to write an entire book on Active Record, but apparently it&#39;s possible.</p></li>
+<li><p><a href="http://www.apress.com/book/view/1590598814">Practical JRuby on Rails Web 2.0 Projects</a>. I don&#39;t fancy the title, but I ordered this book anyway, since it&#39;s pretty much the only one on the topic of JRuby.</p></li>
+<li><p><a href="http://www.apress.com/book/view/1590597818">Practical Rails Projects</a>. Shows different aspects of Rails by using them in very different project. A nice approach compared to just developing one or two applications over the course of a book.</p></li>
+</ul>
+
+<p>Upcoming books from Apress:</p>
+
+<ul>
+<li><p><a href="http://www.apress.com/book/view/1590599330">Practical Reporting with Ruby on Rails</a>. Reporting, business intelligence, etc.</p></li>
+<li><p><a href="http://www.apress.com/book/view/1590599322">Scaling Rails: Building Giant Websites</a>. I&#39;m looking forward to this one, and I hope it won&#39;t disappoint.</p></li>
+<li><p><a href="http://www.apress.com/book/view/1590599152">Agile Testing with Rails</a>. I&#39;m fond of agile principles and testing, but I&#39;m rather sick of books containing &quot;agile&quot; in their titles, but the contents does look interesting. Written by two guys working for ThoughtWorks who obviously know their stuff.</p></li>
+</ul>
+
+<p>O&#39;Reilly already put out their share of Ruby and Rails books, but right now the queue looks rather slim.</p>
+
+<ul>
+<li><p><a href="http://www.oreilly.com/catalog/9780596510329/">Advanced Rails</a>. Seems to cover several topics of Rails that are, well, advanced, covering topics like Meta Programming, REST, developing plug-ins, etc.</p></li>
+<li><p><a href="http://www.oreilly.com/catalog/9780596516178/">The Ruby Programming Language</a>. Mats itself is writing this one together with David Flanagan (who wrote a lot of books on JavaScript). I&#39;m not sure if it can replace the PickAxe as the most valuable Ruby book for me, but that might just be for strictly melancholic reasons, what with it being my first Ruby book.</p></li>
+</ul>
+
+<p>Manning has only put out one book on Rails yet, the excellent &quot;Ruby for Rails&quot; by David Black. But they have some interesting stuff in the queue for 2008.</p>
+
+<ul>
+<li><p><a href="http://www.manning.com/mcanally/">Ruby in Practice</a>. This could become the mother of books on advanced Ruby topics. The topics include testing, integration, indexing, asychronous messaging and much more.</p></li>
+<li><p><a href="http://www.manning.com/armstrong/">Flexible Rails</a>. I can&#39;t say much on that topic, but maybe this book will change that. Flex and Rails. Nuff said.</p></li>
+</ul>
+
+<p>Addison-Wesley recently released kind of the companion book to <a href="http://www.informit.com/title/0672328844">&quot;The Ruby Way&quot;</a>, a most excellent book.</p>
+
+<ul>
+<li><p><a href="http://www.informit.com/store/product.aspx?isbn=0321445619">The Rails Way</a>. Just been released, covers a lot of Rails grounds, from basic to advanced. Should make for a nice desktop reference.</p></li>
+<li><p><a href="http://www.informit.com/store/product.aspx?isbn=0321490452">Design Patterns in Ruby</a>. Though I have mixed feelings about design patterns and their overuse in the Java world, it should be interesting to read about how they can be useful in the Ruby world.</p></li>
+</ul>
+
+<p>There, lots of new stuff to read for the new year. I&#39;m sure there&#39;s more to come, as it naturally happens with a technology on the rise. The downside is that the quality of the books becomes more and more average over time, but there&#39;s a lot of talented people writing on these, so hopefully the Ruby/Rails book market will see more and more great books coming out in the near future.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<div class="pagination">
+  
+    
+      <a href="/page65" class="previous">Newer Posts</a>
+    
+  
+  
+    <a href="/page67" class="next">Older Posts</a>
+  
+</div>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

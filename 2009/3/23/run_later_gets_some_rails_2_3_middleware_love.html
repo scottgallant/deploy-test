@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. run_later Gets Some Rails 2.3 Middleware Love</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. run_later Gets Some Rails 2.3 Middleware Love"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="run_later Gets Some Rails 2.3 Middleware Love"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="Apart from the awesome new features for users of the framework, Rails 2.3 got a lot of love on the inside too. It&#39;s no secret it&#39;s running on Rack now, and that switch made some of the inte..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2009/3/23/run_later_gets_some_rails_2_3_middleware_love.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">run_later Gets Some Rails 2.3 Middleware Love</h3>
+        <h4><a href="/2009/3/23/run_later_gets_some_rails_2_3_middleware_love.html" title="Permalink for this post">23 March 2009</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>Apart from the awesome new features for users of the framework, Rails 2.3 got a lot of love on the inside too. It&#39;s no secret it&#39;s running on Rack now, and that switch made some of the internal code a lot easier on the eyes. They also added a Rails-internal middleware stack, on which some of the framework&#39;s functionality builds already.</p>
+
+<p>When you go to the console and enter</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">ActionController::Dispatcher.middleware
+</code></pre></div>
+<p>you&#39;ll get of all the classes and blocks registered in the stack. Even ActiveRecord hooks into the stack to do minor connection cleanup after a request. Coming from the Java world it&#39;s pretty much comparable to the good old Servlet filter (I know they were gross, but still kinda cool), code that gets executed before and/or after each request. An application-wide around filter if you will.</p>
+
+<p>If you look through the code of the classes listed here you&#39;ll see one common interface which stems from Rack. They all implement a method called <code>call</code> which gets only one parameter, and an <code>initialize</code> method which gets an application object.</p>
+
+<p>The really cool thing about it is this: Where you had to resign to using the revolting <code>alias_method_chain</code> before, you can now just hook into the request chain wherever you want, without modifying the stack with awkward methods that make debugging a pain in the bum.</p>
+
+<p>Now, where does that make run_later any cooler? Well, it doesn&#39;t, but in earlier version I needed to do an awkward thing that only affected development mode, where Rails unloads all classes after each request. run_later runs code in a separate thread, and depending on how long that code runs the classes would be unloaded when they&#39;re still accessed from the worker.</p>
+
+<p>In earlier version I turned to, drumroll, <code>alias_method_chain</code> for that, now it&#39;s nothing but a simple class that hooks into the internal middleware stack, and delays the request until the worker finishes, or until a certain amount of time has passed (default is 10 seconds). I would argue that you just shouldn&#39;t run code taking that long using run_later, so it shouldn&#39;t be a major issue. Longer-running tasks like these should be run using a slightly more advanced and reliable mechanism.</p>
+
+<p>Anyway, let&#39;s have a look at the code:</p>
+
+<script src="http://gist.github.com/83137.js"></script>
+
+<p>The <code>middleware</code> is implemented using a simple stack, unsurprisingly called <code>MiddlewareStack</code>. There you can hook into the chain of classes pretty much wherever you want. I simply append my class at the end, because I definitely want to run the code before ActionController&#39;s Reloader class gets to run and unloads the classes. But you can also specify a specific class where you want to hook into the chain, you can even swap existing handlers with your own. Pretty neat stuff. I&#39;d highly recommend playing with it, in some places providing a filter on  the middleware level makes more sense than putting the code into a controller-based filter.</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2009/3/22/xray_goggles_for_your_ruby_processes.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2009/3/24/the_curious_case_of_the_bang_method.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. Review: "Continuous Integration: Improving Software Quality and Reducing Risks"</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. Review: "Continuous Integration: Improving Software Quality and Reducing Risks""/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Review: "Continuous Integration: Improving Software Quality and Red..."/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="I&#39;ve been a fan and user of continuous integration for quite a while now, yet I&#39;ve been keen to pick up the book &quot;Continuous Integration: Improving Software Quality and Reducing Risk&q..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2007/12/28/review_continuous_integration_improving_software.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">Review: "Continuous Integration: Improving Software Quality and Reducing Risks"</h3>
+        <h4><a href="/2007/12/28/review_continuous_integration_improving_software.html" title="Permalink for this post">28 December 2007</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>I&#39;ve been a fan and user of continuous integration for quite a while now, yet I&#39;ve been keen to pick up the book <a href="http://www.informit.com/title/0321336380">&quot;Continuous Integration: Improving Software Quality and Reducing Risk&quot;</a> by Paul M. Duvall et. al. to see, if it can live up to be the first book dealing exclusively with the topic. They don&#39;t have to sell me on the idea anymore, but still, there&#39;s always something to learn.</p>
+
+<p>The book is separated into two parts. The first one introduces the basic principles of continuous integration, and how it could/should work for you and your project. For me, this is the valuable part of the book. It introduces what CI can do for you, and the practices usually surrounding a project using CI are. If you didn&#39;t know that CI is more than just using CruiseControl or a similar CI server, I suggest you go out and pick up this book right away.</p>
+
+<p>The second part describes five parts of a continuous integration system in detail. It deals with database integration, testing, inspection, deployment and feedback. A collection of recipes accompany each section to help you structure your project, code, configurations to make continuous integration a &quot;non-event&quot;, as Martin Fowler put it.</p>
+
+<p>Just as it should, the book emphasizes the importance of a good test suite to really find value in continuous integration. Without each other, continuous integration and testing can&#39;t unfold their full potential. The book is full of examples including configurations, code and build scripts, so you&#39;re not left standing in the rain, wondering how you can get that continuous integration magic to work for you.</p>
+
+<p>Though I wouldn&#39;t say I&#39;m the target audience for it, I still think there&#39;s a lot to learn from this book. Say, you just read Martin Fowler&#39;s <a href="http://martinfowler.com/articles/continuousIntegration.html">original essay on the topic</a> (which you should, anyway), and want to get more into detail, this book is for you. You&#39;ll find a good reference that&#39;ll help you introduce continuous integration into your project step by step.</p>
+
+<p>The book focuses a lot on Java and its tools for examples, but you can easily apply the techniques in similar ways for, say Ruby/Rails projects or any other language. Database integration luckily is a topic you don&#39;t have to worry about that much in Rails projects.</p>
+
+<p>It ends with a nice collection of tools that can be used for or with continuous integration, and an evaluation of CI servers and automated build tools.</p>
+
+<p>My main gripe with this books is that when it comes to whys the book falls short from time to time. For someone who can make her own conclusions this shouldn&#39;t be a problem, but I think there would&#39;ve been more in it. Two examples:</p>
+
+<ul>
+<li><p>The book uses short dialogues to explain how a specific technique would work in a team, or how a line of reasoning could come about. In my opinion they&#39;re too short. What they want to emphasize could&#39;ve just as well been written in a paragraph and would&#39;ve had the same result. They&#39;re missing a bigger picture, and personally, I never had conversations like that.</p></li>
+<li><p>The book states on two occasions that continuous integration should happen on the baseline of your project, and seems to imply that using it on branches is not a good idea. Why that is the case it doesn&#39;t explain. That the mainline is always the integration point of a project is pretty clear, but why that doesn&#39;t mean you can&#39;t integrate important branches remains unclear.</p></li>
+</ul>
+
+<p>What struck me as odd was the constant mentioning of code inspection as part of continuous integration. I value code metrics for what they are (in fact, I used to be a big fan of them), and for what they can tell you about your code base, especially code coverage, but I have mixed feelings about including all of them in an integration build, because I have seen what time waster code metrics can be. But that might just be a matter of personal experience.</p>
+
+<p>All that said, I still think this book is well worth the money, if you want to see what continuous integration can do for you and your project, and how you can apply the principles to your team. Paul M. Duvall did a great job compiling his experiences of applying and using continuous integrations, most of which I also had in one way or the other. In any way, I suggest reading Fowler&#39;s article firsthand, since it will give you a big picture about continuous integration, and then you can delve into the glory details with Duvall&#39;s book.</p>
+
+<p>The book also has an accompanying <a href="http://www.integratebutton.com/">website</a>, where you can find a growing stack of videos explaining a lot of the principles of continuous integration in practice. If you&#39;re living in Germany, the book is currently on sale at <a href="http://www.lob.de/cgi-bin/work/outputexpert?id=4774dd934fffb&amp;frame=yes&amp;flag=new&amp;menupic=yes&amp;stich1=0321336380">Lehmanns</a>.</p>
+
+<p>Still a classic on the topic is Mike Clark&#39;s <a href="http://www.pragprog.com/titles/auto">&quot;Pragmatic Project Automation&quot;</a>, one of the first books by the Pragmatic Programmers and, though slightly outdated, still a good reference. This book got me hooked onto the ideas of continuous integration and push-button builds in the first place.</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2007/12/18/cruisecontrol_in_your_menu_bar.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2008/1/11/reading_list.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

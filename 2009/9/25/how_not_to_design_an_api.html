@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. How Not To Design An API</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. How Not To Design An API"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="How Not To Design An API"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="I&#39;ve had the dubious pleasure of working with a certain library. It&#39;s a layer to talk to most of the Amazon Web Services APIs. While working with web services usually is a particular awful ..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2009/9/25/how_not_to_design_an_api.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">How Not To Design An API</h3>
+        <h4><a href="/2009/9/25/how_not_to_design_an_api.html" title="Permalink for this post">25 September 2009</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>I&#39;ve had the dubious pleasure of working with a certain library. It&#39;s a layer to talk to most of the Amazon Web Services APIs. While working with web services usually is a particular awful experience, this library doesn&#39;t make much of an effort to hide their awkwardness, in fact, in some ways it even makes it worse. It&#39;s pretty old news that I enjoy bitching about code I don&#39;t like, but I also like to keep it positive in at least thinking about how it could be improved.</p>
+
+<p>Let&#39;s take a moment and have a look at what part of their API is particularly nasty and how the situation could be improved. We actually wrote a micro-wrapper around that library to make things a bit less awful for us, and to at least keep their code out of ours.</p>
+
+<p>I&#39;m looking in particular at the EC2 part of the library. Here&#39;s the signature of the method that runs a new instance:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">run_instances(image_id, min_count, max_count, group_ids, key_name,
+              user_data=&#39;&#39;, addressing_type = nil, instance_type = nil,
+              kernel_id = nil, ramdisk_id = nil, availability_zone = nil,
+              block_device_mappings = nil)
+</code></pre></div>
+<p>Yes, that&#39;s 12 arguments you can hand over to the method, most of them being optional. Now, what&#39;s it look like calling it:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">run_instances(&#39;ami-123445&#39;, 1, 1, [], &#39;default&#39;)
+</code></pre></div>
+<p>So far so good. But what if you want to specify a different availability zone for e.g. the EU:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">run_instances(&#39;ami-123445&#39;, 1, 1, [], &#39;default&#39;, &#39;&#39;, nil, nil, nil, nil, &#39;eu-west1b&#39;)
+</code></pre></div>
+<p>Nice, eh? It&#39;s starting to get really ugly. The important parameters are hidden by unnecessary noise. What&#39;s with <code>max_count</code> and <code>min_count</code> not having default values? I&#39;d argue that you normally it&#39;d be quite reasonable to assume that you only want to run one instance when calling the method without these two parameters.</p>
+
+<p>Anyway, that&#39;s just one example, in general, there&#39;s only one important piece of information, and that&#39;s the AMI identifier. Let&#39;s look at what this method could look like when you sprinkle some very common Rubyisms on top, things that should be quite common sense when writing code in Ruby, but seem to have been lost here in favor of resembling the original API as close as possible, even if that means writing cumbersome code:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">run_instance(&#39;ami-123445&#39;, :availability_zone =&gt; &#39;eu-west1b&#39;, :ssh_key =&gt; &#39;default&#39;)
+</code></pre></div>
+<p>Now the method only takes one argument and a has of options. Is it more code to write? Yes. Are its intentions clearer? I&#39;d argue that they are. Is it close to what the API underneath expects as arguments? Closer than before. Unnecessary information is left out, because either the method itself could send sensible defaults, or the web service itself does it. The EC2 API even has a default for the instance type, and it doesn&#39;t care if you leave out the RAM disk or specific kernel. It does what&#39;s necessary to ensure your instance is up.</p>
+
+<p>Knowing that, it&#39;s not that hard to hide those details behind a slightly improved version of <code>run_instances</code>, in this case even called <code>run_instance</code>. Throw in a method <code>run_instances</code> to handle specifics of launching multiple instances at once. Is it more code to write? Sure. But it sure as hell makes for a nicer usage of the library itself. Instead of having to look up the order of the method&#39;s parameters and fill in blanks with nil, I only have to look what options the methods accepts.</p>
+
+<p>In general I don&#39;t like giving a method more than three arguments. It simply means it&#39;s doing too much, or that the data it needs should be wrapped in a simple data structure, e.g. a hash (which is just called for in Ruby) or a simple struct. The more arguments you give a method, the harder it will be for users to figure out its usage, especially if you make a whole stash of them optional, because then the order of them starts to matter, and users have to dig through an endless line of documentation just to figure out where the argument most important to them needs to be placed among a pile of nils.</p>
+
+<p><code>run_instances</code> in said library returns an array of hashes. Those hashes contain the data returned by the web service, each entry in the array describing one instance. Apart from the fact that you always have to get the first entry of that array when you just launched one instance, it also does something weird. EC2 returns attributes in the hash using names like imageId, instanceId, keyName and so on. You could argue about the naming style, but the names sure are reasonable. What <code>run_instances</code> does is go ahead and prefix almost every attribute with <code>aws_</code>, but not all of them. Most methods in said library do the same, so at least there&#39;s some consistency, but it sure isn&#39;t great.</p>
+
+<p>So while trying to resemble the API call, it makes you care about what&#39;s what instead of just giving you the attributes as it receives them from the API. The answer to this is simple, give me the damn attributes as you get them, simple like that. If you need to ensure that there are no naming clashes, put them in a subhash e.g. using the key <code>:ec2</code> if you must.</p>
+
+<p>Another example is this really simple method:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">describe_instances(list=[])
+</code></pre></div>
+<p>It takes an array as an argument, but nothing more. Even if you just want to get the data for one instance, you have to call it like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">describe_instances([&#39;i-123454&#39;])
+</code></pre></div>
+<p>I don&#39;t know about you, but I think that looks just gross. We&#39;re using Ruby for chrissakes, there&#39;s a simple mechanism to ensure you get an array, but the library user doesn&#39;t need to specify it as such, it&#39;s called splat arguments. It&#39;s a simple fix, and has great effect.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">describe_instances(&#39;i-123454&#39;, &#39;i-213143&#39;)
+</code></pre></div>
+<p>There, much better. Again, I&#39;d make the case for a convenience method for getting the data for just one instance, which in turn fetches the first element from the resulting array. If you must, generate the code for it, but it makes code using the library a lot easier on the eyes. Sure, it&#39;s more work for you as the library&#39;s author, but your users will be thankful, I&#39;m sure.</p>
+
+<p>Last example, the library&#39;s layer to access S3. Now, when I reach for my bucket, I can use this method:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">bucket(name, create=false, perms=nil, headers={})
+</code></pre></div>
+<p>The second parameter caught my eye, according to the RDoc it creates the bucket if it doesn&#39;t exist. Looking at the code it just doesn&#39;t even check if the bucket already exists, it just goes ahead and does a PUT request whenever you specify true. So to make the intention clearer you actually have to do the checking yourself and recall the method with <code>create</code> set to true to create the bucket on the second run. Because if it doesn&#39;t exist <code>bucket</code> will just return nil. You could end up with something like this.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">bucket(&#39;bucket-for-monsieur&#39;) or bucket(&#39;bucket-for-monsieur&#39;, true)
+</code></pre></div>
+<p>So the RDoc is actually lying to us, and we have to bend over and ruin one line of code just because our library is too lazy to do the job for us. If you ask me, the whole method signature looks a bit odd. Somehow it also calls for a little makeover with an options hash, and it obviously should do what it says and check the existence of the bucket for us if we ask it to, and maybe raise an error otherwise, but the latter is a matter of taste. Sometimes I&#39;d rather like to have an error instead of having to check for nil, since in this case you could argue that it clearly is an exceptional situation.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">bucket(&#39;bucket-for-monsieur&#39;, :create =&gt; true, :permissions =&gt; &#39;public&#39;)
+</code></pre></div>
+<p>Designing a good API is hard, especially when you&#39;re hiding one that&#39;s already not great, though that&#39;s not an excuse. But sometimes it&#39;s well worth looking at how you think others would want to use your library, putting aside the fact that you need to do more work maybe to make it more usable. It&#39;s not too much to ask, and it&#39;ll sure make your users happy, because their code will look nicer too. The only failure I could add to the above is when the methods would have the real names of the API calls:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">DescribeInstances([&#39;i-123454&#39;])
+</code></pre></div>
+<p>Gross! You can laugh now, but some Ruby libraries for accessing Amazon&#39;s Web Services don&#39;t shy away from exposing you to these undoubtedly not Ruby-like method names.</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2009/9/8/the_nosql_dilemma.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2009/10/19/the_shoulda_rspec_extravaganza.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

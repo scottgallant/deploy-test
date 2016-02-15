@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. Ruby Tidbits: How Private is Private?</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. Ruby Tidbits: How Private is Private?"/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+     
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Ruby Tidbits: How Private is Private?"/>
+    <meta name="twitter:site" content="@roidrage"/>
+    <meta name="twitter:creator" content="@roidrage"/>
+    <meta name="twitter:description" content="Several of my friends are picking up Ruby these days. Just like me, they&#39;re coming mostly from the Java world. Good thing about that is that they&#39;re asking me questions about Ruby. Always a..."/>
+    <meta name="twitter:url" content="http://www.paperplanes.de/2008/2/21/ruby_tidbits_how_private_is.html"/>
+    <meta name="twitter:domain" content="paperplanes.de"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <article class="hentry">
+  <div class="item_perma">
+    <div class="item_details">
+      <header>
+        <h3 class="entry-title">Ruby Tidbits: How Private is Private?</h3>
+        <h4><a href="/2008/2/21/ruby_tidbits_how_private_is.html" title="Permalink for this post">21 February 2008</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </header>
+    </div>
+    <div class="item_content">
+      <p>Several of my friends are picking up Ruby these days. Just like me, they&#39;re coming mostly from the Java world. Good thing about that is that they&#39;re asking me questions about Ruby. Always a great opportunity to dig more into the language, and to write down some tidbits that came up.</p>
+
+<p>When you&#39;re coming from Java you&#39;re used to private being private. When you declare a method as being such it&#39;s off limits as soon as you leave the class&#39; scope. No way to reach it from subclasses or, god forbid, call it from another object. Well, you could use that really awkward reflection code and really ram it in, and eventually call it, but that&#39;s just tedious.</p>
+
+<p>Different story in Ruby. Using the keyword <code>private</code> is more of a marker than a mechanism to enforce access restrictions to an object&#39;s methods. You can even call private methods from subclasses, no problem. There&#39;s just one caveat, a private method can&#39;t be called on an object. It must be a lonely method call. No <code>self</code> for you today.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">class Restricted
+  private
+  def secret_method
+    puts &quot;top secret!&quot;
+    # do something private
+  end
+end
+</code></pre></div>
+<p>Now, you&#39;d think the deal is sealed. What&#39;s secret, stays secret. And you&#39;d be right:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">Restricted.new.secret_method
+# NoMethodError: private method `secret_method&#39; called for #&lt;Restricted:0x362eb4&gt;
+</code></pre></div>
+<p>Oh noes! And this won&#39;t work either:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">class Freedom &lt; Restricted
+   def public_domain
+     self.secret_method
+   end
+end
+</code></pre></div>
+<p>Not to worry, the fix is right at hand:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">def public_domain
+  secret_method # but this will!
+end
+</code></pre></div>
+<p>Huh? Did we just call a private method from a subclass? We sure did. Again, private restricts you in a way that you can only call the method from within the context of a class (subclass or not), but without calling it on an object. Of course there&#39;s a different way, you can just un-private the method, but that&#39;s just mean.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">class Freedom &lt; Restricted
+   public :secret_method
+
+   def public_domain
+     self.secret_method # free as a bird
+   end
+end
+</code></pre></div>
+<p>And there&#39;s always good old <code>send</code> to rely on.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">class Freedom &lt; Restricted
+   def public_domain
+     self.send(:secret_method) # free as a bird
+   end
+end
+</code></pre></div>
+<p>In a world where you can change almost everything about a class, <code>private</code> is merely something to remind a developer using a class that calling this method out of context or from outside the class is probably not the way to go. But if he still wants to go ahead, it&#39;s his responsibility, including all the risks, possible internal changes in a future version and the like.</p>
+
+    </div>
+    <div class="item_meta">
+      <div class="item_tags">Tags:
+        
+      </div>
+      <div class="item_hierarchy">Hierarchy:
+        
+          <a href="/2008/2/20/seriously_the_most_awesome_photoshop.html" title="Previous post">previous</a>
+        
+        
+        
+          , <a href="/2008/2/22/friday_tab_sweep_220208.html" title="Next post">next</a>
+        
+        </div>
+    </div>
+  </div>
+</article>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>

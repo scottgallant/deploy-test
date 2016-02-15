@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>paperplanes. mathias meyer.</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" />
+    <link rel="icon" href="/images/favicon.gif" type="image/gif" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  	<meta name="author" content="Mathias Meyer"/>
+    <meta name="dc.title" content="paperplanes. mathias meyer."/>
+  	<link rel="start" href="http://www.paperplanes.de" title="paperplanes"/>
+    
+    <link href="http://www.paperplanes.de/rss.xml" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+    <link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" title="paperplanes" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mobile.css" media="handheld, only screen and (max-device-width: 960px)" />
+  </head>
+  
+  <body id="www-paperplanes-de">
+    <div id="head">
+      <div id="header-content">
+        <a href="/">
+          <img src="/images/paperplane.png" id="paperplane">
+        </a>
+        <div id="about">
+          <h1 class="default">Hi, I'm Mathias Meyer, nice to meet you!</h1>
+          <h1 class="mobile">Hi, I'm <a href="https://twitter.com/roidrage">Mathias Meyer</a>, I'm the CEO at <a href="https://travis-ci.com">Travis CI</a></h1>
+          <p style="color: white" class="about-sub-title default">
+            I'm the CEO at <a href="http://travis-ci.com">Travis CI</a>. I like coffee, <a href="https://twitter.com/roidrage">Twitter</a> and <a href="mailto:meyer@paperplanes.de">email</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box">
+      <div id="content">
+        <div id="articles">
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2007/12/4/testing_active_web_service_with.html">Testing Active Web Service with RSpec</a></h3>
+        <h4><a href="/2007/12/4/testing_active_web_service_with.html" title="Testing Active Web Service with RSpec">04 December 2007</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>I recently started picking up RSpec for a current project. Not too far along the way I found myself wanting to test a SOAP web service written with Active Web Service with it.</p>
+
+<p>Given that these map to controllers it&#39;s pretty easy to do that. You can basically use the same things that you can use in Rails&#39; function tests. All you need to do is include the correct helper that defines the methods, in your specification.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">require &#39;action_web_service/test_invoke&#39;
+</code></pre></div>
+<p>And that&#39;s it. From then on you can test your web services like controllers, given that you have an Service::SearchApi that uses the Service::SearchController, you can just do this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">describe Service::SearchController do
+  it &quot;should find users with a valid input&quot; do
+    users = invoke :find_users, &quot;quentin&quot;
+    users.should have(2).items
+    users.first.should be_instance_of(User)
+  end
+end
+</code></pre></div>
+<p>There. It&#39;s that easy.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2007/12/3/macsanta_is_coming_to_town.html">MacSanta is Coming to Town</a></h3>
+        <h4><a href="/2007/12/3/macsanta_is_coming_to_town.html" title="MacSanta is Coming to Town">03 December 2007</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <p>Just like last year, <a href="http://www.macsantadeals.com/">MacSanta</a> opened its doors right on time for the holiday season. They have some pretty good deals on some excellent Mac shareware. I stacked up already during last year&#39;s sale, but their daily deals are well worth keeping an eye on.</p>
+
+<p>Also jumping on the Christmas deals bandwagon are <a href="http://www.givegoodfood2yourmac.com/kitchen34/index.php">Give Good Food To Your Mac</a> and another <a href="http://www.mupromo.com/">MacUpdate</a> sale. Though I gotta say I prefer the variety over at MacSanta. So go out and support those indie Mac developers.</p>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <div class="item">
+      <div class="item_details">
+        <h3><a href="/2007/11/30/friday_links_301107.html">Friday Links (30.11.07)</a></h3>
+        <h4><a href="/2007/11/30/friday_links_301107.html" title="Friday Links (30.11.07)">30 November 2007</a> by <a href="http://twitter.com/roidrage">Mathias Meyer</a></h4>
+      </div>
+      <div class="item_content">
+        <ul>
+<li><p><a href="http://ciaranwal.sh/2007/11/15/quicklook-and-textmate">QuickLook and TextMate</a>, sitting in a tree. Makes QuickLook even better. It integrates the TextMate syntax highlighting into QuickLook, and integrates QuickLook into TextMate. Looks pretty neat.
+<img src="http://myskitch.com/mattie/picture_1-20071130-154106.jpg" alt="TextMate in QuickLook"></p></li>
+<li><p><a href="http://www.tbray.org/ongoing/When/200x/2007/11/26/Ruby-Tool-Survey">Ruby Tool Survey</a><br>
+It&#39;s official (as far as this survey goes): TextMate is the number one development tool for Ruby and Rails. That&#39;s what I tried to tell the students during the lecture I gave last weekend, but the die-hard Linux fans wouldn&#39;t believe me ;)</p></li>
+<li><p><a href="http://www.railsjitsu.com/installing-and-configuring-nginx-and-mongrel-for-rails">Nginx and Mongrel for Rails</a><br>
+Nice tutorial on how to set up Nginx for Rails deployment. I&#39;m using it on one of my current projects and it&#39;s pretty neat. <a href="http://www.railsjitsu.com/">RailsJitsu</a> is well worth keeping an eye on.</p></li>
+<li><p><a href="http://www.onrails.org/articles/2007/11/28/scripting-the-leopard-terminal">Scripting the Leopard Termina</a><br>
+Tired of having to open four terminal session each time you open Terminal to work on your Rails applications? Get some nice hints on how to script Terminal with AppleScript to ease the pain on your fingers.</p></li>
+<li><p><a href="http://www.rubyinside.com/inject-ruby-into-any-running-os-x-application-659.html">Inject Ruby into a Running OS X Application</a><br>
+Just cool. Nuff said.</p></li>
+</ul>
+
+      </div>
+      <div class="item_meta">
+        <span class="item_tags">
+          Tags: 
+          
+        </span>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<div class="pagination">
+  
+    
+      <a href="/page68" class="previous">Newer Posts</a>
+    
+  
+  
+    <a href="/page70" class="next">Older Posts</a>
+  
+</div>
+
+       
+        <div id="footer">
+          <div id="footer_text">
+            <a href="/archives.html">Archives</a>, <a href="http://www.paperplanes.de/rss.xml" title="Full-text RSS feed">RSS Feed</a>, &copy; 2007-2014 Mathias Meyer <a href="/imprint.html">Imprint</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46305173-1', 'paperplanes.de');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+  <script src="//my.hellobar.com/7db1d1ae6111ae95568efbbf8e6a1ee953ad854f.js" type="text/javascript" charset="utf-8" async="async"></script>
+</html>
