@@ -6,8 +6,20 @@
     <description>Recent content in Installation on Balsamiq Support Portal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 May 2015 16:46:35 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 14 May 2015 06:46:00 +0000</lastBuildDate>
     <atom:link href="http://supportstaging.balsamiq.com/installation/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&#34;This Installer Has Been Mis-Configured&#34; Error</title>
+      <link>http://supportstaging.balsamiq.com/installation/installermisconfigured/</link>
+      <pubDate>Thu, 14 May 2015 06:46:00 +0000</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/installation/installermisconfigured/</guid>
+      <description>&lt;p&gt;This is a one-time error you might get if you haven’t updated Mockups in a long time.&lt;/p&gt;
+
+&lt;p&gt;The solution is to &lt;a href=&#34;http://supportstaging.balsamiq.com/installation/uninstall/&#34;&gt;uninstall Mockups&lt;/a&gt; and install it again. You won’t have to re-register.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Can I Install Mockups 3 for Desktop on Citrix or Other Virtual Environments?</title>
@@ -262,13 +274,13 @@ product where name=”Balsamiq Mockups 3” call uninstall /nointeractive&lt;/co
 
 &lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Note:&lt;/strong&gt; The file names have been updated for Balsamiq Mockups 3. The application file is now called &amp;ldquo;Balsamiq Mockups 3.exe.&amp;rdquo; The installation file name can be found on our &lt;a href=&#34;https://balsamiq.com/download&#34;&gt;downloads page&lt;/a&gt;.&lt;/span&gt;
 
-&lt;h2 id=&#34;a-note-about-licensing&#34;&gt;A Note about Licensing&lt;/h2&gt;
+&lt;h2 id=&#34;a-note-about-licensing:fbcd23bc63532ecaeb19e79f91aca2ed&#34;&gt;A Note about Licensing&lt;/h2&gt;
 
 &lt;p&gt;You are responsible for complying with our &lt;a href=&#34;https://balsamiq.com/eulas&#34;&gt;End User License Agreement&lt;/a&gt; and only install Mockups for Desktop for the appropriate number of end-users allowed by the license you purchased.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;windows-machines&#34;&gt;Windows Machines&lt;/h2&gt;
+&lt;h2 id=&#34;windows-machines:fbcd23bc63532ecaeb19e79f91aca2ed&#34;&gt;Windows Machines&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Make sure Mockups for Desktop is NOT installed on the target machines.&lt;/li&gt;
@@ -281,7 +293,7 @@ replacing LICENSENAME and LICENSEKEY with the license information you received w
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;mac-machines&#34;&gt;Mac Machines&lt;/h2&gt;
+&lt;h2 id=&#34;mac-machines:fbcd23bc63532ecaeb19e79f91aca2ed&#34;&gt;Mac Machines&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Download and mount MockupsForDesktop.dmg from &lt;a href=&#34;https://balsamiq.com/download&#34;&gt;our downloads page&lt;/a&gt;.&lt;/li&gt;
@@ -293,7 +305,7 @@ replacing LICENSENAME and LICENSEKEY with the license information you received w
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;how-to-uninstall-a-previous-version-before-updating&#34;&gt;How to Uninstall a Previous Version before Updating&lt;/h2&gt;
+&lt;h2 id=&#34;how-to-uninstall-a-previous-version-before-updating:fbcd23bc63532ecaeb19e79f91aca2ed&#34;&gt;How to Uninstall a Previous Version before Updating&lt;/h2&gt;
 
 &lt;p&gt;To silently update Mockups to a newer version you first have to uninstall the old version.&lt;/p&gt;
 

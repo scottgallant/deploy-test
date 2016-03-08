@@ -299,7 +299,7 @@ The video below shows you how to set up and use the template.&lt;/p&gt;
       <guid>http://supportstaging.balsamiq.com/tutorials/mobileapplication/</guid>
       <description>
 
-&lt;h2 id=&#34;introduction:1b4a63aa879d3802ace717b50d1b4f41&#34;&gt;Introduction&lt;/h2&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;In a &lt;a href=&#34;http://supportstaging.balsamiq.com/tutorials/firstmockup/&#34;&gt;previous tutorial&lt;/a&gt; we learned how to create a mockup for a basic web site. In this tutorial, we&amp;rsquo;ll go through the steps of creating a series of mockups for a (fake) mobile banking application. Some other resources that might be useful in conjunction with this tutorial are the &lt;a href=&#34;https://docs.balsamiq.com/desktop/overview/&#34;&gt;Mockups Application Overview&lt;/a&gt; and &lt;a href=&#34;http://supportstaging.balsamiq.com/tutorials/controls/&#34;&gt;Tips for Working with Controls&lt;/a&gt;.&lt;/p&gt;
 
@@ -309,7 +309,7 @@ The video below shows you how to set up and use the template.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;screen-1-login:1b4a63aa879d3802ace717b50d1b4f41&#34;&gt;Screen 1: Login&lt;/h2&gt;
+&lt;h2 id=&#34;screen-1-login&#34;&gt;Screen 1: Login&lt;/h2&gt;
 
 &lt;p&gt;The first mockup is the Login screen.&lt;/p&gt;
 
@@ -354,7 +354,7 @@ The video below shows you how to set up and use the template.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;screen-2-accounts:1b4a63aa879d3802ace717b50d1b4f41&#34;&gt;Screen 2: Accounts&lt;/h2&gt;
+&lt;h2 id=&#34;screen-2-accounts&#34;&gt;Screen 2: Accounts&lt;/h2&gt;
 
 &lt;p&gt;Next, the Accounts screen.&lt;/p&gt;
 
@@ -414,7 +414,7 @@ Savings, $2383.41 &amp;gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;screen-3-transactions:1b4a63aa879d3802ace717b50d1b4f41&#34;&gt;Screen 3: Transactions&lt;/h2&gt;
+&lt;h2 id=&#34;screen-3-transactions&#34;&gt;Screen 3: Transactions&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/mobileapp/transactions.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
@@ -481,7 +481,7 @@ Savings, $2383.41 &amp;gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;screen-4-deposit:1b4a63aa879d3802ace717b50d1b4f41&#34;&gt;Screen 4: Deposit&lt;/h2&gt;
+&lt;h2 id=&#34;screen-4-deposit&#34;&gt;Screen 4: Deposit&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/mobileapp/deposit.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
@@ -522,7 +522,7 @@ __ Back of Check, &amp;gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;screen-5-camera:1b4a63aa879d3802ace717b50d1b4f41&#34;&gt;Screen 5: Camera&lt;/h2&gt;
+&lt;h2 id=&#34;screen-5-camera&#34;&gt;Screen 5: Camera&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/mobileapp/camera.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
@@ -560,7 +560,7 @@ __ Back of Check, &amp;gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;linking-them-all-together:1b4a63aa879d3802ace717b50d1b4f41&#34;&gt;Linking Them All Together&lt;/h2&gt;
+&lt;h2 id=&#34;linking-them-all-together&#34;&gt;Linking Them All Together&lt;/h2&gt;
 
 &lt;p&gt;Finally, we can use the linking feature to link all five mockups together and show them in Full Screen Presentation mode. The &lt;a href=&#34;https://docs.balsamiq.com/desktop/linking/&#34;&gt;Linking Mockups Together&lt;/a&gt; article describes this feature in more depth. The following video demonstrates the process of locating each button or control that should be connected and linking them to the appropriate mockups.&lt;/p&gt;
 

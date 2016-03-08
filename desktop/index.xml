@@ -95,7 +95,7 @@
 
 &lt;p&gt;The answer to that is: &lt;strong&gt;Yes, yes it does&lt;/strong&gt;. But read on for some things you might want to know first.&lt;/p&gt;
 
-&lt;h2 id=&#34;getting-conflicted-copies&#34;&gt;Getting Conflicted Copies?&lt;/h2&gt;
+&lt;h2 id=&#34;getting-conflicted-copies:567a47b4e73fd8d46bbd36e478d20209&#34;&gt;Getting Conflicted Copies?&lt;/h2&gt;
 
 &lt;p&gt;File sharing solutions often create duplicate copies of your files when they cannot safely sync your changes to their server. This is common when two people work on the same file at the same time.&lt;/p&gt;
 
@@ -105,7 +105,7 @@
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;on-a-phone-connection&#34;&gt;On a Phone Connection?&lt;/h2&gt;
+&lt;h2 id=&#34;on-a-phone-connection:567a47b4e73fd8d46bbd36e478d20209&#34;&gt;On a Phone Connection?&lt;/h2&gt;
 
 &lt;p&gt;If you&amp;rsquo;re paying for bandwidth by the Gigabyte instead of a flat fee, we recommend that you either &lt;strong&gt;pause syncing&lt;/strong&gt; while you&amp;rsquo;re working on it, or work on your BMPRs in a different folder, and only copy them to your file sharing folder when you&amp;rsquo;re done.&lt;/p&gt;
 
@@ -113,7 +113,7 @@
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;the-old-balsamiq-worked-better&#34;&gt;The Old Balsamiq Worked Better!&lt;/h2&gt;
+&lt;h2 id=&#34;the-old-balsamiq-worked-better:567a47b4e73fd8d46bbd36e478d20209&#34;&gt;The Old Balsamiq Worked Better!&lt;/h2&gt;
 
 &lt;p&gt;That is correct, our older versions (1 and 2) used a file format (BMML) which was fully text-based, which is something file sharing solutions know how to deal with better than our current BMPR format.&lt;/p&gt;
 
@@ -121,7 +121,7 @@
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;i-want-to-see-what-others-are-doing-in-real-time&#34;&gt;I Want to See What Others Are Doing in Real Time!&lt;/h2&gt;
+&lt;h2 id=&#34;i-want-to-see-what-others-are-doing-in-real-time:567a47b4e73fd8d46bbd36e478d20209&#34;&gt;I Want to See What Others Are Doing in Real Time!&lt;/h2&gt;
 
 &lt;p&gt;We definitely plan on bringing real-time collaboration to Balsamiq Mockups 3 for Desktop. But, instead of trying to leverage Dropbox and the many other file sharing solutions for it, we will use our own service, which we already use to power &lt;a href=&#34;https://docs.balsamiq.com/google-drive/user-guide/#collaborating-with-other-users-in-real-time&#34;&gt;real-time collaboration in Mockups for Google Drive&lt;/a&gt; today.&lt;/p&gt;
 
@@ -171,7 +171,7 @@
 
 &lt;p&gt;Starting with version 3.2.1, Mockups 3 for Desktop locally backs up every project that you open with it. It keeps these backups in a special folder for seven (or so) days before deleting them. This means that there should always be an up-to-date version of your project.&lt;/p&gt;
 
-&lt;h2 id=&#34;how-do-i-find-this-backup:4dfed9f30f3a8139ded8d1bbbcfd6a36&#34;&gt;How Do I Find This Backup?&lt;/h2&gt;
+&lt;h2 id=&#34;how-do-i-find-this-backup&#34;&gt;How Do I Find This Backup?&lt;/h2&gt;
 
 &lt;p&gt;The backups are all stored in Mockups&amp;rsquo; Local Store, in a folder called LocalProjects. You can get there via the Balsamiq Mockups &amp;ldquo;About&amp;rdquo; dialog.&lt;/p&gt;
 
@@ -180,7 +180,7 @@ There is more information about finding your Local Store &lt;a href=&#34;http://
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;how-do-i-restore-a-file-from-this-backup-folder:4dfed9f30f3a8139ded8d1bbbcfd6a36&#34;&gt;How Do I Restore a File from This Backup Folder?&lt;/h2&gt;
+&lt;h2 id=&#34;how-do-i-restore-a-file-from-this-backup-folder&#34;&gt;How Do I Restore a File from This Backup Folder?&lt;/h2&gt;
 
 &lt;p&gt;Restoring a file is super easy!&lt;/p&gt;
 
@@ -190,7 +190,7 @@ There is more information about finding your Local Store &lt;a href=&#34;http://
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;that-s-awesome-my-only-problem-is-that-i-don-t-know-which-file-is-the-one-i-want-to-restore:4dfed9f30f3a8139ded8d1bbbcfd6a36&#34;&gt;That&amp;rsquo;s Awesome! My Only Problem Is That I Don&amp;rsquo;t Know Which File Is the One I Want to Restore.&lt;/h2&gt;
+&lt;h2 id=&#34;that-s-awesome-my-only-problem-is-that-i-don-t-know-which-file-is-the-one-i-want-to-restore&#34;&gt;That&amp;rsquo;s Awesome! My Only Problem Is That I Don&amp;rsquo;t Know Which File Is the One I Want to Restore.&lt;/h2&gt;
 
 &lt;p&gt;Starting with Mockups for Desktop 3.3, backup files should have a small snippet of the original file&amp;rsquo;s name. Before that, however, backup files were named randomly. If you haven&amp;rsquo;t updated to the latest version (you &lt;a href=&#34;https://balsamiq.com/download&#34;&gt;should&lt;/a&gt;, we are always adding cool things!) you can set your Local Store folder to arrange the files by date. That will give you a pretty good idea which file you are looking for, even if the names aren&amp;rsquo;t any help!&lt;/p&gt;
 </description>

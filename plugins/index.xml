@@ -164,11 +164,11 @@
 &lt;li&gt;do not use the built-in user management of Confluence and JIRA&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;how-does-plugin-authentication-work-in-general&#34;&gt;How Does Plugin Authentication Work in General?&lt;/h2&gt;
+&lt;h2 id=&#34;how-does-plugin-authentication-work-in-general:93a8d2f89dfe6ddbc3085f9f409ce773&#34;&gt;How Does Plugin Authentication Work in General?&lt;/h2&gt;
 
 &lt;p&gt;As specified in our &lt;a href=&#34;https://docs.balsamiq.com/confluence/admin-guide/#selecting-mockup-editors&#34;&gt;Confluence Admin Guide&lt;/a&gt; and in our &lt;a href=&#34;https://docs.balsamiq.com/jira/admin-guide/#selecting-mockup-editors&#34;&gt;Mockups for JIRA Server Admin Guide&lt;/a&gt; the plugin looks for a user group called &lt;em&gt;balsamiq-mockups-editors&lt;/em&gt; to decide which users should have access to create and edit mockups.&lt;/p&gt;
 
-&lt;h2 id=&#34;what-if-i-want-my-jira-server-editor-group-and-my-confluence-editor-group-to-be-separate&#34;&gt;What If I Want My JIRA Server Editor Group and My Confluence Editor Group to Be Separate?&lt;/h2&gt;
+&lt;h2 id=&#34;what-if-i-want-my-jira-server-editor-group-and-my-confluence-editor-group-to-be-separate:93a8d2f89dfe6ddbc3085f9f409ce773&#34;&gt;What If I Want My JIRA Server Editor Group and My Confluence Editor Group to Be Separate?&lt;/h2&gt;
 
 &lt;p&gt;Say you bought a 10-editor license of Mockups for Confluence and a 3-editor license of Mockups for JIRA Server.&lt;/p&gt;
 
@@ -206,7 +206,7 @@
 
 &lt;p&gt;Subscriptions cost $5/mo or $50/year. Start your free 30 day trial on the &lt;a href=&#34;https://chrome.google.com/webstore/detail/iedapplgopkgngalkbailjoikghljkki/&#34;&gt;Chrome Web Store&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;documentation:0ca16636576aeb504009ae9671c03e88&#34;&gt;Documentation&lt;/h2&gt;
+&lt;h2 id=&#34;documentation&#34;&gt;Documentation&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://docs.balsamiq.com/desktop/&#34;&gt;The Balsamiq Mockups Editor&lt;/a&gt;&lt;/li&gt;
@@ -334,7 +334,7 @@
 
 &lt;span class=&#34;alert alert-warning show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Heads Up!&lt;/strong&gt; Balsamiq Mockups 3 for Desktop, at the moment, uses a different file format than Mockups for Confluence and Mockups for JIRA Server. We plan to bring the changes in Balsamiq Mockups 3 to our Atlassian plugins in the future.&lt;/span&gt;
 
-&lt;h2 id=&#34;exporting-from-the-desktop-version:cd5ee74e294a4416affdadf072bdd7f5&#34;&gt;Exporting from the Desktop Version&lt;/h2&gt;
+&lt;h2 id=&#34;exporting-from-the-desktop-version&#34;&gt;Exporting from the Desktop Version&lt;/h2&gt;
 
 &lt;p&gt;Here&amp;rsquo;s how to export your mockups from Mockups 3 for Desktop and bring them into Mockups for Confluence or JIRA Server:&lt;/p&gt;
 
@@ -358,7 +358,7 @@
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;my-plugin-version-of-mockups-doesn-t-support-symbols-does-that-mean-that-i-can-t-import-mockups-that-use-symbols:cd5ee74e294a4416affdadf072bdd7f5&#34;&gt;My Plugin Version of Mockups Doesn&amp;rsquo;t Support Symbols, Does That Mean That I Can&amp;rsquo;t Import Mockups That Use Symbols?&lt;/h2&gt;
+&lt;h2 id=&#34;my-plugin-version-of-mockups-doesn-t-support-symbols-does-that-mean-that-i-can-t-import-mockups-that-use-symbols&#34;&gt;My Plugin Version of Mockups Doesn&amp;rsquo;t Support Symbols, Does That Mean That I Can&amp;rsquo;t Import Mockups That Use Symbols?&lt;/h2&gt;
 
 &lt;p&gt;Mockups for Confluence and Mockups for JIRA Server don&amp;rsquo;t yet support &lt;a href=&#34;https://docs.balsamiq.com/desktop/symbols/&#34;&gt;symbols&lt;/a&gt;, but that doesn&amp;rsquo;t mean that you can&amp;rsquo;t import mockups that use symbols.&lt;/p&gt;
 
@@ -372,7 +372,7 @@
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;can-i-copy-and-paste-between-the-desktop-and-plugin-version:cd5ee74e294a4416affdadf072bdd7f5&#34;&gt;Can I Copy and Paste between the Desktop and Plugin Version?&lt;/h2&gt;
+&lt;h2 id=&#34;can-i-copy-and-paste-between-the-desktop-and-plugin-version&#34;&gt;Can I Copy and Paste between the Desktop and Plugin Version?&lt;/h2&gt;
 
 &lt;p&gt;Yes! Er, well, something like that&amp;hellip;&lt;/p&gt;
 
@@ -391,7 +391,7 @@
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;can-i-download-mockups-created-in-my-atlassian-plugin-version-for-use-with-mockups-for-desktop:cd5ee74e294a4416affdadf072bdd7f5&#34;&gt;Can I Download Mockups Created in My Atlassian Plugin Version for Use with Mockups for Desktop?&lt;/h2&gt;
+&lt;h2 id=&#34;can-i-download-mockups-created-in-my-atlassian-plugin-version-for-use-with-mockups-for-desktop&#34;&gt;Can I Download Mockups Created in My Atlassian Plugin Version for Use with Mockups for Desktop?&lt;/h2&gt;
 
 &lt;p&gt;Most of the products we integrate with make it clear where to find the mockup (.bmml) files. To download these files, just right-click on the link to the .bmml file and select &amp;ldquo;save link as…&amp;rdquo; (or whatever terminology your browser uses). Then use Balsamiq Mockups version 2 to open the BMML files or &lt;a href=&#34;https://docs.balsamiq.com/desktop/importing/#importing-mockups-from-a-previous-version-bmml-files&#34;&gt;import them&lt;/a&gt; if you are using Balsamiq Mockups version 3.&lt;/p&gt;
 
@@ -415,7 +415,7 @@
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;what-s-new:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;What&amp;rsquo;s New&lt;/h2&gt;
+&lt;h2 id=&#34;what-s-new&#34;&gt;What&amp;rsquo;s New&lt;/h2&gt;
 
 &lt;p&gt;In a word, &lt;strong&gt;lots!&lt;/strong&gt; Here are the &amp;ldquo;highlights&amp;rdquo; you should know about:&lt;/p&gt;
 
@@ -430,7 +430,7 @@
 &lt;li&gt;&lt;a href=&#34;#trash&#34;&gt;Trash&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;a-new-user-interface:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;A New User Interface&lt;/h3&gt;
+&lt;h3 id=&#34;a-new-user-interface&#34;&gt;A New User Interface&lt;/h3&gt;
 
 &lt;p&gt;Gone is the annoying flying property inspector! Now you have mockups on the left and properties on the right. Simple, predictable and quick. The UI Library is at the top where it&amp;rsquo;s always been but now it&amp;rsquo;s a bit more compact.&lt;/p&gt;
 
@@ -457,7 +457,7 @@
 &lt;li&gt;Go to next or previous mockup (&lt;em&gt;shown when left panel is hidden&lt;/em&gt;)&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&#34;easier-look-and-feel-customization:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;Easier Look and Feel Customization&lt;/h3&gt;
+&lt;h3 id=&#34;easier-look-and-feel-customization&#34;&gt;Easier Look and Feel Customization&lt;/h3&gt;
 
 &lt;p&gt;Control over the font used in Mockups has been one of the most-requested features since the very beginning. Custom fonts were previously available using a complicated configuration file, but we now allow you to set a project font in the new &lt;a href=&#34;https://docs.balsamiq.com/desktop/projectinfo/&#34;&gt;Project Info panel&lt;/a&gt;. Yes, you can now easily use &lt;em&gt;any font you have installed&lt;/em&gt; in your mockups. Rejoice! You can also set a default size for it.&lt;/p&gt;
 
@@ -465,7 +465,7 @@
 
 &lt;p&gt;We also moved the skin switching options into the new Project Info panel to make them more obvious (many people never knew about our &lt;a href=&#34;http://supportstaging.balsamiq.com/desktop/wireframeskin/&#34;&gt;wireframe skin&lt;/a&gt;). Finally, the default selection color is also configurable from this new panel.&lt;/p&gt;
 
-&lt;h3 id=&#34;better-symbols:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;Better Symbols&lt;/h3&gt;
+&lt;h3 id=&#34;better-symbols&#34;&gt;Better Symbols&lt;/h3&gt;
 
 &lt;p&gt;In the previous version we called Symbols an &amp;ldquo;advanced feature.&amp;rdquo; Well, no longer. Symbols are now for everyone. Symbols allow you to create templates, masters, and other reusable components to save time and ensure consistency. They are especially useful for big projects and custom controls and are central to our &lt;a href=&#34;https://mockupstogo.mybalsamiq.com&#34;&gt;Mockups To Go&lt;/a&gt; site.&lt;/p&gt;
 
@@ -481,7 +481,7 @@
 
 &lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/symbols3.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;better-icons:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;Better Icons&lt;/h3&gt;
+&lt;h3 id=&#34;better-icons&#34;&gt;Better Icons&lt;/h3&gt;
 
 &lt;p&gt;Big changes here.&lt;/p&gt;
 
@@ -497,7 +497,7 @@
 
 &lt;p&gt;And you&amp;rsquo;ll quickly notice that we have a completely different set of icons than the previous version. We switched our icons over to the incredibly popular &lt;a href=&#34;http://fortawesome.github.io/Font-Awesome/&#34;&gt;Font Awesome&lt;/a&gt; icon set. This means that there are now over &lt;em&gt;500&lt;/em&gt; icons pre-installed.&lt;/p&gt;
 
-&lt;h3 id=&#34;better-images-and-assets:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;Better Images and Assets&lt;/h3&gt;
+&lt;h3 id=&#34;better-images-and-assets&#34;&gt;Better Images and Assets&lt;/h3&gt;
 
 &lt;p&gt;There is now a dedicated area for images and other imported assets, accessible from the navigator menu.&lt;/p&gt;
 
@@ -509,19 +509,19 @@
 
 &lt;p&gt;You can also delete, rename, clone and download images from the context menu in the panel.&lt;/p&gt;
 
-&lt;h3 id=&#34;new-full-screen-mode:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;New Full Screen Mode&lt;/h3&gt;
+&lt;h3 id=&#34;new-full-screen-mode&#34;&gt;New Full Screen Mode&lt;/h3&gt;
 
 &lt;p&gt;The same options are still there but we&amp;rsquo;ve overhauled the experience to make it better for usability testing and presentations. We also got rid of the problem where mockups would &amp;ldquo;jump around&amp;rdquo; in full screen mode.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/fullscreen.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;notes:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;Notes&lt;/h3&gt;
+&lt;h3 id=&#34;notes&#34;&gt;Notes&lt;/h3&gt;
 
 &lt;p&gt;When no controls are selected you&amp;rsquo;ll see a place to add notes in the Properties panel. You can add notes for your Project, Mockups, Assets, Symbol Libraries and individual Symbols and they will be saved as part of the project.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/notes.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;trash:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;Trash&lt;/h3&gt;
+&lt;h3 id=&#34;trash&#34;&gt;Trash&lt;/h3&gt;
 
 &lt;p&gt;Balsamiq Mockups 3 now has a Trash for mockups, assets and Symbols you have deleted. This makes it easy to keep your project tidy as you make progress but still allows you to browse or recover earlier concepts.&lt;/p&gt;
 
@@ -531,7 +531,7 @@
 
 &lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/trash2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;what-s-not-new:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;What&amp;rsquo;s &lt;em&gt;not&lt;/em&gt; New&lt;/h3&gt;
+&lt;h3 id=&#34;what-s-not-new&#34;&gt;What&amp;rsquo;s &lt;em&gt;not&lt;/em&gt; New&lt;/h3&gt;
 
 &lt;p&gt;For the most part we left experience of adding, arranging and editing controls the same, so it should be familiar if you are coming from the previous version.&lt;/p&gt;
 
@@ -539,7 +539,7 @@
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;importing-existing-files:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;Importing Existing Files&lt;/h2&gt;
+&lt;h2 id=&#34;importing-existing-files&#34;&gt;Importing Existing Files&lt;/h2&gt;
 
 &lt;p&gt;Mockups 3 for Google Drive is updated automatically so you don&amp;rsquo;t need to do anything. Just open your existing BMPR files, wait a few seconds for the conversion to finish and enjoy!&lt;/p&gt;
 

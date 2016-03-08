@@ -53,7 +53,7 @@
 
 &lt;p&gt;This document offers a couple of suggestions.&lt;/p&gt;
 
-&lt;h2 id=&#34;using-a-naming-scheme-within-a-project&#34;&gt;Using a Naming Scheme within a Project&lt;/h2&gt;
+&lt;h2 id=&#34;using-a-naming-scheme-within-a-project:c881f26d6594eddd1cc96464cfcd8f7f&#34;&gt;Using a Naming Scheme within a Project&lt;/h2&gt;
 
 &lt;p&gt;A simple way to group mockups that are related to the same feature or section of a website is to prepend each mockup with the name of the feature.&lt;/p&gt;
 
@@ -65,7 +65,7 @@
 
 &lt;p&gt;The downside of this approach is that the project might fill up with lots and lots of Mockups, making it harder to navigate.&lt;/p&gt;
 
-&lt;h2 id=&#34;using-multiple-projects&#34;&gt;Using Multiple Projects&lt;/h2&gt;
+&lt;h2 id=&#34;using-multiple-projects:c881f26d6594eddd1cc96464cfcd8f7f&#34;&gt;Using Multiple Projects&lt;/h2&gt;
 
 &lt;p&gt;Another, complementary idea is to use multiple projects, one per feature or section of a website.&lt;/p&gt;
 
@@ -77,7 +77,7 @@
 
 &lt;p&gt;This approach has the advantage of keeping the number of mockups inside each project smaller and thus more manageable, but has the downside of being potentially more expensive in the long run and a little harder to manage in terms of project members, as you will have to invite the appropriate project members to each feature-project.&lt;/p&gt;
 
-&lt;h2 id=&#34;will-mybalsamiq-make-this-easier-in-the-future&#34;&gt;Will myBalsamiq Make This Easier in the Future?&lt;/h2&gt;
+&lt;h2 id=&#34;will-mybalsamiq-make-this-easier-in-the-future:c881f26d6594eddd1cc96464cfcd8f7f&#34;&gt;Will myBalsamiq Make This Easier in the Future?&lt;/h2&gt;
 
 &lt;p&gt;Certainly! With your feedback and help, we always work towards making things smoother and easier, that&amp;rsquo;s our job! :)&lt;/p&gt;
 
@@ -447,7 +447,7 @@
 
 &lt;span class=&#34;alert alert-warning show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Note:&lt;/strong&gt; myBalsamiq and Balsamiq Mockups 3 (for Desktop or for Google Drive) currently use different internal file formats. To use both, you will need to import and export between them.&lt;/span&gt;
 
-&lt;h2 id=&#34;going-from-mybalsamiq-to-mockups-3&#34;&gt;Going from myBalsamiq to Mockups 3&lt;/h2&gt;
+&lt;h2 id=&#34;going-from-mybalsamiq-to-mockups-3:5d142a91556dc7ba7b6394a2c18b1788&#34;&gt;Going from myBalsamiq to Mockups 3&lt;/h2&gt;
 
 &lt;p&gt;If you are using myBalsamiq and would like to move your wireframes over to Balsamiq Mockups 3, you can follow &lt;a href=&#34;http://supportstaging.balsamiq.com/mybalsamiq/mybanddesktop/#downloading-mockups-to-work-offline&#34;&gt;these instructions for downloading your files&lt;/a&gt; and then &lt;a href=&#34;https://docs.balsamiq.com/desktop/importing/#importing-mockups-from-a-previous-version-bmml-files&#34;&gt;see here for importing them to the new version&lt;/a&gt;.&lt;/p&gt;
 
@@ -455,7 +455,7 @@
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;going-from-mockups-3-to-mybalsamiq&#34;&gt;Going from Mockups 3 to myBalsamiq&lt;/h2&gt;
+&lt;h2 id=&#34;going-from-mockups-3-to-mybalsamiq:5d142a91556dc7ba7b6394a2c18b1788&#34;&gt;Going from Mockups 3 to myBalsamiq&lt;/h2&gt;
 
 &lt;p&gt;Here&amp;rsquo;s how to export from Balsamiq Mockups 3 and import to myBalsamiq:&lt;/p&gt;
 
