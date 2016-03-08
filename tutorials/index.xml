@@ -1,0 +1,1024 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorials on Balsamiq Support Portal</title>
+    <link>http://supportstaging.balsamiq.com/tutorials/</link>
+    <description>Recent content in Tutorials on Balsamiq Support Portal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 16 Dec 2015 12:00:00 +0100</lastBuildDate>
+    <atom:link href="http://supportstaging.balsamiq.com/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Bootstrap 3 Tutorial: Prototyping Your Site Using Mockups</title>
+      <link>http://supportstaging.balsamiq.com/tutorials/bootstrap/</link>
+      <pubDate>Wed, 16 Dec 2015 12:00:00 +0100</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/tutorials/bootstrap/</guid>
+      <description>&lt;p&gt;This is a 15-minute tutorial produced by &lt;a href=&#34;http://www.lynda.com/&#34;&gt;lynda.com&lt;/a&gt; on using Mockups to plan your website. It is part of a larger course on creating websites with &lt;a href=&#34;http://getbootstrap.com/&#34;&gt;Bootstrap 3&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&#34;video&#34;&gt;&lt;iframe allowfullscreen=&#34;&#34; frameborder=&#34;0&#34; src=&#34;//www.youtube.com/embed/ylY6Gxw0bDo?rel=0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Creating Hot Areas with the Rectangle/Canvas Control</title>
+      <link>http://supportstaging.balsamiq.com/tutorials/hotareas/</link>
+      <pubDate>Wed, 16 Dec 2015 12:00:00 +0100</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/tutorials/hotareas/</guid>
+      <description>&lt;p&gt;Sometimes in Mockups you want to make multiple UI controls linkable all at once, or want to add linking to controls that don&amp;rsquo;t natively support it.&lt;/p&gt;
+
+&lt;p&gt;In this quick tutorial we&amp;rsquo;ll teach you how to use the Canvas control to create a &amp;ldquo;hot linkable area&amp;rdquo; to solve the problem.&lt;/p&gt;
+
+&lt;p&gt;As an example, we&amp;rsquo;ll add linking capability to the Bar Chart control&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/hotareas/tuthot_1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 1:&lt;/strong&gt; simply add a Canvas control and overlay it over the areas you want to turn into a link.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/hotareas/tuthot_2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 2:&lt;/strong&gt; make the Canvas transparent by dragging the opacity slider all the way to the left.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/hotareas/tuthot_3.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 3:&lt;/strong&gt; remove the border of the Canvas.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/hotareas/tuthot_4.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 4:&lt;/strong&gt; link the Canvas to your destination.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/hotareas/tuthot_5.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 5:&lt;/strong&gt; group the Canvas and the controls together.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/hotareas/tuthot_6.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And voila&amp;rsquo;, we now have a linkable Bar Chart control.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Creating Project Templates</title>
+      <link>http://supportstaging.balsamiq.com/tutorials/projecttemplates/</link>
+      <pubDate>Wed, 16 Dec 2015 12:00:00 +0100</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/tutorials/projecttemplates/</guid>
+      <description>
+
+&lt;span class=&#34;alert alert-warning show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Heads Up!&lt;/strong&gt; This tutorial is for Balsamiq Mockups version 2. To learn how to import these templates for use in Balsamiq Mockups 3 see &lt;a href=&#34;//docs.balsamiq.com/desktop/symbols/#importing-symbols&#34;&gt;how to Symbols from a previous version&lt;/a&gt;. &lt;a href=&#34;http://supportstaging.balsamiq.com/desktop/accountassets/&#34;&gt;This article on how to reuse templates across projects&lt;/a&gt; will also be helpful.&lt;/span&gt;
+
+&lt;p&gt;This tutorial was designed to show you how to create project folders for your future projects that contain elements you may commonly use in your projects.&lt;/p&gt;
+
+&lt;p&gt;The general idea is to create project folder, with your common elements stored in the folder&amp;rsquo;s assets directory, and then duplicate that folder on your new projects.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;how-to-create-a-project-template:25f83aff4a924d04143eae65cd4120e8&#34;&gt;How to Create a Project Template&lt;/h2&gt;
+
+&lt;p&gt;Your process might look like this:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Create a new Project Folder&lt;/strong&gt;&lt;br /&gt;
+Open your Balsamiq Mockups directory on your computer and create a new folder there. For instance, you might name it &amp;ldquo;Project Template - Web Apps,&amp;rdquo; if you had a standard at your company for Web App projects.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Add an assets folder&lt;/strong&gt;&lt;br /&gt;
+Create a sub-folder in the project folder you created above. Then add the elements you commonly use, e.g. your logo, or create a Symbols Libraries for elements you use.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Create some default templates&lt;/strong&gt;&lt;br /&gt;
+This is optional, but you can create some templates with the base set of controls you want in each type of page. In the UX and Bootstrap example templates we include examples to give you some ideas. For instance, we have a Desktop wireframe with a grid control, and we might have our header or annotation block placed in the same place in each template.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Duplicate the project folder template on new projects&lt;/strong&gt;&lt;br /&gt;
+When you want to start a new project, duplicate the project template folder. Then rename the duplicate with your new project name.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;We have a few example templates to show how you might get started.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;using-the-ux-template:25f83aff4a924d04143eae65cd4120e8&#34;&gt;Using the UX Template&lt;/h2&gt;
+
+&lt;p&gt;The UX Template (&lt;a href=&#34;https://mockupstogo.mybalsamiq.com/projects/template-ux.zip&#34;&gt;download here&lt;/a&gt;) is designed for people working on UX Design projects who typically need to present a polished deck to clients. For this reason, this template is made to work with the Wireframe Skin (menu: View &amp;gt; Skin &amp;gt; Wireframe Skin) and System Fonts (View &amp;gt; User System Fonts).&lt;/p&gt;
+
+&lt;p&gt;The template contains a few example pages, including persona sheets, journey map, sitemap, storyboard, and wireframe pages with annotation. Using these examples, you&amp;rsquo;ll be able to open your project in Fullscreen/Presentation mode, or in an exported PDF that is suitable for client presentation. The screenshots below show some of the elements provided in this template.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;gallery clearfix&#34;&gt;&lt;a class=&#34;fb thumb&#34; href=&#34;http://media.balsamiq.com/img/support/tutorials/templates/uxtemp-symbols.png&#34; rel=&#34;group1&#34; title=&#34;Symbols for Controls&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;http://media.balsamiq.com/img/support/tutorials/templates/uxtemp-symbols.png&#34; /&gt;&lt;/a&gt; &lt;a class=&#34;fb thumb&#34; href=&#34;http://media.balsamiq.com/img/support/tutorials/templates/uxtemp-journey-map.png&#34; rel=&#34;group1&#34; title=&#34;Journey Map Page&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;http://media.balsamiq.com/img/support/tutorials/templates/uxtemp-journey-map.png&#34; /&gt;&lt;/a&gt; &lt;a class=&#34;fb thumb&#34; href=&#34;http://media.balsamiq.com/img/support/tutorials/templates/uxtemp-persona-overview.png&#34; rel=&#34;group1&#34; title=&#34;Persona Overview Page&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;http://media.balsamiq.com/img/support/tutorials/templates/uxtemp-persona-overview.png&#34; /&gt;&lt;/a&gt; &lt;a class=&#34;fb thumb&#34; href=&#34;http://media.balsamiq.com/img/support/tutorials/templates/uxtemp-persona-detail.png&#34; rel=&#34;group1&#34; title=&#34;Persona Detail&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;http://media.balsamiq.com/img/support/tutorials/templates/uxtemp-persona-detail.png&#34; /&gt;&lt;/a&gt; &lt;a class=&#34;fb thumb&#34; href=&#34;http://media.balsamiq.com/img/support/tutorials/templates/uxtemp-site-map.png&#34; rel=&#34;group1&#34; title=&#34;Site Map&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;http://media.balsamiq.com/img/support/tutorials/templates/uxtemp-site-map.png&#34; /&gt;&lt;/a&gt; &lt;a class=&#34;fb thumb&#34; href=&#34;http://media.balsamiq.com/img/support/tutorials/templates/uxtemp-storyboard.png&#34; rel=&#34;group1&#34; title=&#34;Storyboard&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;http://media.balsamiq.com/img/support/tutorials/templates/uxtemp-storyboard.png&#34; /&gt;&lt;/a&gt; &lt;a class=&#34;fb thumb&#34; href=&#34;http://media.balsamiq.com/img/support/tutorials/templates/uxtemp-wireframe-phone.png&#34; rel=&#34;group1&#34; title=&#34;Wireframe for Smartphone&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;http://media.balsamiq.com/img/support/tutorials/templates/uxtemp-wireframe-phone.png&#34; /&gt;&lt;/a&gt; &lt;a class=&#34;fb thumb&#34; href=&#34;http://media.balsamiq.com/img/support/tutorials/templates/uxtemp-wireframe-tablet.png&#34; rel=&#34;group1&#34; title=&#34;Wireframe for Tablet and Desktop&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;http://media.balsamiq.com/img/support/tutorials/templates/uxtemp-wireframe-tablet.png&#34; /&gt;&lt;/a&gt; &lt;a class=&#34;fb thumb&#34; href=&#34;http://media.balsamiq.com/img/support/tutorials/templates/uxtemp-wireframe-desktop.png&#34; rel=&#34;group1&#34; tiel=&#34;Wireframe for Desktop&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;http://media.balsamiq.com/img/support/tutorials/templates/uxtemp-wireframe-desktop.png&#34; /&gt;&lt;/a&gt;&lt;/div&gt;
+The video below shows you how to set up and use the template.&lt;/p&gt;
+
+&lt;div class=&#34;video&#34;&gt;&lt;iframe allowfullscreen=&#34;&#34; frameborder=&#34;0&#34; src=&#34;//www.youtube.com/embed/Nhuo2Qi9sWo?rel=0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://mockupstogo.mybalsamiq.com/projects/template-ux.zip&#34;&gt;Download the UX Template here.&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;using-the-bootstrap-template:25f83aff4a924d04143eae65cd4120e8&#34;&gt;Using the Bootstrap Template&lt;/h2&gt;
+
+&lt;p&gt;The Bootstrap Template (&lt;a href=&#34;https://mockupstogo.mybalsamiq.com/projects/template-bootstrap.zip&#34;&gt;download here)&lt;/a&gt; is designed for people who know they&amp;rsquo;re going to be using Bootstrap, and want to use the text elements, and components common to the Bootstrap framework. The screenshots below show some of the elements provided in this template.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;gallery clearfix&#34;&gt;&lt;a class=&#34;fb thumb&#34; href=&#34;http://media.balsamiq.com/img/support/tutorials/templates/bstemp-symbols.png&#34; rel=&#34;group2&#34; title=&#34;Bootstrap Elements and Components&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;http://media.balsamiq.com/img/support/tutorials/templates/bstemp-symbols.png&#34; /&gt;&lt;/a&gt; &lt;a class=&#34;fb thumb&#34; href=&#34;http://media.balsamiq.com/img/support/tutorials/templates/bstemp-demo.png&#34; rel=&#34;group2&#34; title=&#34;Demo of a Bootstrap Layout&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;http://media.balsamiq.com/img/support/tutorials/templates/bstemp-demo.png&#34; /&gt;&lt;/a&gt; &lt;a class=&#34;fb thumb&#34; href=&#34;http://media.balsamiq.com/img/support/tutorials/templates/bstemp-extra-small-wireframe.png&#34; rel=&#34;group2&#34; title=&#34;Extra Small Device Wireframe (Smartphone)&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;http://media.balsamiq.com/img/support/tutorials/templates/bstemp-extra-small-wireframe.png&#34; /&gt;&lt;/a&gt; &lt;a class=&#34;fb thumb&#34; href=&#34;http://media.balsamiq.com/img/support/tutorials/templates/bstemp-small-wireframe.png&#34; rel=&#34;group2&#34; title=&#34;Small Device Wireframe (Tablet and Desktop)&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;http://media.balsamiq.com/img/support/tutorials/templates/bstemp-small-wireframe.png&#34; /&gt;&lt;/a&gt; &lt;a class=&#34;fb thumb&#34; href=&#34;http://media.balsamiq.com/img/support/tutorials/templates/bstemp-medium-wireframe.png&#34; rel=&#34;group2&#34; title=&#34;Medium Wireframe (Desktop)&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;http://media.balsamiq.com/img/support/tutorials/templates/bstemp-medium-wireframe.png&#34; /&gt;&lt;/a&gt; &lt;a class=&#34;fb thumb&#34; href=&#34;http://media.balsamiq.com/img/support/tutorials/templates/bstemp-large-wireframe.png&#34; rel=&#34;group2&#34; title=&#34;Large Wireframe (Desktop)&#34;&gt;&lt;img class=&#34;thumb&#34; src=&#34;http://media.balsamiq.com/img/support/tutorials/templates/bstemp-large-wireframe.png&#34; /&gt;&lt;/a&gt;&lt;/div&gt;
+The video below shows you how to set up and use the template.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;video&#34;&gt;&lt;iframe allowfullscreen=&#34;&#34; frameborder=&#34;0&#34; src=&#34;//www.youtube.com/embed/24FKl5M52eA?rel=0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://mockupstogo.mybalsamiq.com/projects/template-bootstrap.zip&#34;&gt;Download the Bootstrap Template here.&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Creating Your First Mockup</title>
+      <link>http://supportstaging.balsamiq.com/tutorials/firstmockup/</link>
+      <pubDate>Wed, 16 Dec 2015 12:00:00 +0100</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/tutorials/firstmockup/</guid>
+      <description>
+
+&lt;p&gt;This tutorial is designed to guide you through creating your first &lt;strong&gt;Mockup&lt;/strong&gt;. It will cover a basic overview of the product as well as some of the &lt;strong&gt;features&lt;/strong&gt; and UI &lt;strong&gt;controls&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here is the Mockup that you will create in this tutorial:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-final_mockup.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;​If you&amp;rsquo;re new to the idea of Mockups (also called wireframes), you may want to check out &lt;a href=&#34;http://www.uxapprentice.com/&#34;&gt;UX Apprentice&lt;/a&gt; to start with an overview of what Mockups are, and where they fit into a UX Design process. &lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;basic-concepts-and-terminology:0b8a3b4454d8e5a6518c554c4cd3d35b&#34;&gt;Basic Concepts and Terminology&lt;/h2&gt;
+
+&lt;p&gt;Here are some of the basic components of Balsamiq Mockups:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;UI Control&lt;/strong&gt; - A standard user interface &amp;ldquo;widget&amp;rdquo; (e.g., Button, Image, Dialog Window). The building blocks of any Mockup.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Canvas&lt;/strong&gt; - The grid-lined area where UI Controls are placed.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;UI Library&lt;/strong&gt; - A row of UI Controls that can be dragged onto the Canvas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://docs.balsamiq.com/desktop/inspector/&#34; title=&#34;Page describing the Property Inspector&#34;&gt;Property Inspector&lt;/a&gt;&lt;/strong&gt; - A configuration panel that contains common actions (e.g., alignment, layering) and properties that are specific to each UI Control.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;a href=&#34;https://docs.balsamiq.com/desktop/overview/&#34;&gt;Mockups Application Overview&lt;/a&gt; has more information about the elements and controls in Balsamiq Mockups.&lt;/span&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/ui-overview.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;adding-the-first-few-controls:0b8a3b4454d8e5a6518c554c4cd3d35b&#34;&gt;Adding the First Few Controls&lt;/h2&gt;
+
+&lt;p&gt;To create the Mockup shown above, begin by dragging the &lt;strong&gt;Browser&lt;/strong&gt; UI Control onto the Canvas.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-browser_window.png&#34; alt=&#34;&#34; /&gt; &lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-edit_browser.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The content of nearly all controls in Balsamiq Mockups is defined by simple text. When a control is first added to the canvas, it will be shown in edit mode, often with hints about how to use it. For the Browser control, you can specify the title bar and URL text, or just use the default.&lt;/p&gt;
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Tip:&lt;/strong&gt; To edit a control at any time, double-click on it, or press Enter when it is selected.&lt;/span&gt;
+
+&lt;p&gt;Next, resize the control to the desired size using the resize cursor controls at the edges and corners of the control.&lt;/p&gt;
+
+&lt;p&gt;Continue by adding the following controls to the canvas: &lt;strong&gt;Title&lt;/strong&gt;, &lt;strong&gt;Text&lt;/strong&gt;, and &lt;strong&gt;Image&lt;/strong&gt; as shown below. Note that alignment guides appear just inside the edges of the Browser Window control when you move them toward the edges and that the controls &amp;ldquo;snap&amp;rdquo; to these guides.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-3_controls.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Tip:&lt;/strong&gt; Controls can also be added using the &lt;a href=&#34;https://docs.balsamiq.com/desktop/overview/#the-quick-add-tool&#34;&gt;&lt;strong&gt;Quick Add&lt;/strong&gt;&lt;/a&gt; box by typing the first few letters of the name of the control and pressing Enter.&lt;/span&gt;
+
+&lt;p&gt;To change the size of the text for the product name label, select the &lt;strong&gt;Title&lt;/strong&gt; control and change the font size using the &lt;strong&gt;Property Inspector&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-resize_text.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For the product description placeholder text in the &lt;strong&gt;Text&lt;/strong&gt; control, enter your own placeholder text, or begin typing &amp;ldquo;lorem&amp;rdquo; and &lt;a href=&#34;http://www.lipsum.com&#34; title=&#34;Description of &#39;Lorem Ipsum&#39; text&#34;&gt;Lorem Ipsum&lt;/a&gt; text will automatically be generated.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-lore.png&#34; alt=&#34;&#34; /&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-lorem_ipsum.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After resizing the Image control, your Mockup should look something like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-phase1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Tip:&lt;/strong&gt; If you have trouble selecting a control that is in front of another control, try &lt;a href=&#34;https://docs.balsamiq.com/desktop/controls/#locking-ui-controls&#34;&gt;&amp;ldquo;locking&amp;rdquo;&lt;/a&gt; the background control using the lock icon in the toolbar to prevent it from being selected.&lt;/span&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;creating-and-aligning-the-image-pager-controls:0b8a3b4454d8e5a6518c554c4cd3d35b&#34;&gt;Creating and Aligning the Image Pager Controls&lt;/h2&gt;
+
+&lt;p&gt;The next step is to add the little dots beneath the Image that indicate a rotating content or image control.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-image_pager.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this part of the tutorial you will learn about adding &lt;strong&gt;Icons&lt;/strong&gt; and &lt;strong&gt;Grouping&lt;/strong&gt; and &lt;strong&gt;Aligning&lt;/strong&gt; controls.&lt;/p&gt;
+
+&lt;p&gt;Begin by adding the &lt;strong&gt;Icon&lt;/strong&gt; control to the canvas.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-icon_search.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Next, click the arrow inside the &amp;ldquo;Icon Search&amp;rdquo; box to open the &lt;strong&gt;Icon Library&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/icon-library.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This window shows the list of all the icons included with Balsamiq Mockups. You can filter them by category or search by name. Once you have chosen an icon you can choose from one of six sizes. For this tutorial, select the Circle icon and set the size to &amp;ldquo;XS&amp;rdquo; and click &amp;ldquo;Select&amp;rdquo;.&lt;/p&gt;
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Tip:&lt;/strong&gt; The &amp;ldquo;Icon Search&amp;rdquo; box in the &lt;strong&gt;Icon&lt;/strong&gt; Property Inspector behaves like the &amp;ldquo;Quick Add&amp;rdquo; box and displays icons matching the text you enter (try typing &amp;ldquo;arrow&amp;rdquo;, for example). (More about using icons can be found on the &lt;a href=&#34;https://docs.balsamiq.com/desktop/icons/&#34;&gt;Working with Icons&lt;/a&gt; page.)&lt;/span&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-1_icon.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Add three more icons to the right of the Circle icon (use the Circle Outlined this time). You can also copy and paste once you&amp;rsquo;ve added the second icon. Using your mouse, position the icons next to each other. You can see that alignment guides appear both horizontally and vertically, helping you place them appropriately.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-4_icons.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Tip:&lt;/strong&gt; Use the Duplicate keyboard shortcut (CTRL + D on Windows; CMD + D on Mac) to quickly replicate items on the canvas. (&lt;a href=&#34;https://docs.balsamiq.com/desktop/shortcuts/&#34;&gt;More keyboard shortcuts here&lt;/a&gt;)&lt;/span&gt;
+
+&lt;p&gt;Zooming out, your mockup should now look something like this.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-4_controls.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The next step is to center-align the four icons below the Image control. The procedure for doing this is to first group the icons and then align the icon group with the image control.&lt;/p&gt;
+
+&lt;p&gt;To group a set of controls, select them by drawing a boundary around them with your cursor or holding down SHIFT and selecting each one with your mouse. Then click the &lt;strong&gt;Group&lt;/strong&gt; command in the Toolbar or press CTRL+G (on Windows; CMD + G on Mac).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-group.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Tip:&lt;/strong&gt; Another way to select only controls that are in the foreground (besides &amp;ldquo;locking&amp;rdquo; background controls) is to hold down the ALT/OPTION key while dragging the mouse. This will prevent background controls from being selected.&lt;/span&gt;
+
+&lt;p&gt;Grouped controls can be identified by a light purple color and will remain grouped until Ungrouped (shortcut: CTRL/CMD + SHIFT + G). To align the grouped icons with the Image control, select them both and use the &lt;strong&gt;Align Center&lt;/strong&gt; icon in the Property Inspector.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-align_center.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can move the pager controls closer to the Image control either by using the keyboard arrow keys or by using the mouse and the alignment guides.&lt;/p&gt;
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Tip:&lt;/strong&gt; Holding down SHIFT while moving controls with the arrow keys will move them 10 pixels at a time (instead of the usual 1 pixel).&lt;/span&gt;
+
+&lt;p&gt;The Mockup so far, with the pager controls added.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-4_controls_aligned.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;completing-the-mockup:0b8a3b4454d8e5a6518c554c4cd3d35b&#34;&gt;Completing the Mockup&lt;/h2&gt;
+
+&lt;p&gt;The remainder of the Mockup consists of a set of tabs, more text, and a chart.&lt;/p&gt;
+
+&lt;p&gt;Add a &lt;strong&gt;Tabs Bar&lt;/strong&gt; control and place it in the bottom half of the Mockup.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-tabs_edit.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Commas are used to create tabs in this control, so you can create as many tabs as you like simply by entering additional text separated by a comma. Entering the text &amp;ldquo;Overview, Features, Design, Specs&amp;rdquo;, for example, will create the tabs shown below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-tabs.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To show the &amp;ldquo;Overview&amp;rdquo; tab as selected or highlighted, use the &lt;strong&gt;Selection&lt;/strong&gt; property as shown below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-selection.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After resizing the Tabs Bar control to match the width of the page, add &lt;strong&gt;Label&lt;/strong&gt; and &lt;strong&gt;Text&lt;/strong&gt; controls to create something like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-phase3.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can format text as &lt;strong&gt;bold&lt;/strong&gt;, &lt;em&gt;italic&lt;/em&gt;, or &lt;a href=&#34;#&#34; title=&#34;This Link Doesn&#39;t Go Anywhere&#34;&gt;hyperlinked&lt;/a&gt; in Many Controls by Enclosing the Text with Special Characters. Use &lt;em&gt;Text&lt;/em&gt; for Bold, &lt;em&gt;text&lt;/em&gt; for Italics, or [Text] for Hyperlinks.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-paragraph_formatting.png&#34; alt=&#34;&#34; /&gt; &lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-formatted_text.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Tip:&lt;/strong&gt; Learn more formatting tips on the &lt;a href=&#34;https://docs.balsamiq.com/desktop/text/#basic-formatting&#34;&gt;Working with Text&lt;/a&gt; page.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally, drag a &lt;strong&gt;Chart: Column&lt;/strong&gt; control into the empty area inside the Tabs Bar as a finishing touch to complete the Mockup.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-chart.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;exporting-and-next-steps:0b8a3b4454d8e5a6518c554c4cd3d35b&#34;&gt;Exporting and next Steps&lt;/h2&gt;
+
+&lt;p&gt;Now that the Mockup is finished, you can easily export it as an image via the Project &amp;gt; Export &amp;gt; Mockup to PNG&amp;hellip; (shortcut: CTRL/CMD + R) menu. Other export options are described in the &lt;a href=&#34;https://docs.balsamiq.com/desktop/exporting/&#34;&gt;Exporting your Mockups&lt;/a&gt; article.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/firstmockup/FirstMockup-export.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Congratulations! You have now completed your first wireframe with &lt;a href=&#34;https://balsamiq.com/products/mockups&#34;&gt;Balsamiq Mockups&lt;/a&gt;! You are on your way to become an User Experience (UX) expert! :)&lt;/p&gt;
+
+&lt;p&gt;For more information on any of the topics covered here, see the &lt;a href=&#34;https://docs.balsamiq.com/desktop/&#34;&gt;Full Mockups Documentation&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Creating a Mobile Application</title>
+      <link>http://supportstaging.balsamiq.com/tutorials/mobileapplication/</link>
+      <pubDate>Wed, 16 Dec 2015 12:00:00 +0100</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/tutorials/mobileapplication/</guid>
+      <description>
+
+&lt;h2 id=&#34;introduction:1b4a63aa879d3802ace717b50d1b4f41&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;In a &lt;a href=&#34;http://supportstaging.balsamiq.com/tutorials/firstmockup/&#34;&gt;previous tutorial&lt;/a&gt; we learned how to create a mockup for a basic web site. In this tutorial, we&amp;rsquo;ll go through the steps of creating a series of mockups for a (fake) mobile banking application. Some other resources that might be useful in conjunction with this tutorial are the &lt;a href=&#34;https://docs.balsamiq.com/desktop/overview/&#34;&gt;Mockups Application Overview&lt;/a&gt; and &lt;a href=&#34;http://supportstaging.balsamiq.com/tutorials/controls/&#34;&gt;Tips for Working with Controls&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here are the mockups we&amp;rsquo;ll be creating in this tutorial:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/tutorials/mobileapp/all_mockups_big.png&#34; title=&#34;Click to enlarge&#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/mobileapp/all_mockups.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;screen-1-login:1b4a63aa879d3802ace717b50d1b4f41&#34;&gt;Screen 1: Login&lt;/h2&gt;
+
+&lt;p&gt;The first mockup is the Login screen.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/mobileapp/login.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Controls used for this screen:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;iPhone&lt;/li&gt;
+&lt;li&gt;Title / Headline&lt;/li&gt;
+&lt;li&gt;Text Input / Text Field (x2)&lt;/li&gt;
+&lt;li&gt;Icon (x2)&lt;/li&gt;
+&lt;li&gt;Label / String of Text&lt;/li&gt;
+&lt;li&gt;Button&lt;/li&gt;
+&lt;li&gt;ON/OFF Switch / Toggle&lt;/li&gt;
+&lt;li&gt;Link&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This video shows the steps taken to create this screen:&lt;/p&gt;
+
+&lt;div class=&#34;video&#34;&gt;&lt;iframe allowfullscreen=&#34;&#34; frameborder=&#34;0&#34; src=&#34;//www.youtube.com/embed/2fYyzBqxCGk?rel=0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;Start by adding the &lt;strong&gt;iPhone&lt;/strong&gt; control to the canvas. To save time, you can type the word &amp;ldquo;iphone&amp;rdquo; into the &lt;a href=&#34;https://docs.balsamiq.com/desktop/overview/#the-quick-add-tool&#34;&gt;&amp;ldquo;quick add&amp;rdquo;&lt;/a&gt; box rather than dragging the control from the UI Library. You can press the &amp;ldquo;/&amp;rdquo; or &amp;ldquo;+&amp;rdquo; key to send focus to quick add.&lt;/p&gt;
+
+&lt;p&gt;Next, we&amp;rsquo;ll add a &lt;strong&gt;Title/Headline&lt;/strong&gt; control and use the alignment guides to center it within the iPhone control. For the username and password fields, we can add a &lt;strong&gt;Text Input&lt;/strong&gt; control, followed by a few tips and tricks. The first is to wrap text in dashes (&amp;ldquo;-&amp;rdquo;) to show it as disabled. This gives the effect of showing the text as a placeholder that will get overwritten when the user enters their own information. After creating and formatting the username field, you can duplicate that field to quickly create the password field. The shortcut for duplicating controls is CTRL/CMD + D (&lt;em&gt;&lt;a href=&#34;https://docs.balsamiq.com/desktop/shortcuts/&#34;&gt;full list of keyboard shortcuts here&lt;/a&gt;&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;Next up is the save username checkbox, which consists of a &lt;strong&gt;Label&lt;/strong&gt; and iPhone &lt;strong&gt;On/Off Switch&lt;/strong&gt; control. Since this is a mobile app, we&amp;rsquo;ll use the on/off control instead of a regular checkbox. To make it easier you can align and group these controls outside of the iPhone controls so that the other alignment guides don&amp;rsquo;t interfere. Grouping the controls allows you to more easily center align them as a unit inside the iPhone control.&lt;/p&gt;
+
+&lt;p&gt;For the login button, we want a big, colorful button, so we can increase the text size, change the background color, and enlarge the dimensions of the &lt;strong&gt;Button&lt;/strong&gt; control. For the &amp;ldquo;forgot password&amp;rdquo; link, we&amp;rsquo;ll use the &lt;strong&gt;Link&lt;/strong&gt; control.&lt;/p&gt;
+
+&lt;p&gt;Finally, for the icons, we&amp;rsquo;ll add an &lt;strong&gt;Icon&lt;/strong&gt; control and use the icon search to change it to a cloud icon. For the second icon we can again use the duplicate shortcut, and then change its size in the &lt;a href=&#34;https://docs.balsamiq.com/desktop/inspector/&#34;&gt;Property Inspector&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tips and tricks used in this mockup:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use &amp;ldquo;/&amp;rdquo; or &amp;ldquo;+&amp;rdquo; to jump to quick add&lt;/li&gt;
+&lt;li&gt;Show text as disabled by surrounding it with -dashes-&lt;/li&gt;
+&lt;li&gt;Use CTRL/CMD + D to duplicate&lt;/li&gt;
+&lt;li&gt;Group controls (CTRL/CMD + G) to make it easier to align them together&lt;/li&gt;
+&lt;li&gt;You can resize both the size of a button and its text&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;screen-2-accounts:1b4a63aa879d3802ace717b50d1b4f41&#34;&gt;Screen 2: Accounts&lt;/h2&gt;
+
+&lt;p&gt;Next, the Accounts screen.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/mobileapp/accounts.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Controls used for this screen:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;iPhone&lt;/li&gt;
+&lt;li&gt;Icon&lt;/li&gt;
+&lt;li&gt;Icon and Text Label (x2)&lt;/li&gt;
+&lt;li&gt;Paragraph of Text&lt;/li&gt;
+&lt;li&gt;iPhone Menu&lt;/li&gt;
+&lt;li&gt;Pointy Button / iPhone button&lt;/li&gt;
+&lt;li&gt;Label / String of Text (x2)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This video shows the steps taken to create this screen:&lt;/p&gt;
+
+&lt;div class=&#34;video&#34;&gt;&lt;iframe allowfullscreen=&#34;&#34; frameborder=&#34;0&#34; src=&#34;//www.youtube.com/embed/n_1nKef2GNY?rel=0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;For this screen we&amp;rsquo;ll have the background pattern of the &lt;strong&gt;iPhone&lt;/strong&gt; control set to show the top and bottom toolbar areas, which we&amp;rsquo;ll be using for icons. We&amp;rsquo;ll also be using more iPhone-specific controls (the iPhone menu and iPhone button controls).&lt;/p&gt;
+
+&lt;p&gt;After adding, resizing, and centering the &lt;strong&gt;Label&lt;/strong&gt; control, we&amp;rsquo;ll add an &lt;strong&gt;iPhone menu&lt;/strong&gt; control.&lt;/p&gt;
+
+&lt;p&gt;For the iPhone menu, here&amp;rsquo;s the text we&amp;rsquo;ll use:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Checking, $1397.65 &amp;gt;
+Savings, $2383.41 &amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The commas divide the larger, left-aligned text from the smaller, right-aligned text. The &amp;ldquo;&amp;gt;&amp;rdquo; symbols create drill-down arrows inside the control. The result looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/mobileapp/account_list.png&#34; alt=&#34;Account list&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ll then add some &amp;ldquo;legalese&amp;rdquo; that is often used in these types of applications. As the designer or developer, we just need to have a placeholder to remind ourselves that this space is reserved for a block of text. We can use the &lt;a href=&#34;https://docs.balsamiq.com/desktop/text/#more-macros&#34;&gt;Lorem Ipsum shorcut&lt;/a&gt; to quickly generate this placeholder text. Do this by typing &amp;ldquo;lorem&amp;rdquo; in a &lt;strong&gt;Paragraph&lt;/strong&gt; control and it will immediately fill with &lt;a href=&#34;http://www.lipsum.com/&#34;&gt;Lorem Ipsum&lt;/a&gt; text. We&amp;rsquo;ll then center it and change its color to grey to make it less prominent (because, as we all know, users probably won&amp;rsquo;t read it!).&lt;/p&gt;
+
+&lt;p&gt;At this point it looks like this and is starting to come together.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/mobileapp/accounts_2.png&#34; alt=&#34;Account screen, before buttons&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We now need to add the logo and some navigation.&lt;/p&gt;
+
+&lt;p&gt;For this, we&amp;rsquo;ll start with the &lt;strong&gt;Icon and Text Label&lt;/strong&gt; control, which is kind of a two-in-one control that&amp;rsquo;s ideal for iPhone tabs. For the &amp;ldquo;Accounts&amp;rdquo; screen (which we&amp;rsquo;re on), we&amp;rsquo;ll use the dollar sign icon. We&amp;rsquo;ll change the color to a light blue to show that this is the active tab. Again, we&amp;rsquo;ll use the duplicate shortcut to create another icon and text label control of the same size, and position it inline with the first one using the alignment guides. We&amp;rsquo;ll use an envelope icon for the &amp;ldquo;Deposit&amp;rdquo; tab and set the color to white to show it as not selected.&lt;/p&gt;
+
+&lt;p&gt;The last steps are to add an &lt;strong&gt;iPhone/pointy button&lt;/strong&gt; for the log out button, and label and icon controls for the logo. We&amp;rsquo;ll remove the pointy arrow, since it&amp;rsquo;s logging the user out, rather than taking them back or forward. We&amp;rsquo;ll set the icon and label colors to white to make them stand out against the grey toolbar background.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tips and tricks used in this mockup:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use the Icon and Text Label control to save time over using two separate controls&lt;/li&gt;
+&lt;li&gt;Use color to indicate selection states&lt;/li&gt;
+&lt;li&gt;Leverage the hidden power of text formatting syntax (in the iPhone Menu control, for example)&lt;/li&gt;
+&lt;li&gt;Use Lorem ipsum for placeholder/legal text&lt;/li&gt;
+&lt;li&gt;There are lots of icons included with Mockups. In most cases what&amp;rsquo;s there is enough. Don&amp;rsquo;t worry if you don&amp;rsquo;t find one that&amp;rsquo;s perfect, at this stage you just want something that&amp;rsquo;ll work (although it is possible to &lt;a href=&#34;https://docs.balsamiq.com/desktop/icons/#adding-your-own-custom-icons&#34;&gt;add your own icons&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;screen-3-transactions:1b4a63aa879d3802ace717b50d1b4f41&#34;&gt;Screen 3: Transactions&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/mobileapp/transactions.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Controls used for this screen:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;iPhone&lt;/li&gt;
+&lt;li&gt;Pointy Button / iPhone button (x2)&lt;/li&gt;
+&lt;li&gt;Label / String of Text (x2)&lt;/li&gt;
+&lt;li&gt;iPhone Menu&lt;/li&gt;
+&lt;li&gt;Icon and Text Label (x2)&lt;/li&gt;
+&lt;li&gt;Icon&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This video shows the steps taken to create this screen:&lt;/p&gt;
+
+&lt;div class=&#34;video&#34;&gt;&lt;iframe allowfullscreen=&#34;&#34; frameborder=&#34;0&#34; src=&#34;//www.youtube.com/embed/VZL-mn_dyiQ?rel=0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;This screen is similar to the Accounts screen, but does even more with the iPhone menu control.&lt;/p&gt;
+
+&lt;p&gt;Because it is so similar, instead of creating a new mockup from scratch, we can use the &amp;ldquo;New Clone of Current Mockup&amp;rdquo; command (&lt;em&gt;shortcut: CTRL/CMD + SHIFT + N&lt;/em&gt;) to clone the Accounts mockup and work off of it.&lt;/p&gt;
+
+&lt;p&gt;Rather than adding controls to the mockup first, we start by removing some controls from the middle of the Accounts screen and renaming the &lt;strong&gt;Label&lt;/strong&gt; to &amp;ldquo;Transactions&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;For the transactions list we want the first item to show as greyed-out, since it is a pending transaction (designated as &amp;ldquo;processing&amp;rdquo;). We also want the transaction date and vendor to be on separate lines. Like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/mobileapp/transactions_list.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re really getting fancy with the &lt;strong&gt;iPhone menu&lt;/strong&gt; control here. This is what the text looks like to generate the transactions list:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;-*Processing*\r_Auto Klub_-, -\-$23.79- &amp;gt;
+*2/25/13*\r_King Burger_, -$10.22 &amp;gt;
+*2/25/13*\r_Jeremy&#39;s_, -$44.18 &amp;gt;
+*2/24/13*\r_Home Mart_, -$97.65 &amp;gt;
+*2/24/13*\r_King Burger_, -$9.03 &amp;gt;
+*2/24/13*\r_Coffee Stop_, -$3.83 &amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;At its most basic, it is just like the syntax we used for the Accounts list. That is: text, a comma, then the &amp;ldquo;&amp;gt;&amp;rdquo; character to create an arrow. But, in this case, we&amp;rsquo;ve also used some text formatting tricks to modify the way the text looks. We&amp;rsquo;re leveraging several of the &lt;a href=&#34;https://docs.balsamiq.com/desktop/text/#basic-formatting&#34;&gt;text style shortcuts&lt;/a&gt; in the same control.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a closer look:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;-dashes- to indicate disabled/greyed-out text&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;underscores&lt;/em&gt; for italicized text&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;asterisks&lt;/em&gt; for bold text&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;\r&amp;rdquo; to wrap text onto a new line&lt;/li&gt;
+&lt;li&gt;used the &amp;ldquo;\&amp;rdquo; character to escape the minus sign and prevent it from being treated as a formatting character (shown before the dollar amount in the first transaction)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The one other difference is that we&amp;rsquo;ve removed the border around the iPhone menu control to make it look like more of a table.&lt;/p&gt;
+
+&lt;p&gt;Other than that, there&amp;rsquo;s not really anything new on this screen. We&amp;rsquo;re still in the Accounts category, so the tabs at the bottom don&amp;rsquo;t change. Also, the icon is already there, we&amp;rsquo;re just centering it in the iPhone control. And, since this screen is a drill-down from the Accounts screen, we&amp;rsquo;re using the pointy version of the &lt;strong&gt;iPhone button&lt;/strong&gt; to create a back button.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tips and tricks used in this mockup:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use the &amp;ldquo;New Clone of Current Mockup&amp;rdquo; command (shortcut: CTRL/CMD + SHIFT + N) to clone an existing mockup&lt;/li&gt;
+&lt;li&gt;More text formatting tricks: bold, italics, line breaks, escaping characters used for formatting&lt;/li&gt;
+&lt;li&gt;You can combine multiple text formatting styles together in one control&lt;/li&gt;
+&lt;li&gt;Remove the border around the iPhone menu control to make it look like a table or grid&lt;/li&gt;
+&lt;li&gt;Pointy (for drill-down pages) vs. non-pointy (for non-breadcrumb links) button states in the iPhone menu control&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;screen-4-deposit:1b4a63aa879d3802ace717b50d1b4f41&#34;&gt;Screen 4: Deposit&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/mobileapp/deposit.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Controls used for this screen:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;iPhone&lt;/li&gt;
+&lt;li&gt;Pointy Button / iPhone button&lt;/li&gt;
+&lt;li&gt;Label / String of Text (x2)&lt;/li&gt;
+&lt;li&gt;iPhone Menu&lt;/li&gt;
+&lt;li&gt;Icon (x3)&lt;/li&gt;
+&lt;li&gt;Paragraph of Text&lt;/li&gt;
+&lt;li&gt;Icon and Text Label (x2)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This video shows the steps taken to create this screen:&lt;/p&gt;
+
+&lt;div class=&#34;video&#34;&gt;&lt;iframe allowfullscreen=&#34;&#34; frameborder=&#34;0&#34; src=&#34;//www.youtube.com/embed/S-EGudXdETk?rel=0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;This Deposit screen is also similar to the Accounts screen, so we can again use the &amp;ldquo;New Clone of Current Mockup&amp;rdquo; command to get it started, as shown in the video.&lt;/p&gt;
+
+&lt;p&gt;After changing the screen title, we can update the colors of the icons in the tabs bar at the bottom to indicate that, now, the Deposit category is selected. And now, again, we&amp;rsquo;ll be doing something new with the &lt;strong&gt;iPhone menu&lt;/strong&gt; control. This time, we want to show icons next to the text in the menu. To do this, we can do this by using the &amp;ldquo;space for a big icon&amp;rdquo; text formatting syntax (&amp;rdquo;__ &amp;ldquo;), as shown in the template when the control is added.&lt;/p&gt;
+
+&lt;p&gt;This results in text that looks like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;__ Front of Check, &amp;gt;
+__ Back of Check, &amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After that, we simply shrink down the Lorem Ipsum text and add two more icons. For the icons, we&amp;rsquo;ll add a camera icon, set it to the right size and color and position it using the alignment guides and the arrow keys on the keyboard.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tips and tricks used in this mockup:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use the &amp;ldquo;__ &amp;ldquo; placeholder for big icons in the iPhone menu control&lt;/li&gt;
+&lt;li&gt;Use the keyboard arrow keys to move (&amp;ldquo;nudge&amp;rdquo;) controls by a small amount&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;screen-5-camera:1b4a63aa879d3802ace717b50d1b4f41&#34;&gt;Screen 5: Camera&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/mobileapp/camera.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Controls used for this screen:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;iPhone&lt;/li&gt;
+&lt;li&gt;Rectangle / Canvas / Panel (x4)&lt;/li&gt;
+&lt;li&gt;Label / String of Text&lt;/li&gt;
+&lt;li&gt;Pointy Button / iPhone button (x2)&lt;/li&gt;
+&lt;li&gt;Image&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This video shows the steps taken to create this screen:&lt;/p&gt;
+
+&lt;div class=&#34;video&#34;&gt;&lt;iframe allowfullscreen=&#34;&#34; frameborder=&#34;0&#34; src=&#34;//www.youtube.com/embed/ONDIRDmXm3A?rel=0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;For the Camera screen, we want to create the effect of a mobile phone camera window looking down at a check. For this screen we&amp;rsquo;ll be using some of the more general-purpose controls, the &lt;strong&gt;Rectangle&lt;/strong&gt; control in particular.&lt;/p&gt;
+
+&lt;p&gt;For the alignment guides (the &amp;ldquo;frame&amp;rdquo; inside the camera window), we want a rectangle with only the corners showing. We can do this quite easily by layering three rectangle controls over each other. The first one will be a white rectangle with a black border. This is what will actually be shown on the screen. Next, we want to cover up the middle parts of each border. So, we&amp;rsquo;ll add two white rectangles and turn off their borders. Now we can lay one across the horizontal borders of the bottom rectangle and another across the vertical borders. Changing the overlay rectangle colors to grey, it looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/tutorials/mobileapp/rectangle_overlays.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It doesn&amp;rsquo;t need to be precise. We just want to demonstrate the effect of guides for positioning the check. Similarly, we don&amp;rsquo;t need to replicate the look of an actual check for this screen. That&amp;rsquo;s why, in the next step, adding the default placeholder for the &lt;strong&gt;Image&lt;/strong&gt; control is sufficient. Anyone involved in this project is going to know what it represents.&lt;/p&gt;
+
+&lt;p&gt;Finally, for the camera buttons, we&amp;rsquo;ll start with the rectangle control again. This time, we&amp;rsquo;ll change the opacity to allow the check and guides to show through. For the camera button, we&amp;rsquo;ll use the &lt;strong&gt;iPhone button&lt;/strong&gt; so that we can get the nice, iPhone-looking rounded corners. Note that you don&amp;rsquo;t have to include text in your buttons. If you add an icon and delete the placeholder text the icon will get centered in the button. The last steps are adding the Cancel button and the grey overlay instruction text.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tips and tricks used in this mockup:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The Rectangle control is very versatile, especially when used in multiple layers&lt;/li&gt;
+&lt;li&gt;Only show as much detail as necessary to communicate the design concept&lt;/li&gt;
+&lt;li&gt;You can use icons in buttons (with or without text)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;linking-them-all-together:1b4a63aa879d3802ace717b50d1b4f41&#34;&gt;Linking Them All Together&lt;/h2&gt;
+
+&lt;p&gt;Finally, we can use the linking feature to link all five mockups together and show them in Full Screen Presentation mode. The &lt;a href=&#34;https://docs.balsamiq.com/desktop/linking/&#34;&gt;Linking Mockups Together&lt;/a&gt; article describes this feature in more depth. The following video demonstrates the process of locating each button or control that should be connected and linking them to the appropriate mockups.&lt;/p&gt;
+
+&lt;div class=&#34;video&#34;&gt;&lt;iframe allowfullscreen=&#34;&#34; frameborder=&#34;0&#34; src=&#34;//www.youtube.com/embed/PeV4gF0b-Xk?rel=0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;Using links and presenting a set of mockups to your stakeholders will help you tell the story around what you&amp;rsquo;re trying to build as well as giving you a feel for the workflow and any usability pain points. Using linking, you can also &lt;a href=&#34;https://docs.balsamiq.com/desktop/exporting/#exporting-to-pdf&#34;&gt;generate a clickable PDF&lt;/a&gt; that you can distribute.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tips and tricks for linking:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Link your mockups together at the end of the process, once all your screens have been added and finalized&lt;/li&gt;
+&lt;li&gt;Use the CTRL + Tab keyboard shortcut to quickly switch to the next mockup file&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Lastly, here&amp;rsquo;s the full tutorial in one video (sped up with music added):&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;video&#34;&gt;&lt;iframe allowfullscreen=&#34;&#34; frameborder=&#34;0&#34; src=&#34;//www.youtube.com/embed/v8AjVL4ZdS0?rel=0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Creating a Mockups Symbol Library in Confluence</title>
+      <link>http://supportstaging.balsamiq.com/tutorials/confluencesymbollibrary/</link>
+      <pubDate>Wed, 16 Dec 2015 12:00:00 +0100</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/tutorials/confluencesymbollibrary/</guid>
+      <description>
+
+&lt;p&gt;This tutorial will show how you can use Confluence as a design library for custom Mockups controls or symbols. This can be used as a substitute for Symbols in Mockups for Confluence or as a way to ensure consistency across designs if there are multiple people in your organization who use Mockups for Confluence.&lt;/p&gt;
+
+&lt;p&gt;This video demonstrates the process. The screenshots below provide an overview of the steps performed in the video.&lt;/p&gt;
+
+&lt;div class=&#34;video&#34;&gt;&lt;iframe allowfullscreen=&#34;&#34; frameborder=&#34;0&#34; src=&#34;//www.youtube.com/embed/3EH3vLdWGb4?rel=0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;1-create-the-controls:730c26ebc33250b385bcb82625f350d0&#34;&gt;1. Create the Controls&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/Creating_a_Mockups_Design_Library_in_Confluence/media_1386357940922.png&#34; alt=&#34;Create the Controls&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Begin by choosing the controls you want to include in your library. You can either create your own controls or use controls from elsewhere, such as &lt;a href=&#34;https://mockupstogo.mybalsamiq.com/&#34;&gt;Mockups To Go&lt;/a&gt;. In this tutorial, we&amp;rsquo;ll be using the controls in the &lt;a href=&#34;https://mockupstogo.mybalsamiq.com/projects/ios/iOS7%20Controls&#34;&gt;iOS7 control set from Mockups To Go&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;2-select-one-control-and-export-it-to-xml:730c26ebc33250b385bcb82625f350d0&#34;&gt;2. Select One Control and Export It to XML&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/Creating_a_Mockups_Design_Library_in_Confluence/media_1386358057710.png&#34; alt=&#34;Select one Control and Export it to XML&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;With a Control selected, go to File &amp;gt; Export Mockup XML&amp;hellip; in the menu.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;3-export-only-the-selected-control:730c26ebc33250b385bcb82625f350d0&#34;&gt;3. Export Only the Selected Control&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/Creating_a_Mockups_Design_Library_in_Confluence/media_1386358130763.png&#34; alt=&#34;Export only the Selected Control&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;When prompted what to export, choose &amp;ldquo;Export Selected&amp;rdquo;. This will copy the Mockups code to the clipboard so that you can paste it in the next step.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;4-launch-confluence-create-a-new-page-and-add-a-code-block-widget:730c26ebc33250b385bcb82625f350d0&#34;&gt;4. Launch Confluence, Create a New Page and Add a Code Block Widget&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/Creating_a_Mockups_Design_Library_in_Confluence/media_1386358778304.png&#34; alt=&#34;Launch Confluence, create a new page and add a Code Block widget&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The Code Block widget can be found under Insert &amp;gt; Other Macros &amp;gt; Code Block.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;5-paste-in-the-copied-xml-code-into-the-code-block:730c26ebc33250b385bcb82625f350d0&#34;&gt;5. Paste in the Copied XML Code into the Code Block&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/Creating_a_Mockups_Design_Library_in_Confluence/media_1386358681723.png&#34; alt=&#34;Paste in the copied XML code into the Code Block&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The Mockups code should be in your clipboard, so once you&amp;rsquo;ve added the Code Block, you can just paste inside it.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;6-create-a-balsamiq-mockup-using-the-same-xml-code:730c26ebc33250b385bcb82625f350d0&#34;&gt;6. Create a Balsamiq Mockup Using the Same XML Code&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/Creating_a_Mockups_Design_Library_in_Confluence/media_1386359032885.png&#34; alt=&#34;Create a Balsamiq Mockup using the same XML code&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Using the same XML code in your clipboard create a new mockup and paste the code in the Import Mockup dialog. See the &lt;a href=&#34;https://docs.balsamiq.com/confluence/user-guide/&#34;&gt;Mockups for Confluence User Guide&lt;/a&gt; for how to add Mockups to Confluence and &lt;a href=&#34;http://supportstaging.balsamiq.com/plugins/importtoatlassian/#import&#34;&gt;this guide to importing&lt;/a&gt; for how to import Mockup XML.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;7-save-your-mockup-and-return-to-the-confluence-editor:730c26ebc33250b385bcb82625f350d0&#34;&gt;7. Save Your Mockup and Return to the Confluence Editor&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/Creating_a_Mockups_Design_Library_in_Confluence/media_1386358934799.png&#34; alt=&#34;Save your mockup and return to the Confluence editor&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You should now see an image of your mockup as well as the XML code used to create it.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;8-format-the-page-to-your-liking-and-repeat-the-process-for-other-controls:730c26ebc33250b385bcb82625f350d0&#34;&gt;8. Format the Page to Your Liking and Repeat the Process for Other Controls&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/Creating_a_Mockups_Design_Library_in_Confluence/media_1386360648515.png&#34; alt=&#34;Format the page to your liking and repeat the process for other controls&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Watch the video above to see how to embed the Code Block inside an Embed widget to easily expand and collapse it.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;9-refer-to-this-page-whenever-you-want-to-create-these-controls:730c26ebc33250b385bcb82625f350d0&#34;&gt;9. Refer to This Page Whenever You Want to Create These Controls&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/guides/Creating_a_Mockups_Design_Library_in_Confluence/media_1386360810485_lg.png&#34; title=&#34;9\. Refer to this page whenever you want to create these controls&#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/Creating_a_Mockups_Design_Library_in_Confluence/media_1386360810485.png&#34; alt=&#34;Refer to this page whenever you want to create these controls&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Now you can easily access the Mockups code used to create your frequently-used controls. Use the &amp;ldquo;Import Mockup XML&amp;hellip;&amp;rdquo; command to add these controls to your Confluence mockups. See the video for a demonstration.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Data Grid/Table Formatting</title>
+      <link>http://supportstaging.balsamiq.com/tutorials/advanceddatagrid/</link>
+      <pubDate>Wed, 16 Dec 2015 12:00:00 +0100</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/tutorials/advanceddatagrid/</guid>
+      <description>&lt;p&gt;This is a short video that shows how to make the most out of the Data Grid control.&lt;/p&gt;
+
+&lt;p&gt;You can find more information about tables and data grids, including formatting tips for columns in our &lt;a href=&#34;https://docs.balsamiq.com/desktop/datagrids/&#34;&gt;Datagrids Documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&#34;video&#34;&gt;&lt;iframe allowfullscreen=&#34;&#34; frameborder=&#34;0&#34; src=&#34;//www.youtube.com/embed/b_nTKvhECa8?rel=0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Grouping Controls</title>
+      <link>http://supportstaging.balsamiq.com/tutorials/grouping/</link>
+      <pubDate>Wed, 16 Dec 2015 12:00:00 +0100</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/tutorials/grouping/</guid>
+      <description>&lt;p&gt;Grouping controls is a useful way of managing and organizing controls that belong together. This video explains how to create and use groups.&lt;/p&gt;
+
+&lt;div class=&#34;video&#34;&gt;&lt;iframe allowfullscreen=&#34;&#34; frameborder=&#34;0&#34; src=&#34;//www.youtube.com/embed/rGNnhbY19yY?rel=0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to Create Multiple Header Rows in a Data Grid</title>
+      <link>http://supportstaging.balsamiq.com/tutorials/datagridheaderrows/</link>
+      <pubDate>Wed, 16 Dec 2015 12:00:00 +0100</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/tutorials/datagridheaderrows/</guid>
+      <description>&lt;p&gt;This video demonstrates how to show a data table grid with two levels of header rows by creating two tables and grouping them together.&lt;/p&gt;
+
+&lt;div class=&#34;video&#34;&gt;&lt;iframe allowfullscreen=&#34;&#34; frameborder=&#34;0&#34; src=&#34;//www.youtube.com/embed/vzWD_6oPFvM?rel=0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;To learn about how to format cells in a data grid see our documentation on &lt;a href=&#34;https://docs.balsamiq.com/desktop/datagrids/&#34;&gt;Working with Data Grids&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to Create a Symbol</title>
+      <link>http://supportstaging.balsamiq.com/tutorials/symbol/</link>
+      <pubDate>Wed, 16 Dec 2015 12:00:00 +0100</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/tutorials/symbol/</guid>
+      <description>
+
+&lt;span class=&#34;alert alert-warning show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Heads Up!&lt;/strong&gt; This tutorial is for Balsamiq Mockups version 2. To learn how to &lt;a href=&#34;https://docs.balsamiq.com/desktop/symbols/&#34;&gt;create symbols in Balsamiq Mockups 3, read this article&lt;/a&gt;.&lt;/span&gt;
+
+&lt;p&gt;This lesson will show you the steps to create a &lt;em&gt;Symbol&lt;/em&gt; (also called template, master or widget) from within Balsamiq Mockups. Symbols let you create reusable elements that are available to different mockups. They prevent you from having to create the same set of controls multiple times and allow you to make a change in one place and have it update across files.&lt;/p&gt;
+
+&lt;p&gt;This process is the same for both Mockups for Desktop and myBalsamiq. Symbols are not yet supported in all versions of Mockups. See &lt;a href=&#34;https://balsamiq.com/products/compare/&#34;&gt;this table&lt;/a&gt; for details.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;1-add-the-ui-controls-you-want-to-use-as-a-symbol:9a2460e0de861e9282fe943cd7b58ba8&#34;&gt;1. Add the UI Controls You Want to Use as a Symbol&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/guides/How_to_Create_a_Symbol/media_1379616291851_lg.png&#34; title=&#34;1\. Add the UI Controls you want to use as a Symbol&#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_Create_a_Symbol/media_1379616291851.png&#34; alt=&#34;Add the UI Controls you want to use as a Symbol&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve added a few controls for a simple login form.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;2-select-the-controls-you-ve-added:9a2460e0de861e9282fe943cd7b58ba8&#34;&gt;2. Select the Controls You&amp;rsquo;ve Added&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/guides/How_to_Create_a_Symbol/media_1379616597803_lg.png&#34; title=&#34;2\. Select the Controls you&#39;ve added&#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_Create_a_Symbol/media_1379616597803.png&#34; alt=&#34;Select the Controls you&#39;ve added&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Use the mouse to drag a selection area around them or use Shift+click.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;3-group-the-controls:9a2460e0de861e9282fe943cd7b58ba8&#34;&gt;3. Group the Controls&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/guides/How_to_Create_a_Symbol/media_1379618839406_lg.png&#34; title=&#34;3\. Group the Controls&#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_Create_a_Symbol/media_1379618839406.png&#34; alt=&#34;Group the Controls&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The keyboard shortcut for grouping Controls is CTRL/CMD+G.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/guides/How_to_Create_a_Symbol/media_1379616569398_lg.png&#34; title=&#34;3\. &#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_Create_a_Symbol/media_1379616569398.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The color changes to purple once the Controls have been grouped. &lt;strong&gt;Note:&lt;/strong&gt; you should save your mockup at this point if you haven&amp;rsquo;t already. The Symbol you are creating will be available to other mockups in the same folder, so pay attention to where you save it.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;4-give-the-group-a-name:9a2460e0de861e9282fe943cd7b58ba8&#34;&gt;4. Give the Group a Name&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/guides/How_to_Create_a_Symbol/media_1379616384025_lg.png&#34; title=&#34;4\. Give the group a name&#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_Create_a_Symbol/media_1379616384025.png&#34; alt=&#34;Give the group a name&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This will become the Symbol name, so it should be something that will be easy to identify.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;5-click-the-convert-to-symbol-button:9a2460e0de861e9282fe943cd7b58ba8&#34;&gt;5. Click the Convert to Symbol Button&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/guides/How_to_Create_a_Symbol/media_1379618677613_lg.png&#34; title=&#34;5\. Click the Convert To Symbol button&#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_Create_a_Symbol/media_1379618677613.png&#34; alt=&#34;Click the Convert To Symbol button&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/guides/How_to_Create_a_Symbol/media_1379616445703_lg.png&#34; title=&#34;5\. &#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_Create_a_Symbol/media_1379616445703.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Notice how the group now changes to green and the Property Inspector shows it as a Symbol.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;6-use-the-symbol-by-adding-it-from-the-ui-library:9a2460e0de861e9282fe943cd7b58ba8&#34;&gt;6. Use the Symbol by Adding It from the UI Library&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/guides/How_to_Create_a_Symbol/media_1379616484725_lg.png&#34; title=&#34;6\. Use the Symbol by adding it from the UI Library&#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_Create_a_Symbol/media_1379616484725.png&#34; alt=&#34;Use the Symbol by adding it from the UI Library&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Click on the Project Assets tab in the UI Library and you will see the Symbol you just created. It will also appear in the All category and in the Quick Add menu, just like the other UI Controls. You can use the Symbol in any mockup that&amp;rsquo;s in the &lt;em&gt;same folder&lt;/em&gt; as the current mockup.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Further reading:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.balsamiq.com/desktop/symbols/&#34;&gt;Complete Symbols documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://supportstaging.balsamiq.com/tutorials/filesymbolb3/&#34;&gt;How to use an existing file as a Symbol in Mockups for Desktop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://supportstaging.balsamiq.com/tutorials/filesymbolmyb/&#34;&gt;How to use an existing file as a Symbol in myBalsamiq&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to Download from Mockups to Go</title>
+      <link>http://supportstaging.balsamiq.com/tutorials/mockupstogo/</link>
+      <pubDate>Wed, 16 Dec 2015 12:00:00 +0100</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/tutorials/mockupstogo/</guid>
+      <description>
+
+&lt;p&gt;This lesson will show you how to download mockups contributed by the community from our &lt;a href=&#34;https://mockupstogo.mybalsamiq.com&#34;&gt;Mockups To Go&lt;/a&gt; site and use them as &lt;a href=&#34;https://docs.balsamiq.com/desktop/symbols/&#34;&gt;Symbols&lt;/a&gt; in your own mockups. This process is the same for both Mockups for Desktop and myBalsamiq. Symbols are not yet supported in all versions of Mockups. See &lt;a href=&#34;https://balsamiq.com/products/compare/&#34;&gt;this table&lt;/a&gt; for details.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;1-go-to-mockupstogo-mybalsamiq-com-in-your-browser:e84a56871cc29e779598502c91f3caf9&#34;&gt;1. Go to mockupstogo.mybalsamiq.com in Your Browser&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/guides/How_to_Download_from_Mockups_To_Go/media_1380038358834_lg.png&#34; title=&#34;1\. Go to mockupstogo.mybalsamiq.com in your browser&#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_Download_from_Mockups_To_Go/media_1380038358834.png&#34; alt=&#34;Go to mockupstogo.mybalsamiq.com in your browser&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You will see two special projects at the beginning, one with instructions and another where you can upload your own mockups to share with the community.The rest of the projects are categories of mockups that other people have created that are available for download.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;2-open-a-project-category:e84a56871cc29e779598502c91f3caf9&#34;&gt;2. Open a Project Category&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_Download_from_Mockups_To_Go/media_1380038638219.png&#34; alt=&#34;Open a Project category&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For this example, I&amp;rsquo;ll open the iOS category.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/guides/How_to_Download_from_Mockups_To_Go/media_1380038693574_lg.png&#34; title=&#34;2\. &#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_Download_from_Mockups_To_Go/media_1380038693574.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The Project page shows all the mockups that have been added to this category.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;3-select-the-mockup-you-want-to-download:e84a56871cc29e779598502c91f3caf9&#34;&gt;3. Select the Mockup You Want to Download&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/guides/How_to_Download_from_Mockups_To_Go/media_1380038907960_lg.png&#34; title=&#34;3\. Select the mockup you want to download&#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_Download_from_Mockups_To_Go/media_1380038907960.png&#34; alt=&#34;Select the mockup you want to download&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Click on the thumbnail image or the mockup name to open the Mockup page. I&amp;rsquo;ve opened the &amp;ldquo;iPad Popovers&amp;rdquo; mockup.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;4-click-the-download-bmml-link-below-the-mockup:e84a56871cc29e779598502c91f3caf9&#34;&gt;4. Click The &amp;ldquo;Download BMML&amp;rdquo; Link below the Mockup&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_Download_from_Mockups_To_Go/media_1380039071750.png&#34; alt=&#34;Click the &amp;quot;Download BMML&amp;quot; link below the mockup&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Depending on your browser, this should either ask you where you want to save the file or save it automatically to your Downloads folder.&lt;/p&gt;
+
+&lt;p&gt;To use the file, read the following instructions, depending on which Balsamiq product you have.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.balsamiq.com/desktop/symbols/#importing-symbols&#34;&gt;How to use an existing file as a Symbol in &lt;strong&gt;Mockups for Desktop&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://supportstaging.balsamiq.com/tutorials/filesymbolmyb/&#34;&gt;How to use an existing file as a Symbol in &lt;strong&gt;myBalsamiq&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Note:&lt;/strong&gt; To use the file in Mockups for Google Drive, please follow this &lt;a href=&#34;https://docs.balsamiq.com/desktop/symbols/#importing-symbols&#34;&gt;Mockups for Desktop article&lt;/a&gt;.&lt;/span&gt;
+
+&lt;p&gt;&lt;strong&gt;Further reading:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://supportstaging.balsamiq.com/resources/mockupstogo/&#34;&gt;More about Mockups To Go&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to Use Line Breaks to Fit Controls inside a Data Grid</title>
+      <link>http://supportstaging.balsamiq.com/tutorials/datagridlinebreaks/</link>
+      <pubDate>Wed, 16 Dec 2015 12:00:00 +0100</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/tutorials/datagridlinebreaks/</guid>
+      <description>&lt;p&gt;This video shows how to insert line breaks inside the Data Grid / Table control to make room for placing larger controls inside it.&lt;/p&gt;
+
+&lt;div class=&#34;video&#34;&gt;&lt;iframe allowfullscreen=&#34;&#34; frameborder=&#34;0&#34; src=&#34;//www.youtube.com/embed/ES_fweAhKWA?rel=0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to Use Show / Hide Markup for Layering</title>
+      <link>http://supportstaging.balsamiq.com/tutorials/markup/</link>
+      <pubDate>Wed, 16 Dec 2015 12:00:00 +0100</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/tutorials/markup/</guid>
+      <description>&lt;p&gt;This video demonstrates how to use the &amp;ldquo;Treat As Markup&amp;rdquo; command to create a hidden layer of controls that can be toggled on and off.&lt;/p&gt;
+
+&lt;div class=&#34;video&#34;&gt;&lt;iframe allowfullscreen=&#34;&#34; frameborder=&#34;0&#34; src=&#34;//www.youtube.com/embed/UUJjqQ9Rdao?rel=0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to Use an Existing File as a Symbol in Mockups for Desktop</title>
+      <link>http://supportstaging.balsamiq.com/tutorials/filesymbolb3/</link>
+      <pubDate>Wed, 16 Dec 2015 12:00:00 +0100</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/tutorials/filesymbolb3/</guid>
+      <description>
+
+&lt;p&gt;If you have a Mockups file that you want to use as a Symbol (a file &lt;a href=&#34;http://supportstaging.balsamiq.com/tutorials/mockupstogo/&#34;&gt;downloaded from Mockups To Go&lt;/a&gt;, for example), here&amp;rsquo;s how you can add it to Balsamiq Mockups for Desktop as a Project Asset.&lt;/p&gt;
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Note:&lt;/strong&gt; For &lt;a href=&#34;https://docs.balsamiq.com/desktop/intro/&#34;&gt;Balsamiq Mockups 3&lt;/a&gt;, follow &lt;a href=&#34;https://docs.balsamiq.com/desktop/symbols/#importing-symbols&#34;&gt;&lt;strong&gt;these instructions&lt;/strong&gt;&lt;/a&gt; instead.&lt;/span&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;1-locate-the-mockups-file-on-your-computer&#34;&gt;1. Locate the Mockups File on Your Computer&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_Mockups_for_Desktop/media_1380045665749.png&#34; alt=&#34;Locate the Mockups file on your computer&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you downloaded it from Mockups To Go, it may be in your Downloads folder.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;2-open-the-folder-containing-the-mockups-you-d-like-to-use-the-symbol-with&#34;&gt;2. Open the Folder Containing the Mockups You&amp;rsquo;d like to Use the Symbol With&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_Mockups_for_Desktop/media_1380045960320.png&#34; alt=&#34;Open the folder containing the mockups you&#39;d like to use the symbol with&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this example, I want the Symbols to be available to the mockups in my &amp;ldquo;Website Redesign&amp;rdquo; project.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;3-create-a-folder-named-assets-inside-that-folder&#34;&gt;3. Create a Folder Named &amp;ldquo;Assets&amp;rdquo; inside That Folder&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_Mockups_for_Desktop/media_1380046219208.png&#34; alt=&#34;Create a folder named &amp;quot;assets&amp;quot; inside that folder&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Note: this folder may already exist. If so, skip this step.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;4-move-the-mockups-file-to-the-assets-folder&#34;&gt;4. Move the Mockups File to The &amp;ldquo;Assets&amp;rdquo; Folder&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_Mockups_for_Desktop/media_1380046489555.png&#34; alt=&#34;Move the Mockups file to the &amp;quot;assets&amp;quot; folder&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You don&amp;rsquo;t need to open the file. The next steps show how to access it.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;5-open-any-mockups-file-in-the-project-folder&#34;&gt;5. Open Any Mockups File in the Project Folder&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_Mockups_for_Desktop/media_1380046994139_lg.png&#34; title=&#34;5\. Open any Mockups file in the project folder&#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_Mockups_for_Desktop/media_1380046994139.png&#34; alt=&#34;Open any Mockups file in the project folder&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Balsamiq Mockups checks for a the presence of a sub-folder called &amp;ldquo;assets&amp;rdquo; in any mockup that&amp;rsquo;s open, so it will recognize that there is now an assets folder with a Mockups file in it.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;6-look-in-the-project-assets-category-for-the-symbol-s-you-ve-added&#34;&gt;6. Look in the Project Assets Category for the Symbol(S) You&amp;rsquo;ve Added&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_Mockups_for_Desktop/media_1380047062550_lg.png&#34; title=&#34;6\. Look in the Project Assets category for the Symbol you&#39;ve added&#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_Mockups_for_Desktop/media_1380047062550.png&#34; alt=&#34;Look in the Project Assets category for the Symbol you&#39;ve added&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;That&amp;rsquo;s it!&lt;/strong&gt; You can now add them to the canvas just like other controls. They will also be available in the All category as well as from the Quick Add search box.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Further reading:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.balsamiq.com/desktop/symbols/&#34;&gt;Complete Symbols documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://supportstaging.balsamiq.com/tutorials/symbol/&#34;&gt;How to Create a Symbol&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://supportstaging.balsamiq.com/tutorials/mockupstogo/&#34;&gt;How to Download from Mockups To Go&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to Use an Existing File as a Symbol in myBalsamiq</title>
+      <link>http://supportstaging.balsamiq.com/tutorials/filesymbolmyb/</link>
+      <pubDate>Wed, 16 Dec 2015 12:00:00 +0100</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/tutorials/filesymbolmyb/</guid>
+      <description>
+
+&lt;p&gt;If you have a Mockups file that you want to use as a Symbol (a file &lt;a href=&#34;http://supportstaging.balsamiq.com/tutorials/mockupstogo/&#34;&gt;downloaded from Mockups To Go&lt;/a&gt;, for example), here&amp;rsquo;s how you can add it to myBalsamiq as a Project Asset.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;1-locate-the-mockups-file-on-your-computer:4be741ee3564824bc38a07dbcdfcb462&#34;&gt;1. Locate the Mockups File on Your Computer&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_myBalsamiq/media_1380045665749.png&#34; alt=&#34;Locate the Mockups file on your computer&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you downloaded it from Mockups To Go, it may be in your Downloads folder.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;2-open-the-mybalsamiq-project-you-d-like-to-use-the-symbol-s-with:4be741ee3564824bc38a07dbcdfcb462&#34;&gt;2. Open the myBalsamiq Project You&amp;rsquo;d like to Use the Symbol(S) With&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_myBalsamiq/media_1380067485683_lg.png&#34; title=&#34;2\. Open the myBalsamiq project you&#39;d like to use the Symbol with&#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_myBalsamiq/media_1380067485683.png&#34; alt=&#34;Open the myBalsamiq project you&#39;d like to use the Symbol with&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;3-click-on-the-assets-link-at-the-top-of-the-page:4be741ee3564824bc38a07dbcdfcb462&#34;&gt;3. Click on the Assets Link at the Top of the Page&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_myBalsamiq/media_1380067570868.png&#34; alt=&#34;Click on the Assets link at the top of the page&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_myBalsamiq/media_1380067655711_lg.png&#34; title=&#34;3\. &#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_myBalsamiq/media_1380067655711.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This will open a new window with the the Project Assets tab selected.&lt;/p&gt;
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Note:&lt;/strong&gt; the Project Assets tab refers to the specific project you are in. If you want to make a Symbol available to &lt;em&gt;all&lt;/em&gt; Mockups projects, you can do that by uploading files to the &lt;a href=&#34;https://docs.balsamiq.com/mybalsamiq/assets/&#34;&gt;&lt;em&gt;Site Assets&lt;/em&gt;&lt;/a&gt; tab.&lt;/span&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;4-click-the-upload-button-and-select-the-file-you-want-to-use-as-a-symbol-library:4be741ee3564824bc38a07dbcdfcb462&#34;&gt;4. Click the Upload Button and Select the File You Want to Use as a Symbol Library&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_myBalsamiq/media_1380067821774_lg.png&#34; title=&#34;4\. Click the Upload button and select the file you want to use as a Symbol Library&#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_myBalsamiq/media_1380067821774.png&#34; alt=&#34;Click the Upload button and select the file you want to use as a Symbol Library&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_myBalsamiq/media_1380067948614_lg.png&#34; title=&#34;4\. &#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_myBalsamiq/media_1380067948614.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Once you&amp;rsquo;ve selected the file, after a few seconds you&amp;rsquo;ll see a preview of the Mockups file you just uploaded.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;5-open-a-mockup-for-editing:4be741ee3564824bc38a07dbcdfcb462&#34;&gt;5. Open a Mockup for Editing&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_myBalsamiq/media_1380068049874_lg.png&#34; title=&#34;5\. Open a mockup for editing&#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_myBalsamiq/media_1380068049874.png&#34; alt=&#34;Open a mockup for editing&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;First, close the Assets window. Then click on the Edit button to open the Mockups editor.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;6-look-in-the-project-or-site-assets-category-for-the-symbol-s-you-ve-added:4be741ee3564824bc38a07dbcdfcb462&#34;&gt;6. Look in the Project or Site Assets Category for the Symbol(S) You&amp;rsquo;ve Added&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_myBalsamiq/media_1380068159514_lg.png&#34; title=&#34;6\. Look in the Project Assets category for the Symbol you&#39;ve added&#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/guides/How_to_use_an_existing_file_as_a_Symbol_in_myBalsamiq/media_1380068159514.png&#34; alt=&#34;Look in the Project Assets category for the Symbol you&#39;ve added&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;That&amp;rsquo;s it!&lt;/strong&gt; You can now add them to the canvas just like other controls. They will also be available in the All category as well as from the Quick Add search box.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Further reading:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.balsamiq.com/desktop/symbols/&#34;&gt;Complete Symbols documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.balsamiq.com/mybalsamiq/assets/&#34;&gt;Assets in myBalsamiq&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.balsamiq.com/mybalsamiq/symbols/&#34;&gt;Using Symbols in myBalsamiq&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://supportstaging.balsamiq.com/tutorials/symbol/&#34;&gt;How to Create a Symbol&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://supportstaging.balsamiq.com/tutorials/mockupstogo/&#34;&gt;How to Download from Mockups To Go&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

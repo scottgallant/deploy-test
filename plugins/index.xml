@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Plugins on Balsamiq Support Portal</title>
+    <link>http://supportstaging.balsamiq.com/plugins/</link>
+    <description>Recent content in Plugins on Balsamiq Support Portal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 May 2015 16:46:35 +0200</lastBuildDate>
+    <atom:link href="http://supportstaging.balsamiq.com/plugins/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&#34;Failed to Validate Your Plugin License&#34; or &#34;Your Add-on License Is Invalid&#34; Error When Registering Mockups for Confluence or JIRA</title>
+      <link>http://supportstaging.balsamiq.com/plugins/failedtovalidatelicense/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/plugins/failedtovalidatelicense/</guid>
+      <description>&lt;p&gt;You get these errors if you enter a license you purchased from Balsamiq in the plugin&amp;rsquo;s licensing box provided by Atlassian&amp;rsquo;s Universal Plugin Manager.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/confluence/upmerror.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;That text area only accepts Atlassian Marketplace-generated licenses. To enter your Balsamiq-generated license information, click on &lt;strong&gt;Configure&lt;/strong&gt;, and you&amp;rsquo;ll see this screen:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/confluence/configure.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Click on &amp;ldquo;Balsamiq&amp;rdquo;, and you&amp;rsquo;ll see this screen:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/confluence/configurebalsamiq.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Enter your license name and key there, and it will work.&lt;/p&gt;
+
+&lt;p&gt;Once you have successfully registered your Balsamiq-generated license, the Atlassian registration screen will still show your plugin as &amp;ldquo;&lt;a href=&#34;http://supportstaging.balsamiq.com/plugins/atlassianlicensenotshowing/&#34;&gt;Unlicensed&lt;/a&gt;.&amp;rdquo;&lt;/p&gt;
+
+&lt;span class=&#34;alert alert-warning show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Heads up:&lt;/strong&gt; If you have a Marketplace trial license installed, you might not see a &lt;strong&gt;Configure&lt;/strong&gt; button at all. Delete your Marketplace license key and hit update to make the Configure button re-appear. This will allow you to enter a Balsamiq-issued license instead.&lt;/span&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>&#34;Maximum Number of Pinned Revisions Exceeded&#34; Error in Mockups 3 for Google Drive</title>
+      <link>http://supportstaging.balsamiq.com/plugins/maximumrevisions/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/plugins/maximumrevisions/</guid>
+      <description>
+
+&lt;p&gt;Are you getting the following error message when trying to save your file in Mockups 3 for Google Drive?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/prodfaqs/revisions.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;why-am-i-getting-this:bc146dc61678e803c2484015a58fc09e&#34;&gt;Why Am I Getting This?&lt;/h2&gt;
+
+&lt;p&gt;When using the Balsamiq Mockups plugin, all the changes are always autosaved in Google Drive and a new &amp;lsquo;not&amp;rsquo; pinned revision is created every time you close the app. On the other hand, using the command &amp;ldquo;Save&amp;rdquo; will instead create a &amp;ldquo;pinned&amp;rdquo; revision on Drive.&lt;/p&gt;
+
+&lt;p&gt;Seeing this error message means that you&amp;rsquo;ve reached the maximum number of pinned versions allowed for your account.&lt;/p&gt;
+
+&lt;p&gt;Google Drive automatically purges (or &amp;ldquo;prunes&amp;rdquo;) revisions in order to optimize disk usage. To prevent this from happening, you can manually &amp;ldquo;pin&amp;rdquo; revision(s) that you don&amp;rsquo;t want Drive to purge and also unpin or delete the one(s) you don&amp;rsquo;t need.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-do-i-get-rid-of-the-error:bc146dc61678e803c2484015a58fc09e&#34;&gt;How Do I Get Rid of the Error?&lt;/h2&gt;
+
+&lt;p&gt;To resolve the error message, you will need to either unpin or delete a pinned version. First you will need to right-click on the related BMPR file and select &amp;ldquo;Manage versions&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/prodfaqs/manageversions1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then once you&amp;rsquo;ve identified a pinned version (little tick box on the left side of &amp;ldquo;Keep forever&amp;rdquo;), you can either unpin or delete it using the contextual menu, as shown above:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/prodfaqs/manageversions2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In general, a good practice is to &amp;lsquo;trust&amp;rsquo; the auto-saving functionality of the app and use the &amp;ldquo;Save&amp;rdquo; command only to pin important revisions that you want to keep in the future (i.e. the ones that you do not want Drive to purge).&lt;/p&gt;
+
+&lt;p&gt;Hope this helps! Please &lt;a href=&#34;https://balsamiq.com/company/contact/&#34;&gt;contact us&lt;/a&gt; if you need any further assistance with this.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How Do I Import Mockups to Mockups for Confluence or JIRA?</title>
+      <link>http://supportstaging.balsamiq.com/plugins/importtoatlassian/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/plugins/importtoatlassian/</guid>
+      <description>
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Note:&lt;/strong&gt; Using Mockups 3 for JIRA Cloud? See &lt;a href=&#34;https://docs.balsamiq.com/jira/user-guide-cloud/&#34;&gt;this document&lt;/a&gt; instead.&lt;/span&gt;
+
+&lt;p&gt;In Google Drive, Confluence or JIRA Server you can use export/import to import mockups you&amp;rsquo;ve created on your site, or those you saved from elsewhere, for instance &lt;a href=&#34;https://mockupstogo.mybalsamiq.com&#34;&gt;Mockups to Go&lt;/a&gt;. Here&amp;rsquo;s how you&amp;rsquo;d do it.&lt;/p&gt;
+
+&lt;h2 id=&#34;export:7194bd16068cdb4a766d16521613ab62&#34;&gt;Export&lt;/h2&gt;
+
+&lt;h3 id=&#34;exporting-mockups-from-confluence-jira-server:7194bd16068cdb4a766d16521613ab62&#34;&gt;Exporting Mockups from Confluence, JIRA Server &lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Open the mockup and select the menu Mockup &amp;gt; Export Mockup XML.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;exporting-mockups-from-mockups-3-for-desktop-or-mockups-3-for-google-drive:7194bd16068cdb4a766d16521613ab62&#34;&gt;Exporting Mockups from Mockups 3 for Desktop or Mockups 3 for Google Drive&lt;/h3&gt;
+
+&lt;p&gt;If you are using &lt;a href=&#34;https://docs.balsamiq.com/desktop/intro/&#34;&gt;Balsamiq Mockups 3&lt;/a&gt; or Mockups 3 for Google Drive:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Export to a &lt;a href=&#34;https://docs.balsamiq.com/desktop/exporting/#exporting-for-use-in-a-previous-version&#34;&gt;BMML Zip file as described here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Use Balsamiq Mockups version 2 or myBalsamiq to open any mockups you want to export and choose File/Project &amp;gt; Export Mockup XML. The contents are copied to your clipboard. You can also open the BMML files with a text editor and copy and paste the text from there.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;If you are using Balsamiq Mockups &lt;strong&gt;version 2&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Export the mockup using the menu File &amp;gt; Export Mockup XML. The contents are copied to your clipboard.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Note:&lt;/strong&gt; Even if you don&amp;rsquo;t have a paid version of the Desktop app, you can still download and use the trial version to open and export mockup files (after 30 days you can no longer save files, but all other features are fully-functional). This can be a convenient way, for example, to get &lt;a href=&#34;https://mockupstogo.mybalsamiq.com&#34;&gt;Mockups to Go&lt;/a&gt; libraries into your plugin version.&lt;/span&gt;
+
+&lt;h3 id=&#34;exporting-mockups-from-mybalsamiq:7194bd16068cdb4a766d16521613ab62&#34;&gt;Exporting Mockups from myBalsamiq&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Export the mockup from the menu Project &amp;gt; Export Mockup XML. The contents are copied to your clipboard.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Note:&lt;/strong&gt; If you don&amp;rsquo;t use the Desktop app or myBalsamiq you can open a BMML file in a text editor (like Notepad or or TextEdit) and copy its contents to your clipboard.&lt;/span&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;import:7194bd16068cdb4a766d16521613ab62&#34;&gt;Import&lt;/h2&gt;
+
+&lt;h3 id=&#34;for-confluence-or-jira-server:7194bd16068cdb4a766d16521613ab62&#34;&gt;For Confluence or JIRA Server&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Export the Mockup XML from the product you are exporting from (see instructions above)&lt;/li&gt;
+&lt;li&gt;Create a new mockup in your Mockups plugin.&lt;/li&gt;
+&lt;li&gt;When the editor is loaded, use the menu Mockups &amp;gt; Import Mockup XML&amp;hellip;&lt;/li&gt;
+&lt;li&gt;Paste the mockup data in the text area and click Import.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Note:&lt;/strong&gt; To see a demonstration of this process in Confluence see our tutorial on &lt;a href=&#34;http://supportstaging.balsamiq.com/tutorials/confluencesymbollibrary/&#34;&gt;Creating a Mockups Design Library in Confluence&lt;/a&gt;.&lt;/span&gt;
+
+&lt;h3 id=&#34;for-google-drive:7194bd16068cdb4a766d16521613ab62&#34;&gt;For Google Drive&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Follow the steps above or see &lt;a href=&#34;https://docs.balsamiq.com/google-drive/user-guide/#importing-from-other-versions-of-balsamiq-mockups&#34;&gt;these instructions on importing to Mockups 3 for Google Drive&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;more-import-export-options:7194bd16068cdb4a766d16521613ab62&#34;&gt;More Import/Export Options&lt;/h2&gt;
+
+&lt;p&gt;If you use Google Drive, Confluence or JIRA Server but don&amp;rsquo;t have a license for one of our Mockups plugins, you can still share your mockups using these products. To do this, upload your mockups as images (go to &amp;ldquo;File &amp;gt; Export to PNG image&amp;rdquo; in the Desktop version) and attach or embed the images. You can also upload your Mockups (.bmml) files for other Desktop users to download to their computers.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re looking for import/export options for other applications or file formats, a good number of extensions have been written so far. You can find the list of &lt;a href=&#34;http://supportstaging.balsamiq.com/resources/extensions/&#34;&gt;import/export extensions here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to Use Both the Confluence and JIRA Server Plugins and Manage My Users via LDAP</title>
+      <link>http://supportstaging.balsamiq.com/plugins/atlassianldap/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/plugins/atlassianldap/</guid>
+      <description>
+
+&lt;p&gt;This article is for IT administrators whose companies:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;bought both Balsamiq Mockups for Confluence and Balsamiq Mockups for JIRA Server&lt;/li&gt;
+&lt;li&gt;do not use the built-in user management of Confluence and JIRA&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;how-does-plugin-authentication-work-in-general&#34;&gt;How Does Plugin Authentication Work in General?&lt;/h2&gt;
+
+&lt;p&gt;As specified in our &lt;a href=&#34;https://docs.balsamiq.com/confluence/admin-guide/#selecting-mockup-editors&#34;&gt;Confluence Admin Guide&lt;/a&gt; and in our &lt;a href=&#34;https://docs.balsamiq.com/jira/admin-guide/#selecting-mockup-editors&#34;&gt;Mockups for JIRA Server Admin Guide&lt;/a&gt; the plugin looks for a user group called &lt;em&gt;balsamiq-mockups-editors&lt;/em&gt; to decide which users should have access to create and edit mockups.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-if-i-want-my-jira-server-editor-group-and-my-confluence-editor-group-to-be-separate&#34;&gt;What If I Want My JIRA Server Editor Group and My Confluence Editor Group to Be Separate?&lt;/h2&gt;
+
+&lt;p&gt;Say you bought a 10-editor license of Mockups for Confluence and a 3-editor license of Mockups for JIRA Server.&lt;/p&gt;
+
+&lt;p&gt;If you added your 10 wiki editors to the balsamiq-mockups-editors group, the JIRA Server plugin would complain that you&amp;rsquo;re going over your 3-user limit.&lt;/p&gt;
+
+&lt;p&gt;There is a solution to this tricky problem!&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Delete the &lt;em&gt;balsamiq-mockups-editors&lt;/em&gt; group&lt;/li&gt;
+&lt;li&gt;Create a new &lt;em&gt;balsamiq-mockups-editors-confluence&lt;/em&gt; group and add your chosen wiki editors to it&lt;/li&gt;
+&lt;li&gt;Create a new &lt;em&gt;balsamiq-mockups-editors-jira&lt;/em&gt; group and add your chosen bug tracker editors to it&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;That&amp;rsquo;s it! Each plugin will now look at its own group, and live happily ever after. :)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Intro to Mockups 3 for Google Drive</title>
+      <link>http://supportstaging.balsamiq.com/plugins/introtogoogledrive/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/plugins/introtogoogledrive/</guid>
+      <description>
+
+&lt;div class=&#34;video&#34;&gt;&lt;iframe allowfullscreen=&#34;&#34; frameborder=&#34;0&#34; src=&#34;//www.youtube.com/embed/iCTvZIY05gY?rel=0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://docs.balsamiq.com/google-drive/user-guide/&#34;&gt;Mockups 3 for Google Drive&lt;/a&gt; allows you to add and edit wireframes directly from &lt;a href=&#34;https://drive.google.com/start&#34;&gt;Google Drive&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Just click Create, select Balsamiq Mockups 3 Project, and start wireframing your application screens or website pages.&lt;/p&gt;
+
+&lt;p&gt;With easy sharing, version control and even real time collaboration, Mockups 3 for Google Drive makes iterating on wireframes easy and fun.&lt;/p&gt;
+
+&lt;p&gt;Subscriptions cost $5/mo or $50/year. Start your free 30 day trial on the &lt;a href=&#34;https://chrome.google.com/webstore/detail/iedapplgopkgngalkbailjoikghljkki/&#34;&gt;Chrome Web Store&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;documentation:0ca16636576aeb504009ae9671c03e88&#34;&gt;Documentation&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.balsamiq.com/desktop/&#34;&gt;The Balsamiq Mockups Editor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.balsamiq.com/google-drive/user-guide/&#34;&gt;Mockups 3 for Google Drive User Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://supportstaging.balsamiq.com/sales/gdrivesubscription/&#34;&gt;Managing your Mockups 3 for Google Drive Subscription&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://supportstaging.balsamiq.com/tutorials/&#34;&gt;Balsamiq Mockups Tutorials&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mockups for Confluence or Mockups for JIRA Says It&#39;s Unlicensed, but It Is!</title>
+      <link>http://supportstaging.balsamiq.com/plugins/atlassianlicensenotshowing/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/plugins/atlassianlicensenotshowing/</guid>
+      <description>&lt;p&gt;If you bought a license of Mockups for Confluence or Mockups for JIRA from Balsamiq, installed it, and your instance is still showing the plugin as &amp;ldquo;Unlicensed&amp;rdquo; or &amp;ldquo;Free Trial&amp;rdquo;, this article is for you.&lt;/p&gt;
+
+&lt;p&gt;First of all, your plugin is working correctly, you did everything right.&lt;/p&gt;
+
+&lt;p&gt;We offer what Atlassian calls &amp;ldquo;dual licensing&amp;rdquo; for our plugin, meaning that you can purchase it either from Atlassian via the Atlassian Marketplace or directly from Balsamiq. The pros and cons of each option are described &lt;a href=&#34;http://supportstaging.balsamiq.com/sales/marketplace/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The problem you are seeing is because the Universal Plugin Manager (what you&amp;rsquo;re using when you go to &amp;ldquo;Manage Add-Ons&amp;rdquo; on your Confluence or JIRA installation) ONLY understands Marketplace-issued licenses. It doesn&amp;rsquo;t recognize that the plugin is indeed licensed via the Balsamiq-issued key, so it just treats it as a free trial. You can safely ignore those messages and continue working. If you want to verify the real status of your plugin, go to the Configure link. You&amp;rsquo;ll find lots of accurate info there. :)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/docs/confluence/unlicensed/upmlies.png&#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/confluence/unlicensed/upmlies.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sharing in Mockups for Google Drive with Someone Who Doesn&#39;t Have It Installed</title>
+      <link>http://supportstaging.balsamiq.com/plugins/sharingwithgoogledrive/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/plugins/sharingwithgoogledrive/</guid>
+      <description>
+
+&lt;p&gt;This document shows a series of screenshots that illustrate the experience of sharing a mockup via Mockups for Google Drive, both from the perspective of the sharer and a collaborator who doesn&amp;rsquo;t have Mockups for Google Drive installed.&lt;/p&gt;
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Note:&lt;/strong&gt; If you both have Mockups for Google Drive installed you just need to follow the steps in the first section of this article or see &lt;a href=&#34;https://docs.balsamiq.com/google-drive/user-guide/#sharing-via-google-drive&#34;&gt;these instructions in the Mockups for Google Drive User Guide&lt;/a&gt;.&lt;/span&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;sharing:d17963667f08b13416120ea8eab212e6&#34;&gt;Sharing&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s say you created a project called My Awesome Website.bmpr and want to share it with your friend Mike.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/gdrive/sharing/gdrive-sharing01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Select the file on &lt;a href=&#34;https://drive.google.com&#34;&gt;drive.google.com&lt;/a&gt;, then right-click and find the &amp;ldquo;Share&amp;hellip;&amp;rdquo; option.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/gdrive/sharing/gdrive-sharing02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Add Mike&amp;rsquo;s email and send him an invitation.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/gdrive/sharing/gdrive-sharing03.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Note:&lt;/strong&gt; If you give the other person read-only permission (i.e., &amp;ldquo;Can view&amp;rdquo;) they will be able to view your mockups but not edit them.&lt;/span&gt;
+
+&lt;p&gt;When we switch to Mike&amp;rsquo;s Google Drive we can see that the Balsamiq file appears in &amp;ldquo;Shared with me&amp;rdquo; and he can see a preview of it.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/gdrive/sharing/gdrive-sharing04.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Note:&lt;/strong&gt; If you give the other person read-only permission (i.e., &amp;ldquo;Can view&amp;rdquo;) they will be able to view your mockups but not edit them.&lt;/span&gt;
+
+&lt;p&gt;If the person you are sharing with already has Mockups for Google Drive installed they can just double-click on the file to open it and start editing. You can even &lt;a href=&#34;https://docs.balsamiq.com/google-drive/user-guide/#collaborating-with-other-users-in-real-time&#34;&gt;work on the same file file at the same time&lt;/a&gt;. If they don&amp;rsquo;t already have it installed, continue to the next section.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;installing-and-opening:d17963667f08b13416120ea8eab212e6&#34;&gt;Installing and Opening&lt;/h2&gt;
+
+&lt;p&gt;If Mike has never installed Mockups for Google Drive, this is what he&amp;rsquo;ll see when he tries to open the file.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/gdrive/sharing/gdrive-sharing05.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If he clicks on the &amp;ldquo;Open with&amp;rdquo; link at the top he will get a list of suggested apps, with Balsamiq Mockups 3 at the top.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/gdrive/sharing/gdrive-sharing06.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Clicking the link for Balsamiq Mockups 3 will ask for permission to connect with Google Drive.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/gdrive/sharing/gdrive-sharing07.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Note:&lt;/strong&gt; You may be asked to select an account to use prior to this step. If so, make sure to select the account associated with the email that the file was shared with.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;After clicking &amp;ldquo;Accept,&amp;rdquo; Balsamiq Mockups 3 for Google Drive will be installed and the project that was shared will open.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/gdrive/sharing/gdrive-sharing08.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Mike can now edit this file, even &lt;a href=&#34;https://docs.balsamiq.com/google-drive/user-guide/#collaborating-with-other-users-in-real-time&#34;&gt;collaborating in real time&lt;/a&gt; with anyone who it is shared with.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Upgrading from Old Versions of Confluence</title>
+      <link>http://supportstaging.balsamiq.com/plugins/upgradingconfluence/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/plugins/upgradingconfluence/</guid>
+      <description>&lt;p&gt;Due to changes Atassian made to macro handling, upgrading versions of Confluence prior to 3.5.7 is not a cut-and-dry process (as much as we wish it were!)&lt;/p&gt;
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Note:&lt;/strong&gt; In order to update to the latest version of Mockups for Confluence, you&amp;rsquo;ll need to make sure your license has an &lt;a href=&#34;https://support.balsamiq.com/sales/maintenance/&#34;&gt;active maintenance period&lt;/a&gt;.&lt;/span&gt;
+
+&lt;p&gt;Here are the steps for upgrading your Confluence server to ensure that Mockups for Confluence upgrades smoothly:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Upgrade your Confluence server to 3.5.7 (if you have already upgraded past this, you&amp;rsquo;ll have to downgrade to 3.5.7 temporarily.)&lt;/li&gt;
+&lt;li&gt;Install Mockups for Confluence version 2.2.10 which you can &lt;a href=&#34;https://marketplace.atlassian.com/plugins/com.balsamiq.confluence.plugins.mockups/versions&#34;&gt;download here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Once Mockups 2.2.10 is installed, you can safely upgrade your Confluence server to the latest version.&lt;/li&gt;
+&lt;li&gt;After the your Confluence server has been upgraded, you can also upgrade Mockups for Confluence to the latest version.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Following these steps should allow you to gracefully upgrade your Confluence server, and ensuring that Mockups continues to function properly!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Using Mockups 3 for Desktop and Mockups for Confluence or JIRA Server Versions Together</title>
+      <link>http://supportstaging.balsamiq.com/plugins/b3andatlassian/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/plugins/b3andatlassian/</guid>
+      <description>
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Note:&lt;/strong&gt; Using Mockups 3 for JIRA Cloud? See &lt;a href=&#34;https://docs.balsamiq.com/jira/user-guide-cloud/&#34;&gt;this document&lt;/a&gt; instead.&lt;/span&gt;
+
+&lt;span class=&#34;alert alert-warning show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Heads Up!&lt;/strong&gt; Balsamiq Mockups 3 for Desktop, at the moment, uses a different file format than Mockups for Confluence and Mockups for JIRA Server. We plan to bring the changes in Balsamiq Mockups 3 to our Atlassian plugins in the future.&lt;/span&gt;
+
+&lt;h2 id=&#34;exporting-from-the-desktop-version:cd5ee74e294a4416affdadf072bdd7f5&#34;&gt;Exporting from the Desktop Version&lt;/h2&gt;
+
+&lt;p&gt;Here&amp;rsquo;s how to export your mockups from Mockups 3 for Desktop and bring them into Mockups for Confluence or JIRA Server:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Open the project in Mockups 3 for Desktop and export it to a ZIP file using &lt;em&gt;Project &amp;gt; Export &amp;gt; Project to BMMLs ZIP&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Expand the ZIP file to find the BMML files.&lt;/li&gt;
+&lt;li&gt;For each mockup you want to import, do the following:
+
+&lt;ol&gt;
+&lt;li&gt;Open a BMML in your favorite plain text editor (for example Text Edit on Mac or Notepad on Windows)&lt;/li&gt;
+&lt;li&gt;Select all the text and copy it to your clipboard (CTRL+C)&lt;/li&gt;
+&lt;li&gt;Create a new mockup in Mockups for Confluence or Mockups for JIRA Server and use &lt;em&gt;Mockup &amp;gt; Import Mockup XML.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Paste (CTRL+V) and hit &lt;em&gt;Import&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Fix any broken images by uploading the image from the ZIP (they&amp;rsquo;ll be in the &lt;em&gt;assets&lt;/em&gt; folder)&lt;/li&gt;
+&lt;li&gt;Symbols are not supported in Mockups for Confluence or Mockups for JIRA Server yet, so you might have to recreate those as well.&lt;/li&gt;
+&lt;li&gt;Save.&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;We know this is a bit of an arduous process right now. We promise it will be better soon!&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;my-plugin-version-of-mockups-doesn-t-support-symbols-does-that-mean-that-i-can-t-import-mockups-that-use-symbols:cd5ee74e294a4416affdadf072bdd7f5&#34;&gt;My Plugin Version of Mockups Doesn&amp;rsquo;t Support Symbols, Does That Mean That I Can&amp;rsquo;t Import Mockups That Use Symbols?&lt;/h2&gt;
+
+&lt;p&gt;Mockups for Confluence and Mockups for JIRA Server don&amp;rsquo;t yet support &lt;a href=&#34;https://docs.balsamiq.com/desktop/symbols/&#34;&gt;symbols&lt;/a&gt;, but that doesn&amp;rsquo;t mean that you can&amp;rsquo;t import mockups that use symbols.&lt;/p&gt;
+
+&lt;p&gt;In Balsamiq Mockups for Desktop (version 2), when you export a mockup that contains symbols (&amp;ldquo;File &amp;gt; Export Mockup XML&amp;rdquo; in the menu), you will see the following dialog:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/prodfaqs/exportinbmml.png&#34; alt=&#34;Dialog&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There are two options: &lt;strong&gt;&amp;ldquo;Export As-Is&amp;rdquo;&lt;/strong&gt; and &lt;strong&gt;&amp;ldquo;Export with Symbols &amp;lsquo;Broken Apart&amp;rsquo;&amp;rdquo;&lt;/strong&gt;. Choosing the first option &lt;em&gt;will not include&lt;/em&gt; symbols in the exported XML. This is appropriate for exporting and importing between versions that support symbols (such as Mockups for Desktop and myBalsamiq).&lt;/p&gt;
+
+&lt;p&gt;Choosing the second option, on the other hand, will &lt;em&gt;merge&lt;/em&gt; the XML from the symbols that are used in the mockup with the XML from the mockup itself, resulting in a single file with all the controls that are shown in the mockup that is being exported. Note that the file you&amp;rsquo;re working on won&amp;rsquo;t be affected either way, this merging is only done for the BMML code that&amp;rsquo;s placed in your clipboard. This is the option that we recommend for plugin users as an easy way to import a mockup and its symbols all at once.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;can-i-copy-and-paste-between-the-desktop-and-plugin-version:cd5ee74e294a4416affdadf072bdd7f5&#34;&gt;Can I Copy and Paste between the Desktop and Plugin Version?&lt;/h2&gt;
+
+&lt;p&gt;Yes! Er, well, something like that&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s say that you have both Mockups for Desktop (version 2) and a plugin version open and you want to copy a specific control or set of controls from Mockups for Desktop into a plugin version.&lt;/p&gt;
+
+&lt;p&gt;It would be great to just copy and paste, right? Well, there is a limitation in Adobe Flash that prevents copying from outside the browser into a Flash application (it&amp;rsquo;s a security thing), however, you can do essentially the same thing by performing the following steps:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Select the control(s) you want to copy in Mockups for Desktop and copy them (using CTRL/CMD + C or &amp;ldquo;Edit &amp;gt; Copy&amp;rdquo; in the menu)&lt;/li&gt;
+&lt;li&gt;Switch to the plugin version (Confluence, JIRA Server, etc.) and go to &amp;ldquo;Import Mockup XML…&amp;rdquo; from the Mockup menu&lt;/li&gt;
+&lt;li&gt;Use CTRL/CMD + V or &amp;ldquo;Paste&amp;rdquo; from the right-click menu to paste in the mockup XML that was copied from Mockups for Desktop&lt;/li&gt;
+&lt;li&gt;Click the &amp;ldquo;Import&amp;rdquo; button in the dialog.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;You should now see the control(s) from Mockups for Desktop in your plugin version.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;can-i-download-mockups-created-in-my-atlassian-plugin-version-for-use-with-mockups-for-desktop:cd5ee74e294a4416affdadf072bdd7f5&#34;&gt;Can I Download Mockups Created in My Atlassian Plugin Version for Use with Mockups for Desktop?&lt;/h2&gt;
+
+&lt;p&gt;Most of the products we integrate with make it clear where to find the mockup (.bmml) files. To download these files, just right-click on the link to the .bmml file and select &amp;ldquo;save link as…&amp;rdquo; (or whatever terminology your browser uses). Then use Balsamiq Mockups version 2 to open the BMML files or &lt;a href=&#34;https://docs.balsamiq.com/desktop/importing/#importing-mockups-from-a-previous-version-bmml-files&#34;&gt;import them&lt;/a&gt; if you are using Balsamiq Mockups version 3.&lt;/p&gt;
+
+&lt;p&gt;However, Confluence users might find it a little tricky to locate the mockup files to download. To find them, go to the page attachments by clicking &amp;ldquo;Tools &amp;gt; Attachments&amp;rdquo;. Here, you will see two files for each mockup, one PNG image and one .bmml file. You can download the .bmml file from this list.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What&#39;s New in Balsamiq Mockups 3 for Google Drive?</title>
+      <link>http://supportstaging.balsamiq.com/plugins/newingoogledrive/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/plugins/newingoogledrive/</guid>
+      <description>
+
+&lt;p&gt;Balsamiq Mockups 3 for Google Drive incorporates all the new features added to &lt;a href=&#34;http://blogs.balsamiq.com/product/2015/03/10/b3/&#34;&gt;Balsamiq Mockups 3 for Desktop&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a quick 5-minute video walkthrough of some of the highlights of version 3.&lt;/p&gt;
+
+&lt;div class=&#34;video&#34;&gt;&lt;iframe allowfullscreen=&#34;&#34; frameborder=&#34;0&#34; src=&#34;//www.youtube.com/embed/-Zz8EYPhEew?rel=0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;what-s-new:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;What&amp;rsquo;s New&lt;/h2&gt;
+
+&lt;p&gt;In a word, &lt;strong&gt;lots!&lt;/strong&gt; Here are the &amp;ldquo;highlights&amp;rdquo; you should know about:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#ui&#34;&gt;A new user interface&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#project-settings&#34;&gt;Easier look and feel customization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#symbols&#34;&gt;Better Symbols&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#icons&#34;&gt;Better icons&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#assets&#34;&gt;Better images and assets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#full-screen&#34;&gt;Full screen mode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#notes&#34;&gt;Notes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#trash&#34;&gt;Trash&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;a-new-user-interface:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;A New User Interface&lt;/h3&gt;
+
+&lt;p&gt;Gone is the annoying flying property inspector! Now you have mockups on the left and properties on the right. Simple, predictable and quick. The UI Library is at the top where it&amp;rsquo;s always been but now it&amp;rsquo;s a bit more compact.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/panels.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can toggle the properties panels and UI Library independently by clicking the icons next to the Quick Add box or via &lt;a href=&#34;https://docs.balsamiq.com/desktop/shortcuts/&#34;&gt;keyboard shortcuts&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/toolbar2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And, of course, you can hide all panels using the icons for each panel, getting you into Zen-like wireframing nirvana.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/nopanels.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Getting around and performing common actions is easy with the icons in the toolbar.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/toolbar.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Navigate between Mockups, Assets, Symbols and Trash&lt;/li&gt;
+&lt;li&gt;Show/Hide the left panel&lt;/li&gt;
+&lt;li&gt;View your mockups as a thumbnail grid&lt;/li&gt;
+&lt;li&gt;Create a new mockup&lt;/li&gt;
+&lt;li&gt;Mockup actions (rename, etc.) and navigate between mockups (&lt;em&gt;shown when left panel is hidden&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;Go to next or previous mockup (&lt;em&gt;shown when left panel is hidden&lt;/em&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;easier-look-and-feel-customization:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;Easier Look and Feel Customization&lt;/h3&gt;
+
+&lt;p&gt;Control over the font used in Mockups has been one of the most-requested features since the very beginning. Custom fonts were previously available using a complicated configuration file, but we now allow you to set a project font in the new &lt;a href=&#34;https://docs.balsamiq.com/desktop/projectinfo/&#34;&gt;Project Info panel&lt;/a&gt;. Yes, you can now easily use &lt;em&gt;any font you have installed&lt;/em&gt; in your mockups. Rejoice! You can also set a default size for it.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/project-info.png&#34; alt=&#34; &#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We also moved the skin switching options into the new Project Info panel to make them more obvious (many people never knew about our &lt;a href=&#34;http://supportstaging.balsamiq.com/desktop/wireframeskin/&#34;&gt;wireframe skin&lt;/a&gt;). Finally, the default selection color is also configurable from this new panel.&lt;/p&gt;
+
+&lt;h3 id=&#34;better-symbols:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;Better Symbols&lt;/h3&gt;
+
+&lt;p&gt;In the previous version we called Symbols an &amp;ldquo;advanced feature.&amp;rdquo; Well, no longer. Symbols are now for everyone. Symbols allow you to create templates, masters, and other reusable components to save time and ensure consistency. They are especially useful for big projects and custom controls and are central to our &lt;a href=&#34;https://mockupstogo.mybalsamiq.com&#34;&gt;Mockups To Go&lt;/a&gt; site.&lt;/p&gt;
+
+&lt;p&gt;You can now just jump over to the Symbols panel and create a new one from scratch and it will appear in the &amp;ldquo;Symbols&amp;rdquo; tab in the UI Library. You can still create them the old-fashioned way (creating a named group and clicking the &amp;ldquo;Convert To Symbol&amp;rdquo; button).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/symbols1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We also now show Symbols as a list inside their Symbol Library, so you can more easily navigate between them and know which Symbol you&amp;rsquo;re editing.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/symbols2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally, we make it much easier to import Symbols. Just click the &amp;ldquo;Import Symbol Library&amp;rdquo; icon and select the file to import.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/symbols3.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;better-icons:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;Better Icons&lt;/h3&gt;
+
+&lt;p&gt;Big changes here.&lt;/p&gt;
+
+&lt;p&gt;First of all, icons now have their own category in the UI Library so you can drag and drop them just like any other control.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/icon-uilibrary.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Not only that, they show up in the Quick Add results, saving you time when searching by name or keyword.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/icon-quickadd.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Icon search results are shown &lt;em&gt;below&lt;/em&gt; any UI controls that match the text you enter.&lt;/p&gt;
+
+&lt;p&gt;And you&amp;rsquo;ll quickly notice that we have a completely different set of icons than the previous version. We switched our icons over to the incredibly popular &lt;a href=&#34;http://fortawesome.github.io/Font-Awesome/&#34;&gt;Font Awesome&lt;/a&gt; icon set. This means that there are now over &lt;em&gt;500&lt;/em&gt; icons pre-installed.&lt;/p&gt;
+
+&lt;h3 id=&#34;better-images-and-assets:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;Better Images and Assets&lt;/h3&gt;
+
+&lt;p&gt;There is now a dedicated area for images and other imported assets, accessible from the navigator menu.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/assets1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can add images to your project without placing them in your mockups first. Click the &amp;ldquo;Import Asset&amp;hellip;&amp;rdquo; icon to add a file from your computer or the &amp;ldquo;Download Asset&amp;hellip;&amp;rdquo; icon to add an image from Flickr or the web. Or just drag an image on to the canvas from your computer.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/assets2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can also delete, rename, clone and download images from the context menu in the panel.&lt;/p&gt;
+
+&lt;h3 id=&#34;new-full-screen-mode:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;New Full Screen Mode&lt;/h3&gt;
+
+&lt;p&gt;The same options are still there but we&amp;rsquo;ve overhauled the experience to make it better for usability testing and presentations. We also got rid of the problem where mockups would &amp;ldquo;jump around&amp;rdquo; in full screen mode.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/fullscreen.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;notes:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;Notes&lt;/h3&gt;
+
+&lt;p&gt;When no controls are selected you&amp;rsquo;ll see a place to add notes in the Properties panel. You can add notes for your Project, Mockups, Assets, Symbol Libraries and individual Symbols and they will be saved as part of the project.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/notes.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;trash:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;Trash&lt;/h3&gt;
+
+&lt;p&gt;Balsamiq Mockups 3 now has a Trash for mockups, assets and Symbols you have deleted. This makes it easy to keep your project tidy as you make progress but still allows you to browse or recover earlier concepts.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/trash.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To recover a trashed object from the Trash panel click the context menu arrow and select &amp;ldquo;Restore.&amp;rdquo; You also have the option to delete permanently.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/b3/trash2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;what-s-not-new:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;What&amp;rsquo;s &lt;em&gt;not&lt;/em&gt; New&lt;/h3&gt;
+
+&lt;p&gt;For the most part we left experience of adding, arranging and editing controls the same, so it should be familiar if you are coming from the previous version.&lt;/p&gt;
+
+&lt;p&gt;We hope all these changes are welcome and that Balsamiq Mockups 3 still feels like the application you&amp;rsquo;ve come to know and love, but better! If you have any thoughts or feedback, &lt;a href=&#34;https://balsamiq.com/company/#contact&#34;&gt;please let us know!&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;importing-existing-files:45cb9c880a4b8b5f0a44bcfcbfe156cb&#34;&gt;Importing Existing Files&lt;/h2&gt;
+
+&lt;p&gt;Mockups 3 for Google Drive is updated automatically so you don&amp;rsquo;t need to do anything. Just open your existing BMPR files, wait a few seconds for the conversion to finish and enjoy!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/gdrive/project-import.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Why Are My Exports Saved to Google Drive and Not My Hard Drive?</title>
+      <link>http://supportstaging.balsamiq.com/plugins/exportssavedtodrive/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/plugins/exportssavedtodrive/</guid>
+      <description>&lt;p&gt;Due to a change in Google Chrome, we had to alter the way that Mockups 3 for Google Drive saves exported mockups. When you export a mockup, it is now &lt;a href=&#34;https://docs.balsamiq.com/google-drive/user-guide/#exporting-your-mockups&#34;&gt;saved to your Google Drive&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can download the file from your Google Drive by visiting &lt;a href=&#34;https://drive.google.com&#34;&gt;drive.google.com&lt;/a&gt;, locating the file, right clicking it, and selecting &amp;ldquo;Download&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;If you would like to have your mockups saved to your hard drive automatically, you can download and install the &lt;a href=&#34;https://www.google.com/drive/download/&#34;&gt;Google Drive App&lt;/a&gt;. This will keep your hard drive and Google Drive in sync.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

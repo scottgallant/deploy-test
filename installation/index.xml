@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Installation on Balsamiq Support Portal</title>
+    <link>http://supportstaging.balsamiq.com/installation/</link>
+    <description>Recent content in Installation on Balsamiq Support Portal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 May 2015 16:46:35 +0200</lastBuildDate>
+    <atom:link href="http://supportstaging.balsamiq.com/installation/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Can I Install Mockups 3 for Desktop on Citrix or Other Virtual Environments?</title>
+      <link>http://supportstaging.balsamiq.com/installation/citrix/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/installation/citrix/</guid>
+      <description>&lt;p&gt;From what we know about Citrix, you won&amp;rsquo;t have any trouble installing and registering Mockups 3 for Desktop on it or on any other virtual environment. You may even find &lt;a href=&#34;https://support.balsamiq.com/installation/silentinstall/&#34;&gt;this FAQ on silent installation&lt;/a&gt; helpful.&lt;/p&gt;
+
+&lt;p&gt;Please keep in mind that you will need to purchase a &lt;a href=&#34;https://balsamiq.com/buy/#dv&#34;&gt;Mockups 3 for Desktop volume license&lt;/a&gt; for the total number of users who will be accessing our app within your Citrix environment. &lt;a href=&#34;https://support.balsamiq.com/sales/userscounted/&#34;&gt;Our licensing is by assigned users&lt;/a&gt;, rather than concurrent users. It will be your company’s responsibility to make sure you are in compliance with our &lt;a href=&#34;https://balsamiq.com/eulas/&#34;&gt;EULA&lt;/a&gt;, and that only the users you have assigned have access to use our software.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://support.balsamiq.com/sales/discounts/#discounts-when-purchasing-multiple-mockups-for-desktop-licenses&#34;&gt;Here is a little more information&lt;/a&gt; on our volume pricing and how to purchase it.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Can I Install Mockups from the Command Line?</title>
+      <link>http://supportstaging.balsamiq.com/installation/commandline/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/installation/commandline/</guid>
+      <description>
+
+&lt;p&gt;Mockups 3 for Desktop can be registered and unregistered via the command line with the following commands:&lt;/p&gt;
+
+&lt;h2 id=&#34;installing-and-uninstalling:89dc0b89bd17fa3b3b6dcf3a7dd09dc1&#34;&gt;Installing and Uninstalling&lt;/h2&gt;
+
+&lt;p&gt;To install Mockups 3 for Desktop to the Program Files directory, use the following command. You can change the target directory to the folder of your choosing by replacing &amp;ldquo;C:\Program Files (x86)&amp;rdquo; with your chosen directory.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Balsamiq_Mockups_3.exe -silent -desktopShortcut -programMenu -location &amp;quot;C:\Program files (x86)&amp;quot; -allowDownload&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;To uninstall Mockups 3 for Desktop, enter the following commands into an elevated Command Prompt.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;wmic
+product where name=”Balsamiq Mockups 3” call uninstall /nointeractive&lt;/code&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;registering-and-unregistering:89dc0b89bd17fa3b3b6dcf3a7dd09dc1&#34;&gt;Registering and Unregistering&lt;/h2&gt;
+
+&lt;p&gt;Before registering Mockups 3 for Desktop, you will have to locate your registration email. The License Name and License Key can be found there.&lt;/p&gt;
+
+&lt;p&gt;To register Mockups 3 for Desktop, use the following command.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;quot;C:\Program Files (x86)\Balsamiq Mockups 3.exe&amp;quot; register LICENSENAME LICENSEKEY&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;If your license name has a space in it, you will need to wrap the name in quotes.&lt;/p&gt;
+
+&lt;p&gt;To unregister Mockups 3 for Desktop, use the following command.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;quot;C:\Program Files (x86)\Balsamiq Mockups 3.exe&amp;quot; unregister&lt;/code&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;additional-resources:89dc0b89bd17fa3b3b6dcf3a7dd09dc1&#34;&gt;Additional Resources&lt;/h2&gt;
+
+&lt;p&gt;Looking for information on how to perform a silent installation of Mockups for Desktop on many end-user machines? &lt;a href=&#34;http://supportstaging.balsamiq.com/installation/silentinstall/&#34;&gt;Here you go&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Certificate Problem Error</title>
+      <link>http://supportstaging.balsamiq.com/installation/certificateerror/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/installation/certificateerror/</guid>
+      <description>&lt;p&gt;If you get an error message saying &amp;ldquo;The application cannot be installed due to a certificate problem&amp;rdquo; or &amp;ldquo;The certificate does not match the installed application certificate,&amp;rdquo; or something similar, this page is for you. It happens sometimes if you haven’t updated Mockups in a long time.&lt;/p&gt;
+
+&lt;p&gt;The solution is to &lt;a href=&#34;http://supportstaging.balsamiq.com/installation/uninstall/&#34;&gt;uninstall Mockups&lt;/a&gt; and install it again. You won’t have to re-register.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How Do I Install Mockups?</title>
+      <link>http://supportstaging.balsamiq.com/installation/howto/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/installation/howto/</guid>
+      <description>
+
+&lt;h2 id=&#34;how-to-install-or-update-mockups:fffa0517dffe678899a7f6f2f71cf421&#34;&gt;How to Install or Update Mockups&lt;/h2&gt;
+
+&lt;p&gt;To install Mockups, head to our &lt;a href=&#34;https://balsamiq.com/download/&#34;&gt;Download page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Look for the big Download Mockups button and click it to download the latest version. It should detect your operating system and give you the correct installation file.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://balsamiq.com/download/&#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/installation/download-mockups.png&#34; alt=&#34;&#34; /&gt;​&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If you already have Mockups installed and just want to update to the current version, follow the process above and install over your current version (i.e., replace your old version with the new version). You won’t have to re-register and your old wireframes will still work.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;downloading-installer-files-instead-of-using-the-download-button:fffa0517dffe678899a7f6f2f71cf421&#34;&gt;Downloading Installer Files Instead of Using the Download Button&lt;/h2&gt;
+
+&lt;p&gt;If for some reason you can&amp;rsquo;t see or use the Download button shown above, you can download installer files directly as well. Look for the &lt;a href=&#34;https://balsamiq.com/download/#direct&#34;&gt;&amp;ldquo;All Downloads&amp;rdquo;&lt;/a&gt; section for the installers for your operating system.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;registering:fffa0517dffe678899a7f6f2f71cf421&#34;&gt;Registering&lt;/h2&gt;
+
+&lt;p&gt;For instructions on registering Mockups &lt;a href=&#34;http://supportstaging.balsamiq.com/installation/register/&#34;&gt;see this page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;uninstalling:fffa0517dffe678899a7f6f2f71cf421&#34;&gt;Uninstalling&lt;/h2&gt;
+
+&lt;p&gt;To uninstall &lt;a href=&#34;http://supportstaging.balsamiq.com/installation/uninstall/&#34;&gt;go here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How Do I Register Mockups for Desktop?</title>
+      <link>http://supportstaging.balsamiq.com/installation/register/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/installation/register/</guid>
+      <description>
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This article applies to Mockups for Desktop. Registration instructions for our other products can be found on the following pages:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://supportstaging.balsamiq.com/sales/gdrivesubscription/#signing-up-for-a-subscription&#34;&gt;Mockups for Google Drive&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.balsamiq.com/confluence/admin-guide/#registration-instructions&#34;&gt;Mockups for Confluence&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.balsamiq.com/jira/admin-guide/#registration-instructions&#34;&gt;Mockups for JIRA Server&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://supportstaging.balsamiq.com/sales/mybsubscriptions/#signing-up-for-a-subscription&#34;&gt;myBalsamiq&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;registering-mockups-for-desktop:12c1ba14a07e2e06d355892b0a257df3&#34;&gt;Registering Mockups for Desktop&lt;/h2&gt;
+
+&lt;p&gt;After you &lt;a href=&#34;http://supportstaging.balsamiq.com/installation/howto/&#34;&gt;download and install&lt;/a&gt; Balsamiq Mockups for Desktop it will run in trial mode until registered. To register click on the &amp;ldquo;Register&amp;hellip;&amp;rdquo; link in the banner at the bottom or go to &lt;strong&gt;Help &amp;gt; Register&amp;hellip;&lt;/strong&gt; in the menu.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/register-link.png&#34; alt=&#34;Register link&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This will bring up the registration dialog shown below where you can enter your License Information.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/docs/m4d/register-dialog.png&#34; alt=&#34;Register dialog&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The License Name must match the one associated with the License Key. You can copy and paste this information from the receipt email you received when you purchased the product. If you no longer have this email, &lt;a href=&#34;https://balsamiq.com/buy/lostkey/&#34;&gt;go here to have it re-sent&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;unable-to-register:12c1ba14a07e2e06d355892b0a257df3&#34;&gt;Unable to Register?&lt;/h2&gt;
+
+&lt;p&gt;If the Register button remains disabled when you enter the License Name and Key, read &lt;a href=&#34;http://supportstaging.balsamiq.com/sales/cantregister/&#34;&gt;this article&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you don&amp;rsquo;t have both your License Name and License Key, you can &lt;a href=&#34;https://balsamiq.com/buy/lostkey/&#34;&gt;retrieve your License Information here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How Do I Uninstall Mockups?</title>
+      <link>http://supportstaging.balsamiq.com/installation/uninstall/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/installation/uninstall/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;On Windows: use “Add/Remove Programs” from your Control Panel and uninstall Balsamiq Mockups 3&lt;/li&gt;
+&lt;li&gt;On Mac OS X: simply delete the “Balsamiq Mockups 3” file from your Applications directory. Make sure you empty the trash too!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;After uninstalling, download the new version from &lt;a href=&#34;https://balsamiq.com/download/&#34;&gt;our download page&lt;/a&gt;, it should install fine and keep all of your old settings.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How Do I Update to the Latest Version of Mockups for Desktop?</title>
+      <link>http://supportstaging.balsamiq.com/installation/update/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/installation/update/</guid>
+      <description>&lt;p&gt;Simply head over to the &lt;a href=&#34;https://balsamiq.com/download&#34;&gt;Download page&lt;/a&gt; and install Mockups for Desktop on top of your existing installation.&lt;/p&gt;
+
+&lt;p&gt;You won’t have to re-register.&lt;/p&gt;
+
+&lt;p&gt;To know what changed, take a look at the &lt;a href=&#34;http://blogs.balsamiq.com/product/category/release-announcements/&#34;&gt;Release Announcements&lt;/a&gt; category on our blog.&lt;/p&gt;
+
+&lt;p&gt;If you’re the adventurous type, you can test our latest build in the &lt;a href=&#34;https://balsamiq.com/products/mockups/next&#34;&gt;Next Release Preview&lt;/a&gt;, but don’t use it to work on mission critical work. You may encounter bugs.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Installing Mockups on Mountain Lion or Mavericks (Unidentified Developer Error)</title>
+      <link>http://supportstaging.balsamiq.com/installation/unidentifieddeveloper/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/installation/unidentifieddeveloper/</guid>
+      <description>&lt;p&gt;Starting with version 10.8 (Mountain Lion), OS X has a new feature called Gatekeeper which helps you protect your computer from malicious software, by only allowing applications that are downloaded from the Mac App Store or are digitally &amp;ldquo;signed&amp;rdquo; by their developers.&lt;/p&gt;
+
+&lt;p&gt;When you try to install Mockups for Desktop you may get an error that says &amp;ldquo;Balsamiq Mockups can&amp;rsquo;t be opened because it was not downloaded from the Mac App Store&amp;rdquo;, or something about an unidentified developer.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/installation/not-app-store.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The solution is to change your Security &amp;amp; Privacy settings (in System Preferences) to allow apps downloaded from the App Store &lt;strong&gt;and&lt;/strong&gt; identified developers, as shown below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/installation/security-privacy.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Installing Mockups without Administrator Rights</title>
+      <link>http://supportstaging.balsamiq.com/installation/adminrights/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/installation/adminrights/</guid>
+      <description>
+
+&lt;p&gt;See below for instructions on installing Balsamiq Mockups for Desktop &lt;em&gt;without&lt;/em&gt; Administrator rights.&lt;/p&gt;
+
+&lt;h2 id=&#34;windows:e299ba088da942e9ffeceac9e723602c&#34;&gt;Windows&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Download the version of Mockups for Desktop &lt;em&gt;With Adobe Air bundled&lt;/em&gt; from &lt;a href=&#34;https://balsamiq.com/download&#34;&gt;our download page&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Unzip the file wherever you prefer (we suggest the &amp;ldquo;Program Files&amp;rdquo; directory but you might not have the rights to do so)&lt;/li&gt;
+&lt;li&gt;Double-click on &lt;em&gt;Balsamiq Mockups.exe&lt;/em&gt; to launch it.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;mac-osx:e299ba088da942e9ffeceac9e723602c&#34;&gt;Mac OSX&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Download the DMG version of Mockups for Desktop from &lt;a href=&#34;https://balsamiq.com/download&#34;&gt;our download page&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Mount the DMG and copy the Balsamiq Mockups application to your preferred folder. We suggest the Applications folder but you might not have the rights to do so.&lt;/li&gt;
+&lt;li&gt;Double-click on Balsamiq Mockups to launch it.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>http://supportstaging.balsamiq.com/installation/linux/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/installation/linux/</guid>
+      <description>&lt;p&gt;Balsamiq Mockups 3 for Desktop is not supported on Linux, but we &lt;a href=&#34;http://deshack.net/install-balsamiq-mockups-in-debianubuntu/&#34;&gt;have heard&lt;/a&gt; that it runs well via &lt;a href=&#34;https://www.winehq.org/&#34;&gt;Wine&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Linux users might also be interested in trying &lt;a href=&#34;https://balsamiq.com/products/mockups/mybalsamiq&#34;&gt;myBalsamiq&lt;/a&gt;, our browser-based version, which only requires a modern browser and the Flash Player.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Silent Mockups for Desktop Installation</title>
+      <link>http://supportstaging.balsamiq.com/installation/silentinstall/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/installation/silentinstall/</guid>
+      <description>
+
+&lt;p&gt;This page is for IT administrators who need to install Mockups for Desktop on multiple machines.&lt;/p&gt;
+
+&lt;p&gt;One of our customers, Sean of Shogantech, has also written &lt;a href=&#34;http://www.shogan.co.uk/?p=641&#34;&gt;an excellent article detailing the process he used for successfully installing&lt;/a&gt; and registering Mockups for a Terminal Server (Remote Desktop Server) environment.&lt;/p&gt;
+
+&lt;span class=&#34;alert alert-info show&#34; role=&#34;alert&#34;&gt;&lt;strong&gt;Note:&lt;/strong&gt; The file names have been updated for Balsamiq Mockups 3. The application file is now called &amp;ldquo;Balsamiq Mockups 3.exe.&amp;rdquo; The installation file name can be found on our &lt;a href=&#34;https://balsamiq.com/download&#34;&gt;downloads page&lt;/a&gt;.&lt;/span&gt;
+
+&lt;h2 id=&#34;a-note-about-licensing&#34;&gt;A Note about Licensing&lt;/h2&gt;
+
+&lt;p&gt;You are responsible for complying with our &lt;a href=&#34;https://balsamiq.com/eulas&#34;&gt;End User License Agreement&lt;/a&gt; and only install Mockups for Desktop for the appropriate number of end-users allowed by the license you purchased.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;windows-machines&#34;&gt;Windows Machines&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Make sure Mockups for Desktop is NOT installed on the target machines.&lt;/li&gt;
+&lt;li&gt;Download MockupsForDesktop.zip _With Adobe Air bundled_ from &lt;a href=&#34;https://balsamiq.com/download&#34;&gt;our downloads page&lt;/a&gt;. It contains a &amp;ldquo;ready to run&amp;rdquo; version, with Adobe Air &amp;ldquo;in its belly&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Copy the zip to the target machine and unpack it (preferably in the Program Files folder)&lt;/li&gt;
+&lt;li&gt;On the target machine, use this command to register Mockups for Desktop:&lt;br /&gt;
+&lt;code&gt;&amp;quot;C:\Program Files\Balsamiq Mockups 3.exe&amp;quot; register LICENSENAME LICENSEKEY&lt;/code&gt;&lt;br /&gt;
+replacing LICENSENAME and LICENSEKEY with the license information you received when you purchased. The register command needs to be run as the user that will use the application.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;mac-machines&#34;&gt;Mac Machines&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Download and mount MockupsForDesktop.dmg from &lt;a href=&#34;https://balsamiq.com/download&#34;&gt;our downloads page&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Copy the contained file &amp;ldquo;MockupsForDesktop.app&amp;rdquo; to your Applications folder.&lt;/li&gt;
+&lt;li&gt;to register Mockups for Desktop, run this command on Terminal:&lt;br /&gt;
+&lt;code&gt;/Applications/Balsamiq\ Mockups\ 3.app/Contents/MacOS/Balsamiq\ Mockups\ 3 register LICENSENAME LICENSEKEY&lt;/code&gt;&lt;br /&gt;
+replacing LICENSENAME and LICENSEKEY with the license information you received when you purchased. The register command needs to be run as the user that will use the application.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;how-to-uninstall-a-previous-version-before-updating&#34;&gt;How to Uninstall a Previous Version before Updating&lt;/h2&gt;
+
+&lt;p&gt;To silently update Mockups to a newer version you first have to uninstall the old version.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;In OS X, it is enough to drag the &amp;ldquo;/Applications/Balsamiq Mockups&amp;rdquo; folder to the trash. To automate that, use the command:&lt;br /&gt;
+&lt;code&gt;rm -r /Applications/Balsamiq\ Mockups\ 3.app/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;In Windows, delete the folder you copied the Mockups for Desktop folder into when you installed it.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>System Requirements</title>
+      <link>http://supportstaging.balsamiq.com/installation/systemrequirements/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/installation/systemrequirements/</guid>
+      <description>
+
+&lt;p&gt;Balsamiq Mockups for Desktop requires Adobe Air 2.6 to run, which works fine on most computers and Operating Systems. You can find the most recent &lt;a href=&#34;http://www.adobe.com/products/air/tech-specs.html&#34;&gt;system requirements for Adobe Air here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The last time we checked, they were:&lt;/p&gt;
+
+&lt;h2 id=&#34;windows:0c0163ac36d782b9d35a674343f54fac&#34;&gt;Windows&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;2.33GHz or faster x86-compatible processor, or Intel Atom™ 1.6GHz or faster processor for netbook class devices&lt;/li&gt;
+&lt;li&gt;Microsoft® Windows Server 2008, Windows 7, Windows 8 Classic or Windows 10&lt;/li&gt;
+&lt;li&gt;512MB of RAM (1GB recommended)&lt;/li&gt;
+&lt;li&gt;AIR SDK Development Supports Microsoft® Windows 7 and above, 64-bit only&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;mac:0c0163ac36d782b9d35a674343f54fac&#34;&gt;Mac&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Intel® Core™ Duo 1.83GHz or faster processor&lt;/li&gt;
+&lt;li&gt;Mac OS X v10.7, and above&lt;/li&gt;
+&lt;li&gt;512MB of RAM (1GB recommended)&lt;/li&gt;
+&lt;li&gt;AIR SDK Development supports Mac OS 10.9 and above, 64bit only&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

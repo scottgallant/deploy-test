@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Misc on Balsamiq Support Portal</title>
+    <link>http://supportstaging.balsamiq.com/misc/</link>
+    <description>Recent content in Misc on Balsamiq Support Portal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 May 2015 16:46:35 +0200</lastBuildDate>
+    <atom:link href="http://supportstaging.balsamiq.com/misc/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Balsamiq Heartbleed FAQ</title>
+      <link>http://supportstaging.balsamiq.com/misc/heartbleed/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/misc/heartbleed/</guid>
+      <description>
+
+&lt;h2 id=&#34;has-my-mybalsamiq-or-customer-information-data-been-compromised-due-to-the-heartbleed-http-heartbleed-com-bug:30eac47446a442d4ea089a1c11c27417&#34;&gt;Has My myBalsamiq or Customer Information Data Been Compromised Due to the &lt;a href=&#34;Http://heartbleed.com/&#34;&gt;Heartbleed&lt;/a&gt; Bug?&lt;/h2&gt;
+
+&lt;p&gt;We have found no evidence of it.&lt;/p&gt;
+
+&lt;h2 id=&#34;was-balsamiq-vulnerable-to-the-heartbleed-bug:30eac47446a442d4ea089a1c11c27417&#34;&gt;Was Balsamiq Vulnerable to the Heartbleed Bug?&lt;/h2&gt;
+
+&lt;p&gt;Yes. These customer-facing services were vulnerable:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://balsamiq.com/products/mockups/mybalsamiq/&#34;&gt;myBalsamiq&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;our customer database (which DOES NOT include credit card numbers)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We quickly fixed the vulnerability in both cases (Amazon patched ELB and we re-issued our SSL certificates).&lt;/p&gt;
+
+&lt;h2 id=&#34;what-about-my-credit-card-information:30eac47446a442d4ea089a1c11c27417&#34;&gt;What about My Credit Card Information?&lt;/h2&gt;
+
+&lt;p&gt;We do not ever see your credit card; it never reaches our server. Instead, we use the following payment services. Please refer to each link below to see their Heartbleed FAQ:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.e-junkie.com/bb/topic/6793/pg/0&#34;&gt;E-junkie&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.paypal-community.com/t5/PayPal-Forward/OpenSSL-Heartbleed-Bug-PayPal-Account-Holders-are-Secure/ba-p/797568&#34;&gt;PayPal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stripe.com/blog/heartbleed&#34;&gt;Stripe&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pinpayments.com/&#34;&gt;Pin Payments&lt;/a&gt;: via email:&lt;em&gt;We&amp;rsquo;ve been investigating how this issue may have affected Pin Payments merchants and customers. We have no evidence of any attack, and have confirmed that our systems have been updated and are no longer vulnerable to this issue.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;should-i-change-my-password-for-mybalsamiq:30eac47446a442d4ea089a1c11c27417&#34;&gt;Should I Change My Password for myBalsamiq?&lt;/h2&gt;
+
+&lt;p&gt;Yes. It&amp;rsquo;s a good habit to change passwords regularly, and now that you know that myBalsamiq is safer than before, it&amp;rsquo;s a good time to update your password there as well.&lt;/p&gt;
+
+&lt;p&gt;As always, pick a unique and hard to guess password!&lt;/p&gt;
+
+&lt;h2 id=&#34;any-other-questions:30eac47446a442d4ea089a1c11c27417&#34;&gt;Any Other Questions?&lt;/h2&gt;
+
+&lt;p&gt;Email us at &lt;a href=&#34;mailto:support@balsamiq.com&#34;&gt;support@balsamiq.com&lt;/a&gt;, we&amp;rsquo;re happy to hear from you!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Can You Go Any Faster?</title>
+      <link>http://supportstaging.balsamiq.com/misc/faster/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/misc/faster/</guid>
+      <description>&lt;p&gt;Hello from the whole Balsamiq team!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/hero-team-framed.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Every now and then we&amp;rsquo;re asked if we can release updates faster. We understand that it can be frustrating if the speed to get things implemented isn&amp;rsquo;t as fast as customers want it to be.&lt;/p&gt;
+
+&lt;p&gt;The push to take funding and grow faster is tempting, but we&amp;rsquo;re trying to grow organically and do the right thing, while focusing on executing. The issue of growth is one that we take seriously, but we don&amp;rsquo;t want to grow for the sake of pushing features out faster. We&amp;rsquo;ve seen too many of the independent software vendors like us agree to get take funding, eventually get purchased by larger corporations, and eventually the founders are forced out to leave the product and customers behind.&lt;/p&gt;
+
+&lt;p&gt;While growing faster may help to get features out the door faster, it may not do much for the sustainability of the product vision and company, and that&amp;rsquo;s something we&amp;rsquo;re very serious about.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Is Your Documentation Available Offline?</title>
+      <link>http://supportstaging.balsamiq.com/misc/offlinedocs/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/misc/offlinedocs/</guid>
+      <description>&lt;p&gt;No, it&amp;rsquo;s not. But there are a number of tools that allow you to easily convert web pages to PDF files. You can use them to generate individual PDFs of our documentation pages.&lt;/p&gt;
+
+&lt;p&gt;Here are a couple that we&amp;rsquo;ve used: &lt;a href=&#34;http://www.printfriendly.com/&#34;&gt;Print Friendly&lt;/a&gt; and &lt;a href=&#34;https://pdfconvert.me&#34;&gt;pdfconvert.me&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Someone Ripped You Off!</title>
+      <link>http://supportstaging.balsamiq.com/misc/copycats/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/misc/copycats/</guid>
+      <description>&lt;p&gt;If you found a clone of Balsamiq Mockups somewhere on the web, this page is for you.&lt;/p&gt;
+
+&lt;p&gt;The first time a clone of Mockups came to the market, our founder Peldi was quite upset. How dare they steal his ideas? No fair! :)&lt;/p&gt;
+
+&lt;p&gt;Over time, with many more copy-cats coming to the market, our views on the subject have changed.&lt;/p&gt;
+
+&lt;p&gt;First of all, these clones do not impact our bottom line, at all. Our revenue continues to grow. In fact, the more clones, the more we grow.&lt;/p&gt;
+
+&lt;p&gt;Every time one of these products gets a press mention, it gets compared to our tool. Free marketing! :)&lt;/p&gt;
+
+&lt;p&gt;Jason Calacanis says it best in &lt;a href=&#34;http://www.businessinsider.com/2008/8/jason-calacanis-on-how-to-get-pr-for-your-startup-fire-your-pr-company&#34;&gt;this old article&lt;/a&gt;: &lt;em&gt;welcome your competitors to the race, because no-one is going to tune into a one-horse race.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The other thing is that these tools don&amp;rsquo;t usually last more than a year or two. They were created to make a quick buck, and it shows.&lt;/p&gt;
+
+&lt;p&gt;Like we said on our &lt;a href=&#34;https://balsamiq.com/company&#34;&gt;company page&lt;/a&gt;, &lt;strong&gt;we like to compete on usability and customer service&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Features are important, but &lt;a href=&#34;http://supportstaging.balsamiq.com/&#34;&gt;great support&lt;/a&gt; and &lt;a href=&#34;http://blogs.balsamiq.com/product/category/release-announcements/&#34;&gt;continuous improvements&lt;/a&gt; are just as important.&lt;/p&gt;
+
+&lt;p&gt;As long as we provide a useful, easy tool and support it well, we&amp;rsquo;re not too worried.&lt;/p&gt;
+
+&lt;p&gt;In other words, our stance is that if someone comes out with a tool that&amp;rsquo;s easier to use and supports it better than we do, they deserve to win.&lt;/p&gt;
+
+&lt;p&gt;Another important concept is one &lt;a href=&#34;http://radar.oreilly.com/2009/01/work-on-stuff-that-matters-fir.html&#34;&gt;we learned from Tim O&amp;rsquo;Reilly&lt;/a&gt;: he suggests that businesses should love their competitors because they are also trying to solve the same problem they are solving.&lt;/p&gt;
+
+&lt;p&gt;Since we care about ridding the world of bad software more than anything else, we welcome anyone who has the same goal. We&amp;rsquo;re basically all rowing in the same direction, the more the better! :)&lt;/p&gt;
+
+&lt;p&gt;In the end, we&amp;rsquo;re really very flattered.&lt;/p&gt;
+
+&lt;p&gt;We try to give our best in whatever we do. If our output is worth copying, it means we&amp;rsquo;re doing &lt;em&gt;something&lt;/em&gt; right. :)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://media.balsamiq.com/img/hero-team-framed.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>iPad FAQs</title>
+      <link>http://supportstaging.balsamiq.com/misc/ipad/</link>
+      <pubDate>Sat, 09 May 2015 16:46:35 +0200</pubDate>
+      
+      <guid>http://supportstaging.balsamiq.com/misc/ipad/</guid>
+      <description>
+
+&lt;p&gt;This page addresses some of the frequently asked questions about iPad and iOS apps and controls.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;is-there-an-ipad-version-of-mockups-in-the-works&#34;&gt;Is There an iPad Version of Mockups in the Works?&lt;/h2&gt;
+
+&lt;p&gt;​Yes! An iPad version is currently in active development.&lt;/p&gt;
+
+&lt;p&gt;Stay tuned to our release announcements on our &lt;a href=&#34;http://blogs.balsamiq.com/product/category/release-announcements/&#34;&gt;release announcements page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;does-mockups-come-with-ipad-controls-included&#34;&gt;Does Mockups Come with iPad Controls Included?&lt;/h2&gt;
+
+&lt;p&gt;Yes! Balsamiq Mockups ships with an iPad control and other iOS controls, shown below.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://media.balsamiq.com/img/support/prodfaqs/ipadcontrols-big.png&#34;&gt;&lt;img src=&#34;https://media.balsamiq.com/img/support/prodfaqs/ipadcontrols.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If you don&amp;rsquo;t see them &lt;a href=&#34;https://balsamiq.com/download/&#34;&gt;update to the latest version&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;do-you-have-any-ipad-controls-or-templates&#34;&gt;Do You Have Any iPad Controls or Templates?&lt;/h2&gt;
+
+&lt;p&gt;You can find Symbols libraries (also called templates or stencils) for iPad, iPhone, Android and more on our &lt;a href=&#34;https://mockupstogo.mybalsamiq.com/&#34;&gt;Mockups To Go&lt;/a&gt; site. Check out the &lt;a href=&#34;https://mockupstogo.mybalsamiq.com/projects/ios/grid&#34;&gt;iOS project&lt;/a&gt; in Mockups To Go for all the iPhone and iPad templates.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;do-you-have-any-resources-to-help-me-design-or-test-my-mobile-application&#34;&gt;Do You Have Any Resources to Help Me Design or Test My Mobile Application?&lt;/h2&gt;
+
+&lt;p&gt;Check out our &lt;a href=&#34;http://supportstaging.balsamiq.com/tutorials/mobileapplication/&#34;&gt;tutorial on Creating a Mobile Application&lt;/a&gt; to learn some tips and tricks for using the iOS controls included with Mockups.&lt;/p&gt;
+
+&lt;p&gt;For testing, follow &lt;a href=&#34;http://supportstaging.balsamiq.com/tutorials/ipad/&#34;&gt;this tutorial on user-testing your iPad wireframes&lt;/a&gt;. There are also several &lt;a href=&#34;http://supportstaging.balsamiq.com/resources/extensions/#user-testing-your-mockups&#34;&gt;products that allow you to test your prototypes&lt;/a&gt; created with myBalsamiq or from a clickable PDF.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;can-i-use-the-online-version-mybalsamiq-on-my-ipad&#34;&gt;Can I Use the Online Version (myBalsamiq) on My iPad?&lt;/h2&gt;
+
+&lt;p&gt;The Balsamiq Mockups editor relies on Adobe Flash, so you can&amp;rsquo;t edit your wireframes on your iPad. You can, however, browse your projects and view the wireframes in &lt;a href=&#34;https://balsamiq.com/products/mockups/mybalsamiq/&#34;&gt;myBalsamiq&lt;/a&gt;. &lt;a href=&#34;https://docs.balsamiq.com/mybalsamiq/sharing/#send-them-a-prototype-view-link&#34;&gt;Prototype view&lt;/a&gt; also works, if you want to user-test your mockups on an iPad.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
